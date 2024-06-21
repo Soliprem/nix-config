@@ -1,4 +1,4 @@
-{pkgs}: {
+{pkgs, ...}: {
   stylix = {
     enable = true;
     autoEnable = true;
@@ -7,6 +7,6 @@
       name = "Bibata-Modern-Ice";
       size = 32;
     };
-    image = ~/.config/bg;
+    image = ../wallpapers/saturn.jpg;
   };
 }
