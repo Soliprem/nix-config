@@ -10,6 +10,7 @@
       #   enable = true;
       # };
       vim = {
+        useSystemClipboard = true;
         viAlias = true;
         vimAlias = true;
         debugMode = {

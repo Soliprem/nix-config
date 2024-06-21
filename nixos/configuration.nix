@@ -1,14 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -54,16 +55,18 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services = {
+    xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  # services.desktopManager.plasma6.enable = true;
+    # Enable the KDE Plasma Desktop Environment.
+    displayManager.sddm.enable = true;
+    # services.desktopManager.plasma6.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "eu";
-    options = "caps:swapescape";
+    # Configure keymap in X11
+    xserver.xkb = {
+      layout = "eu";
+      options = "caps:swapescape";
+    };
   };
 
   # Enable CUPS to print documents.
@@ -96,15 +99,16 @@
   users.users.soliprem = {
     isNormalUser = true;
     description = "Francesco Prem Solidoro";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    thunderbird
-    mommy
-    starship
-    lolcat
-    cowsay
-    fortune
-    armcord
+      thunderbird
+      mommy
+      starship
+      lolcat
+      cowsay
+      fortune
+      armcord
+      wl-clipboard
     ];
     shell = pkgs.zsh;
   };
@@ -112,11 +116,11 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-# Install Hyprland
-    programs.hyprland.enable = true;
-    services.hypridle.enable = true;
-    programs.hyprlock.enable = true;
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # Install Hyprland
+  programs.hyprland.enable = true;
+  services.hypridle.enable = true;
+  programs.hyprlock.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -163,6 +167,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 }
