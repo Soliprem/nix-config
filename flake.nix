@@ -24,7 +24,7 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       # FIXME replace with your hostname
-        nixos-laptop = nixpkgs.lib.nixosSystem {
+      nixos-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
         modules = [./nixos/configuration.nix];
@@ -40,8 +40,8 @@
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <
         modules = [
-        ./home-manager/home.nix
-        nvf.homeManagerModules.default
+          ./home-manager/home.nix
+          nvf.homeManagerModules.default
         ];
       };
     };

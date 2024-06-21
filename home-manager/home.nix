@@ -47,15 +47,17 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ 
-      steam
-      ags
-      fuzzel
-      nerdfonts
-      swww
-      ];
+  home.packages = with pkgs; [
+    steam
+    ags
+    fuzzel
+    nerdfonts
+    swww
+    element-desktop-wayland
+    typst
+  ];
 
-fonts.fontconfig.enable = true;
+  fonts.fontconfig.enable = true;
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
