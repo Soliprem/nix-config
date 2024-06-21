@@ -14,8 +14,8 @@
     ./hyprland.nix
     ./theming.nix
     ./kitty.nix
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
+    ./foot.nix
+    ./nvim.nix
   ];
 
   nixpkgs = {
@@ -46,11 +46,16 @@
   };
 
   # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
+  programs.neovim.enable = true;
   home.packages = with pkgs; [ 
       steam
+      ags
       fuzzel
+      nerdfonts
+      swww
       ];
+
+fonts.fontconfig.enable = true;
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

@@ -4,7 +4,8 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
+    # Neovimflake
+    nvf.url = "github:notashelf/nvf";
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -13,6 +14,7 @@
   outputs = {
     self,
     nixpkgs,
+    nvf,
     home-manager,
     ...
   } @ inputs: let
@@ -37,7 +39,10 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <
-        modules = [./home-manager/home.nix];
+        modules = [
+        ./home-manager/home.nix
+        nvf.homeManagerModules.default
+        ];
       };
     };
   };

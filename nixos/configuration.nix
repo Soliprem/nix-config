@@ -124,17 +124,15 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
     wget
     fastfetch
     zoxide
     eza
-    nerdfonts
-    ags
     keepassxc
-    gnome.adwaita-icon-theme
-    bibata-cursors
+    # gnome.adwaita-icon-theme
+    # bibata-cursors
     libgccjit
     linearicons-free
   ];
