@@ -1,9 +1,9 @@
 {
-  inputs,
-  lib,
-  config,
+  # inputs,
+  # lib,
+  # config,
   pkgs,
-  home,
+  # home,
   ...
 }: {
   home.pointerCursor = {
@@ -17,17 +17,22 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.catppuccin-gtk;
-      name = "catppuccin-gtk";
+      name = "tokyonight-gtk";
+      package = pkgs.tokyonight-gtk-theme;
     };
 
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
       name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
     };
 
     font = {
       name = "Sans";
+      size = 11;
+    };
+    cursorTheme = {
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
       size = 11;
     };
   };

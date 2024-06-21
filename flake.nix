@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    stylix.url = "github:danth/stylix";
     # Neovimflake
     nvf.url = "github:notashelf/nvf";
     # Home manager
@@ -15,6 +16,7 @@
     self,
     nixpkgs,
     nvf,
+    stylix,
     home-manager,
     ...
   } @ inputs: let
@@ -42,6 +44,7 @@
         modules = [
           ./home-manager/home.nix
           nvf.homeManagerModules.default
+          stylix.homeManagerModules.stylix
         ];
       };
     };

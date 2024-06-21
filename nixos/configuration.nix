@@ -135,8 +135,6 @@
     zoxide
     eza
     keepassxc
-    # gnome.adwaita-icon-theme
-    # bibata-cursors
     libgccjit
     linearicons-free
   ];

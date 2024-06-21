@@ -13,6 +13,7 @@
     # inputs.nix-colors.homeManagerModule
     ./hyprland.nix
     ./theming.nix
+    ./stylix.nix
     ./kitty.nix
     ./foot.nix
     ./nvim.nix
@@ -56,6 +57,9 @@
     swww
     element-desktop-wayland
     typst
+    xfce.thunar
+    gnome.nautilus
+    yazi
   ];
 
   fonts.fontconfig.enable = true;

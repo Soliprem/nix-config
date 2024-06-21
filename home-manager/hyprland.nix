@@ -2,6 +2,10 @@
 {
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
+    "$mod" = "SUPER";
+    "$term" = "foot";
+    "$editor" = "nvim";
+    "$browser" = "firefox";
     decoration = {
       rounding = 20;
 
@@ -111,7 +115,6 @@
     # Keybinds
 
     windowrulev2 = ["rounding 20, onworkspace:1"];
-    "$mod" = "SUPER";
     monitor = ",preferred,auto,1";
     input.kb_layout = "eu";
     input.kb_options = "caps:swapescape";
@@ -162,6 +165,9 @@
         "SUPERCTRL,l,resizeactive,20 0 # [hidden]"
         "SUPERCTRL,k,resizeactive,0 -20 # [hidden]"
         "SUPERCTRL,j,resizeactive,0 20 # [hidden]"
+
+        # Special
+        "$mod+Alt, F, fakefullscreen, 0"
 
         # screenshots
         "$mod,P,exec, hyprshot -m output -c # [hidden]"
