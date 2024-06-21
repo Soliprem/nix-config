@@ -10,11 +10,8 @@
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     monitor = ",preferred,auto,1";
-    input = 
-    [
-    "kb_layout = eu"
-    "kb_options=caps:swapescape"
-    ];
+    input.kb_layout = "eu";
+    input.kb_options = "caps:swapescape";
      bind =
       [
         ", Print, exec, grimblast copy area"
