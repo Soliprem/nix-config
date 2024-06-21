@@ -1,3 +1,10 @@
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+  }:{
 home.pointerCursor = {
   gtk.enable = true;
   # x11.enable = true;
@@ -23,3 +30,4 @@ gtk = {
     size = 11;
   };
 };
+}
