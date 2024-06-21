@@ -19,6 +19,7 @@
         "$mod, w, exec, firefox"
         "$mod, Return, exec, foot"
         "$mod, Q, killactive, "
+        "$mod, d, exec, fuzzel"
       ]
       ++ (
         # workspaces
