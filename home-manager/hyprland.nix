@@ -17,6 +17,8 @@
         ", Print, exec, grimblast copy area"
         "$mod, E, exec, nautilus --new-window"
         "$mod, w, exec, firefox"
+        "$mod, Return, exec, foot"
+        "$mod, Q, killactive, "
       ]
       ++ (
         # workspaces
