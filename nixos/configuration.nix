@@ -113,7 +113,6 @@
   programs.firefox.enable = true;
 
 # Install Hyprland
-    programs.hyprland.enable = true;
     services.hypridle.enable = true;
     programs.hyprlock.enable = true;
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -134,6 +133,7 @@
     nerdfonts
     ags
     keepassxc
+    gnome.adwaita-icon-theme
     bibata-cursors
     libgccjit
     linearicons-free

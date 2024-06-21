@@ -38,7 +38,6 @@
     };
   };
 
-  # TODO: Set your username
   home = {
     username = "soliprem";
     homeDirectory = "/home/soliprem";
