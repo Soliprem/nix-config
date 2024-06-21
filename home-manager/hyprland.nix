@@ -26,6 +26,26 @@
       dim_special = 0;
     };
 
+    env = [
+      "QT_IM_MODULE, fcitx"
+      "XMODIFIERS, @im=fcitx"
+      # env = GTK_IM_MODULE, wayland   # Crashes electron apps in xwayland
+      # env = GTK_IM_MODULE, fcitx     # My Gtk apps no longer require this to work with fcitx5 hmm
+      "SDL_IM_MODULE, fcitx"
+      "GLFW_IM_MODULE, ibus"
+      "INPUT_METHOD, fcitx"
+      "HYPRCURSOR_THEME,Bibata-Modern-Ice"
+      "HYPRCURSOR_SIZE,24"
+      "XCURSOR_THEME,Bibata-Modern-Ice"
+      "XCURSOR_SIZE,24"
+
+      # ############ Themes #############
+      "QT_QPA_PLATFORM, wayland"
+      "QT_QPA_PLATFORMTHEME, qt5ct"
+      # env = QT_STYLE_OVERRIDE,kvantum
+      "WLR_NO_HARDWARE_CURSORS, 1"
+    ];
+
     animations = {
       enabled = true;
       # Animation curves
@@ -142,6 +162,11 @@
         "SUPERCTRL,l,resizeactive,20 0 # [hidden]"
         "SUPERCTRL,k,resizeactive,0 -20 # [hidden]"
         "SUPERCTRL,j,resizeactive,0 20 # [hidden]"
+
+        # screenshots
+        "$mod,P,exec, hyprshot -m output -c # [hidden]"
+        "$mod+Shift,P,exec, hyprshot -m window # [hidden]"
+        "$mod+Shift, S, exec, hyprshot -m region # [hidden]"
       ]
       ++ (
         # workspaces
