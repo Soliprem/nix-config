@@ -7,6 +7,6 @@
       name = "Bibata-Modern-Ice";
       size = 32;
     };
-    image = ../wallpapers/saturn.jpg;
+    image = ../bg;
   };
 }
