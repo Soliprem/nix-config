@@ -1,4 +1,5 @@
 { config, pkgs, ... } {
+packages = with pkgs; [ foot ]
 programs.foot.enable = true
 programs.foot.server.enable = true
 programs.foot.settings = {
