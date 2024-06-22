@@ -11,6 +11,14 @@
     Hyprspace = {
       url = "github:KZDKM/Hyprspace";
     };
+    hycov = {
+      url = "github:DreamMaoMao/hycov";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     # Neovimflake
     nvf.url = "github:notashelf/nvf";
     # Home manager

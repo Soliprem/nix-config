@@ -61,6 +61,7 @@
     glib
     yazi
     socat
+    blueman
   ];
 
   fonts.fontconfig.enable = true;
