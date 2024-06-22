@@ -69,9 +69,8 @@
   programs = {
     home-manager.enable = true;
     git.enable = true;
-    mako.enable = true;
-    hyprland.enable = true;
   };
+  services.mako.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

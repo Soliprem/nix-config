@@ -3,6 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
+  inputs,
   pkgs,
   ...
 }: {
@@ -117,6 +118,10 @@
   programs.firefox.enable = true;
 
   # Install Hyprland
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
   services.hypridle.enable = true;
   programs.hyprlock.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -151,7 +156,10 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
+  nix.settings = {
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

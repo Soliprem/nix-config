@@ -5,6 +5,9 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     stylix.url = "github:danth/stylix";
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    };
     Hyprspace = {
       url = "github:KZDKM/Hyprspace";
     };
@@ -21,6 +24,7 @@
     self,
     nixpkgs,
     nvf,
+    hyprland,
     stylix,
     home-manager,
     ...
@@ -50,6 +54,7 @@
           ./home-manager/home.nix
           nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
+          hyprland.homeManagerModules.default
         ];
       };
     };
