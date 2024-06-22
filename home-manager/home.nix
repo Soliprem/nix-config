@@ -47,7 +47,6 @@
   };
 
   # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
   home.packages = with pkgs; [
     steam
     cliphist
@@ -70,6 +69,8 @@
   programs = {
     home-manager.enable = true;
     git.enable = true;
+    mako.enable = true;
+    hyprland.enable = true;
   };
 
   # Nicely reload system units when changing configs
