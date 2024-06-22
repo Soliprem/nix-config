@@ -50,8 +50,8 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
     steam
+    cliphist
     hyprshot
-    ags
     fuzzel
     nerdfonts
     swww
@@ -61,13 +61,16 @@
     gnome.nautilus
     glib
     yazi
+    socat
   ];
 
   fonts.fontconfig.enable = true;
 
-  # Enable home-manager and git
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
+  # Enable home-manager and git and other things
+  programs = {
+    home-manager.enable = true;
+    git.enable = true;
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

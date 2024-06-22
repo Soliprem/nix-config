@@ -159,6 +159,8 @@
     ];
     bind =
       [
+        "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy # [hidden]
+"
         ", Print, exec, grimblast copy area"
         "$mod, E, exec, nautilus --new-window"
         "$mod, w, exec, firefox"
