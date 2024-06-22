@@ -12,6 +12,7 @@
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
     ./hyprland.nix
+    ./mako.nix
     ./theming.nix
     ./stylix.nix
     ./kitty.nix
@@ -58,6 +59,7 @@
     typst
     xfce.thunar
     gnome.nautilus
+    spotube
     glib
     yazi
     socat
@@ -71,7 +73,6 @@
     home-manager.enable = true;
     git.enable = true;
   };
-  services.mako.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
