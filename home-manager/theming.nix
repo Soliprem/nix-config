@@ -13,7 +13,6 @@
   # name = "Bibata-Modern-Ice";
   # size = 16;
   # };
-
   gtk = {
     enable = true;
     # theme = {

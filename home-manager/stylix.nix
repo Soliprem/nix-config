@@ -8,5 +8,6 @@
       size = 32;
     };
     image = ../wallpapers/wallhaven-monstera.jpg;
+    polarity = "dark";
   };
 }

@@ -59,6 +59,7 @@
     typst
     xfce.thunar
     gnome.nautilus
+    glib
     yazi
   ];
 

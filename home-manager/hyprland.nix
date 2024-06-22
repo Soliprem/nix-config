@@ -3,7 +3,7 @@
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
-    "$term" = "foot";
+    "$term" = "kitty";
     "$editor" = "nvim";
     "$browser" = "firefox";
     decoration = {
@@ -38,14 +38,14 @@
       "SDL_IM_MODULE, fcitx"
       "GLFW_IM_MODULE, ibus"
       "INPUT_METHOD, fcitx"
-      "HYPRCURSOR_THEME,Bibata-Modern-Ice"
+      "HYPRCURSOR_THEME,Hypr-Bibata-Modern-Ice"
       "HYPRCURSOR_SIZE,24"
-      "XCURSOR_THEME,Bibata-Modern-Ice"
-      "XCURSOR_SIZE,24"
+      # "XCURSOR_THEME,Bibata-Modern-Ice"
+      # "XCURSOR_SIZE,24"
 
       # ############ Themes #############
-      "QT_QPA_PLATFORM, wayland"
-      "QT_QPA_PLATFORMTHEME, qt5ct"
+      # "QT_QPA_PLATFORM, wayland"
+      # "QT_QPA_PLATFORMTHEME, qt5ct"
       # env = QT_STYLE_OVERRIDE,kvantum
       "WLR_NO_HARDWARE_CURSORS, 1"
     ];
@@ -111,7 +111,11 @@
 
     # Dynamic colors
 
-    windowrule = ["opacity 0.89 override 0.89 override, .* # Applies transparency to EVERY WINDOW"];
+    windowrule = [
+      "opacity 0.89 override 0.89 override, .* # Applies transparency to EVERY WINDOW"
+      "fakefullscreen,class:^(firefox)$, title:^((?!Enter name of file to save to…|Save|Upload))
+"
+    ];
     # Keybinds
 
     windowrulev2 = ["rounding 20, onworkspace:1"];
@@ -137,12 +141,28 @@
       no_gaps_when_only = 0;
       new_is_master = 0;
     };
+    bindle = [
+      ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ # [hidden]"
+      ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- # [hidden]"
+
+      # Brightness
+      #bindle=, XF86MonBrightnessUp, exec, brightnessctl set '12.75+'
+      #bindle=, XF86MonBrightnessDown, exec, brightnessctl set '12.75-'
+      ",XF86MonBrightnessUp, exec, ags run-js 'brightness.screen_value += 0.05;' # [hidden]"
+      ",XF86MonBrightnessDown, exec, ags run-js 'brightness.screen_value -= 0.05;' # [hidden]"
+    ];
+    bindl = [
+      "$mod,XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle # [hidden]"
+      "$mod ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle # [hidden]"
+      "$mod ,XF86AudioMute, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0% # [hidden]"
+      "$mod+Shift,M, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0% # [hidden]"
+    ];
     bind =
       [
         ", Print, exec, grimblast copy area"
         "$mod, E, exec, nautilus --new-window"
         "$mod, w, exec, firefox"
-        "$mod, Return, exec, foot"
+        "$mod, Return, exec, $term"
         "$mod, Q, killactive, "
         "$mod, d, exec, fuzzel"
         "$mod SHIFT, d, exec, fuzzel-run"
