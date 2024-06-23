@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
  
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
  
 {
   imports =
@@ -11,7 +11,6 @@
     ];
 fileSystems."/home".neededForBoot = true;
 hardware.enableAllFirmware = true;
-nixpkgs.config.allowUnfree = true;
  
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.enable = true;
@@ -98,6 +97,8 @@ nixpkgs.config.allowUnfree = true;
   # install fish
   programs.fish.enable = true;
   programs.zsh.enable = true;
+programs.river.enable = true;
+services.desktopManager.plasma6.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.soliprem = {
     isNormalUser = true;
@@ -122,6 +123,7 @@ nixpkgs.config.allowUnfree = true;
   # Install Hyprland
   programs.hyprland = {
     enable = true;
+package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
   services.hypridle.enable = true;
   programs.hyprlock.enable = true;
