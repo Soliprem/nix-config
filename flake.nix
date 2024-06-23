@@ -26,6 +26,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    schizofox = {
+      url = "github:schizofox/schizofox";
+    };
   };
 
   outputs = {
@@ -35,6 +39,7 @@
     hyprland,
     stylix,
     home-manager,
+    schizofox,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -63,6 +68,7 @@
           nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
+          schizofox.homeManagerModule.default
         ];
       };
     };

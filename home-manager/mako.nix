@@ -1,6 +1,6 @@
 {
   services.mako = {
     enable = true;
-    defaultTimeout = 3;
+    defaultTimeout = 3000;
   };
 }

@@ -12,6 +12,7 @@
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
     ./hyprland.nix
+    ./schizofox
     ./mako.nix
     ./theming.nix
     ./stylix.nix

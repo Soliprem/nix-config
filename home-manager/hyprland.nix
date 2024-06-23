@@ -1,9 +1,13 @@
 # home.nix
 {
   inputs,
+  home,
   pkgs,
   ...
 }: {
+  home.packages = with pkgs; [
+    gammastep
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -145,7 +149,6 @@
       master = {
         new_on_top = 0;
         no_gaps_when_only = 0;
-        new_is_master = 0;
       };
       bindle = [
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ # [hidden]"
@@ -164,8 +167,8 @@
       ];
       bind =
         [
-          "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy # [hidden]
-"
+          "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy # [hidden]"
+          "$mod, t, exec, notify-time"
           ", Print, exec, grimblast copy area"
           "$mod, E, exec, nautilus --new-window"
           "$mod, w, exec, firefox"
