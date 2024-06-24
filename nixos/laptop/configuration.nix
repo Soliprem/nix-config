@@ -115,7 +115,7 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
   # Install Hyprland
   programs.hyprland = {
