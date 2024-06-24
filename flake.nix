@@ -50,12 +50,12 @@
       nixos-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
-        modules = [./nixos/configuration.nix];
+        modules = [./nixos/laptop/configuration.nix];
       };
       nixos-pc = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
-        modules = [./nixos/configuration.nix];
+        modules = [./nixos/pc/configuration.nix];
       };
     };
 
@@ -64,6 +64,17 @@
     homeConfigurations = {
       # FIXME replace with your username@hostname
       "soliprem@nixos-laptop" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        # > Our main home-manager configuration file <
+        modules = [
+          ./home-manager/home.nix
+          nvf.homeManagerModules.default
+          stylix.homeManagerModules.stylix
+          hyprland.homeManagerModules.default
+        ];
+      };
+      "soliprem@nixos-pc" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <
