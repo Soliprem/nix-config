@@ -169,6 +169,8 @@
         [
           "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy # [hidden]"
           "$mod, t, exec, notify-time"
+          "$mod+Shift, v, exec, notify-volume"
+          "$mod, b, exec, notify-battery"
           ", Print, exec, grimblast copy area"
           "$mod, E, exec, nautilus --new-window"
           "$mod, w, exec, firefox"
@@ -176,6 +178,8 @@
           "$mod, Q, killactive, "
           "$mod, d, exec, fuzzel"
           "$mod SHIFT, d, exec, fuzzel-run"
+          "$mod+Alt, s, movetoworkspacesilent, special"
+          "$mod, s, togglespecialworkspace"
 
           # Master Layout Movements
 
@@ -198,6 +202,7 @@
 
           # Special
           "$mod+Alt, F, fakefullscreen, 0"
+          # "Alt, Tab, hycov:toggleoverview"
 
           # screenshots
           "$mod,P,exec, hyprshot -m output -c # [hidden]"
@@ -223,7 +228,7 @@
     };
     plugins = [
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };

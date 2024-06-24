@@ -39,7 +39,6 @@
     hyprland,
     stylix,
     home-manager,
-    schizofox,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -49,6 +48,11 @@
     nixosConfigurations = {
       # FIXME replace with your hostname
       nixos-laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        # > Our main nixos configuration file <
+        modules = [./nixos/configuration.nix];
+      };
+      nixos-pc = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
         modules = [./nixos/configuration.nix];
@@ -68,7 +72,6 @@
           nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
-          schizofox.homeManagerModule.default
         ];
       };
     };
