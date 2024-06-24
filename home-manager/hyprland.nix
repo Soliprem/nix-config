@@ -150,6 +150,14 @@
         new_on_top = 0;
         no_gaps_when_only = 0;
       };
+      binde = [
+        "SUPER,h,resizeactive,-20 0 # [hidden]"
+        "SUPER,l,resizeactive,20 0 # [hidden]"
+        "SUPERCTRL,h,resizeactive,-20 0 # [hidden]"
+        "SUPERCTRL,l,resizeactive,20 0 # [hidden]"
+        "SUPERCTRL,k,resizeactive,0 -20 # [hidden]"
+        "SUPERCTRL,j,resizeactive,0 20 # [hidden]"
+      ];
       bindle = [
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ # [hidden]"
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- # [hidden]"
@@ -168,6 +176,10 @@
       bind =
         [
           "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy # [hidden]"
+          "$mod, mouse:272, movewindow"
+          "$mod, space, togglefloating"
+          "$mod, mouse:273, resizewindow"
+          "$mod, z, movewindow"
           "$mod, t, exec, notify-time"
           "$mod+Shift, v, exec, notify-volume"
           "$mod, b, exec, notify-battery"
@@ -193,12 +205,6 @@
           "SUPERSHIFT,l,layoutmsg,removemaster # [hidden]"
           " SUPER, f, fullscreen, 1  # [hidden]"
           " SUPERSHIFT, f, fullscreen, 0  # [hidden]"
-          "SUPER,h,resizeactive,-20 0 # [hidden]"
-          "SUPER,l,resizeactive,20 0 # [hidden]"
-          "SUPERCTRL,h,resizeactive,-20 0 # [hidden]"
-          "SUPERCTRL,l,resizeactive,20 0 # [hidden]"
-          "SUPERCTRL,k,resizeactive,0 -20 # [hidden]"
-          "SUPERCTRL,j,resizeactive,0 20 # [hidden]"
 
           # Special
           "$mod+Alt, F, fakefullscreen, 0"
