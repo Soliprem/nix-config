@@ -52,7 +52,6 @@
         # > Our main nixos configuration file <
         modules = [
           ./nixos/laptop/configuration.nix
-          ./ollama.nix
         ];
       };
       nixos-pc = nixpkgs.lib.nixosSystem {
@@ -60,7 +59,6 @@
         # > Our main nixos configuration file <
         modules = [
           ./nixos/pc/configuration.nix
-          ./ollama.nix
         ];
       };
     };

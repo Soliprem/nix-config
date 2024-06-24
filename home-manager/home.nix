@@ -19,6 +19,7 @@
     ./kitty.nix
     ./foot.nix
     ./nvim.nix
+    ./ollama.nix
   ];
 
   nixpkgs = {
@@ -56,6 +57,7 @@
     cliphist
     hyprshot
     fuzzel
+    docker_26
     nerdfonts
     swww
     element-desktop-wayland
