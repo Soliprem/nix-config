@@ -74,7 +74,11 @@
   # Enable home-manager and git and other things
   programs = {
     home-manager.enable = true;
-    git.enable = true;
+    git = {
+      enable = true;
+      userName = "Soliprem";
+      userEmail = "franci.solidoro@gmail.com";
+    };
   };
 
   # Nicely reload system units when changing configs

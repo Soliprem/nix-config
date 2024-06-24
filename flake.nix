@@ -55,7 +55,10 @@
       nixos-pc = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
-        modules = [./nixos/pc/configuration.nix];
+        modules = [
+          ./nixos/pc/configuration.nix
+          ./home-manager/ollama.nix
+        ];
       };
     };
 

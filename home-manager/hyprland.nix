@@ -129,8 +129,8 @@
         "rounding 20, onworkspace:1"
         "fakefullscreen,class:^(firefox)$, title:^((?!Enter name of file to save to…|Save|Upload))"
       ];
-      monitor = ",preferred,auto,1";
-      # monitor = "HDMI-A-1, 1920x1080@120,0x0,1";
+      # monitor = ",preferred,auto,1";
+      monitor = "HDMI-A-1, 1920x1080@120,0x0,1";
       input.kb_layout = "eu";
       input.kb_options = "caps:swapescape";
       general = {
@@ -177,11 +177,11 @@
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, z, movewindow"
-        "$mod, mouse:273, resizeactive"
+        "$mod, mouse:273, resizewindow"
       ];
       bind =
         [
-          "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy # [hidden]"
+          "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
           "$mod+Shift, space, togglefloating"
           "$mod, t, exec, notify-time"
           "$mod+Shift, v, exec, notify-volume"
