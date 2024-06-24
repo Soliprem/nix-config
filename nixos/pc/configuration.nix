@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-fileSystems."/home".neededForBoot = true;
+# fileSystems."/home".neededForBoot = true;
 hardware.enableAllFirmware = true;
  
   # Use the systemd-boot EFI boot loader.
@@ -98,7 +98,6 @@ hardware.enableAllFirmware = true;
   programs.fish.enable = true;
   programs.zsh.enable = true;
 programs.river.enable = true;
-services.desktopManager.plasma6.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.soliprem = {
     isNormalUser = true;
@@ -142,6 +141,7 @@ package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     zoxide
     eza
     keepassxc
+    networkmanagerapplet
     libgccjit
     linearicons-free
     libnotify
