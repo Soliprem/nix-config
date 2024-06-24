@@ -57,7 +57,6 @@
     cliphist
     hyprshot
     fuzzel
-    docker_26
     nerdfonts
     swww
     element-desktop-wayland
@@ -69,6 +68,7 @@
     yazi
     socat
     blueman
+    sioyek
   ];
 
   fonts.fontconfig.enable = true;
