@@ -1,23 +1,26 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
- 
-{ config, inputs, lib, pkgs, ... }:
- 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-# fileSystems."/home".neededForBoot = true;
-hardware.enableAllFirmware = true;
- 
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
+  # fileSystems."/home".neededForBoot = true;
+  hardware.enableAllFirmware = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiInstallAsRemovable = true;
   boot.loader.grub.efiSupport = true;
- 
+
   networking.hostName = "nixos-pc"; # Define your hostname.
   # Pick only one of the below networking options.
   # Configure network proxy if necessary
@@ -97,7 +100,7 @@ hardware.enableAllFirmware = true;
   # install fish
   programs.fish.enable = true;
   programs.zsh.enable = true;
-programs.river.enable = true;
+  programs.river.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.soliprem = {
     isNormalUser = true;
@@ -117,12 +120,12 @@ programs.river.enable = true;
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
   # Install Hyprland
   programs.hyprland = {
     enable = true;
-package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
   services.hypridle.enable = true;
   programs.hyprlock.enable = true;
