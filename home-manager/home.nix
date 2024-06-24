@@ -19,7 +19,6 @@
     ./kitty.nix
     ./foot.nix
     ./nvim.nix
-    ./ollama.nix
   ];
 
   nixpkgs = {
