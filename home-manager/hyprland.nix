@@ -130,7 +130,7 @@
         "fakefullscreen,class:^(firefox)$, title:^((?!Enter name of file to save to…|Save|Upload))"
       ];
       monitor = ",preferred,auto,1";
-      monito = "HDMI-A-1, 1920x1080@120,0x0,1";
+      # monitor = "HDMI-A-1, 1920x1080@120,0x0,1";
       input.kb_layout = "eu";
       input.kb_options = "caps:swapescape";
       general = {
