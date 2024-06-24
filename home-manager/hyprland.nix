@@ -179,7 +179,7 @@
           "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy # [hidden]"
           "$mod, mouse:272, movewindow"
           "$mod, space, togglefloating"
-          "$mod, mouse:273, resizewindow"
+          "$mod, mouse:273, resizeactive"
           "$mod, z, movewindow"
           "$mod, t, exec, notify-time"
           "$mod+Shift, v, exec, notify-volume"
