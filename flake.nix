@@ -60,7 +60,7 @@
         # > Our main nixos configuration file <
         modules = [
           ./nixos/pc/configuration.nix
-          ./ollama.nix
+          ./ollamaRocm.nix
         ];
       };
     };
