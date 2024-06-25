@@ -3,8 +3,11 @@
   inputs,
   home,
   pkgs,
+  config,
   ...
-}: {
+}: let
+  inherit (config.lib.stylix) colors;
+in {
   home.packages = with pkgs; [
     gammastep
   ];
@@ -211,7 +214,9 @@
 
           # Special
           "$mod+Alt, F, fakefullscreen, 0"
-          # "Alt, Tab, hycov:toggleoverview"
+          "$mod+Shift, g, hyprexpo:expo, toggle"
+          # "$mod, g, toggle:overview"
+          "Alt, Tab, hycov:toggleoverview"
 
           # screenshots
           "$mod,P,exec, hyprshot -m output -c # [hidden]"
@@ -234,11 +239,17 @@
             )
             10)
         );
+      plugin = {
+        hyprtrails = {
+          color = "rgba(${colors.base09}ff)";
+        };
+      };
     };
     plugins = [
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-      # inputs.hycov.packages.${pkgs.system}.hycov
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+      inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };
 }

@@ -10,6 +10,7 @@
     };
     Hyprspace = {
       url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
     };
     hycov = {
       url = "github:DreamMaoMao/hycov";
