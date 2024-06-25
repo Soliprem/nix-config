@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   programs.nvf = {
     enable = true;
     # your settings need to go into the settings attribute set
@@ -210,7 +210,6 @@
           smartcolumn = {
             enable = true;
             setupOpts.custom_colorcolumn = {
-              #FIXME: throws an annoying debug message
               # this is a freeform module, it's `buftype = int;` for configuring column position
               nix = "110";
               ruby = "120";
@@ -242,6 +241,39 @@
 
         presence = {
           neocord.enable = false;
+        };
+
+        extraPlugins = with pkgs.vimPlugins; {
+          neorg = {
+            package = neorg;
+            setup = ''
+              require('neorg').setup {
+                load = {
+                  ['core.defaults'] = {}, -- Loads default behaviour
+                  ['core.concealer'] = {}, -- Adds pretty icons to your documents
+                  ['core.export'] = {}, -- Adds export options
+                  ['core.integrations.telescope'] = {},
+                  ['core.integrations.image'] = {},
+                  -- ['core.typst.renderer'] = {
+                  --   config = {
+                  --     dpi = 1000,
+                  --     -- render_on_enter = true,
+                  --     scale = 2,
+                  --   },
+                  -- },
+                  ['core.dirman'] = { -- Manages Neorg workspaces
+                    config = {
+                      workspaces = {
+                        notes = '~/Documents/neorg',
+                      },
+                    },
+                  },
+                },
+              }
+              vim.wo.foldlevel = 99
+              vim.wo.conceallevel = 2
+            '';
+          };
         };
       };
     };
