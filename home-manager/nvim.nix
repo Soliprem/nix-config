@@ -275,6 +275,11 @@
             '';
           };
         };
+        optPlugins = with pkgs; [
+          luajitPackages.lua-utils-nvim
+          vimPlugins.nvim-nio
+          luajitPackages.pathlib-nvim
+        ];
       };
     };
   };
