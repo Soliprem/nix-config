@@ -209,13 +209,14 @@
           };
           smartcolumn = {
             enable = true;
-            # setupOpts.custom_colorcolumn = {  #FIXME: throws an annoying debug message
-            #   # this is a freeform module, it's `buftype = int;` for configuring column position
-            #   nix = 110;
-            #   ruby = 120;
-            #   java = 130;
-            #   go = [90 130];
-            # };
+            setupOpts.custom_colorcolumn = {
+              #FIXME: throws an annoying debug message
+              # this is a freeform module, it's `buftype = int;` for configuring column position
+              nix = "110";
+              ruby = "120";
+              java = "130";
+              go = ["90 130"];
+            };
           };
         };
 
