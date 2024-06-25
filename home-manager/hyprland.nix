@@ -132,8 +132,10 @@ in {
         "rounding 20, onworkspace:1"
         "fakefullscreen,class:^(firefox)$, title:^((?!Enter name of file to save to…|Save|Upload))"
       ];
-      # monitor = ",preferred,auto,1";
-      monitor = "HDMI-A-1, 1920x1080@120,0x0,1";
+      monitor = [
+        ",preferred,auto,1"
+        "HDMI-A-1, 1920x1080@120,0x0,1"
+      ];
       input.kb_layout = "eu";
       input.kb_options = "caps:swapescape";
       general = {
@@ -167,10 +169,10 @@ in {
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- # [hidden]"
 
         # Brightness
-        #bindle=, XF86MonBrightnessUp, exec, brightnessctl set '12.75+'
-        #bindle=, XF86MonBrightnessDown, exec, brightnessctl set '12.75-'
-        ",XF86MonBrightnessUp, exec, ags run-js 'brightness.screen_value += 0.05;' # [hidden]"
-        ",XF86MonBrightnessDown, exec, ags run-js 'brightness.screen_value -= 0.05;' # [hidden]"
+        ",XF86MonBrightnessUp, exec, brightnessctl set '12.75+'"
+        ",XF86MonBrightnessDown, exec, brightnessctl set '12.75-'"
+        # ",XF86MonBrightnessUp, exec, ags run-js 'brightness.screen_value += 0.05;' # [hidden]"
+        # ",XF86MonBrightnessDown, exec, ags run-js 'brightness.screen_value -= 0.05;' # [hidden]"
       ];
       bindl = [
         "$mod,XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
