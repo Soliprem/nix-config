@@ -11,7 +11,6 @@
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
-    inputs.muse-sounds-manager.package
     ./hyprland.nix
     ./schizofox.nix
     ./mako.nix
@@ -74,7 +73,7 @@
     socat
     blueman
     sioyek
-    muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
+    inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
   ];
 
   fonts.fontconfig.enable = true;
