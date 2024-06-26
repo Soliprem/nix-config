@@ -7,7 +7,7 @@
       name = "Bibata-Modern-Ice";
       size = 32;
     };
-    image = ../wallpapers/wallhaven-monstera.jpg;
+    image = ../assets/bg;
     polarity = "dark";
   };
 }
