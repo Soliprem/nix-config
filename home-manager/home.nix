@@ -11,6 +11,7 @@
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
+    inputs.muse-sounds-manager.package
     ./hyprland.nix
     ./schizofox.nix
     ./mako.nix
@@ -50,13 +51,14 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    musescore
+    darktable
     nextcloud-client
     planify
     mpv
     btop
     termdown
     timer
-    steam
     cliphist
     hyprshot
     fuzzel
@@ -72,6 +74,7 @@
     socat
     blueman
     sioyek
+    muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
   ];
 
   fonts.fontconfig.enable = true;
@@ -85,7 +88,6 @@
       userEmail = "franci.solidoro@gmail.com";
     };
   };
-
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 

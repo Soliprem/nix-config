@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   description = "Your new nix config";
 
   inputs = {
@@ -31,6 +31,7 @@
     schizofox = {
       url = "github:schizofox/schizofox";
     };
+    muse-sounds-manager.url = "github:thilobillerbeck/muse-sounds-manager-nix";
   };
 
   outputs = {
@@ -40,6 +41,7 @@
     hyprland,
     stylix,
     home-manager,
+    muse-sounds-manager,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -79,6 +81,7 @@
           nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
+          muse-sounds-manager.packages
         ];
       };
       "soliprem@nixos-pc" = home-manager.lib.homeManagerConfiguration {
@@ -90,6 +93,7 @@
           nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
+          muse-sounds-manager.packages
         ];
       };
     };

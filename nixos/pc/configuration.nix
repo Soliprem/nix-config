@@ -98,9 +98,16 @@
   # services.xserver.libinput.enable = true;
 
   # install fish
-  programs.fish.enable = true;
-  programs.zsh.enable = true;
-  programs.river.enable = true;
+  programs = {
+    fish.enable = true;
+    zsh.enable = true;
+    river.enable = true;
+    steam = {
+      enable = true;
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfer
+    };
+  };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.soliprem = {
     isNormalUser = true;
