@@ -12,7 +12,7 @@
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
     ./hyprland.nix
-    ./schizofox.nix
+    # ./schizofox.nix
     ./mako.nix
     ./theming.nix
     ./stylix.nix
@@ -50,6 +50,7 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    hugo
     fd
     killall
     qutebrowser
@@ -91,6 +92,7 @@
       userName = "Soliprem";
       userEmail = "franci.solidoro@gmail.com";
     };
+    firefox.enable = true;
   };
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
