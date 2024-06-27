@@ -125,12 +125,33 @@ in {
 
       windowrule = [
         "opacity 0.89 override 0.89 override, .* # Applies transparency to EVERY WINDOW"
+        "float,Julia"
+        "float,org.kde.polkit-kde-authentication-agent-1"
+        "float,title:^(Picture-in-Picture)$"
+        "move 1275 45,title:^(Picture-in-Picture)$"
+        # --------- FOR GIMP ---------
+        "float,flame"
+        "move 700 250,flame"
+        "float,script-fu"
+        "move 700 250,script-fu"
+        "float,org.gtk_rs.HelloWorld2"
+
+        # Dialogs
+        "float,title:^(Open File)(.*)$"
+        "float,title:^(Select a File)(.*)$"
+        "float,title:^(Choose wallpaper)(.*)$"
+        "float,title:^(Open Folder)(.*)$"
+        "float,title:^(Save As)(.*)$"
+        "float,title:^(Library)(.*)$ "
       ];
       # Keybinds
 
       windowrulev2 = [
         "rounding 20, onworkspace:1"
-        "fakefullscreen,class:^(firefox)$, title:^((?!Enter name of file to save to…|Save|Upload))"
+        "opacity 1 override 1 override, class: ^(mpv|steam_app)(.*)$"
+        "opacity 1 override 1 override, title: ^(.*.)(YouTube|Invidious)(.*)$"
+        "fakefullscreen,class:^(firefox)$, title:^((?!Enter name of file to save to…|Save))"
+        "workspace special,title:^(Firefox — Sharing Indicator)$"
       ];
       monitor = [
         ",preferred,auto,1"
