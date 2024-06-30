@@ -50,7 +50,9 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    brave
     hugo
+    stremio
     fd
     killall
     qutebrowser
@@ -80,6 +82,7 @@
     blueman
     sioyek
     inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
+    inputs.iio-hyprland.packages.${pkgs.system}.default
   ];
 
   fonts.fontconfig.enable = true;

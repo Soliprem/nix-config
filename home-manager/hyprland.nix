@@ -155,6 +155,7 @@ in {
       ];
       monitor = [
         ",preferred,auto,1"
+        "eDP-1, 1920x1200@60.0030,0x0,1"
         "HDMI-A-1, 1920x1080@120,0x0,1"
       ];
       input.kb_layout = "eu";
@@ -267,6 +268,13 @@ in {
           color = "rgba(${colors.base09}ff)";
         };
       };
+      exec-once = [
+        "iio-hyprland"
+        "keepassxc"
+        "nextcloud"
+        "exec-once = wl-paste --type text --watch cliphist store"
+        "exec-once = wl-paste --type image --watch cliphist store"
+      ];
     };
     plugins = [
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace

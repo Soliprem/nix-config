@@ -156,7 +156,7 @@
 
         dashboard = {
           dashboard-nvim.enable = false;
-          alpha.enable = false;
+          alpha.enable = true;
         };
 
         notify = {
@@ -244,6 +244,18 @@
         };
 
         extraPlugins = with pkgs.vimPlugins; {
+          # ghost-nvim = {
+          #   package = pkgs.vimUtils.buildVimPlugin {
+          #     name = "ghost-nvim";
+          #     src = pkgs.fetchFromGitHub {
+          #       owner = "subnut";
+          #       repo = "nvim-ghost.nvim";
+          #       rev = "v0.5.4";
+          #       hash = "sha256-XldDgPqVeIfUjaRLVUMp88eHBHLzoVgOmT3gupPs+ao=";
+          #     };
+          #     setup = "require('ghost').setup()";
+          #   };
+          # };
           neorg = {
             package = neorg;
             setup = ''
@@ -275,13 +287,13 @@
             '';
           };
         };
-        startPlugins = with pkgs; [
-          luajitPackages.lua-utils-nvim
-          vimPlugins.nvim-nio
-          luajitPackages.pathlib-nvim
-          vimPlugins.plenary-nvim
-          vimPlugins.nui-nvim
-        ];
+        # startPlugins = with pkgs; [
+        #   luajitPackages.lua-utils-nvim
+        #   vimPlugins.nvim-nio
+        #   luajitPackages.pathlib-nvim
+        #   vimPlugins.plenary-nvim
+        #   vimPlugins.nui-nvim
+        # ];
       };
     };
   };
