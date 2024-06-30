@@ -80,6 +80,7 @@
     yazi
     socat
     blueman
+    pamixer
     sioyek
     inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
     inputs.iio-hyprland.packages.${pkgs.system}.default

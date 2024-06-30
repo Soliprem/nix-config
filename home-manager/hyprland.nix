@@ -187,8 +187,8 @@ in {
         "SUPERCTRL,j,resizeactive,0 20 # [hidden]"
       ];
       bindle = [
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ # [hidden]"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- # [hidden]"
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && notify-volume# [hidden]"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-volume # [hidden]"
 
         # Brightness
         ",XF86MonBrightnessUp, exec, brightnessctl set '12.75+'"
