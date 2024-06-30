@@ -50,6 +50,7 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    brightnessctl
     brave
     hugo
     stremio
