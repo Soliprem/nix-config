@@ -258,7 +258,8 @@ in {
                   builtins.toString (x + 1 - (c * 10));
               in [
                 "$mod, ${ws}, workspace, ${toString (x + 1)}"
-                "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+                "$mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
+                "Alt $mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
               ]
             )
             10)
@@ -271,6 +272,7 @@ in {
       exec-once = [
         "iio-hyprland"
         "keepassxc"
+        "$term keepassxc-cli open ~/Documents/Nextcloud/Keyring.kdbx"
         "nextcloud"
         "exec-once = wl-paste --type text --watch cliphist store"
         "exec-once = wl-paste --type image --watch cliphist store"
