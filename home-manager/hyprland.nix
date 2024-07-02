@@ -272,8 +272,7 @@ in {
       exec-once = [
         "iio-hyprland"
         "keepassxc"
-        "$term keepassxc-cli open ~/Documents/Nextcloud/Keyring.kdbx"
-        "nextcloud"
+        # "nextcloud"
         "exec-once = wl-paste --type text --watch cliphist store"
         "exec-once = wl-paste --type image --watch cliphist store"
       ];
