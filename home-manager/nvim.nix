@@ -256,6 +256,10 @@
           #     setup = "require('ghost').setup()";
           #   };
           # };
+          oil = {
+            package = pkgs.vimPlugins.oil-nvim;
+            setup = "require('oil').setup()";
+          };
           neorg = {
             package = neorg;
             setup = ''
@@ -294,6 +298,13 @@
         #   vimPlugins.plenary-nvim
         #   vimPlugins.nui-nvim
         # ];
+        maps.normal = {
+          "-" = {
+            action = ":Oil<CR>";
+            silent = true;
+            desc = "Oil";
+          };
+        };
       };
     };
   };
