@@ -125,7 +125,7 @@
     ];
     shell = pkgs.zsh;
   };
-
+  virtualisation.docker.enable = true;
   # Install firefox.
   # programs.firefox.enable = true;
 

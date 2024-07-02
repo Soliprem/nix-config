@@ -271,10 +271,10 @@ in {
       };
       exec-once = [
         "iio-hyprland"
-        "keepassxc"
+        "keepassxc &"
         # "nextcloud"
-        "exec-once = wl-paste --type text --watch cliphist store"
-        "exec-once = wl-paste --type image --watch cliphist store"
+        "wl-paste --type text --watch cliphist store &"
+        "wl-paste --type image --watch cliphist store &"
       ];
     };
     plugins = [
