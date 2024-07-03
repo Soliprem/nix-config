@@ -240,7 +240,7 @@ in {
           "$mod+Alt, F, fakefullscreen, 0"
           "$mod+Shift, g, hyprexpo:expo, toggle"
           "$mod, g, overview:toggle"
-          "Alt, Tab, hycov:toggleoverview"
+          # "Alt, Tab, hycov:toggleoverview"
 
           # screenshots
           "$mod,P,exec, hyprshot -m output -c # [hidden]"
@@ -268,6 +268,9 @@ in {
         hyprtrails = {
           color = "rgba(${colors.base09}ff)";
         };
+        # hycov = {
+        #   enable_hotarea = 0;
+        # };
       };
       exec-once = [
         "iio-hyprland"
@@ -281,7 +284,7 @@ in {
       inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-      inputs.hycov.packages.${pkgs.system}.hycov
+      # inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };
 }
