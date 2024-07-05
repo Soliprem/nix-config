@@ -361,11 +361,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719677234,
-        "narHash": "sha256-qO9WZsj/0E6zcK4Ht1y/iJ8XfwbBzq7xdqhBh44OP/M=",
+        "lastModified": 1720045378,
+        "narHash": "sha256-lmE7B+QXw7lWdBu5GQlUABSpzPk3YBb9VbV+IYK5djk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "36317d4d38887f7629876b0e43c8d9593c5cc48d",
+        "rev": "0a30138c694ab3b048ac300794c2eb599dc40266",
         "type": "github"
       },
       "original": {
@@ -486,11 +486,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1719746201,
-        "narHash": "sha256-8Jp7iSoIupyhD2dLi+obRKyoq6YeKYOXMARm0WSIeO4=",
+        "lastModified": 1720035618,
+        "narHash": "sha256-nHiY6tXJsB+EUSVd/iXAtSzWLtjOz9epkqBLxSrYd+E=",
         "ref": "refs/heads/main",
-        "rev": "4d6f96f74f9fa6e7b69790fa569ffe60267f8017",
-        "revCount": 4899,
+        "rev": "e894d5e964994e988ef75de4d95e98c9503235e1",
+        "revCount": 4905,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -518,11 +518,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719318037,
-        "narHash": "sha256-TnlAcO5K2gkab0mpKurP5Co6eWRycP/KbFqWNS2rsMA=",
+        "lastModified": 1719784423,
+        "narHash": "sha256-D7O5+nh2Wn9tQPJArWHrDSZeEfBCtj5zTGd86701LPE=",
         "owner": "hyprwm",
         "repo": "hyprland-plugins",
-        "rev": "3ae670253a5a3ae1e3a3104fb732a8c990a31487",
+        "rev": "98cb18c6fcfe8196ef4150d09fbae305b7bb2954",
         "type": "github"
       },
       "original": {
@@ -827,11 +827,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1719506693,
-        "narHash": "sha256-C8e9S7RzshSdHB7L+v9I51af1gDM5unhJ2xO1ywxNH8=",
+        "lastModified": 1719848872,
+        "narHash": "sha256-H3+EC5cYuq+gQW8y0lSrrDZfH71LB4DAf+TDFyvwCNA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b2852eb9365c6de48ffb0dc2c9562591f652242a",
+        "rev": "00d80d13810dbfea8ab4ed1009b09100cca86ba8",
         "type": "github"
       },
       "original": {
@@ -999,6 +999,7 @@
         "plugin-nvim-colorizer-lua": "plugin-nvim-colorizer-lua",
         "plugin-nvim-cursorline": "plugin-nvim-cursorline",
         "plugin-nvim-dap": "plugin-nvim-dap",
+        "plugin-nvim-dap-go": "plugin-nvim-dap-go",
         "plugin-nvim-dap-ui": "plugin-nvim-dap-ui",
         "plugin-nvim-docs-view": "plugin-nvim-docs-view",
         "plugin-nvim-lightbulb": "plugin-nvim-lightbulb",
@@ -1046,11 +1047,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1719602361,
-        "narHash": "sha256-gTE0EAkTafpntiXoj//B0GVFSTB0kQSJw/CpcS33Rls=",
+        "lastModified": 1720032146,
+        "narHash": "sha256-m+442OenNQB3SAhVWh2WmKVIauv+OFvl8a7U1weW19s=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "9c4aabd0a6efadad6c8ad3bb8343b1a1d3ca14c6",
+        "rev": "3f5ed9e979f3048dc7ad07b0e9f0a6546588ce6c",
         "type": "github"
       },
       "original": {
@@ -1937,6 +1938,22 @@
       "original": {
         "owner": "mfussenegger",
         "repo": "nvim-dap",
+        "type": "github"
+      }
+    },
+    "plugin-nvim-dap-go": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716775637,
+        "narHash": "sha256-B8A+ven18YgePLxAN3Q/j5NFb0FeTHCQak1uzaNDX9c=",
+        "owner": "leoluz",
+        "repo": "nvim-dap-go",
+        "rev": "a0c5a2b991d7e9304a9a032cf177e22a4b0acda1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "leoluz",
+        "repo": "nvim-dap-go",
         "type": "github"
       }
     },

@@ -197,7 +197,7 @@ in {
         # ",XF86MonBrightnessDown, exec, ags run-js 'brightness.screen_value -= 0.05;' # [hidden]"
       ];
       bindl = [
-        "$mod,XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
         "$mod ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
         "$mod+Shift,M, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%"
       ];
@@ -238,7 +238,7 @@ in {
 
           # Special
           "$mod+Alt, F, fakefullscreen, 0"
-          "$mod+Shift, g, hyprexpo:expo, toggle"
+          # "$mod+Shift, g, hyprexpo:expo, toggle"
           "$mod, g, overview:toggle"
           # "Alt, Tab, hycov:toggleoverview"
 
@@ -282,8 +282,8 @@ in {
     };
     plugins = [
       inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };

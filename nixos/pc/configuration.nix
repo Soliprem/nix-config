@@ -13,7 +13,6 @@
     ./hardware-configuration.nix
   ];
   # fileSystems."/home".neededForBoot = true;
-  hardware.enableAllFirmware = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.enable = true;
@@ -78,7 +77,12 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  hardware = {
+    pulseaudio.enable = false;
+    graphics.enable = true;
+    enableAllFirmware = true;
+    bluetooth.enable = true;
+  };
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -92,7 +96,6 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-  hardware.bluetooth.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
