@@ -260,39 +260,40 @@
             package = pkgs.vimPlugins.oil-nvim;
             setup = "require('oil').setup()";
           };
-          neorg = {
-            package = neorg;
-            setup = ''
-              require('neorg').setup {
-                load = {
-                  ['core.defaults'] = {}, -- Loads default behaviour
-                  ['core.concealer'] = {}, -- Adds pretty icons to your documents
-                  ['core.export'] = {}, -- Adds export options
-                  ['core.integrations.telescope'] = {},
-                  ['core.integrations.image'] = {},
-                  -- ['core.typst.renderer'] = {
-                  --   config = {
-                  --     dpi = 1000,
-                  --     -- render_on_enter = true,
-                  --     scale = 2,
-                  --   },
-                  -- },
-                  ['core.dirman'] = { -- Manages Neorg workspaces
-                    config = {
-                      workspaces = {
-                        notes = '~/Documents/neorg',
-                      },
-                    },
-                  },
-                },
-              }
-              vim.wo.foldlevel = 99
-              vim.wo.conceallevel = 2
-            '';
-          };
+          # neorg = {
+          #   package = neorg;
+          #   setup = ''
+          #     require('neorg').setup {
+          #       load = {
+          #         ['core.defaults'] = {}, -- Loads default behaviour
+          #         ['core.concealer'] = {}, -- Adds pretty icons to your documents
+          #         ['core.export'] = {}, -- Adds export options
+          #         ['core.integrations.telescope'] = {},
+          #         ['core.integrations.image'] = {},
+          #         -- ['core.typst.renderer'] = {
+          #         --   config = {
+          #         --     dpi = 1000,
+          #         --     -- render_on_enter = true,
+          #         --     scale = 2,
+          #         --   },
+          #         -- },
+          #         ['core.dirman'] = { -- Manages Neorg workspaces
+          #           config = {
+          #             workspaces = {
+          #               notes = '~/Documents/neorg',
+          #             },
+          #           },
+          #         },
+          #       },
+          #     }
+          #     vim.wo.foldlevel = 99
+          #     vim.wo.conceallevel = 2
+          #   '';
+          # };
         };
         # startPlugins = with pkgs; [
         #   luajitPackages.lua-utils-nvim
+        #   luajitPackages.rocks-nvim
         #   vimPlugins.nvim-nio
         #   luajitPackages.pathlib-nvim
         #   vimPlugins.plenary-nvim
