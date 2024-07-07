@@ -4,6 +4,10 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
     stylix.url = "github:danth/stylix";
@@ -44,6 +48,7 @@
     hyprland,
     stylix,
     home-manager,
+    lix-module,
     muse-sounds-manager,
     ...
   } @ inputs: let
@@ -58,6 +63,7 @@
         # > Our main nixos configuration file <
         modules = [
           ./nixos/laptop/configuration.nix
+          lix-module.nixosModules.default
           ./ollama.nix
         ];
       };
@@ -66,6 +72,7 @@
         # > Our main nixos configuration file <
         modules = [
           ./nixos/pc/configuration.nix
+          lix-module.nixosModules.default
           ./ollamaRocm.nix
         ];
       };
