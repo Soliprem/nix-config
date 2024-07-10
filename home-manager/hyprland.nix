@@ -218,6 +218,7 @@ in {
           "$mod, w, exec, firefox"
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "
+          "$mod+Shift, Q, exec, hyprctl kill"
           "$mod, d, exec, fuzzel"
           "$mod SHIFT, d, exec, fuzzel-run"
           "$mod+Alt, s, movetoworkspacesilent, special"

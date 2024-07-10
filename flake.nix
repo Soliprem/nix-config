@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,6 +51,7 @@
     home-manager,
     lix-module,
     muse-sounds-manager,
+    pipewire-screenaudio,
     ...
   } @ inputs: let
     inherit (self) outputs;

@@ -50,17 +50,19 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    nushell
+    protonup-qt
+    telegram-desktop
     ladybird
     pavucontrol
     gamescope
-    qjackctl
+    qpwgraph
     brightnessctl
     brave
     hugo
     stremio
     fd
     killall
-    qutebrowser
     zathura
     yad
     musescore
