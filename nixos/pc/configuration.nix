@@ -120,7 +120,7 @@
   programs = {
     fish.enable = true;
     zsh.enable = true;
-    river.enable = true;
+    # river.enable = true;
     steam = {
       enable = true;
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server

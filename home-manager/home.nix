@@ -14,6 +14,7 @@
     ./hyprland.nix
     # ./schizofox.nix
     ./mako.nix
+    ./river.nix
     ./theming.nix
     ./stylix.nix
     ./kitty.nix
@@ -50,6 +51,7 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    rofi-wayland
     prismlauncher
     nushell
     protonup-qt
@@ -68,7 +70,7 @@
     yad
     musescore
     darktable
-    nextcloud-client
+    # nextcloud-client
     planify
     mpv
     btop
