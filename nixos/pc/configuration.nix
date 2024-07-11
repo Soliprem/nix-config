@@ -15,10 +15,17 @@
   # fileSystems."/home".neededForBoot = true;
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.efiInstallAsRemovable = true;
-  boot.loader.grub.efiSupport = true;
+  boot = {
+    loader = {
+      grub = {
+        enable = true;
+        device = "nodev";
+        efiInstallAsRemovable = true;
+        efiSupport = true;
+      };
+    };
+    initrd.kernelModules = ["amdgpu"];
+  };
 
   networking.hostName = "nixos-pc"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -82,6 +89,15 @@
     graphics.enable = true;
     enableAllFirmware = true;
     bluetooth.enable = true;
+    opengl = {
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        amdvlk
+      ];
+      extraPackages32 = with pkgs; [
+        driversi686Linux.amdvlk
+      ];
+    };
   };
   security.rtkit.enable = true;
   services.pipewire = {

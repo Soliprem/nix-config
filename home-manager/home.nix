@@ -50,6 +50,7 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    prismlauncher
     nushell
     protonup-qt
     telegram-desktop
