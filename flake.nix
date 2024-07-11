@@ -16,8 +16,8 @@
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
     Hyprspace = {
-      # url = "github:KZDKM/Hyprspace";
-      url = "github:ReshetnikovPavel/Hyprspace";
+      url = "github:KZDKM/Hyprspace";
+      # url = "github:ReshetnikovPavel/Hyprspace";
       inputs.hyprland.follows = "hyprland";
     };
     hycov = {
@@ -75,7 +75,8 @@
         modules = [
           ./nixos/pc/configuration.nix
           lix-module.nixosModules.default
-          ./ollamaRocm.nix
+          # ./ollamaRocm.nix
+          ./ollama.nix
         ];
       };
     };
