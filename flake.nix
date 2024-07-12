@@ -4,7 +4,6 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    erosanix.url = "github:emmanuelrosa/erosanix";
     pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
@@ -51,7 +50,6 @@
     stylix,
     home-manager,
     lix-module,
-    erosanix,
     muse-sounds-manager,
     pipewire-screenaudio,
     ...
@@ -77,8 +75,8 @@
         modules = [
           ./nixos/pc/configuration.nix
           lix-module.nixosModules.default
-          erosanix.systemPackages.x86_64-linux.protonvpn
           # ./system/ollamaRocm.nix
+          ./system/ollama.nix
           ./system/protonvpn.nix
         ];
       };
