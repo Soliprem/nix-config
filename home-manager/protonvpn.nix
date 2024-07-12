@@ -1,0 +1,5 @@
+{
+  services.protonvpn = {
+    enabled = true;
+  };
+}
