@@ -68,7 +68,7 @@
         modules = [
           ./nixos/laptop/configuration.nix
           lix-module.nixosModules.default
-          ./ollama.nix
+          ./system/ollama.nix
         ];
       };
       nixos-pc = nixpkgs.lib.nixosSystem {
@@ -77,8 +77,9 @@
         modules = [
           ./nixos/pc/configuration.nix
           lix-module.nixosModules.default
-          # ./ollamaRocm.nix
-          ./ollama.nix
+          erosanix.systemPackages.x86_64-linux.protonvpn
+          # ./system/ollamaRocm.nix
+          ./system/protonvpn.nix
         ];
       };
     };
@@ -94,7 +95,6 @@
         modules = [
           ./home-manager/home.nix
           nvf.homeManagerModules.default
-          erosanix.systemPackages.x86_64-linux.protonvpn
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
         ];
