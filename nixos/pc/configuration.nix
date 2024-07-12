@@ -86,11 +86,11 @@
   # Enable sound with pipewire.
   hardware = {
     pulseaudio.enable = false;
-    graphics.enable = true;
     enableAllFirmware = true;
     bluetooth.enable = true;
-    opengl = {
-      driSupport32Bit = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         amdvlk
       ];

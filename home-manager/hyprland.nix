@@ -239,8 +239,10 @@ in {
 
           # Special
           "$mod+Alt, F, fakefullscreen, 0"
-          # "$mod+Shift, g, hyprexpo:expo, toggle"
-          "$mod, g, overview:toggle"
+
+          # Plugins
+          "$mod+Shift, g, hyprexpo:expo, toggle"
+          # "$mod, g, overview:toggle"
           # "Alt, Tab, hycov:toggleoverview"
 
           # screenshots
@@ -282,8 +284,8 @@ in {
       ];
     };
     plugins = [
-      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
