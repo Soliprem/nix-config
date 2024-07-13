@@ -1,6 +1,6 @@
-{
-  services.softether = {
+{pkgs, ...}: {
+  services.mullvad-vpn = {
     enable = true;
-    vpnclient.enable = true;
+    package = pkgs.mullvad-vpn;
   };
 }

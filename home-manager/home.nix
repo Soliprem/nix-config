@@ -20,7 +20,6 @@
     ./kitty.nix
     ./foot.nix
     ./nvim.nix
-    ./vpn.nix
   ];
 
   nixpkgs = {
