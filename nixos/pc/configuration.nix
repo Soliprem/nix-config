@@ -67,10 +67,13 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services = {
-    xserver.enable = true;
+    # xserver.enable = true;
 
     # Enable the KDE Plasma Desktop Environment.
-    displayManager.sddm.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
     # services.desktopManager.plasma6.enable = true;
 
     # Configure keymap in X11
@@ -78,6 +81,7 @@
       layout = "eu";
       options = "caps:swapescape";
     };
+    # gnome.gnome-keyring.enable = true;
   };
 
   # Enable CUPS to print documents.

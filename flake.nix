@@ -67,6 +67,7 @@
           ./nixos/laptop/configuration.nix
           lix-module.nixosModules.default
           ./system/ollama.nix
+          ./system/vpn.nix
         ];
       };
       nixos-pc = nixpkgs.lib.nixosSystem {
@@ -77,7 +78,7 @@
           lix-module.nixosModules.default
           # ./system/ollamaRocm.nix
           ./system/ollama.nix
-          ./system/protonvpn.nix
+          ./system/vpn.nix
         ];
       };
     };
