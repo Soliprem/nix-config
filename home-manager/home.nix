@@ -13,6 +13,7 @@
     # inputs.nix-colors.homeManagerModule
     ./hyprland.nix
     # ./schizofox.nix
+    ./tofi.nix
     ./mako.nix
     ./river.nix
     ./theming.nix
@@ -70,7 +71,8 @@
     yad
     musescore
     darktable
-    # nextcloud-client
+    qutebrowser
+    nextcloud-client
     planify
     mpv
     btop
