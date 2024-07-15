@@ -208,7 +208,8 @@ in {
       ];
       bind =
         [
-          "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
+          # "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
+          "$mod, V, exec, pkill tofi || cliphist list | tofi | cliphist decode | wl-copy"
           "$mod+Shift, space, togglefloating"
           "$mod, t, exec, notify-time"
           "$mod+Shift, v, exec, notify-volume"
@@ -219,8 +220,9 @@ in {
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "
           "$mod+Shift, Q, exec, hyprctl kill"
-          "$mod, d, exec, fuzzel"
-          "$mod SHIFT, d, exec, fuzzel-run"
+          "$mod, d, exec, tofi-drun"
+          "$mod, o, exec, dm-hub"
+          "$mod SHIFT, d, exec, tofi-run"
           "$mod+Alt, s, movetoworkspacesilent, special"
           "$mod, s, togglespecialworkspace"
 
