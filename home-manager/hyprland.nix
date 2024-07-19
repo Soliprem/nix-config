@@ -158,8 +158,11 @@ in {
         "eDP-1, 1920x1200@60.0030,0x0,1"
         "HDMI-A-1, 1920x1080@120,0x0,1"
       ];
-      input.kb_layout = "eu";
-      input.kb_options = "caps:swapescape";
+      input = {
+        kb_layout = "eu";
+        kb_options = "caps:swapescape";
+        follow_mouse = 2;
+      };
       general = {
         # Gaps and border
         gaps_in = 4;
@@ -210,6 +213,7 @@ in {
         [
           # "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
           "$mod, V, exec, pkill tofi || cliphist list | tofi | cliphist decode | wl-copy"
+          "$mod,tab,focuscurrentorlast"
           "$mod+Shift, space, togglefloating"
           "$mod, t, exec, notify-time"
           "$mod+Shift, v, exec, notify-volume"
@@ -222,7 +226,7 @@ in {
           "$mod+Shift, Q, exec, hyprctl kill"
           "$mod, d, exec, tofi-drun"
           "$mod, o, exec, dm-hub"
-          "$mod SHIFT, d, exec, tofi-run"
+          "$mod SHIFT, d, exec, $(tofi-run)"
           "$mod+Alt, s, movetoworkspacesilent, special"
           "$mod, s, togglespecialworkspace"
 

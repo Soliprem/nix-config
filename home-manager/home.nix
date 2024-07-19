@@ -52,6 +52,12 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    gamemode
+    chatterino2
+    librewolf
+    wtype
+    udict
+    didyoumean
     fzf
     rofi-wayland
     prismlauncher

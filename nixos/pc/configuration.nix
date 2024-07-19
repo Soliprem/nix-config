@@ -135,7 +135,7 @@
   users.users.soliprem = {
     isNormalUser = true;
     description = "Francesco Prem Solidoro";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "gamemode"];
     packages = with pkgs; [
       thunderbird
       mommy
