@@ -52,6 +52,7 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    kanata
     gamemode
     chatterino2
     librewolf

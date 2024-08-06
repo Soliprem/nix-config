@@ -290,6 +290,18 @@
           #     vim.wo.conceallevel = 2
           #   '';
           # };
+          markview = {
+            package = pkgs.vimUtils.buildVimPlugin {
+              name = "markview.nvim";
+              src = pkgs.fetchFromGitHub {
+                owner = "OXY2DEV";
+                repo = "markview.nvim";
+                rev = "v19.0.0";
+                hash = "sha256-c1iYZmJXrAOkhyV9K97xPQbHdS/RFoktwhwG5ngXzsk=";
+              };
+              setup = "require('markview').setup()";
+            };
+          };
           mkdnflow = {
             package = mkdnflow-nvim;
             setup = ''
