@@ -52,6 +52,9 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    fractal
+    srain
+    zed-editor
     kanata
     gamemode
     chatterino2
@@ -65,7 +68,7 @@
     nushell
     protonup-qt
     telegram-desktop
-    ladybird
+    # ladybird
     pavucontrol
     gamescope
     qpwgraph
@@ -94,7 +97,7 @@
     element-desktop-wayland
     typst
     xfce.thunar
-    gnome.nautilus
+    nautilus
     spotube
     glib
     yazi
@@ -104,6 +107,10 @@
     sioyek
     inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
     inputs.iio-hyprland.packages.${pkgs.system}.default
+    python312Packages.simple-websocket-server
+    python312Packages.pynvim
+    python312Packages.requests
+    python312
   ];
 
   fonts.fontconfig.enable = true;

@@ -150,7 +150,7 @@ in {
         "rounding 20, onworkspace:1"
         "opacity 1 override 1 override, class: ^(mpv|steam_app)(.*)$"
         "opacity 1 override 1 override, title: ^(.*.)(YouTube|Invidious)(.*)$"
-        "fakefullscreen,class:^(firefox)$, title:^((?!Enter name of file to save to…|Save))"
+        "fullscreenstate -1 2,class:^(firefox)$, title:^((?!Enter name of file to save to…|Save))"
         "workspace special,title:^(Firefox — Sharing Indicator)$"
       ];
       monitor = [
@@ -162,6 +162,12 @@ in {
         kb_layout = "eu";
         kb_options = "caps:swapescape";
         follow_mouse = 2;
+        touchpad = {
+          natural_scroll = "yes";
+          disable_while_typing = true;
+          clickfinger_behavior = true;
+          scroll_factor = 0.5;
+        };
       };
       general = {
         # Gaps and border
@@ -244,7 +250,7 @@ in {
           " SUPERSHIFT, f, fullscreen, 0  # [hidden]"
 
           # Special
-          "$mod+Alt, F, fakefullscreen, 0"
+          "$mod+Alt, F, fullscreenstate, -1 2"
 
           # Plugins
           # "$mod+Shift, g, hyprexpo:expo, toggle"
