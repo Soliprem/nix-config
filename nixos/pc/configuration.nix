@@ -125,10 +125,14 @@
     fish.enable = true;
     zsh.enable = true;
     # river.enable = true;
-    steam = {
+    # steam = {
+    #   enable = true;
+    #   dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    #   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfer
+    # };
+    hyprland = {
       enable = true;
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfer
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
   };
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -153,10 +157,6 @@
   # programs.firefox.enable = true;
 
   # Install Hyprland
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  };
   services.hypridle.enable = true;
   programs.hyprlock.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
