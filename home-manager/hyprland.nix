@@ -159,8 +159,8 @@ in {
         "HDMI-A-1, 1920x1080@120,0x0,1"
       ];
       input = {
-        kb_layout = "eu";
-        kb_options = "caps:swapescape";
+        kb_layout = "eu, it";
+        kb_options = "caps:swapescape, grp:alt_space_toggle";
         follow_mouse = 2;
         touchpad = {
           natural_scroll = "yes";
@@ -226,6 +226,7 @@ in {
           "$mod, b, exec, notify-battery"
           ", Print, exec, grimblast copy area"
           "$mod, E, exec, nautilus --new-window"
+          "$mod, Period, exec, tofi-emoji"
           "$mod, w, exec, firefox"
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "

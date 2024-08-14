@@ -5,7 +5,7 @@
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
-      size = 32;
+      size = 24;
     };
     image = ../assets/bg;
     polarity = "dark";
