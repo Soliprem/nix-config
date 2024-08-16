@@ -110,9 +110,9 @@
           };
         };
 
+        # vim.g.nvim_ghost_use_script = 1
+        # vim.g.nvim_ghost_python_executable = 'python'
         luaConfigRC.basic = ''
-          vim.g.nvim_ghost_use_script = 1
-          vim.g.nvim_ghost_python_executable = 'python'
           vim.opt.undofile = true
           vim.opt.ignorecase = true
           vim.opt.smartcase = true
@@ -253,20 +253,20 @@
         };
 
         extraPlugins = with pkgs.vimPlugins; {
-          ghost-nvim = {
-            package = pkgs.vimUtils.buildVimPlugin {
-              name = "ghost-nvim";
-              src = pkgs.fetchFromGitHub {
-                owner = "subnut";
-                repo = "nvim-ghost.nvim";
-                rev = "v0.5.4";
-                hash = "sha256-XldDgPqVeIfUjaRLVUMp88eHBHLzoVgOmT3gupPs+ao=";
-              };
-              setup = ''
-                require('ghost').setup(),
-              '';
-            };
-          };
+          # ghost-nvim = {
+          #   package = pkgs.vimUtils.buildVimPlugin {
+          #     name = "ghost-nvim";
+          #     src = pkgs.fetchFromGitHub {
+          #       owner = "subnut";
+          #       repo = "nvim-ghost.nvim";
+          #       rev = "v0.5.4";
+          #       hash = "sha256-XldDgPqVeIfUjaRLVUMp88eHBHLzoVgOmT3gupPs+ao=";
+          #     };
+          #     setup = ''
+          #       require('ghost').setup(),
+          #     '';
+          #   };
+          # };
           oil = {
             package = pkgs.vimPlugins.oil-nvim;
             setup = "require('oil').setup()";

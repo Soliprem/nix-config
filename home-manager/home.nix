@@ -52,6 +52,10 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    kdeconnect
+    beeper
+    affine
+    bat
     fractal
     srain
     zed-editor
