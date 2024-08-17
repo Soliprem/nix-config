@@ -41,6 +41,9 @@
       # Disable if you don't want unfree packages
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
+      permittedInsecurePackages = [
+        "electron-27.3.11"
+      ];
       allowUnfreePredicate = _: true;
     };
   };
@@ -52,6 +55,8 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    logseq
+    obsidian
     kdeconnect
     beeper
     affine
