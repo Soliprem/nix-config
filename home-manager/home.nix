@@ -20,7 +20,7 @@
     ./stylix.nix
     ./kitty.nix
     ./foot.nix
-    ./nvim.nix
+    # ./nvf.nix
   ];
 
   nixpkgs = {

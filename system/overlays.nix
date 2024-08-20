@@ -1,10 +1,10 @@
 {
   neorg-overlay,
-  sonicksnvim,
+  soniksnvim,
   ...
 }: {
   nixpkgs.overlays = [
     neorg-overlay.overlays.default
-    sonicksnvim.overlays.default
+    soniksnvim.overlays.default
   ];
 }
