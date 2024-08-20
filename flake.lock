@@ -3258,11 +3258,11 @@
         "nixpkgs": "nixpkgs_14"
       },
       "locked": {
-        "lastModified": 1724164988,
-        "narHash": "sha256-xpCxcoT/+xOMrvltRRzt5EmPFm8A2dQOorsJBmE6ucI=",
+        "lastModified": 1724170979,
+        "narHash": "sha256-neMXch6lHkTLoqJsQ7bEq0mP8RipgKc2BGkGBE4ujsA=",
         "owner": "Soliprem",
         "repo": "soniksnvim",
-        "rev": "33216b038a5643a4257781cfac3d4a3d4b3941ae",
+        "rev": "7a3e6852a76bbf7bb9816625d85a335fcf44c13f",
         "type": "github"
       },
       "original": {

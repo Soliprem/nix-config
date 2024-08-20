@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
     soniksnvim.url = "github:Soliprem/soniksnvim";
     pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     lix-module = {
@@ -46,6 +47,7 @@
   outputs = {
     self,
     nixpkgs,
+    nix-flatpak,
     nvf,
     hyprland,
     stylix,
@@ -97,6 +99,7 @@
           nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
+          nix-flatpak.homeManagerModules.default
         ];
       };
       "soliprem@nixos-pc" = home-manager.lib.homeManagerConfiguration {

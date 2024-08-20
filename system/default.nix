@@ -7,7 +7,7 @@
     # ./packages.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    nvim-pkg
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   nvim-pkg
+  # ];
 }

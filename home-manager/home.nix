@@ -20,6 +20,7 @@
     ./stylix.nix
     ./kitty.nix
     ./foot.nix
+    ./flatpak.nix
     # ./nvf.nix
   ];
 
@@ -28,6 +29,7 @@
     overlays = [
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
+      inputs.soniksnvim.overlays.default
 
       # Or define it inline, for example:
       # (final: prev: {
@@ -55,6 +57,7 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    nvim-pkg
     logseq
     obsidian
     kdeconnect
@@ -103,7 +106,7 @@
     fuzzel
     nerdfonts
     swww
-    element-desktop-wayland
+    # element-desktop-wayland
     typst
     xfce.thunar
     nautilus
