@@ -46,14 +46,12 @@
   outputs = {
     self,
     nixpkgs,
-    neorg-overlay,
     nvf,
     hyprland,
     stylix,
     home-manager,
     lix-module,
     muse-sounds-manager,
-    soniksnvim,
     pipewire-screenaudio,
     ...
   } @ inputs: let
