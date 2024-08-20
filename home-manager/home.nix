@@ -55,6 +55,7 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    nvim-pkg
     logseq
     obsidian
     kdeconnect
@@ -77,7 +78,7 @@
     nushell
     protonup-qt
     telegram-desktop
-    # ladybird
+    ladybird
     pavucontrol
     gamescope
     qpwgraph

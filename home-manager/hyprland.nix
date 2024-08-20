@@ -230,6 +230,7 @@ in {
           "$mod, w, exec, firefox"
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "
+          "$mod, n, exec, dm-notes"
           "$mod+Shift, Q, exec, hyprctl kill"
           "$mod, d, exec, tofi-drun"
           "$mod, o, exec, dm-hub"
@@ -254,7 +255,7 @@ in {
           "$mod+Alt, F, fullscreenstate, -1 2"
 
           # Plugins
-          # "$mod+Shift, g, hyprexpo:expo, toggle"
+          "$mod+Shift, g, hyprexpo:expo, toggle"
           # "$mod, g, overview:toggle"
           # "Alt, Tab, hycov:toggleoverview"
 
@@ -298,7 +299,7 @@ in {
     };
     plugins = [
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];

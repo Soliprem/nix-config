@@ -4,12 +4,13 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    sonicksnvim.url = "github:Soliprem/sonicksnvim";
     pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+    # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
     stylix.url = "github:danth/stylix";
     hyprland = {
@@ -45,13 +46,14 @@
   outputs = {
     self,
     nixpkgs,
-    neorg-overlay,
+    # neorg-overlay,
     nvf,
     hyprland,
     stylix,
     home-manager,
     lix-module,
     muse-sounds-manager,
+    sonicksnvim,
     pipewire-screenaudio,
     ...
   } @ inputs: let

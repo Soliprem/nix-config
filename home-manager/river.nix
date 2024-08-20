@@ -15,8 +15,8 @@
       mod="Mod4"
 
       # Mod+D to launch rofi
-      riverctl map -repeat normal $mod D spawn "rofi -show run"
-      riverctl map -repeat normal $mod+Shift D spawn "rofi -show drun"
+      riverctl map -repeat normal $mod D spawn "tofi-run | sh"
+      riverctl map -repeat normal $mod+Shift D spawn "tofi-drun"
 
       # Bind useful Scripts
       riverctl map -repeat normal $mod g spawn "dm-dictionary"
