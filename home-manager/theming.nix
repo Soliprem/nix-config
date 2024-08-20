@@ -15,10 +15,6 @@
   # };
   gtk = {
     enable = true;
-    # theme = {
-    #   name = "tokyonight-gtk";
-    #   package = pkgs.tokyonight-gtk-theme;
-    # };
 
     iconTheme = {
       name = "Adwaita";
