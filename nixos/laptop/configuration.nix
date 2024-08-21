@@ -125,7 +125,7 @@
       armcord
       wl-clipboard
     ];
-    shell = pkgs.fish;
+    shell = pkgs.nushell;
   };
 
   # Install firefox.
@@ -149,8 +149,6 @@
     git
     wget
     fastfetch
-    zoxide
-    eza
     keepassxc
     libgccjit
     linearicons-free

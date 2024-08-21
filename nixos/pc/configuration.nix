@@ -171,8 +171,6 @@
     git
     wget
     fastfetch
-    zoxide
-    eza
     keepassxc
     networkmanagerapplet
     libgccjit

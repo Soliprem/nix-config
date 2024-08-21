@@ -110,7 +110,6 @@
       nautilus
       spotube
       glib
-      yazi
       socat
       blueman
       pamixer

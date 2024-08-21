@@ -10,7 +10,7 @@
       confirm_os_window_close = "0";
       remember_window_size = "no";
       disable_ligatures = "never";
-      shell = "${pkgs.fish}/bin/fish";
+      shell = "nu";
       url_style = "curly";
       cursor_shape = "Underline";
 
