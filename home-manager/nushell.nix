@@ -7,6 +7,7 @@
           show_banner: false
           edit_mode: vi
           }
+        greeting
           '';
       shellAliases = {
         # Verbosity and settings that you pretty much just always are going to want.
