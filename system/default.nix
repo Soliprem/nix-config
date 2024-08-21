@@ -7,10 +7,7 @@
     ./services.nix
     ./regreet.nix
     ./environment.nix
-    # ./packages.nix
+    ./packages.nix
   ];
 
-  # environment.systemPackages = with pkgs; [
-  #   nvim-pkg
-  # ];
 }

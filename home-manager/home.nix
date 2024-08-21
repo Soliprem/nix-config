@@ -20,6 +20,7 @@
     ./stylix.nix
     ./kitty.nix
     ./foot.nix
+    ./nushell.nix
     # ./nvf.nix
   ];
 
@@ -52,11 +53,6 @@
   home = {
     username = "soliprem";
     homeDirectory = "/home/soliprem";
-    sessionPath = [
-      "~/.local/bin/dmenu/"
-      "~/.local/bin/notify/"
-      "~/.local/bin/neovim/"
-      ];
     packages = with pkgs; [
       freetube
       appimage-run
@@ -80,7 +76,6 @@
       fzf
       rofi-wayland
       prismlauncher
-      nushell
       protonup-qt
       telegram-desktop
       ladybird
