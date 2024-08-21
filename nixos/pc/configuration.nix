@@ -150,7 +150,7 @@
       armcord
       wl-clipboard
     ];
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
   virtualisation.docker.enable = true;
   # Install firefox.
