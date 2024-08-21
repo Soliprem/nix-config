@@ -4,6 +4,7 @@
     ./printing.nix
     ./steam.nix
     ./overlays.nix
+    ./services.nix
     # ./packages.nix
   ];
 
