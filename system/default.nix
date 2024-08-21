@@ -5,6 +5,7 @@
     ./steam.nix
     ./overlays.nix
     ./services.nix
+    ./greetd.nix
     # ./packages.nix
   ];
 
