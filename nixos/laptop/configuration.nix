@@ -125,7 +125,7 @@
       armcord
       wl-clipboard
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   # Install firefox.
