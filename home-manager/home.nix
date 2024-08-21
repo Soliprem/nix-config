@@ -52,80 +52,85 @@
   home = {
     username = "soliprem";
     homeDirectory = "/home/soliprem";
+    sessionPath = [
+      "~/.local/bin/dmenu/"
+      "~/.local/bin/notify/"
+      "~/.local/bin/neovim/"
+      ];
+    packages = with pkgs; [
+      freetube
+      appimage-run
+      nvim-pkg
+      logseq
+      obsidian
+      kdeconnect
+      beeper
+      affine
+      bat
+      fractal
+      srain
+      zed-editor
+      kanata
+      gamemode
+      chatterino2
+      librewolf
+      wtype
+      udict
+      didyoumean
+      fzf
+      rofi-wayland
+      prismlauncher
+      nushell
+      protonup-qt
+      telegram-desktop
+      ladybird
+      pavucontrol
+      gamescope
+      qpwgraph
+      brightnessctl
+      brave
+      hugo
+      stremio
+      fd
+      killall
+      zathura
+      yad
+      musescore
+      darktable
+      qutebrowser
+      nextcloud-client
+      planify
+      mpv
+      btop
+      termdown
+      timer
+      cliphist
+      hyprshot
+      fuzzel
+      nerdfonts
+      swww
+      # element-desktop-wayland
+      typst
+      xfce.thunar
+      nautilus
+      spotube
+      glib
+      yazi
+      socat
+      blueman
+      pamixer
+      sioyek
+      inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
+      inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
+      inputs.iio-hyprland.packages.${pkgs.system}.default
+      python312Packages.simple-websocket-server
+      python312Packages.pynvim
+      python312Packages.requests
+      python312
+    ];
   };
 
   # Add stuff for your user as you see fit:
-  home.packages = with pkgs; [
-    freetube
-    appimage-run
-    nvim-pkg
-    logseq
-    obsidian
-    kdeconnect
-    beeper
-    affine
-    bat
-    fractal
-    srain
-    zed-editor
-    kanata
-    gamemode
-    chatterino2
-    librewolf
-    wtype
-    udict
-    didyoumean
-    fzf
-    rofi-wayland
-    prismlauncher
-    nushell
-    protonup-qt
-    telegram-desktop
-    ladybird
-    pavucontrol
-    gamescope
-    qpwgraph
-    brightnessctl
-    brave
-    hugo
-    stremio
-    fd
-    killall
-    zathura
-    yad
-    musescore
-    darktable
-    qutebrowser
-    nextcloud-client
-    planify
-    mpv
-    btop
-    termdown
-    timer
-    cliphist
-    hyprshot
-    fuzzel
-    nerdfonts
-    swww
-    # element-desktop-wayland
-    typst
-    xfce.thunar
-    nautilus
-    spotube
-    glib
-    yazi
-    socat
-    blueman
-    pamixer
-    sioyek
-    inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
-    inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
-    inputs.iio-hyprland.packages.${pkgs.system}.default
-    python312Packages.simple-websocket-server
-    python312Packages.pynvim
-    python312Packages.requests
-    python312
-  ];
 
   fonts.fontconfig.enable = true;
 
