@@ -6,6 +6,7 @@
     ./overlays.nix
     ./services.nix
     ./regreet.nix
+    ./environment.nix
     # ./packages.nix
   ];
 
