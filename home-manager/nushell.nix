@@ -28,7 +28,7 @@
         nvimtutor="nvim -c Tutor";
         cat="bat";
         # ll="exa --long --header --icons --color-scale all --group-directories-first";
-        # l="exa --long --header --icons --color-scale all --group-directories-first";
+        l="ls -l";
         nn="cd ~/.config/nvim/; ls";
         grep="grep --color=auto";
         diff="diff --color=auto";

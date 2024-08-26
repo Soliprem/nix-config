@@ -112,6 +112,7 @@
       glib
       socat
       blueman
+      blueberry
       pamixer
       sioyek
       inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
