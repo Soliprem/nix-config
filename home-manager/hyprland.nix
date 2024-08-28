@@ -219,7 +219,7 @@ in {
       bind =
         [
           # "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
-          "$mod, V, exec, pkill tofi || cliphist list | tofi | cliphist decode | wl-copy"
+          "$mod, V, exec, pkill walker || cliphist list | walker -d | cliphist decode | wl-copy"
           "$mod,tab,focuscurrentorlast"
           "$mod+Shift, space, togglefloating"
           "$mod, t, exec, notify-time"
@@ -233,9 +233,9 @@ in {
           "$mod, Q, killactive, "
           "$mod, n, exec, dm-notes"
           "$mod+Shift, Q, exec, hyprctl kill"
-          "$mod, d, exec, tofi-drun"
+          "$mod, d, exec, walker"
           "$mod, o, exec, dm-hub"
-          "$mod SHIFT, d, exec, $(tofi-run)"
+          "$mod SHIFT, d, exec, walker -m run"
           "$mod+Alt, s, movetoworkspacesilent, special"
           "$mod, s, togglespecialworkspace"
 
@@ -256,9 +256,8 @@ in {
           "$mod+Alt, F, fullscreenstate, -1 2"
 
           # Plugins
-          # "$mod+Shift, g, hyprexpo:expo, toggle"
-          # "$mod, g, overview:toggle"
-          # "Alt, Tab, hycov:toggleoverview"
+          "$mod+Shift, g, hyprexpo:expo, toggle"
+          "$mod, g, overview:toggle"
 
           # screenshots
           "$mod,P,exec, hyprshot -m output -c # [hidden]"
@@ -299,10 +298,10 @@ in {
       ];
     };
     plugins = [
-      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-      # inputs.hycov.packages.${pkgs.system}.hycov
+      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      pkgs.hyprlandPlugins.hyprexpo
+      pkgs.hyprlandPlugins.hyprtrails
+      inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };
 }

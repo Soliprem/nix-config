@@ -134,7 +134,7 @@
   # Install Hyprland
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
   programs.hyprlock.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

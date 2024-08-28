@@ -54,6 +54,7 @@
     username = "soliprem";
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
+      walker
       impression
       inputs.zen-browser.packages."${system}".default
       rquickshare

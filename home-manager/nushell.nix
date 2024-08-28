@@ -2,12 +2,16 @@
   programs = {
     nushell = {
       enable = true;
+      envFile.text = ''
+        zoxide init --cmd cd nushell | save -f ~/.zoxide.nu
+        '';
       configFile.text = ''
         $env.config = {
           show_banner: false
           edit_mode: vi
           }
         greeting
+        source ~/.zoxide.nu
           '';
       shellAliases = {
         # Verbosity and settings that you pretty much just always are going to want.
@@ -47,7 +51,7 @@
         xr="sudo xbps-remove -R";
         xq="xbps-query";
         config="/usr/bin/git --git-dir=/home/soliprem/.cfg/ --work-tree=/home/soliprem";
-        cd="z";
+        # cd="z";
         z="zathura";
         "cd.."="cd ..";
         lf="lfub";
