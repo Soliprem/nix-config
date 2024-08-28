@@ -17,7 +17,7 @@
         package = pkgs.nerdfonts;
         };
       monospace = {
-        name = "SauceCodePro Nerd Font";
+        name = "SauceCodePro Nerd Font Mono";
         package = pkgs.nerdfonts;
         };
     };

@@ -12,6 +12,11 @@
       layout = "eu";
       options = "caps:swapescape";
     };
+    gvfs.enable = true;
+    udisks2 = {
+      enable = true;
+      # mountOnMedia = true;
+      };
     printing.enable = true;
   };
 }

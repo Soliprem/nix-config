@@ -54,6 +54,9 @@
     username = "soliprem";
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
+      impression
+      inputs.zen-browser.packages."${system}".default
+      rquickshare
       freetube
       appimage-run
       nvim-pkg

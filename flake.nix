@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
     soniksnvim.url = "github:Soliprem/soniksnvim";
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
     pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";

@@ -17,7 +17,7 @@ in {
       "$mod" = "SUPER";
       "$term" = "kitty";
       "$editor" = "nvim";
-      "$browser" = "firefox";
+      "$browser" = "zen";
       decoration = {
         rounding = 20;
 
@@ -152,6 +152,7 @@ in {
         "opacity 1 override 1 override, title: ^(.*.)(YouTube|Invidious)(.*)$"
         "fullscreenstate -1 2,class:^(firefox)$, title:^((?!Enter name of file to save to…|Save))"
         "workspace special,title:^(Firefox — Sharing Indicator)$"
+        "workspace special,title:^(zen — Sharing Indicator)$"
       ];
       monitor = [
         ",preferred,auto,1"
@@ -227,7 +228,7 @@ in {
           ", Print, exec, grimblast copy area"
           "$mod, E, exec, nautilus --new-window"
           "$mod, Period, exec, tofi-emoji"
-          "$mod, w, exec, firefox"
+          "$mod, w, exec, $browser"
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "
           "$mod, n, exec, dm-notes"
