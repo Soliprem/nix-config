@@ -257,7 +257,7 @@ in {
 
           # Plugins
           "$mod+Shift, g, hyprexpo:expo, toggle"
-          "$mod, g, overview:toggle"
+          # "$mod, g, overview:toggle"
 
           # screenshots
           "$mod,P,exec, hyprshot -m output -c # [hidden]"
@@ -292,16 +292,17 @@ in {
       exec-once = [
         "iio-hyprland"
         "keepassxc &"
+        "walker --gapplication-service"
         # "nextcloud"
         "wl-paste --type text --watch cliphist store &"
         "wl-paste --type image --watch cliphist store &"
       ];
     };
     plugins = [
-      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
       pkgs.hyprlandPlugins.hyprexpo
       pkgs.hyprlandPlugins.hyprtrails
-      inputs.hycov.packages.${pkgs.system}.hycov
+      # inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };
 }
