@@ -15,7 +15,7 @@ in {
     enable = true;
     settings = {
       "$mod" = "SUPER";
-      "$term" = "kitty";
+      "$term" = "foot";
       "$editor" = "nvim";
       "$browser" = "zen";
       decoration = {
@@ -219,7 +219,7 @@ in {
       bind =
         [
           # "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
-          "$mod, V, exec, pkill walker || cliphist list | walker -d | cliphist decode | wl-copy"
+          "$mod, V, exec, pkill walker || cliphist list | walker -dk | cliphist decode | wl-copy"
           "$mod,tab,focuscurrentorlast"
           "$mod+Shift, space, togglefloating"
           "$mod, t, exec, notify-time"
@@ -227,14 +227,15 @@ in {
           "$mod, b, exec, notify-battery"
           ", Print, exec, grimblast copy area"
           "$mod, E, exec, nautilus --new-window"
-          "$mod, Period, exec, tofi-emoji"
+          "$mod, Period, exec, walker -m emoji"
           "$mod, w, exec, $browser"
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "
           "$mod, n, exec, dm-notes"
           "$mod+Shift, Q, exec, hyprctl kill"
-          "$mod, d, exec, walker"
+          "$mod, d, exec, walker -m runner,applications"
           "$mod, o, exec, dm-hub"
+          "$mod+Shift, o, exec, walker -m finder"
           "$mod SHIFT, d, exec, walker -m run"
           "$mod+Alt, s, movetoworkspacesilent, special"
           "$mod, s, togglespecialworkspace"
@@ -257,7 +258,7 @@ in {
 
           # Plugins
           "$mod+Shift, g, hyprexpo:expo, toggle"
-          "$mod, g, overview:toggle"
+          # "$mod, g, overview:toggle"
 
           # screenshots
           "$mod,P,exec, hyprshot -m output -c # [hidden]"
@@ -295,13 +296,14 @@ in {
         # "nextcloud"
         "wl-paste --type text --watch cliphist store &"
         "wl-paste --type image --watch cliphist store &"
+        "walker --gapplication-service"
       ];
     };
     plugins = [
-      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
       pkgs.hyprlandPlugins.hyprexpo
       pkgs.hyprlandPlugins.hyprtrails
-      inputs.hycov.packages.${pkgs.system}.hycov
+      # inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };
 }

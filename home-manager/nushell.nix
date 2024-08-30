@@ -9,7 +9,23 @@
         $env.config = {
           show_banner: false
           edit_mode: vi
-          }
+          keybindings: [
+            {
+              name: history_completion
+              modifier: control
+              keycode: char_f
+              mode: [vi_normal, vi_insert]
+              event: { send: HistoryHintComplete }
+            }
+            {
+              name: history_completion
+              modifier: Control_Shift
+              keycode: char_f
+              mode: [vi_normal, vi_insert]
+              event: { send: HistoryHintWordComplete }
+            }
+          ]
+        }
         greeting
         source ~/.zoxide.nu
           '';

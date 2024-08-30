@@ -8,7 +8,7 @@
   programs.foot.settings = {
     main = {
       term = "xterm-256color";
-      shell = "fish";
+      shell = "nu";
 
       # dpi-aware = "yes";
     };

@@ -54,8 +54,6 @@
     username = "soliprem";
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
-      loupe
-      transmission_4-gtk
       walker
       cowsay
       fortune
@@ -86,6 +84,7 @@
       gamescope
       qpwgraph
       brightnessctl
+      brave
       hugo
       stremio
       fd
@@ -104,7 +103,8 @@
       cliphist
       hyprshot
       fuzzel
-      nerdfonts
+      nerdfonts.override
+      {fonts = ["SauceCode Pro"];}
       swww
       # element-desktop-wayland
       typst
