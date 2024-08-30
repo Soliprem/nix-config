@@ -1,0 +1,121 @@
+2,3c2,3
+< # your system.  Help is available in the configuration.nix(5) man page
+< # and in the NixOS manual (accessible by running ‘nixos-help’).
+---
+> # your system. Help is available in the configuration.nix(5) man page, on
+> # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
+6a7
+>   lib,
+13a15
+>   # fileSystems."/home".neededForBoot = true;
+15,20c17,28
+<   # Bootloader.
+<   boot.loader.systemd-boot.enable = true;
+<   boot.loader.efi.canTouchEfiVariables = true;
+< 
+<   networking.hostName = "nixos-laptop"; # Define your hostname.
+<   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+---
+>   # Use the systemd-boot EFI boot loader.
+>   boot = {
+>     loader = {
+>       grub = {
+>         enable = true;
+>         device = "nodev";
+>         efiInstallAsRemovable = true;
+>         efiSupport = true;
+>       };
+>     };
+>     initrd.kernelModules = ["amdgpu"];
+>   };
+21a30,31
+>   networking.hostName = "nixos-pc"; # Define your hostname.
+>   # Pick only one of the below networking options.
+63c73,76
+<   #   # displayManager.sddm.enable = true;
+---
+>   #   displayManager.sddm = {
+>   #     enable = true;
+>   #     wayland.enable = true;
+>   #   };
+67d79
+<   #   hypridle.enable = true;
+72c84
+<   #   printing.enable = true;
+---
+>   #   # gnome.gnome-keyring.enable = true;
+75a88
+>   # services.printing.enable = true;
+80c93
+<     sensor.iio.enable = true;
+---
+>     enableAllFirmware = true;
+81a95,104
+>     graphics = {
+>       enable = true;
+>       enable32Bit = true;
+>       extraPackages = with pkgs; [
+>         amdvlk
+>       ];
+>       extraPackages32 = with pkgs; [
+>         driversi686Linux.amdvlk
+>       ];
+>     };
+90c113
+<     #jack.enable = true;
+---
+>     jack.enable = true;
+95,104d117
+<     wireplumber = {
+<       enable = true;
+<       extraConfig = {
+<         "10-disable-camera" = {
+<           "wireplumber.profiles" = {
+<             main."monitor.libcamera" = "disabled";
+<           };
+<         };
+<       };
+<     };
+111,112c124,137
+<   programs.fish.enable = true;
+<   programs.zsh.enable = true;
+---
+>   programs = {
+>     fish.enable = true;
+>     zsh.enable = true;
+>     # river.enable = true;
+>     # steam = {
+>     #   enable = true;
+>     #   dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+>     #   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfer
+>     # };
+>     hyprland = {
+>       enable = true;
+>       # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+>     };
+>   };
+117c142
+<     extraGroups = ["networkmanager" "wheel"];
+---
+>     extraGroups = ["networkmanager" "wheel" "gamemode"];
+128c153
+<     shell = pkgs.nushell;
+---
+>     shell = pkgs.fish;
+130c155
+< 
+---
+>   virtualisation.docker.enable = true;
+135,138c160
+<   programs.hyprland = {
+<     enable = true;
+<     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+<   };
+---
+>   # services.hypridle.enable = true;
+152a175
+>     networkmanagerapplet
+155a179
+>     # (firefox.override {nativeMessagingHosts = [inputs.pipewire-screenaudio.packages.${pkgs.system}.default];})
+176a201
+> 

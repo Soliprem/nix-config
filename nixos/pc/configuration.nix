@@ -132,7 +132,7 @@
     # };
     hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
   };
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -141,13 +141,6 @@
     description = "Francesco Prem Solidoro";
     extraGroups = ["networkmanager" "wheel" "gamemode"];
     packages = with pkgs; [
-      thunderbird
-      mommy
-      starship
-      lolcat
-      cowsay
-      fortune
-      armcord
       wl-clipboard
     ];
     shell = pkgs.fish;
@@ -176,7 +169,7 @@
     libgccjit
     linearicons-free
     libnotify
-    (firefox.override {nativeMessagingHosts = [inputs.pipewire-screenaudio.packages.${pkgs.system}.default];})
+    # (firefox.override {nativeMessagingHosts = [inputs.pipewire-screenaudio.packages.${pkgs.system}.default];})
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

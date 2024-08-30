@@ -9,17 +9,17 @@
     };
     fonts = {
       serif = {
-        name = "SauceCodePro Nerd Font";
-        package = pkgs.nerdfonts;
-        };
+        name = "inconsolata Nerd Font";
+        package = pkgs.nerdfonts.override {fonts = ["Inconsolata"];};
+      };
       sansSerif = {
-        name = "SauceCodePro Nerd Font";
-        package = pkgs.nerdfonts;
-        };
+        name = "inconsolata Nerd Font";
+        package = pkgs.nerdfonts.override {fonts = ["Inconsolata"];};
+      };
       monospace = {
-        name = "SauceCodePro Nerd Font Mono";
-        package = pkgs.nerdfonts;
-        };
+        name = "inconsolata Nerd Font Mono";
+        package = pkgs.nerdfonts.override {fonts = ["Inconsolata"];};
+      };
     };
     image = ../assets/bg;
     polarity = "dark";
