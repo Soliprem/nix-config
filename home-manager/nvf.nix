@@ -8,6 +8,7 @@
         useSystemClipboard = true;
         viAlias = true;
         vimAlias = true;
+        # undoFile.enable = true;
         debugMode = {
           enable = false;
           level = 16;
@@ -67,7 +68,7 @@
           dart.enable = false;
           bash.enable = true;
           tailwind.enable = false;
-          typst.enable = false;
+          typst.enable = true;
           clang = {
             enable = true;
             lsp.server = "clangd";
@@ -301,18 +302,18 @@
           #     vim.wo.conceallevel = 2
           #   '';
           # };
-          markview = {
-            package = pkgs.vimUtils.buildVimPlugin {
-              name = "markview.nvim";
-              src = pkgs.fetchFromGitHub {
-                owner = "OXY2DEV";
-                repo = "markview.nvim";
-                rev = "v19.0.0";
-                hash = "sha256-c1iYZmJXrAOkhyV9K97xPQbHdS/RFoktwhwG5ngXzsk=";
-              };
-              setup = "require('markview').setup()";
-            };
-          };
+          # markview = {
+          #   package = pkgs.vimUtils.buildVimPlugin {
+          #     name = "markview.nvim";
+          #     src = pkgs.fetchFromGitHub {
+          #       owner = "OXY2DEV";
+          #       repo = "markview.nvim";
+          #       rev = "v19.0.0";
+          #       hash = "sha256-c1iYZmJXrAOkhyV9K97xPQbHdS/RFoktwhwG5ngXzsk=";
+          #     };
+          #     setup = "require('markview').setup()";
+          #   };
+          # };
           mkdnflow = {
             package = mkdnflow-nvim;
             setup = ''
