@@ -233,7 +233,7 @@ in {
           "$mod, Q, killactive, "
           "$mod, n, exec, dm-notes"
           "$mod+Shift, Q, exec, hyprctl kill"
-          "$mod, d, exec, walker -m runner,applications"
+          "$mod, d, exec, walker"
           "$mod, o, exec, dm-hub"
           "$mod+Shift, o, exec, walker -m finder"
           "$mod SHIFT, d, exec, walker -m run"

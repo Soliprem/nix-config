@@ -11,6 +11,8 @@
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
+    inputs.walker.homeManagerModules.default
+    ./walker.nix
     ./hyprland.nix
     # ./schizofox.nix
     ./tofi.nix
@@ -54,9 +56,9 @@
     username = "soliprem";
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
+      hyprshade
       loupe
       transmission_4-gtk
-      walker
       cowsay
       fortune
       starship
