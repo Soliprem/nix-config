@@ -155,18 +155,18 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  # environment.systemPackages = with pkgs; [
     # neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    git
-    wget
-    fastfetch
-    keepassxc
-    networkmanagerapplet
-    libgccjit
-    linearicons-free
-    libnotify
+    # git
+    # wget
+    # fastfetch
+    # keepassxc
+    # networkmanagerapplet
+    # libgccjit
+    # linearicons-free
+    # libnotify
     # (firefox.override {nativeMessagingHosts = [inputs.pipewire-screenaudio.packages.${pkgs.system}.default];})
-  ];
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

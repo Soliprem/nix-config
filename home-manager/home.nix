@@ -68,7 +68,6 @@
       armcord
       impression
       inputs.zen-browser.packages."${system}".default
-      rquickshare
       freetube
       appimage-run
       nvim-pkg
@@ -76,7 +75,6 @@
       kdeconnect
       beeper
       bat
-      kanata
       gamemode
       wtype
       udict
@@ -119,8 +117,7 @@
       blueman
       blueberry
       pamixer
-      sioyek
-      inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
+      # inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
       # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
       # python312Packages.simple-websocket-server
       # python312Packages.pynvim
