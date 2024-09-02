@@ -38,7 +38,7 @@
   outputs = {
     self,
     nixpkgs,
-    nvf,
+    # nvf,
     hyprland,
     stylix,
     home-manager,
@@ -86,7 +86,7 @@
         # > Our main home-manager configuration file <
         modules = [
           ./home-manager/home.nix
-          nvf.homeManagerModules.default
+          # nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
         ];
@@ -97,7 +97,7 @@
         # > Our main home-manager configuration file <
         modules = [
           ./home-manager/home.nix
-          nvf.homeManagerModules.default
+          # nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
         ];
