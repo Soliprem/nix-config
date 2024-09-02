@@ -13,7 +13,7 @@
     # inputs.nix-colors.homeManagerModule
     # inputs.walker.homeManagerModules.default
     # ./walker.nix
-    ./hyprland.nix
+    # ./hyprland.nix
     # ./schizofox.nix
     ./tofi.nix
     ./mako.nix
@@ -107,7 +107,7 @@
       cliphist
       hyprshot
       fuzzel
-      nerdfonts
+      # nerdfonts
       swww
       # element-desktop-wayland
       typst
@@ -122,7 +122,6 @@
       sioyek
       inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
       # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
-      inputs.iio-hyprland.packages.${pkgs.system}.default
       # python312Packages.simple-websocket-server
       # python312Packages.pynvim
       # python312Packages.requests
