@@ -17,7 +17,7 @@
     # ./schizofox.nix
     ./tofi.nix
     ./mako.nix
-    # ./river.nix
+    ./river.nix
     ./theming.nix
     ./stylix.nix
     ./kitty.nix
