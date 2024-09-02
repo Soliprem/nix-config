@@ -39,8 +39,8 @@
       # Mod+E to start an instance of pcmanfm
       # riverctl map normal $mod E spawn pcmanfm
 
-      # Mod+W to start an instance of firefox
-      riverctl map normal $mod W spawn firefox
+      # Mod+W to start an instance of zen
+      riverctl map normal $mod W spawn zen
 
       # Mod+X to start an instance of foot
       riverctl map -repeat normal $mod Return spawn foot
@@ -191,7 +191,7 @@
       done
 
       # Set background and border color
-      river-theme
+      swww img ~/.config/nix-config/assets/bg
 
       riverctl xcursor-theme 'Bibata-Modern-Ice' 24
 
@@ -207,30 +207,12 @@
       riverctl float-filter-add title "popup title with spaces"
 
       ## Autostart
-      # Starts sound stuff
-      riverctl spawn "pipewire"
-      riverctl spawn "waybar-restart"
-      riverctl spawn "pipewire-pulse"
-      riverctl spawn "wireplumber"
-      # Sets wallpaper and launches bar
-      riverctl spawn "swaybg -i $HOME/.config/wpg/.current"
-      # riverctl spawn "flatpak run org.kde.xwaylandvideobridge"
-      # riverctl spawn "waybar"
-      # Starts music player daemon and button support
-      riverctl spawn "mpd"
-      # keyring
-      riverctl spawn "dbus-update-activation-environment --all"
-      # Allows GUI programs to be run as root
-      riverctl spawn "/usr/lib/xfce-polkit/xfce-polkit"
-      # refresh rate
-      riverctl spawn "wlr-randr --output HDMI-A-1 --mode 1920x1080@120Hz"
-      # notifications
-      riverctl spawn "mako"
-      riverctl spawn "blueman-applet"
-      riverctl spawn "nm-applet"
-      # Loads a random song so the bar module looks good
-      # riverctl spawn "sleep 1 && ransong"
-
+      riverctl spawn "iio-hyprland"
+      riverctl spawn "keepassxc &"
+      # "nextcloud"
+      riverctl spawn "wl-paste --type text --watch cliphist store &"
+      riverctl spawn "wl-paste --type image --watch cliphist store &"
+      riverctl spawn "walker --gapplication-service"
       # Set and exec into the default layout generator, rivertile.
       # River will send the process group of the init executable SIGTERM on exit.
       riverctl default-layout rivertile

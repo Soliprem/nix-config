@@ -130,10 +130,6 @@
     #   dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     #   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfer
     # };
-    hyprland = {
-      enable = true;
-      # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    };
   };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.soliprem = {
