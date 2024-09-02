@@ -20,9 +20,9 @@
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
     stylix.url = "github:danth/stylix";
-    # hyprland = {
-    #   url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    # };
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    };
     Hyprspace = {
       url = "github:KZDKM/Hyprspace";
       # inputs.hyprland.follows = "nixpkgs";
@@ -45,7 +45,7 @@
     self,
     nixpkgs,
     nvf,
-    # hyprland,
+    hyprland,
     stylix,
     home-manager,
     lix-module,
@@ -94,7 +94,7 @@
           ./home-manager/home.nix
           nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
-          # hyprland.homeManagerModules.default
+          hyprland.homeManagerModules.default
         ];
       };
       "soliprem@nixos-pc" = home-manager.lib.homeManagerConfiguration {
@@ -105,7 +105,7 @@
           ./home-manager/home.nix
           nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
-          # hyprland.homeManagerModules.default
+          hyprland.homeManagerModules.default
         ];
       };
     };
