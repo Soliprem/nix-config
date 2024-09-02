@@ -31,7 +31,7 @@
           '';
       shellAliases = {
         # Verbosity and settings that you pretty much just always are going to want.
-        river="XKB_DEFAULT_LAYOUT=it river";
+        # river="XKB_DEFAULT_LAYOUT=it river";
         # rcow="fortune | cowsay -r | lolcat";
         cp="cp -iv";
         nnn="nnn -e";
