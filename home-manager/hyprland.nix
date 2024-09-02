@@ -227,7 +227,7 @@ in {
           "$mod, b, exec, notify-battery"
           ", Print, exec, grimblast copy area"
           "$mod, E, exec, nautilus --new-window"
-          "$mod, Period, exec, walker -m emoji"
+          "$mod, Period, exec, walker -m emojis"
           "$mod, w, exec, $browser"
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "
