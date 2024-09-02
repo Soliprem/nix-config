@@ -13,11 +13,11 @@
     # inputs.nix-colors.homeManagerModule
     # inputs.walker.homeManagerModules.default
     # ./walker.nix
-    # ./hyprland.nix
+    ./hyprland.nix
     # ./schizofox.nix
     ./tofi.nix
     ./mako.nix
-    ./river.nix
+    # ./river.nix
     ./theming.nix
     ./stylix.nix
     ./kitty.nix
@@ -103,7 +103,7 @@
       termdown
       timer
       cliphist
-      hyprshot
+      # hyprshot
       fuzzel
       # nerdfonts
       swww

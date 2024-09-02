@@ -3,11 +3,11 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/b79ce4c43f9117b2912e7dbc68ccae4539259dda";
     # walker.url = "github:abenz1267/walker";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     soniksnvim.url = "github:Soliprem/soniksnvim";
-    firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
     # pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
@@ -15,9 +15,6 @@
     };
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
     stylix.url = "github:danth/stylix";
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    };
     # Neovimflake
     # nvf.url = "github:notashelf/nvf";
     # Home manager
@@ -25,10 +22,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
       };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-      };
+    # hyprland = {
+    #   url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    #   };
     # schizofox = {
     #   url = "github:schizofox/schizofox";
     #   };
@@ -39,7 +39,7 @@
     self,
     nixpkgs,
     # nvf,
-    hyprland,
+    # hyprland,
     stylix,
     home-manager,
     lix-module,
@@ -70,7 +70,6 @@
           ./nixos/pc/configuration.nix
           lix-module.nixosModules.default
           ./system/ollamaRocm.nix
-          # ./system/ollama.nix
           ./system/default.nix
         ];
       };
@@ -88,7 +87,7 @@
           ./home-manager/home.nix
           # nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
-          hyprland.homeManagerModules.default
+          # hyprland.homeManagerModules.default
         ];
       };
       "soliprem@nixos-pc" = home-manager.lib.homeManagerConfiguration {
@@ -99,7 +98,7 @@
           ./home-manager/home.nix
           # nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
-          hyprland.homeManagerModules.default
+          # hyprland.homeManagerModules.default
         ];
       };
     };
