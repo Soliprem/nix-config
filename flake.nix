@@ -4,7 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    walker.url = "github:abenz1267/walker";
+    # walker.url = "github:abenz1267/walker";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     soniksnvim.url = "github:Soliprem/soniksnvim";
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
@@ -13,35 +13,26 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hycov = {
-      url = "github:DreamMaoMao/hycov";
-      # inputs.hyprland.follows = "nixpkgs";
-    };
-    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
     stylix.url = "github:danth/stylix";
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      # inputs.hyprland.follows = "nixpkgs";
-    };
     # Neovimflake
-    nvf.url = "github:notashelf/nvf";
+    # nvf.url = "github:notashelf/nvf";
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-   hyprland-plugins = {
-        url = "github:hyprwm/hyprland-plugins";
-        inputs.hyprland.follows = "hyprland";
       };
-    schizofox = {
-      url = "github:schizofox/schizofox";
-    };
-    muse-sounds-manager.url = "github:thilobillerbeck/muse-sounds-manager-nix";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+      };
+    # schizofox = {
+    #   url = "github:schizofox/schizofox";
+    #   };
+    # muse-sounds-manager.url = "github:thilobillerbeck/muse-sounds-manager-nix";
   };
 
   outputs = {
@@ -52,7 +43,7 @@
     stylix,
     home-manager,
     lix-module,
-    muse-sounds-manager,
+    # muse-sounds-manager,
     # pipewire-screenaudio,
     ...
   } @ inputs: let

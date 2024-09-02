@@ -1,6 +1,14 @@
 {pkgs, inputs, ...}: {
   environment.systemPackages = with pkgs; [
     highlight
+    git
+    wget
+    fastfetch
+    keepassxc
+    networkmanagerapplet
+    libgccjit
+    linearicons-free
+    libnotify
   ];
   programs = {
     kdeconnect.enable = true;
