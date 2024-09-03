@@ -56,6 +56,9 @@
     username = "soliprem";
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
+      ungoogled-chromium
+      android-tools
+      android-udev-rules
       hyprshade
       loupe
       transmission_4-gtk
@@ -103,7 +106,7 @@
       termdown
       timer
       cliphist
-      # hyprshot
+      hyprshot
       fuzzel
       # nerdfonts
       swww
