@@ -493,11 +493,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1724992495,
-        "narHash": "sha256-nVV0J9ymuHTzL/5Wse27k60P7f0q8XWa5IALfH32AZI=",
+        "lastModified": 1725568508,
+        "narHash": "sha256-MoHqfmLQtxZM4M0q00uNKfzpJKSFhFCtjZiiu/MuKus=",
         "owner": "Soliprem",
         "repo": "soniksnvim",
-        "rev": "7107f79dbcc7a8ba7f0818958de55981b0130075",
+        "rev": "fd58ddad7272454f87cdc6bfb7a39237c40b4897",
         "type": "github"
       },
       "original": {
@@ -601,11 +601,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1725096998,
-        "narHash": "sha256-ylP5YehroiFnf1AIT5yq1mcc8HUVlj9ItsWCtY6J6ck=",
+        "lastModified": 1725529174,
+        "narHash": "sha256-6hhiPXXZw24jaQJKJgaLIZ9Z8iEs25Sb+xMqEv6t2Go=",
         "owner": "MarceColl",
         "repo": "zen-browser-flake",
-        "rev": "cfc894abb631e3ea61ff590b7520d79d35a26366",
+        "rev": "5fce6f9bc9b2bda1f0281fcbef3160903ddc5882",
         "type": "github"
       },
       "original": {
