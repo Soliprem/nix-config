@@ -57,6 +57,7 @@
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
       ungoogled-chromium
+      signal-desktop
       android-tools
       android-udev-rules
       hyprshade
@@ -110,7 +111,8 @@
       fuzzel
       # nerdfonts
       swww
-      # element-desktop-wayland
+      element-desktop-wayland
+      fractal
       typst
       xfce.thunar
       nautilus
