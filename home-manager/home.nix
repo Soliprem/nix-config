@@ -56,6 +56,7 @@
     username = "soliprem";
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
+      ripgrep
       ungoogled-chromium
       signal-desktop
       android-tools
@@ -109,7 +110,7 @@
       cliphist
       hyprshot
       fuzzel
-      # nerdfonts
+      nerdfonts
       swww
       element-desktop-wayland
       fractal
