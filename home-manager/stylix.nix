@@ -9,17 +9,21 @@
     };
     fonts = {
       serif = {
-        name = "inconsolata Nerd Font";
-        package = pkgs.nerdfonts.override {fonts = ["Inconsolata"];};
+        name = "DejaVu Serif";
+        package = pkgs.dejavu_fonts;
       };
       sansSerif = {
-        name = "inconsolata Nerd Font";
-        package = pkgs.nerdfonts.override {fonts = ["Inconsolata"];};
+        name = "Inconsolata Nerd Font";
+        package = pkgs.nerdfonts;
       };
       monospace = {
-        name = "inconsolata Nerd Font Mono";
-        package = pkgs.nerdfonts.override {fonts = ["Inconsolata"];};
+        name = "Inconsolata Nerd Font Mono";
+        package = pkgs.nerdfonts;
       };
+      emoji = {
+        name = "Noto Color Emoji";
+        package = pkgs.noto-fonts-emoji;
+        };
     };
     image = ../assets/bg;
     polarity = "dark";
