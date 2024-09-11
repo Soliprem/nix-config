@@ -130,10 +130,6 @@
     #   dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     #   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfer
     # };
-    hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    };
   };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.soliprem = {
@@ -141,13 +137,6 @@
     description = "Francesco Prem Solidoro";
     extraGroups = ["networkmanager" "wheel" "gamemode"];
     packages = with pkgs; [
-      thunderbird
-      mommy
-      starship
-      lolcat
-      cowsay
-      fortune
-      armcord
       wl-clipboard
     ];
     shell = pkgs.fish;
@@ -158,7 +147,6 @@
 
   # Install Hyprland
   # services.hypridle.enable = true;
-  programs.hyprlock.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Allow unfree packages
@@ -166,18 +154,18 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  # environment.systemPackages = with pkgs; [
     # neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    git
-    wget
-    fastfetch
-    keepassxc
-    networkmanagerapplet
-    libgccjit
-    linearicons-free
-    libnotify
-    (firefox.override {nativeMessagingHosts = [inputs.pipewire-screenaudio.packages.${pkgs.system}.default];})
-  ];
+    # git
+    # wget
+    # fastfetch
+    # keepassxc
+    # networkmanagerapplet
+    # libgccjit
+    # linearicons-free
+    # libnotify
+    # (firefox.override {nativeMessagingHosts = [inputs.pipewire-screenaudio.packages.${pkgs.system}.default];})
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

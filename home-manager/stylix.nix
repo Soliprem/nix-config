@@ -9,16 +9,20 @@
     };
     fonts = {
       serif = {
-        name = "SauceCodePro Nerd Font";
-        package = pkgs.nerdfonts;
-        };
+        name = "DejaVu Serif";
+        package = pkgs.dejavu_fonts;
+      };
       sansSerif = {
-        name = "SauceCodePro Nerd Font";
+        name = "Inconsolata Nerd Font";
         package = pkgs.nerdfonts;
-        };
+      };
       monospace = {
-        name = "SauceCodePro Nerd Font Mono";
+        name = "Inconsolata Nerd Font Mono";
         package = pkgs.nerdfonts;
+      };
+      emoji = {
+        name = "Noto Color Emoji";
+        package = pkgs.noto-fonts-emoji;
         };
     };
     image = ../assets/bg;
