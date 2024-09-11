@@ -11,6 +11,8 @@
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
+    # inputs.walker.homeManagerModules.default
+    # ./walker.nix
     ./hyprland.nix
     # ./schizofox.nix
     ./tofi.nix
@@ -54,41 +56,42 @@
     username = "soliprem";
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
-      transmission-gtk
+      ripgrep
+      ungoogled-chromium
+      signal-desktop
+      android-tools
+      android-udev-rules
+      hyprshade
+      loupe
+      transmission_4-gtk
       walker
+      cowsay
+      fortune
+      starship
+      thunderbird
+      lolcat
+      armcord
       impression
       inputs.zen-browser.packages."${system}".default
-      rquickshare
       freetube
       appimage-run
       nvim-pkg
-      logseq
       obsidian
       kdeconnect
       beeper
-      affine
       bat
-      fractal
-      srain
-      zed-editor
-      kanata
       gamemode
-      chatterino2
-      librewolf
       wtype
       udict
       didyoumean
       fzf
-      rofi-wayland
       prismlauncher
       protonup-qt
       telegram-desktop
-      ladybird
       pavucontrol
       gamescope
       qpwgraph
       brightnessctl
-      brave
       hugo
       stremio
       fd
@@ -109,7 +112,8 @@
       fuzzel
       nerdfonts
       swww
-      # element-desktop-wayland
+      element-desktop-wayland
+      fractal
       typst
       xfce.thunar
       nautilus
@@ -119,14 +123,12 @@
       blueman
       blueberry
       pamixer
-      sioyek
-      inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
-      inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
-      inputs.iio-hyprland.packages.${pkgs.system}.default
-      python312Packages.simple-websocket-server
-      python312Packages.pynvim
-      python312Packages.requests
-      python312
+      # inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
+      # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
+      # python312Packages.simple-websocket-server
+      # python312Packages.pynvim
+      # python312Packages.requests
+      # python312
     ];
   };
 
@@ -142,7 +144,7 @@
       userName = "Soliprem";
       userEmail = "franci.solidoro@gmail.com";
     };
-    firefox.enable = true;
+    # firefox.enable = true;
   };
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

@@ -4,51 +4,46 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixpkgs/b79ce4c43f9117b2912e7dbc68ccae4539259dda";
+    # walker.url = "github:abenz1267/walker";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     soniksnvim.url = "github:Soliprem/soniksnvim";
-    firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
     # pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hycov = {
-      url = "github:DreamMaoMao/hycov";
-      # inputs.hyprland.follows = "nixpkgs";
-    };
-    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
     stylix.url = "github:danth/stylix";
-    # hyprland = {
-    #   url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    # };
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      # inputs.hyprland.follows = "nixpkgs";
-    };
     # Neovimflake
-    nvf.url = "github:notashelf/nvf";
+    # nvf.url = "github:notashelf/nvf";
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    schizofox = {
-      url = "github:schizofox/schizofox";
-    };
-    muse-sounds-manager.url = "github:thilobillerbeck/muse-sounds-manager-nix";
+      };
+    # hyprland = {
+    #   url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    #   };
+    # schizofox = {
+    #   url = "github:schizofox/schizofox";
+    #   };
+    # muse-sounds-manager.url = "github:thilobillerbeck/muse-sounds-manager-nix";
   };
 
   outputs = {
     self,
     nixpkgs,
-    nvf,
+    # nvf,
     # hyprland,
     stylix,
     home-manager,
     lix-module,
-    muse-sounds-manager,
+    # muse-sounds-manager,
     # pipewire-screenaudio,
     ...
   } @ inputs: let
@@ -75,7 +70,6 @@
           ./nixos/pc/configuration.nix
           lix-module.nixosModules.default
           ./system/ollamaRocm.nix
-          # ./system/ollama.nix
           ./system/default.nix
         ];
       };
@@ -91,7 +85,7 @@
         # > Our main home-manager configuration file <
         modules = [
           ./home-manager/home.nix
-          nvf.homeManagerModules.default
+          # nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
           # hyprland.homeManagerModules.default
         ];
@@ -102,7 +96,7 @@
         # > Our main home-manager configuration file <
         modules = [
           ./home-manager/home.nix
-          nvf.homeManagerModules.default
+          # nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
           # hyprland.homeManagerModules.default
         ];

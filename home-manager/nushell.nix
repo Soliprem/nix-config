@@ -9,13 +9,29 @@
         $env.config = {
           show_banner: false
           edit_mode: vi
-          }
+          keybindings: [
+            {
+              name: history_completion
+              modifier: control
+              keycode: char_f
+              mode: [vi_normal, vi_insert]
+              event: { send: HistoryHintComplete }
+            }
+            {
+              name: history_completion
+              modifier: Control_Shift
+              keycode: char_f
+              mode: [vi_normal, vi_insert]
+              event: { send: HistoryHintWordComplete }
+            }
+          ]
+        }
         greeting
         source ~/.zoxide.nu
           '';
       shellAliases = {
         # Verbosity and settings that you pretty much just always are going to want.
-        river="XKB_DEFAULT_LAYOUT=it river";
+        # river="XKB_DEFAULT_LAYOUT=it river";
         # rcow="fortune | cowsay -r | lolcat";
         cp="cp -iv";
         nnn="nnn -e";

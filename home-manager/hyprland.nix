@@ -10,12 +10,16 @@
 in {
   home.packages = with pkgs; [
     gammastep
+    inputs.iio-hyprland.packages.${pkgs.system}.default
   ];
   wayland.windowManager.hyprland = {
     enable = true;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # make sure to also set the portal package, so that they are in sync
+    # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     settings = {
       "$mod" = "SUPER";
-      "$term" = "kitty";
+      "$term" = "foot";
       "$editor" = "nvim";
       "$browser" = "zen";
       decoration = {
@@ -219,7 +223,7 @@ in {
       bind =
         [
           # "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
-          "$mod, V, exec, pkill walker || cliphist list | walker -d | cliphist decode | wl-copy"
+          "$mod, V, exec, pkill walker || cliphist list | walker -dk | cliphist decode | wl-copy"
           "$mod,tab,focuscurrentorlast"
           "$mod+Shift, space, togglefloating"
           "$mod, t, exec, notify-time"
@@ -227,7 +231,7 @@ in {
           "$mod, b, exec, notify-battery"
           ", Print, exec, grimblast copy area"
           "$mod, E, exec, nautilus --new-window"
-          "$mod, Period, exec, tofi-emoji"
+          "$mod, Period, exec, walker -m emojis"
           "$mod, w, exec, $browser"
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "
@@ -235,6 +239,7 @@ in {
           "$mod+Shift, Q, exec, hyprctl kill"
           "$mod, d, exec, walker"
           "$mod, o, exec, dm-hub"
+          "$mod+Shift, o, exec, walker -m finder"
           "$mod SHIFT, d, exec, walker -m run"
           "$mod+Alt, s, movetoworkspacesilent, special"
           "$mod, s, togglespecialworkspace"
@@ -296,6 +301,7 @@ in {
         # "nextcloud"
         "wl-paste --type text --watch cliphist store &"
         "wl-paste --type image --watch cliphist store &"
+        "walker --gapplication-service"
       ];
     };
     plugins = [
