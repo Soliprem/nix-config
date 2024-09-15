@@ -47,6 +47,8 @@
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       permittedInsecurePackages = [
         "electron-27.3.11"
+        "olm-3.2.16"
+        "fluffychat-linux-1.20.0"
       ];
       allowUnfreePredicate = _: true;
     };
@@ -57,6 +59,7 @@
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
       ripgrep
+      fluffychat
       ungoogled-chromium
       signal-desktop
       android-tools
