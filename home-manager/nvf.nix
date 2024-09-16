@@ -5,10 +5,14 @@
     # most settings are documented in the appendix
     settings = {
       vim = {
+        searchCase = "smart";
         useSystemClipboard = true;
         viAlias = true;
         vimAlias = true;
-        # undoFile.enable = true;
+        undoFile = {
+          enable = true;
+          path = "~/.local/state/nvf/undo";
+        };
         debugMode = {
           enable = false;
           level = 16;
@@ -114,9 +118,6 @@
         # vim.g.nvim_ghost_use_script = 1
         # vim.g.nvim_ghost_python_executable = 'python'
         luaConfigRC.basic = ''
-          vim.opt.undofile = true
-          vim.opt.ignorecase = true
-          vim.opt.smartcase = true
 
         '';
 
