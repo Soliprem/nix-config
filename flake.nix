@@ -16,12 +16,12 @@
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
     stylix.url = "github:danth/stylix";
     # Neovimflake
-    # nvf.url = "github:notashelf/nvf";
+    nvf.url = "github:notashelf/nvf/2c9202a48b957bdac58b952fe3e83f71b6cab5c1";
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-      };
+    };
     # hyprland = {
     #   url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     # };
@@ -38,7 +38,7 @@
   outputs = {
     self,
     nixpkgs,
-    # nvf,
+    nvf,
     # hyprland,
     stylix,
     home-manager,
@@ -85,7 +85,7 @@
         # > Our main home-manager configuration file <
         modules = [
           ./home-manager/home.nix
-          # nvf.homeManagerModules.default
+          nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
           # hyprland.homeManagerModules.default
         ];
@@ -96,7 +96,7 @@
         # > Our main home-manager configuration file <
         modules = [
           ./home-manager/home.nix
-          # nvf.homeManagerModules.default
+          nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
           # hyprland.homeManagerModules.default
         ];

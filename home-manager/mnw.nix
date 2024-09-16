@@ -1,0 +1,5 @@
+{
+programs.mnw = {
+  enable = true;
+  };
+}

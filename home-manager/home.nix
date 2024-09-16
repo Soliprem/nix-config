@@ -23,7 +23,7 @@
     ./kitty.nix
     ./foot.nix
     ./nushell.nix
-    # ./nvf.nix
+    ./nvf.nix
   ];
 
   nixpkgs = {
@@ -58,6 +58,8 @@
     username = "soliprem";
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
+      batsignal
+      zed-editor
       ripgrep
       fluffychat
       ungoogled-chromium
@@ -78,7 +80,7 @@
       inputs.zen-browser.packages."${system}".default
       freetube
       appimage-run
-      nvim-pkg
+      # nvim-pkg
       obsidian
       kdeconnect
       beeper

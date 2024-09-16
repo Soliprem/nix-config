@@ -261,7 +261,7 @@ in {
           "$mod+Alt, F, fullscreenstate, -1 2"
 
           # Plugins
-          "$mod+Shift, g, hyprexpo:expo, toggle"
+          # "$mod+Shift, g, hyprexpo:expo, toggle"
           # "$mod, g, overview:toggle"
 
           # screenshots
@@ -301,13 +301,14 @@ in {
         # "nextcloud"
         "wl-paste --type text --watch cliphist store &"
         "wl-paste --type image --watch cliphist store &"
+        "batsignal &"
         "walker --gapplication-service"
       ];
     };
     plugins = [
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      pkgs.hyprlandPlugins.hyprexpo
-      pkgs.hyprlandPlugins.hyprtrails
+      # pkgs.hyprlandPlugins.hyprexpo
+      # pkgs.hyprlandPlugins.hyprtrails
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };
