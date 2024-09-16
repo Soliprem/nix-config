@@ -16,7 +16,7 @@
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
     stylix.url = "github:danth/stylix";
     # Neovimflake
-    nvf.url = "github:notashelf/nvf/2c9202a48b957bdac58b952fe3e83f71b6cab5c1";
+    nvf.url = "github:notashelf/nvf";
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -32,7 +32,6 @@
     # schizofox = {
     #   url = "github:schizofox/schizofox";
     #   };
-    # muse-sounds-manager.url = "github:thilobillerbeck/muse-sounds-manager-nix";
   };
 
   outputs = {
@@ -43,7 +42,6 @@
     stylix,
     home-manager,
     lix-module,
-    # muse-sounds-manager,
     # pipewire-screenaudio,
     ...
   } @ inputs: let

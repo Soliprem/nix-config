@@ -58,6 +58,7 @@
     username = "soliprem";
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
+      # muse-sounds-manager
       batsignal
       zed-editor
       ripgrep
@@ -128,7 +129,6 @@
       blueman
       blueberry
       pamixer
-      # inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager
       # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
       # python312Packages.simple-websocket-server
       # python312Packages.pynvim
