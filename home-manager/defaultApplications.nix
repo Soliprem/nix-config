@@ -1,3 +1,3 @@
 {
-  "text/html" = ["zen-browser" "qutebrowser"];
+  # "text/html" = ["zen.desktop" "qutebrowser.desktop"];
 }
