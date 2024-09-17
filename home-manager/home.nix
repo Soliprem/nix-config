@@ -22,6 +22,7 @@
     ./stylix.nix
     ./kitty.nix
     ./foot.nix
+    ./defaultApplications.nix
     ./nushell.nix
     ./nvf.nix
   ];
