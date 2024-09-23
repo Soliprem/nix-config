@@ -892,11 +892,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1726482513,
-        "narHash": "sha256-vc8YmzpybRaffbYMBCdCZTJrneyF3ko7D5MPNpAxz2A=",
+        "lastModified": 1726772845,
+        "narHash": "sha256-JgEKDz4i1vR/uwXjRUWANYogW1m/3a4wCtvKuWQZH5U=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "cb7ff874e2199ba8a4f87cbaa39bdff0d4d28484",
+        "rev": "e40d7a2a56382937db96f2755f075429beb6dde1",
         "type": "github"
       },
       "original": {
