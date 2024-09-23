@@ -269,7 +269,10 @@
     },
     "flake-utils_5": {
       "inputs": {
-        "systems": ["stylix", "systems"]
+        "systems": [
+          "stylix",
+          "systems"
+        ]
       },
       "locked": {
         "lastModified": 1710146030,
@@ -341,7 +344,11 @@
       "inputs": {
         "flake-compat": "flake-compat_2",
         "gitignore": "gitignore",
-        "nixpkgs": ["soniksnvim", "gen-luarc", "nixpkgs"],
+        "nixpkgs": [
+          "soniksnvim",
+          "gen-luarc",
+          "nixpkgs"
+        ],
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
@@ -360,7 +367,12 @@
     },
     "gitignore": {
       "inputs": {
-        "nixpkgs": ["soniksnvim", "gen-luarc", "git-hooks", "nixpkgs"]
+        "nixpkgs": [
+          "soniksnvim",
+          "gen-luarc",
+          "git-hooks",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1709087332,
@@ -395,7 +407,9 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": ["nixpkgs"]
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1726985855,
@@ -413,7 +427,10 @@
     },
     "home-manager_2": {
       "inputs": {
-        "nixpkgs": ["stylix", "nixpkgs"]
+        "nixpkgs": [
+          "stylix",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1724435763,
@@ -467,7 +484,9 @@
         "flake-utils": "flake-utils",
         "flakey-profile": "flakey-profile",
         "lix": "lix",
-        "nixpkgs": ["nixpkgs"]
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1718778548,
@@ -514,7 +533,11 @@
     },
     "naersk": {
       "inputs": {
-        "nixpkgs": ["nvf", "rnix-lsp", "nixpkgs"]
+        "nixpkgs": [
+          "nvf",
+          "rnix-lsp",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1655042882,
@@ -532,8 +555,14 @@
     },
     "nil": {
       "inputs": {
-        "flake-utils": ["nvf", "flake-utils"],
-        "nixpkgs": ["nvf", "nixpkgs"],
+        "flake-utils": [
+          "nvf",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nvf",
+          "nixpkgs"
+        ],
         "rust-overlay": "rust-overlay"
       },
       "locked": {
@@ -608,11 +637,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1726755586,
-        "narHash": "sha256-PmUr/2GQGvFTIJ6/Tvsins7Q43KTMvMFhvG6oaYK+Wk=",
+        "lastModified": 1726937504,
+        "narHash": "sha256-bvGoiQBvponpZh8ClUcmJ6QnsNKw0EMrCQJARK3bI1c=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c04d5652cfa9742b1d519688f65d1bbccea9eb7e",
+        "rev": "9357f4f23713673f310988025d9dc261c20e70c6",
         "type": "github"
       },
       "original": {
@@ -863,11 +892,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1726847471,
-        "narHash": "sha256-+Jsimf2FZ4tC9feWkH2AulQMNNQYcw5Gg6bWCqaotmE=",
+        "lastModified": 1727034730,
+        "narHash": "sha256-rbjGwuGPhtl8j05JOU5TZ2upeb52tDCkYf7N9CnU0i4=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "99ace503adaae13e50ddf3f4d2813fdb43be25ca",
+        "rev": "57be605ed411c1de4a9fa0b1951aa31f56fbde18",
         "type": "github"
       },
       "original": {
@@ -2511,8 +2540,16 @@
     },
     "rust-overlay": {
       "inputs": {
-        "flake-utils": ["nvf", "nil", "flake-utils"],
-        "nixpkgs": ["nvf", "nil", "nixpkgs"]
+        "flake-utils": [
+          "nvf",
+          "nil",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nvf",
+          "nil",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1714529851,
@@ -2565,11 +2602,11 @@
         "systems": "systems_6"
       },
       "locked": {
-        "lastModified": 1726828291,
-        "narHash": "sha256-pGRPVVm7UXf+fx2NVpH6FFSWR9AynG6eoVlagaqH9i4=",
+        "lastModified": 1727093531,
+        "narHash": "sha256-hsb1bcUvpMecFHOP5F3LEyOnXiZ+5MikR92irJ8o7iE=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "53bcceb4e46d0b3e8ae6434a7a6bcc3463092093",
+        "rev": "eccb9f2d63f4582b1c1ffe97d806156147aeee5f",
         "type": "github"
       },
       "original": {
