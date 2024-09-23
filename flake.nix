@@ -8,6 +8,10 @@
     # walker.url = "github:abenz1267/walker";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     soniksnvim.url = "github:Soliprem/soniksnvim";
+    # nixos-cosmic = {
+    #   url = "github:lilyinstarlight/nixos-cosmic";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
@@ -28,7 +32,12 @@
     # hyprland-plugins = {
     #   url = "github:hyprwm/hyprland-plugins";
     #   inputs.hyprland.follows = "hyprland";
-    #   };
+    # Hyprspace = {
+    #   url = "github:KZDKM/Hyprspace";
+    #
+    #   # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # }; #   };
     # schizofox = {
     #   url = "github:schizofox/schizofox";
     #   };
@@ -42,6 +51,7 @@
     stylix,
     home-manager,
     lix-module,
+    # nixos-cosmic,
     # pipewire-screenaudio,
     ...
   } @ inputs: let
@@ -69,6 +79,13 @@
           lix-module.nixosModules.default
           ./system/ollamaRocm.nix
           ./system/default.nix
+          # {
+          #   nix.settings = {
+          #     substituters = ["https://cosmic.cachix.org/"];
+          #     trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
+          #   };
+          # }
+          # nixos-cosmic.nixosModules.default
         ];
       };
     };
