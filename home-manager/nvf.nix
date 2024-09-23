@@ -9,10 +9,10 @@
         useSystemClipboard = true;
         viAlias = true;
         vimAlias = true;
-        # undoFile = {
-        # enable = true;
-        # path = "/home/soliprem/.local/state/nvf/undo";
-        # };
+        undoFile = {
+          enable = true;
+          path = "/home/soliprem/.local/state/nvf/undo";
+        };
         debugMode = {
           enable = false;
           level = 16;
@@ -28,7 +28,6 @@
           lspkind.enable = false;
           lightbulb.enable = true;
           lspsaga.enable = false;
-          nvimCodeActionMenu.enable = false;
           trouble.enable = true;
           lspSignature.enable = true;
           lsplines.enable = true;
@@ -118,7 +117,7 @@
         # vim.g.nvim_ghost_use_script = 1
         # vim.g.nvim_ghost_python_executable = 'python'
         luaConfigRC.basic = ''
-          vim.opt.undofile = true
+          -- vim.opt.undofile = true
         '';
 
         theme = {
@@ -214,6 +213,7 @@
           colorizer.enable = true;
           modes-nvim.enable = false; # the theme looks terrible with catppuccin
           illuminate.enable = true;
+          fastaction.enable = true;
           breadcrumbs = {
             enable = true;
             navbuddy.enable = true;
