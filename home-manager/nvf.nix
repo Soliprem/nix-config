@@ -273,12 +273,16 @@
             package = pkgs.vimPlugins.oil-nvim;
             setup = "require('oil').setup()";
           };
+          zen = {
+            package = pkgs.vimPlugins.zen-mode-nvim;
+            setup = ''require('zen-mode').setup()'';
+          };
           eyeliner = {
             package = pkgs.vimPlugins.eyeliner-nvim;
-            setup = "require('eyeliner').setup(
+            setup = "require('eyeliner').setup {
                -- highlight_on_key = true, -- show highlights only after key press
                -- dim = true, -- dim all other characters
-            )";
+            }";
           };
           # neorg = {
           #   package = pkgs.vimPlugins.neorg;
