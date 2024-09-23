@@ -28,7 +28,6 @@
           lspkind.enable = false;
           lightbulb.enable = true;
           lspsaga.enable = false;
-          nvimCodeActionMenu.enable = false;
           trouble.enable = true;
           lspSignature.enable = true;
           lsplines.enable = true;
@@ -214,6 +213,7 @@
           colorizer.enable = true;
           modes-nvim.enable = false; # the theme looks terrible with catppuccin
           illuminate.enable = true;
+          fastaction.enable = true;
           breadcrumbs = {
             enable = true;
             navbuddy.enable = true;
