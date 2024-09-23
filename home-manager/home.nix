@@ -59,7 +59,8 @@
     username = "soliprem";
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
-      # muse-sounds-manager
+      muse-sounds-manager
+      musescore
       batsignal
       zed-editor
       ripgrep
@@ -105,7 +106,6 @@
       killall
       zathura
       yad
-      musescore
       darktable
       qutebrowser
       nextcloud-client
