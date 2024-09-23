@@ -235,7 +235,7 @@ in {
           "$mod, w, exec, $browser"
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "
-          "$mod, n, exec, dm-notes"
+          "$mod, n, exec, $term notes-fd"
           "$mod+Shift, Q, exec, hyprctl kill"
           "$mod, d, exec, walker"
           "$mod, o, exec, dm-hub"
