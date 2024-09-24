@@ -59,6 +59,7 @@
           markdown.enable = true;
           html.enable = true;
           css.enable = true;
+          r.enable = true;
           sql.enable = true;
           java.enable = false;
           ts.enable = true;
