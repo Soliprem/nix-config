@@ -844,17 +844,17 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1727174096,
-        "narHash": "sha256-SXlezCo8VwM8/Lu4DIOXWEuAvzJKzg/DOycCy0VXmEs=",
-        "ref": "refs/heads/r",
-        "rev": "42d7294a5e8e78453bed89d4658df44e80292bab",
-        "revCount": 1365,
-        "type": "git",
-        "url": "file:///home/soliprem/.local/src/nvf"
+        "lastModified": 1727179231,
+        "narHash": "sha256-Jm9w3lBmX5D2IKhmpGUvb4XXEK8h3rqGv1LETphJEiY=",
+        "owner": "notashelf",
+        "repo": "nvf",
+        "rev": "8e96f0aaa325b992d17a3e7c9613344680375791",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/soliprem/.local/src/nvf"
+        "owner": "notashelf",
+        "repo": "nvf",
+        "type": "github"
       }
     },
     "plugin-alpha-nvim": {

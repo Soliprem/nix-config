@@ -56,7 +56,10 @@
 
           nix.enable = true;
 
-          markdown.enable = true;
+          markdown = {
+            enable = true;
+            # format.extraFiletypes = ["quarto" "rmarkdown"];
+          };
           html.enable = true;
           css.enable = true;
           r.enable = true;
