@@ -20,9 +20,9 @@
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
     stylix.url = "github:danth/stylix";
     # Neovimflake
-    nvf.url = "github:notashelf/nvf";
+    # nvf.url = "github:notashelf/nvf";
     # nvf.url = "github:soliprem/nvf";
-    # nvf.url = "/home/soliprem/.local/src/nvf/";
+    nvf.url = "/home/soliprem/.local/src/nvf/";
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -69,6 +69,7 @@
         modules = [
           ./nixos/laptop/configuration.nix
           lix-module.nixosModules.default
+          stylix.nixosModules.default
           ./system/ollama.nix
           ./system/default.nix
         ];
@@ -79,6 +80,7 @@
         modules = [
           ./nixos/pc/configuration.nix
           lix-module.nixosModules.default
+          stylix.nixosModules.default
           ./system/ollamaRocm.nix
           ./system/default.nix
           # {
@@ -103,7 +105,6 @@
         modules = [
           ./home-manager/home.nix
           nvf.homeManagerModules.default
-          stylix.homeManagerModules.stylix
           # hyprland.homeManagerModules.default
         ];
       };
@@ -114,7 +115,6 @@
         modules = [
           ./home-manager/home.nix
           nvf.homeManagerModules.default
-          stylix.homeManagerModules.stylix
           # hyprland.homeManagerModules.default
         ];
       };
