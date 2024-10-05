@@ -155,16 +155,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   # environment.systemPackages = with pkgs; [
-    # neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    # git
-    # wget
-    # fastfetch
-    # keepassxc
-    # networkmanagerapplet
-    # libgccjit
-    # linearicons-free
-    # libnotify
-    # (firefox.override {nativeMessagingHosts = [inputs.pipewire-screenaudio.packages.${pkgs.system}.default];})
+  # neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  # git
+  # wget
+  # fastfetch
+  # keepassxc
+  # networkmanagerapplet
+  # libgccjit
+  # linearicons-free
+  # libnotify
+  # (firefox.override {nativeMessagingHosts = [inputs.pipewire-screenaudio.packages.${pkgs.system}.default];})
   # ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -179,14 +179,6 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-  nix = {
-    settings = {
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-    };
-    optimise.automatic = true;
-  };
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

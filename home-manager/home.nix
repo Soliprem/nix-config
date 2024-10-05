@@ -19,6 +19,7 @@
     ./mako.nix
     ./river.nix
     ./theming.nix
+    ./stylix.nix
     ./kitty.nix
     ./foot.nix
     ./defaultApplications.nix

@@ -8,10 +8,10 @@
     # walker.url = "github:abenz1267/walker";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     soniksnvim.url = "github:Soliprem/soniksnvim";
-    # nixos-cosmic = {
-    #   url = "github:lilyinstarlight/nixos-cosmic";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
@@ -53,7 +53,7 @@
     stylix,
     home-manager,
     lix-module,
-    # nixos-cosmic,
+    nixos-cosmic,
     # pipewire-screenaudio,
     ...
   } @ inputs: let
@@ -69,9 +69,9 @@
         modules = [
           ./nixos/laptop/configuration.nix
           lix-module.nixosModules.default
-          stylix.nixosModules.default
           ./system/ollama.nix
           ./system/default.nix
+          nixos-cosmic.nixosModules.default
         ];
       };
       nixos-pc = nixpkgs.lib.nixosSystem {
@@ -80,16 +80,9 @@
         modules = [
           ./nixos/pc/configuration.nix
           lix-module.nixosModules.default
-          stylix.nixosModules.default
           ./system/ollamaRocm.nix
           ./system/default.nix
-          # {
-          #   nix.settings = {
-          #     substituters = ["https://cosmic.cachix.org/"];
-          #     trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
-          #   };
-          # }
-          # nixos-cosmic.nixosModules.default
+          nixos-cosmic.nixosModules.default
         ];
       };
     };
@@ -105,6 +98,7 @@
         modules = [
           ./home-manager/home.nix
           nvf.homeManagerModules.default
+          stylix.homeManagerModules.stylix
           # hyprland.homeManagerModules.default
         ];
       };
@@ -115,6 +109,7 @@
         modules = [
           ./home-manager/home.nix
           nvf.homeManagerModules.default
+          stylix.homeManagerModules.stylix
           # hyprland.homeManagerModules.default
         ];
       };
