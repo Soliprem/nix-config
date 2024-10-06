@@ -349,11 +349,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727383923,
-        "narHash": "sha256-4/vacp3CwdGoPf8U4e/N8OsGYtO09WTcQK5FqYfJbKs=",
+        "lastModified": 1728041527,
+        "narHash": "sha256-03liqiJtk9UP7YQHW4r8MduKCK242FQzud8iWvvlK+o=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ffe2d07e771580a005e675108212597e5b367d2d",
+        "rev": "509dbf8d45606b618e9ec3bbe4e936b7c5bc6c1e",
         "type": "github"
       },
       "original": {
@@ -526,11 +526,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1728084623,
-        "narHash": "sha256-EKkzSl3SqmEtl+L2dScKlY/lyx+y25DD6WftxAWOMaQ=",
+        "lastModified": 1728184451,
+        "narHash": "sha256-XuvfrJ3TkHfGKRdiWPN/RD+veVtGl0Db+R44fb5gdT8=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "e6608082321616850f8ecd33ee0375b392fd3b95",
+        "rev": "631b0cbf1466553533a87e4b8e77c00731eba21f",
         "type": "github"
       },
       "original": {
@@ -581,11 +581,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1727907660,
-        "narHash": "sha256-QftbyPoieM5M50WKUMzQmWtBWib/ZJbHo7mhj5riQec=",
+        "lastModified": 1728067476,
+        "narHash": "sha256-/uJcVXuBt+VFCPQIX+4YnYrHaubJSx4HoNsJVNRgANM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5966581aa04be7eff830b9e1457d56dc70a0b798",
+        "rev": "6e6b3dd395c3b1eb9be9f2d096383a8d05add030",
         "type": "github"
       },
       "original": {
@@ -613,11 +613,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1727634051,
-        "narHash": "sha256-S5kVU7U82LfpEukbn/ihcyNt2+EvG7Z5unsKW9H/yFA=",
+        "lastModified": 1728018373,
+        "narHash": "sha256-NOiTvBbRLIOe5F6RbHaAh6++BNjsb149fGZd1T4+KBg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "06cf0e1da4208d3766d898b7fdab6513366d45b9",
+        "rev": "bc947f541ae55e999ffdb4013441347d83b00feb",
         "type": "github"
       },
       "original": {
@@ -852,16 +852,17 @@
         "systems": "systems_4"
       },
       "locked": {
-        "dirtyRev": "a1718bbcd6b208fd9a3d56c5b1932e3c2194d93e-dirty",
-        "dirtyShortRev": "a1718bb-dirty",
-        "lastModified": 1727700171,
-        "narHash": "sha256-bhQEECdYgqiSszjMPj1eHmIXQd7at9kzTEk0Ejhu9Eo=",
-        "type": "git",
-        "url": "file:///home/soliprem/.local/src/nvf"
+        "lastModified": 1728168419,
+        "narHash": "sha256-tSQVn8Gsf5V7L7myG1sCZOMgPjb2hZmUp54ogp0O4+s=",
+        "owner": "notashelf",
+        "repo": "nvf",
+        "rev": "614ad33a60da7ce7dc61f09fad6afc45664a7cfd",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/soliprem/.local/src/nvf"
+        "owner": "notashelf",
+        "repo": "nvf",
+        "type": "github"
       }
     },
     "plugin-alpha-nvim": {
@@ -1507,11 +1508,11 @@
     "plugin-lualine": {
       "flake": false,
       "locked": {
-        "lastModified": 1712310396,
-        "narHash": "sha256-WcH2dWdRDgMkwBQhcgT+Z/ArMdm+VbRhmQftx4t2kNI=",
+        "lastModified": 1723473562,
+        "narHash": "sha256-gCm7m96PkZyrgjmt7Efc+NMZKStAq1zr7JRCYOgGDuE=",
         "owner": "hoob3rt",
         "repo": "lualine.nvim",
-        "rev": "0a5a66803c7407767b799067986b4dc3036e1983",
+        "rev": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056",
         "type": "github"
       },
       "original": {
@@ -2522,11 +2523,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727922550,
-        "narHash": "sha256-pJoN5Qd83coaoEJmpkxw+cuh89IJORvLm8qyw3GMLIQ=",
+        "lastModified": 1728095260,
+        "narHash": "sha256-X62hA5ivYLY5G5+mXI6l9eUDkgi6Wu/7QUrwXhJ09oo=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "5e3eee4bc42a2504653bedfe95bceda9a1e85ae7",
+        "rev": "d1d2532ab267cfe6e40dff73fbaf34436c406d26",
         "type": "github"
       },
       "original": {
@@ -2599,16 +2600,15 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1728133061,
+        "lastModified": 1728242323,
         "narHash": "sha256-GYGx9aK+PCseQO72u6eJc8LJxWhAm2p2+3WXJ42seE8=",
-        "owner": "Soliprem",
+        "owner": "danth",
         "repo": "stylix",
-        "rev": "f662b6442a51f620c1ae7245a3a8a0b3e27a21a2",
+        "rev": "39e5435c1da9ce50fe36deaf58bd2b94dd4d8249",
         "type": "github"
       },
       "original": {
-        "owner": "Soliprem",
-        "ref": "patch-1",
+        "owner": "danth",
         "repo": "stylix",
         "type": "github"
       }
