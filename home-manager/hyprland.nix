@@ -222,8 +222,8 @@ in {
       ];
       bind =
         [
-          # "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
-          "$mod, V, exec, pkill walker || cliphist list | walker -dk | cliphist decode | wl-copy"
+          "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
+          # "$mod, V, exec, pkill walker || cliphist list | walker -dk | cliphist decode | wl-copy"
           "$mod,tab,focuscurrentorlast"
           "$mod+Shift, space, togglefloating"
           "$mod, t, exec, notify-time"
@@ -231,16 +231,16 @@ in {
           "$mod, b, exec, notify-battery"
           ", Print, exec, grimblast copy area"
           "$mod, E, exec, nautilus --new-window"
-          "$mod, Period, exec, walker -m emojis"
+          "$mod, Period, exec, walker-emojii"
           "$mod, w, exec, $browser"
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "
           "$mod, n, exec, $term notes-fd"
           "$mod+Shift, Q, exec, hyprctl kill"
-          "$mod, d, exec, walker"
+          "$mod, d, exec, fuzzel"
           "$mod, o, exec, dm-hub"
           "$mod+Shift, o, exec, walker -m finder"
-          "$mod SHIFT, d, exec, walker -m run"
+          "$mod SHIFT, d, exec, fuzzel-run"
           "$mod+Alt, s, movetoworkspacesilent, special"
           "$mod, s, togglespecialworkspace"
 

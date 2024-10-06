@@ -2599,15 +2599,16 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1727723275,
-        "narHash": "sha256-k4HrG8TJQ0RqDS1tlDz71kvWFBNQ7qZI9T5Z0qLR85Y=",
-        "owner": "danth",
+        "lastModified": 1728133061,
+        "narHash": "sha256-GYGx9aK+PCseQO72u6eJc8LJxWhAm2p2+3WXJ42seE8=",
+        "owner": "Soliprem",
         "repo": "stylix",
-        "rev": "e7e97059776da7e34b739415a7bc8f80f606b803",
+        "rev": "f662b6442a51f620c1ae7245a3a8a0b3e27a21a2",
         "type": "github"
       },
       "original": {
-        "owner": "danth",
+        "owner": "Soliprem",
+        "ref": "patch-1",
         "repo": "stylix",
         "type": "github"
       }

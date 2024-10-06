@@ -1,16 +1,16 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     wlr-randr
- ]; 
+  ];
   wayland.windowManager.river = {
     enable = true;
     settings = {
       attach-mode = "bottom";
       set-cursor-warp = "on-output-change";
       declare-mode = [
-      "passthrough"
-      "normal"
-      "locked"
+        "passthrough"
+        "normal"
+        "locked"
       ];
       map = {
         normal = {
@@ -67,7 +67,7 @@
           "None XF86AudioNext " = ''spawn "playerctl next"'';
           "None XF86MonBrightnessUp  " = ''spawn "brightnessctl set +5% && notify-brightness"'';
           "None XF86MonBrightnessDown" = ''spawn "brightnessctl set 5%- && notify-brightness"'';
-          };
+        };
         locked = {
           "None XF86Eject" = ''spawn "eject -T"'';
           "None XF86AudioRaiseVolume " = ''spawn "pamixer -i 5 && notify-volume"'';
@@ -79,77 +79,76 @@
           "None XF86AudioNext " = ''spawn "playerctl next"'';
           "None XF86MonBrightnessUp  " = ''spawn "brightnessctl set +5% && notify-brightness"'';
           "None XF86MonBrightnessDown" = ''spawn "brightnessctl set 5%- && notify-brightness"'';
-          };
-        passthrough = {
-         "Super F11" = ''enter-mode normal'';
-          };
         };
+        passthrough = {
+          "Super F11" = ''enter-mode normal'';
+        };
+      };
       map-pointer = {
         normal = {
           "Super BTN_LEFT" = ''move-view'';
           "Super BTN_RIGHT" = ''resize-view'';
           "Super BTN_MIDDLE" = ''toggle-float'';
-          };
         };
-
       };
+    };
     xwayland.enable = true;
     extraConfig = ''
 
-for i in $(seq 1 9)
-do
-    tags=$((1 << ($i - 1)))
+      for i in $(seq 1 9)
+      do
+          tags=$((1 << ($i - 1)))
 
-    # Super+[1-9] to focus tag [0-8]
-    riverctl map normal Super $i set-focused-tags $tags
+          # Super+[1-9] to focus tag [0-8]
+          riverctl map normal Super $i set-focused-tags $tags
 
-    # Super+Shift+[1-9] to tag focused view with tag [0-8]
-    riverctl map normal Super+Shift $i set-view-tags $tags
+          # Super+Shift+[1-9] to tag focused view with tag [0-8]
+          riverctl map normal Super+Shift $i set-view-tags $tags
 
-    # Super+Control+[1-9] to toggle focus of tag [0-8]
-    riverctl map normal Super+Control $i toggle-focused-tags $tags
+          # Super+Control+[1-9] to toggle focus of tag [0-8]
+          riverctl map normal Super+Control $i toggle-focused-tags $tags
 
-    # Super+Shift+Control+[1-9] to toggle tag [0-8] of focused view
-    riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
-done
-all_tags=$(((1 << 32) - 1))
-
-
-# Set background and border color
-riverctl background-color 0x002b36
-riverctl border-color-focused 0x93a1a1
-riverctl border-color-unfocused 0x586e75
+          # Super+Shift+Control+[1-9] to toggle tag [0-8] of focused view
+          riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
+      done
+      all_tags=$(((1 << 32) - 1))
 
 
-## Autostart
-riverctl spawn "keepassxc &"
-riverctl spawn "wl-paste --type text --watch cliphist store &"
-riverctl spawn "wl-paste --type image --watch cliphist store &"
-riverctl spawn "walker --gapplication-service"
-riverctl spawn "wlr-randr --output HDMI-A-1 --mode 1920x1080@120Hz"
-# Set and exec into the default layout generator, rivertile.
-# River will send the process group of the init executable SIGTERM on exit.
-riverctl default-layout rivertile
-# bash "$HOME"/.config/river/process.sh
-# usage: import-gsettings
+      # Set background and border color
+      riverctl background-color 0x002b36
+      riverctl border-color-focused 0x93a1a1
+      riverctl border-color-unfocused 0x586e75
 
-# Make all views with an app-id that starts with "float" and title "foo" start floating.
-riverctl rule-add -app-id 'Julia*' -title 'Julia' float
-riverctl rule-add -app-id 'zen*' -title '*Picture-in-Picture*' float
-riverctl rule-add -app-id 'zen*' -title 'Open File*' float
-riverctl rule-add -app-id 'zen*' -title 'Select a File*' float
-riverctl rule-add -app-id 'yad*' -title 'Choose wallpaper*' float
-riverctl rule-add -app-id 'zen*' -title 'Open Folder*' float
-riverctl rule-add -app-id 'zen*' -title 'Save As*' float
-riverctl rule-add -app-id 'zen*' -title 'Library*' float
 
-# Make all views with app-id "bar" and any title use client-side decorations
-# riverctl rule-add -app-id "bar" csd
+      ## Autostart
+      riverctl spawn "keepassxc &"
+      riverctl spawn "wl-paste --type text --watch cliphist store &"
+      riverctl spawn "wl-paste --type image --watch cliphist store &"
+      riverctl spawn "walker --gapplication-service"
+      riverctl spawn "wlr-randr --output HDMI-A-1 --mode 1920x1080@120Hz"
+      # Set and exec into the default layout generator, rivertile.
+      # River will send the process group of the init executable SIGTERM on exit.
+      riverctl default-layout rivertile
+      # bash "$HOME"/.config/river/process.sh
+      # usage: import-gsettings
 
-# Set the default layout generator to be rivertile and start it.
-# River will send the process group of the init executable SIGTERM on exit.
-riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 &
+      # Make all views with an app-id that starts with "float" and title "foo" start floating.
+      riverctl rule-add -app-id 'Julia*' -title 'Julia' float
+      riverctl rule-add -app-id 'zen*' -title '*Picture-in-Picture*' float
+      riverctl rule-add -app-id 'zen*' -title 'Open File*' float
+      riverctl rule-add -app-id 'zen*' -title 'Select a File*' float
+      riverctl rule-add -app-id 'yad*' -title 'Choose wallpaper*' float
+      riverctl rule-add -app-id 'zen*' -title 'Open Folder*' float
+      riverctl rule-add -app-id 'zen*' -title 'Save As*' float
+      riverctl rule-add -app-id 'zen*' -title 'Library*' float
+
+      # Make all views with app-id "bar" and any title use client-side decorations
+      # riverctl rule-add -app-id "bar" csd
+
+      # Set the default layout generator to be rivertile and start it.
+      # River will send the process group of the init executable SIGTERM on exit.
+      riverctl default-layout rivertile
+      rivertile -view-padding 6 -outer-padding 6 &
     '';
   };
 }
