@@ -2,6 +2,7 @@
   stylix = {
     enable = true;
     autoEnable = true;
+    targets.kde.enable = false;
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
@@ -23,7 +24,7 @@
       emoji = {
         name = "Noto Color Emoji";
         package = pkgs.noto-fonts-emoji;
-        };
+      };
     };
     image = ../assets/bg;
     polarity = "dark";

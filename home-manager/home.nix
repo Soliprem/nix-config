@@ -17,6 +17,7 @@
     # ./schizofox.nix
     ./tofi.nix
     ./mako.nix
+    ./fuzzel.nix
     ./river.nix
     ./theming.nix
     ./stylix.nix
@@ -117,7 +118,6 @@
       timer
       cliphist
       hyprshot
-      fuzzel
       nerdfonts
       swww
       element-desktop-wayland
