@@ -288,36 +288,41 @@
                -- dim = true, -- dim all other characters
             }";
           };
-          # neorg = {
-          #   package = pkgs.vimPlugins.neorg;
-          #   setup = ''
-          #     require('neorg').setup {
-          #       load = {
-          #         ['core.defaults'] = {}, -- Loads default behaviour
-          #         ['core.concealer'] = {}, -- Adds pretty icons to your documents
-          #         ['core.export'] = {}, -- Adds export options
-          #         ['core.integrations.telescope'] = {},
-          #         ['core.integrations.image'] = {},
-          #         -- ['core.typst.renderer'] = {
-          #         --   config = {
-          #         --     dpi = 1000,
-          #         --     -- render_on_enter = true,
-          #         --     scale = 2,
-          #         --   },
-          #         -- },
-          #         ['core.dirman'] = { -- Manages Neorg workspaces
-          #           config = {
-          #             workspaces = {
-          #               notes = '~/Documents/neorg',
-          #             },
-          #           },
-          #         },
-          #       },
-          #     }
-          #     vim.wo.foldlevel = 99
-          #     vim.wo.conceallevel = 2
-          #   '';
-          # };
+          neorg-treesitter = {
+            package = nvim-treesitter.withPlugins (p: with p; [tree-sitter-norg]);
+            setup = ''
+              require("nvim-treesitter.configs").setup {
+                    highlight = {
+                      enable = true,
+                    }
+                  }
+            '';
+          };
+          neorg-telescope = {
+            package = pkgs.vimPlugins.neorg-telescope;
+          };
+          neorg = {
+            package = pkgs.vimPlugins.neorg;
+            setup = ''
+              require('neorg').setup {
+                load = {
+                  ['core.defaults'] = {}, -- Loads default behaviour
+                  ['core.concealer'] = {}, -- Adds pretty icons to your documents
+                  ['core.export'] = {}, -- Adds export options
+                  ['core.integrations.telescope'] = {},
+                  ['core.dirman'] = { -- Manages Neorg workspaces
+                    config = {
+                      workspaces = {
+                        notes = '~/Documents/neorg',
+                      },
+                    },
+                  },
+                },
+              }
+              vim.wo.foldlevel = 99
+              vim.wo.conceallevel = 2
+            '';
+          };
           # markview = {
           #   package = pkgs.vimUtils.buildVimPlugin {
           #     name = "markview.nvim";
