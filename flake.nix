@@ -18,12 +18,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
-    # stylix.url = "github:danth/stylix";
-    stylix.url = "github:Soliprem/stylix/patch-1";
+    stylix.url = "github:danth/stylix";
+    # stylix.url = "github:Soliprem/stylix/patch-1";
     # Neovimflake
-    # nvf.url = "github:notashelf/nvf";
+    nvf.url = "github:notashelf/nvf";
     # nvf.url = "github:soliprem/nvf";
-    nvf.url = "/home/soliprem/.local/src/nvf/";
+    # nvf.url = "/home/soliprem/.local/src/nvf/";
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";

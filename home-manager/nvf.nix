@@ -217,7 +217,7 @@
           colorizer.enable = true;
           modes-nvim.enable = false; # the theme looks terrible with catppuccin
           illuminate.enable = true;
-          fastaction.enable = true;
+          # fastaction.enable = true;
           breadcrumbs = {
             enable = true;
             navbuddy.enable = true;
