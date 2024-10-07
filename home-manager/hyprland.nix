@@ -222,7 +222,7 @@ in {
       ];
       bind =
         [
-          "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
+          "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
           # "$mod, V, exec, pkill walker || cliphist list | walker -dk | cliphist decode | wl-copy"
           "$mod,tab,focuscurrentorlast"
           "$mod+Shift, space, togglefloating"
