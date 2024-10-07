@@ -1,20 +1,20 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  programs.foot.enable = true;
-  programs.foot.server.enable = true;
-  programs.foot.settings = {
-    main = {
-      term = "xterm-256color";
-      shell = "fish";
+_: {
+  programs = {
+    foot = {
+      enable = true;
+      server.enable = true;
+      settings = {
+        main = {
+          term = "xterm-256color";
+          shell = "fish";
 
-      # dpi-aware = "yes";
-    };
+          # dpi-aware = "yes";
+        };
 
-    mouse = {
-      hide-when-typing = "yes";
+        mouse = {
+          hide-when-typing = "yes";
+        };
+      };
     };
   };
 }
