@@ -222,7 +222,7 @@ in {
       ];
       bind =
         [
-          "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
+          "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
           # "$mod, V, exec, pkill walker || cliphist list | walker -dk | cliphist decode | wl-copy"
           "$mod,tab,focuscurrentorlast"
           "$mod+Shift, space, togglefloating"
@@ -261,7 +261,7 @@ in {
           "$mod+Alt, F, fullscreenstate, -1 2"
 
           # Plugins
-          # "$mod+Shift, g, hyprexpo:expo, toggle"
+          "$mod+Shift, g, hyprexpo:expo, toggle"
           # "$mod, g, overview:toggle"
 
           # screenshots
@@ -307,8 +307,8 @@ in {
     };
     plugins = [
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      # pkgs.hyprlandPlugins.hyprexpo
-      # pkgs.hyprlandPlugins.hyprtrails
+      pkgs.hyprlandPlugins.hyprexpo
+      pkgs.hyprlandPlugins.hyprtrails
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };
