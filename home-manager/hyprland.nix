@@ -296,7 +296,6 @@ in {
       };
       exec-once = [
         "iio-hyprland"
-        "keepassxc &"
         "walker --gapplication-service"
         # "nextcloud"
         "wl-paste --type text --watch cliphist store &"
