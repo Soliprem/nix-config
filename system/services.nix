@@ -10,6 +10,7 @@
     displayManager.cosmic-greeter.enable = true;
     desktopManager.cosmic.enable = true;
     desktopManager.plasma6.enable = true;
+    gnome.gnome-keyring.enable = true;
 
     # Configure keymap in X11
     hypridle.enable = true;
@@ -24,4 +25,5 @@
     };
     printing.enable = true;
   };
+  security.pam.services.soliprem.enableGnomeKeyring = true;
 }

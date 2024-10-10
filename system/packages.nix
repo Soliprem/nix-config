@@ -1,10 +1,9 @@
-{pkgs, inputs, ...}: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     highlight
     git
     wget
     fastfetch
-    keepassxc
     networkmanagerapplet
     libgccjit
     linearicons-free
@@ -18,5 +17,5 @@
       # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
     river.enable = true;
-    };
+  };
 }

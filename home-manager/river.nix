@@ -121,7 +121,6 @@
 
 
       ## Autostart
-      riverctl spawn "keepassxc &"
       riverctl spawn "wl-paste --type text --watch cliphist store &"
       riverctl spawn "wl-paste --type image --watch cliphist store &"
       riverctl spawn "walker --gapplication-service"
