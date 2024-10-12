@@ -60,6 +60,7 @@
     username = "soliprem";
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
+      gimp
       muse-sounds-manager
       teams-for-linux
       musescore
