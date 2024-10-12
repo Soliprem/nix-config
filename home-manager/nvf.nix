@@ -319,8 +319,7 @@
                   },
                 },
               }
-              vim.wo.foldlevel = 99
-              vim.wo.conceallevel = 2
+              vim.o.foldlevel = 99
             '';
           };
           # markview = {

@@ -159,7 +159,6 @@
   # git
   # wget
   # fastfetch
-  # keepassxc
   # networkmanagerapplet
   # libgccjit
   # linearicons-free
