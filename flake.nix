@@ -4,6 +4,10 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     # nixpkgs.url = "github:NixOS/nixpkgs/b79ce4c43f9117b2912e7dbc68ccae4539259dda";
     # walker.url = "github:abenz1267/walker";
@@ -53,6 +57,7 @@
     nvf,
     # hyprland,
     stylix,
+    spicetify-nix,
     home-manager,
     lix-module,
     nixos-cosmic,
@@ -101,6 +106,7 @@
           ./home-manager/home.nix
           nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
+          spicetify-nix.homeManagerModules.default
           # hyprland.homeManagerModules.default
         ];
       };
@@ -112,6 +118,7 @@
           ./home-manager/home.nix
           nvf.homeManagerModules.default
           stylix.homeManagerModules.stylix
+          spicetify-nix.homeManagerModules.default
           # hyprland.homeManagerModules.default
         ];
       };
