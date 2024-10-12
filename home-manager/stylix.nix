@@ -3,6 +3,7 @@
     enable = true;
     autoEnable = true;
     targets.kde.enable = false;
+    targets.spicetify.enable = true;
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";

@@ -18,6 +18,7 @@
     ./tofi.nix
     ./mako.nix
     ./fuzzel.nix
+    ./spicetify.nix
     ./river.nix
     ./theming.nix
     ./stylix.nix
@@ -60,6 +61,7 @@
     username = "soliprem";
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
+      youtube-music
       muse-sounds-manager
       teams-for-linux
       musescore
