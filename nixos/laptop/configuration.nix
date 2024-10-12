@@ -143,7 +143,6 @@
   #   git
   #   wget
   #   fastfetch
-  #   keepassxc
   #   libgccjit
   #   linearicons-free
   #   libnotify
