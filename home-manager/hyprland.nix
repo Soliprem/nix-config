@@ -214,6 +214,13 @@ in {
         "workspace special,title:^(Firefox — Sharing Indicator)$"
         "workspace special,title:^(zen — Sharing Indicator)$"
       ];
+      workspace = [
+        "w[t1], gapsout:80"
+        "w[tg1], gapsout:80"
+        "w[t2], gapsout:40"
+        "w[tg2], gapsout:40"
+        "f[1], gapsout:80"
+      ];
       monitor = [
         ",preferred,auto,1"
         "eDP-1, 1920x1200@60.0030,0x0,1"
