@@ -2,8 +2,8 @@
 
 This is my personal nixos flake to configure my system.
 
-![screenshot1](assets/foot.png)
+![screenshot1](assets/screenshots/foot.png)
 
-![screenshot2](assets/feet.png)
+![screenshot2](assets/screenshots/feet.png)
 
-![screenshot3](assets/full.png)
+![screenshot3](assets/screenshots/full.png)
