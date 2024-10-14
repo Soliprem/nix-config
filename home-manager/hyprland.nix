@@ -282,7 +282,7 @@ in {
           # "$mod, V, exec, pkill walker || cliphist list | walker -dk | cliphist decode | wl-copy"
           "$mod,tab,focuscurrentorlast"
           "$mod+Shift, space, togglefloating"
-          "$mod+Alt, l, exec, hyprlock"
+          "$mod+Alt, l, exec, hyprlock --immediate"
           "$mod, t, exec, notify-time"
           "$mod+Shift, v, exec, notify-volume"
           "$mod, b, exec, notify-battery"
