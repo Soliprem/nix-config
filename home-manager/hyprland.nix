@@ -32,9 +32,9 @@ in {
           monitor = "";
           dots_center = true;
           fade_on_empty = false;
-          font_color = "rgb(202, 211, 245)";
-          inner_color = "rgb(91, 96, 120)";
-          outer_color = "rgb(24, 25, 38)";
+          font_color = "rgba(${colors.base07}ff)";
+          inner_color = "rgba(${colors.base09}ff)";
+          outer_color = "rgba(${colors.base00}ff)";
           outline_thickness = 5;
           placeholder_text = ''Password...'';
           shadow_passes = 2;
