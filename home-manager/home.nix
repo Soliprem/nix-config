@@ -16,7 +16,6 @@
     ./hyprland.nix
     # ./schizofox.nix
     ./tofi.nix
-    ./ags.nix
     ./mako.nix
     ./fuzzel.nix
     ./spicetify.nix
