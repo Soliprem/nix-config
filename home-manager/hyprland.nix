@@ -48,18 +48,28 @@ in {
       general = {
         after_sleep_cmd = "hyprctl dispatch dpms on";
         ignore_dbus_inhibit = false;
-        lock_cmd = "hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+        lock_cmd = "pidof hyprlock || hyprlock";
       };
 
       listener = [
         {
-          timeout = 900;
-          on-timeout = "hyprlock";
+          timeout = 150;
+          on-timeout = "brightnessctl -sd rgb:kbd_backlight set 0";
+          on-resume = "brightnessctl -rd rgb:kbd_backlight";
         }
         {
-          timeout = 1200;
+          timeout = 300;
+          on-timeout = "loginctl lock-session";
+        }
+        {
+          timeout = 330;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
+        }
+        {
+          timeout = 1800;
+          on-timeout = "systemctl suspend";
         }
       ];
     };
@@ -326,7 +336,7 @@ in {
 
           # Plugins
           "$mod+Shift, g, hyprexpo:expo, toggle"
-          # "$mod, g, overview:toggle"
+          "$mod, g, overview:toggle"
 
           # screenshots
           "$mod,P,exec, hyprshot -m output -c # [hidden]"
@@ -371,7 +381,8 @@ in {
     plugins = [
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
       pkgs.hyprlandPlugins.hyprexpo
-      pkgs.hyprlandPlugins.hyprtrails
+      # pkgs.hyprlandPlugins.hyprtrails
+      pkgs.hyprlandPlugins.hyprspace
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };
