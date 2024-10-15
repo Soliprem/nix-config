@@ -26,7 +26,7 @@
     stylix.url = "github:danth/stylix";
     # stylix.url = "github:Soliprem/stylix/patch-1";
     # Neovimflake
-    nvf.url = "github:notashelf/nvf";
+    nvf.url = "github:notashelf/nvf/v0.7";
     # nvf.url = "github:soliprem/nvf";
     # nvf.url = "/home/soliprem/.local/src/nvf/";
     # Home manager

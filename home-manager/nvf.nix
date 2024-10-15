@@ -131,12 +131,10 @@
           transparent = false;
         };
 
-        autopairs.enable = true;
+        autopairs.nvim-autopairs.enable = true;
 
-        autocomplete = {
-          enable = true;
-          type = "nvim-cmp";
-        };
+        autocomplete.nvim-cmp.enable = true;
+        snippets.luasnip.enable = true;
 
         filetree = {
           nvimTree = {
@@ -288,40 +286,40 @@
                -- dim = true, -- dim all other characters
             }";
           };
-          neorg-treesitter = {
-            package = nvim-treesitter.withPlugins (p: with p; [tree-sitter-norg]);
-            setup = ''
-              require("nvim-treesitter.configs").setup {
-                    highlight = {
-                      enable = true,
-                    }
-                  }
-            '';
-          };
-          neorg-telescope = {
-            package = pkgs.vimPlugins.neorg-telescope;
-          };
-          neorg = {
-            package = pkgs.vimPlugins.neorg;
-            setup = ''
-              require('neorg').setup {
-                load = {
-                  ['core.defaults'] = {}, -- Loads default behaviour
-                  ['core.concealer'] = {}, -- Adds pretty icons to your documents
-                  ['core.export'] = {}, -- Adds export options
-                  ['core.integrations.telescope'] = {},
-                  ['core.dirman'] = { -- Manages Neorg workspaces
-                    config = {
-                      workspaces = {
-                        notes = '~/Documents/neorg',
-                      },
-                    },
-                  },
-                },
-              }
-              vim.o.foldlevel = 99
-            '';
-          };
+          # neorg-treesitter = {
+          #   package = nvim-treesitter.withPlugins (p: with p; [tree-sitter-norg]);
+          #   setup = ''
+          #     require("nvim-treesitter.configs").setup {
+          #           highlight = {
+          #             enable = true,
+          #           }
+          #         }
+          #   '';
+          # };
+          # neorg-telescope = {
+          #   package = pkgs.vimPlugins.neorg-telescope;
+          # };
+          # neorg = {
+          #   package = pkgs.vimPlugins.neorg;
+          #   setup = ''
+          #     require('neorg').setup {
+          #       load = {
+          #         ['core.defaults'] = {}, -- Loads default behaviour
+          #         ['core.concealer'] = {}, -- Adds pretty icons to your documents
+          #         ['core.export'] = {}, -- Adds export options
+          #         ['core.integrations.telescope'] = {},
+          #         ['core.dirman'] = { -- Manages Neorg workspaces
+          #           config = {
+          #             workspaces = {
+          #               notes = '~/Documents/neorg',
+          #             },
+          #           },
+          #         },
+          #       },
+          #     }
+          #     vim.o.foldlevel = 99
+          #   '';
+          # };
           # markview = {
           #   package = pkgs.vimUtils.buildVimPlugin {
           #     name = "markview.nvim";
