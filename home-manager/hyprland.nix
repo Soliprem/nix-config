@@ -278,9 +278,9 @@ in {
         # ",XF86MonBrightnessDown, exec, ags run-js 'brightness.screen_value -= 0.05;' # [hidden]"
       ];
       bindl = [
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
-        "$mod ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
-        "$mod+Shift,M, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%"
+        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle && notify-send \"Toggling Microphone\" "
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-volume"
+        "$mod+Shift,M, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0% && notify-volume"
       ];
       bindm = [
         "$mod, mouse:272, movewindow"
