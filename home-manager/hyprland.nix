@@ -336,7 +336,6 @@ in {
 
           # Plugins
           "$mod+Shift, g, hyprexpo:expo, toggle"
-          "$mod, g, overview:toggle"
 
           # screenshots
           "$mod,P,exec, hyprshot -m output -c # [hidden]"
@@ -382,7 +381,6 @@ in {
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
       pkgs.hyprlandPlugins.hyprexpo
       # pkgs.hyprlandPlugins.hyprtrails
-      pkgs.hyprlandPlugins.hyprspace
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };
