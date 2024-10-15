@@ -51,7 +51,6 @@
       permittedInsecurePackages = [
         "electron-27.3.11"
         "olm-3.2.16"
-        "fluffychat-linux-1.20.0"
       ];
       allowUnfreePredicate = _: true;
     };
@@ -69,7 +68,6 @@
       batsignal
       zed-editor
       ripgrep
-      fluffychat
       ungoogled-chromium
       signal-desktop
       android-tools
