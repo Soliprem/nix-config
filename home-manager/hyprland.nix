@@ -154,10 +154,7 @@ in {
           "windows, 1, 3, md3_decel, popin 60%"
           "border, 1, 10, default"
           "fade, 1, 2.5, md3_decel"
-          # animation = workspaces, 1, 3.5, md3_decel, slide
           "workspaces, 1, 7, fluent_decel, slide"
-          # animation = workspaces, 1, 7, fluent_decel, slidefade 15%
-          # animation = specialWorkspace, 1, 3, md3_decel, slidefadevert 15%
           "specialWorkspace, 1, 3, md3_decel, slidevert"
         ];
       };
@@ -182,7 +179,6 @@ in {
       debug = {
         # overlay = true
         # damage_tracking = 0
-
         # damage_blink = yes
       };
 
@@ -190,8 +186,6 @@ in {
       layerrule = [
         "noanim, selection"
       ];
-
-      # Dynamic colors
 
       windowrule = [
         "opacity 0.89 override 0.89 override, .* # Applies transparency to EVERY WINDOW"
