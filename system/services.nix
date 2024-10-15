@@ -13,7 +13,6 @@
     gnome.gnome-keyring.enable = true;
 
     # Configure keymap in X11
-    hypridle.enable = true;
     xserver.xkb = {
       layout = "eu";
       options = "caps:swapescape";
