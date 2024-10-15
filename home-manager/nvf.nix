@@ -455,6 +455,11 @@
             silent = true;
             desc = "Oil";
           };
+          "<esc>" = {
+            action = ":noh<CR>";
+            silent = true;
+            desc = "removes search highlight when pressing esc";
+          };
         };
       };
     };
