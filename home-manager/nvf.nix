@@ -197,6 +197,28 @@
 
         notes = {
           obsidian.enable = false; # FIXME: neovim fails to build if obsidian is enabled
+          neorg = {
+            enable = true;
+            setupOpts = {
+              load = {
+                "core.defaults" = {};
+                "core.concealer" = {};
+                "core.completion" = {
+                  config.engine = "nvim-cmp";
+                };
+                "core.export" = {};
+                "core.summary" = {};
+                "core.text-objects" = {};
+                "core.dirman" = {
+                  config = {
+                    workspaces = {
+                      notes = "~/Documents/neorg";
+                    };
+                  };
+                };
+              };
+            };
+          };
           orgmode.enable = false;
           mind-nvim.enable = false;
           todo-comments.enable = true;
