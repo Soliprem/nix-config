@@ -80,9 +80,8 @@ in {
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # make sure to also set the portal package, so that they are in sync
-    # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     settings = {
       "$mod" = "SUPER";
       "$term" = "foot";
@@ -257,7 +256,6 @@ in {
       };
       master = {
         new_on_top = 0;
-        no_gaps_when_only = 0;
       };
       binde = [
         "SUPER,h,resizeactive,-20 0 # [hidden]"
@@ -374,8 +372,9 @@ in {
     };
     plugins = [
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      pkgs.hyprlandPlugins.hyprexpo
-      # pkgs.hyprlandPlugins.hyprtrails
+      # pkgs.hyprlandPlugins.hyprexpo
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };
