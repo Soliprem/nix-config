@@ -79,7 +79,7 @@
       starship
       thunderbird
       lolcat
-      armcord
+      legcord
       impression
       inputs.zen-browser.packages."${system}".default
       freetube
@@ -108,14 +108,14 @@
       zathura
       yad
       darktable
-      qutebrowser
+      # qutebrowser
       nextcloud-client
       planify
       mpv
       btop
       termdown
       timer
-      cliphist
+      # cliphist
       hyprshot
       nerdfonts
       swww
