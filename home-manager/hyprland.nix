@@ -228,6 +228,7 @@ in {
         ",preferred,auto,1"
         "eDP-1, 1920x1200@60.0030,0x0,1"
         "HDMI-A-1, 1920x1080@120,0x0,1"
+        "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1" #TODO: ask Alberto if scale should be 1.5
       ];
       input = {
         kb_layout = "eu, it";
@@ -297,7 +298,11 @@ in {
           "$mod, b, exec, notify-battery"
           ", Print, exec, grimblast copy area"
           "$mod, E, exec, nautilus --new-window"
-          "$mod, Period, exec, walker-emojii"
+          "$mod+Shift, Period, exec, fuzzel-emojii"
+          "$mod, Comma, focusmonitor, l"
+          "$mod, Period, focusmonitor, r"
+          "$mod+Shift, Comma, movewindow, mon:l"
+          "$mod+Shift, Period, movewindow, mon:r"
           "$mod, w, exec, $browser"
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "
@@ -345,9 +350,9 @@ in {
                 in
                   builtins.toString (x + 1 - (c * 10));
               in [
-                "$mod, ${ws}, workspace, ${toString (x + 1)}"
-                "$mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
-                "Alt $mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+                "$mod, ${ws}, split-workspace, ${toString (x + 1)}"
+                "$mod SHIFT, ${ws}, split-movetoworkspacesilent, ${toString (x + 1)}"
+                "Alt $mod SHIFT, ${ws}, split-movetoworkspace, ${toString (x + 1)}"
               ]
             )
             10)
@@ -375,6 +380,7 @@ in {
       # pkgs.hyprlandPlugins.hyprexpo
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+      inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };
