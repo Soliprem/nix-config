@@ -58,22 +58,22 @@
     username = "soliprem";
     homeDirectory = "/home/soliprem";
     packages = with pkgs; [
-      gimp
+      # gimp
       youtube-music
       muse-sounds-manager
       teams-for-linux
       musescore
       batsignal
-      zed-editor
+      # zed-editor
       ripgrep
-      ungoogled-chromium
-      signal-desktop
+      # ungoogled-chromium
+      # signal-desktop
       android-tools
       android-udev-rules
       hyprshade
       loupe
       transmission_4-gtk
-      walker
+      # walker
       cowsay
       fortune
       starship
@@ -101,7 +101,7 @@
       gamescope
       qpwgraph
       brightnessctl
-      hugo
+      # hugo
       stremio
       fd
       killall
@@ -117,12 +117,12 @@
       timer
       # cliphist
       hyprshot
-      nerdfonts
+      # nerdfonts.override {fonts = ["Inconsolata"];}
       swww
       element-desktop-wayland
       fractal
       typst
-      xfce.thunar
+      # xfce.thunar
       nautilus
       spotube
       glib
