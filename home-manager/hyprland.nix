@@ -40,6 +40,33 @@ in {
           shadow_passes = 2;
         }
       ];
+      label = [
+        {
+          position = "0, 160";
+          monitor = "";
+          text = "$TIME";
+          text_align = "center"; # center/right or any value for default left. multi-line text alignment inside label container
+          font_color = "rgba(${colors.base07}ff)";
+          font_size = "25";
+          font_family = "Noto Sans";
+          rotate = "0"; # degrees, counter-clockwise
+
+          halign = "center";
+          valign = "center";
+        }{
+          position = "0, 80";
+          monitor = "";
+          text = "Hi, $USER";
+          text_align = "center"; # center/right or any value for default left. multi-line text alignment inside label container
+          font_color = "rgba(${colors.base07}ff)";
+          font_size = "25";
+          font_family = "Noto Sans";
+          rotate = "0"; # degrees, counter-clockwise
+
+          halign = "center";
+          valign = "center";
+        }
+      ];
     };
   };
   services.hypridle = {
@@ -228,7 +255,7 @@ in {
         ",preferred,auto,1"
         "eDP-1, 1920x1200@60.0030,0x0,1"
         "HDMI-A-1, 1920x1080@120,0x0,1"
-        "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1" #TODO: ask Alberto if scale should be 1.5
+        "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1.5" #TODO: ask Alberto if scale should be 1.5
       ];
       input = {
         kb_layout = "eu, it";
