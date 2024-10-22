@@ -28,6 +28,7 @@
           lspkind.enable = false;
           lightbulb.enable = true;
           lspsaga.enable = false;
+          otter-nvim.enable = true;
           trouble.enable = true;
           lspSignature.enable = true;
           lsplines.enable = true;
