@@ -25,4 +25,5 @@
     printing.enable = true;
   };
   security.pam.services.soliprem.enableGnomeKeyring = true;
+  networking.networkmanager.enable = true;
 }
