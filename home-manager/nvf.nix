@@ -28,7 +28,10 @@
           lspkind.enable = false;
           lightbulb.enable = true;
           lspsaga.enable = false;
-          otter-nvim.enable = true;
+          otter-nvim = {
+            enable = true;
+            setupOpts.buffers.write_to_disk = true;
+          };
           trouble.enable = true;
           lspSignature.enable = true;
           lsplines.enable = true;
@@ -308,6 +311,12 @@
                -- highlight_on_key = true, -- show highlights only after key press
                -- dim = true, -- dim all other characters
             }";
+          };
+          quarto = {
+            package = pkgs.vimPlugins.quarto-nvim;
+            setup = ''
+              require('quarto').setup()
+            '';
           };
           # markview = {
           #   package = pkgs.vimUtils.buildVimPlugin {
