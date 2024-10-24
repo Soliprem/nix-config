@@ -86,7 +86,7 @@
       appimage-run
       # nvim-pkg
       obsidian
-      kdeconnect
+      plasma5Packages.kdeconnect-kde
       beeper
       bat
       gamemode
@@ -115,7 +115,7 @@
       btop
       termdown
       timer
-      # cliphist
+      cliphist
       hyprshot
       # nerdfonts.override {fonts = ["Inconsolata"];}
       swww
