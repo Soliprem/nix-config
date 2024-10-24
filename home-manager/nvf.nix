@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   programs.nvf = {
     enable = true;
     # your settings need to go into the settings attribute set
@@ -150,7 +150,12 @@
           nvimBufferline.enable = false;
         };
 
-        treesitter.context.enable = true;
+        treesitter = {
+          context.enable = true;
+          grammars = [
+            inputs.norg-meta.defaultPackage.${pkgs.system}
+          ];
+        };
 
         binds = {
           whichKey.enable = true;
