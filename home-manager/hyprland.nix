@@ -65,6 +65,18 @@ in {
 
           halign = "center";
           valign = "center";
+        }{
+          position = "0, 4";
+          monitor = "";
+          text = "🐘";
+          text_align = "center"; # center/right or any value for default left. multi-line text alignment inside label container
+          font_color = "rgba(${colors.base07}ff)";
+          font_size = "40";
+          font_family = "Noto Sans";
+          rotate = "0"; # degrees, counter-clockwise
+
+          halign = "center";
+          valign = "center";
         }
       ];
     };
