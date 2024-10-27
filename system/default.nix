@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+_: {
   imports = [
     ./vpn.nix
     ./printing.nix
