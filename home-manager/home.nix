@@ -11,7 +11,7 @@
     # inputs.nix-colors.homeManagerModule
     # inputs.walker.homeManagerModules.default
     # ./walker.nix
-    ./hyprland.nix
+    ./hypr
     # ./schizofox.nix
     ./tofi.nix
     ./mako.nix
