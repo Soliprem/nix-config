@@ -77,6 +77,7 @@
           ocaml.enable = true;
           python.enable = true;
           dart.enable = false;
+          lua.enable = true;
           bash.enable = true;
           tailwind.enable = false;
           typst.enable = true;
