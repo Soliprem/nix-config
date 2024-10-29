@@ -263,7 +263,7 @@ in {
           "$mod, b, exec, notify-battery"
           ", Print, exec, grimblast copy area"
           "$mod, E, exec, nautilus --new-window"
-          "$mod+Shift, Period, exec, fuzzel-emoji"
+          "$mod+Shift+Alt, Period, exec, fuzzel-emoji"
           "$mod, Comma, focusmonitor, l"
           "$mod, Period, focusmonitor, r"
           "$mod+Shift, Comma, movewindow, mon:l"
