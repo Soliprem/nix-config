@@ -255,7 +255,7 @@ in {
           # "$mod, V, exec, pkill walker || cliphist list | walker -dk | cliphist decode | wl-copy"
           "$mod,tab,focuscurrentorlast"
           "$mod, F1, exec, ${lib.getExe gamemode}"
-          "$mod, F2, exec, ${lib.getExe togglebar}"
+          "$mod+Shift, b, exec, ${lib.getExe togglebar}"
           "$mod+Shift, space, togglefloating"
           "$mod+Alt, l, exec, hyprlock --immediate"
           "$mod, t, exec, notify-time"
