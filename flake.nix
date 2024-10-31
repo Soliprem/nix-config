@@ -4,7 +4,6 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    ags.url = "github:aylur/ags/v2";
     soluastal.url = "github:soliprem/soluastal";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
