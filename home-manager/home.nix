@@ -16,6 +16,7 @@
     ./tofi.nix
     ./mako.nix
     ./fuzzel.nix
+    ./ags.nix
     ./spicetify.nix
     ./river.nix
     ./theming.nix

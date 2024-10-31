@@ -337,14 +337,15 @@ in {
         "wl-paste --type text --watch cliphist store &"
         "wl-paste --type image --watch cliphist store &"
         "batsignal &"
-        "walker --gapplication-service"
+        "nm-applet &"
+        # "walker --gapplication-service"
       ];
     };
     plugins = [
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
       # pkgs.hyprlandPlugins.hyprexpo
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
       inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
