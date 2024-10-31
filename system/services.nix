@@ -24,6 +24,9 @@
     };
     printing.enable = true;
   };
-  security.pam.services.soliprem.enableGnomeKeyring = true;
+  security = {
+    pam.services.soliprem.enableGnomeKeyring = true;
+    pki.certificateFiles = [ ../assets/almawifi.crt ];
+  };
   networking.networkmanager.enable = true;
 }
