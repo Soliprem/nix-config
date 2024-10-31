@@ -337,7 +337,8 @@ in {
         "wl-paste --type text --watch cliphist store &"
         "wl-paste --type image --watch cliphist store &"
         "batsignal &"
-        "walker --gapplication-service"
+        # "walker --gapplication-service"
+        "nm-applet &"
       ];
     };
     plugins = [
