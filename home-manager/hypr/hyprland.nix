@@ -254,6 +254,8 @@ in {
           "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
           # "$mod, V, exec, pkill walker || cliphist list | walker -dk | cliphist decode | wl-copy"
           "$mod,tab,focuscurrentorlast"
+          "$mod, mouse_up, workspace, +1"
+          "$mod, mouse_down, workspace, -1"
           "$mod, F1, exec, ${lib.getExe gamemode}"
           "$mod+Shift, b, exec, ${lib.getExe togglebar}"
           "$mod+Shift, space, togglefloating"
