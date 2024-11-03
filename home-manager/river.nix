@@ -108,7 +108,7 @@
           };
           "'yad*'"."-title"."'Choose wallpaper*'" = "float";
           # Make sure all apps display borders correctly by enforcing ssd
-          "-app-id"."'*'" = "ssd";
+          "'*'" = "ssd";
 
           # Make all views with app-id "bar" and any title use client-side decorations
           # riverctl rule-add -app-id "bar" csd
@@ -129,7 +129,8 @@
       scratch_tag=$((1 << 20))
       all_but_scratch_tag=$(( $all_tags ^ $scratch_tag))
       riverctl spawn-tagmask $all_but_scratch_tag
-      riverctl map normal Super P set-view-tags $scratch_tag
+      riverctl map normal Super P toggle-focused-tags $scratch_tag
+      riverctl map normal Super+Shift P set-view-tags $scratch_tag
 
       sticky_tag=$((1 << 31))
       all_but_sticky_tag=$(( $all_but_scratch_tag ^ $sticky_tag ))
