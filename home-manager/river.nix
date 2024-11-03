@@ -25,6 +25,7 @@
           "Super+Shift Comma" = ''send-to-output previous'';
           "Super Q" = ''close'';
           "Super d" = ''spawn fuzzel'';
+          "Super+Shift d" = ''spawn fuzzel-run'';
           "Super w" = ''spawn zen'';
           "Super J" = ''focus-view next'';
           "Super K" = ''focus-view previous'';
