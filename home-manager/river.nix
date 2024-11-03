@@ -15,9 +15,12 @@
       map = {
         normal = {
           "Super Return" = ''spawn foot'';
+          "Super T" = ''spawn notify-time'';
+          "Super B" = ''spawn notify-battery'';
           "Super P" = ''set-view-tags $scratch_tag'';
           "Super S" = ''toggle-view-tags $sticky_tag'';
           "Super Period" = ''focus-output next'';
+          "Super V" = ''pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'';
           "Super Comma" = ''focus-output previous'';
           "Super+Shift Period" = ''send-to-output next'';
           "Super+Shift Comma" = ''send-to-output previous'';
@@ -121,7 +124,7 @@
       riverctl spawn-tagmask $all_but_scratch_tag
 
       sticky_tag=$((1 << 31))
-      all_but_sticky_tag=$(( $all_tags ^ $sticky_tag ))
+      all_but_sticky_tag=$(( $all_but_scratch_tag ^ $sticky_tag ))
 
       riverctl spawn-tagmask $\{all_but_sticky_tag}
 
@@ -160,6 +163,7 @@
       riverctl rule-add -app-id 'zen*' -title 'Open Folder*' float
       riverctl rule-add -app-id 'zen*' -title 'Save As*' float
       riverctl rule-add -app-id 'zen*' -title 'Library*' float
+      riverctl rule-add -app-id '*' ssd
 
       # Make all views with app-id "bar" and any title use client-side decorations
       # riverctl rule-add -app-id "bar" csd
