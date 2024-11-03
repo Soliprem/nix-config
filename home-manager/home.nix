@@ -63,6 +63,7 @@
       youtube-music
       muse-sounds-manager
       teams-for-linux
+      wlsunset
       musescore
       batsignal
       # zed-editor
