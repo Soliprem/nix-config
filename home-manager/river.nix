@@ -17,8 +17,6 @@
           "Super Return" = ''spawn foot'';
           "Super T" = ''spawn notify-time'';
           "Super B" = ''spawn notify-battery'';
-          "Super P" = ''set-view-tags $scratch_tag'';
-          "Super S" = ''toggle-view-tags $sticky_tag'';
           "Super Period" = ''focus-output next'';
           "Super V" = ''pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'';
           "Super Comma" = ''focus-output previous'';
@@ -54,8 +52,6 @@
           "Super+Shift e" = ''spawn dm-special'';
           "Super e" = ''spawn nautilus'';
           "Super+Shift o" = ''spawn dm-documents'';
-          "Super 0" = ''set-focused-tags $all_tags'';
-          "Super+Shift 0" = ''set-view-tags $all_tags'';
           "Super+Shift Space" = ''toggle-float'';
           "Super F" = ''toggle-fullscreen'';
           "Super Up" = ''send-layout-cmd rivertile "main-location top"'';
@@ -97,16 +93,59 @@
           "Super BTN_MIDDLE" = ''toggle-float'';
         };
       };
+      rule-add = {
+        "-app-id" = {
+          "'Julia*'"."-title"."'Julia'" = "float";
+          "'zen*'" = {
+            "-title" = {
+              "'*Picture-in-Picture*'" = "float";
+              "'Open File*'" = "float";
+              "'Select a File*'" = "float";
+              "'Open Folder*'" = "float";
+              "'Save As*'" = "float";
+              "'Library*'" = "float";
+            };
+          };
+          "'yad*'"."-title"."'Choose wallpaper*'" = "float";
+          # Make sure all apps display borders correctly by enforcing ssd
+          "-app-id"."'*'" = "ssd";
+
+          # Make all views with app-id "bar" and any title use client-side decorations
+          # riverctl rule-add -app-id "bar" csd
+        };
+      };
+      spawn = [
+        ## Autostart
+        "'wl-paste --type text --watch cliphist store &'"
+        "'wl-paste --type image --watch cliphist store &'"
+        "'wlr-randr --output HDMI-A-1 --mode 1920x1080@120Hz --adaptive-sync enabled'"
+      ];
     };
     xwayland.enable = true;
     extraConfig = ''
+      # Setting up scratchpads and sticky tags
+      all_tags=$(((1 << 32) - 1))
+
+      scratch_tag=$((1 << 20))
+      all_but_scratch_tag=$(( $all_tags ^ $scratch_tag))
+      riverctl spawn-tagmask $all_but_scratch_tag
+      riverctl map normal Super P set-view-tags $scratch_tag
+
+      sticky_tag=$((1 << 31))
+      all_but_sticky_tag=$(( $all_but_scratch_tag ^ $sticky_tag ))
+      riverctl spawn-tagmask $all_but_sticky_tag
+      riverctl map normal Super S toggle-view-tags $sticky_tag;
+
+
+      riverctl map normal Super 0 set-focused-tags $all_tags
+      riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
       for i in $(seq 1 9)
       do
           tags=$((1 << ($i - 1)))
 
           # Super+[1-9] to focus tag [0-8]
-          riverctl map normal Super $i set-focused-tags $tags
+          riverctl map normal Super $i set-focused-tags $(($sticky_tag + $tags))
 
           # Super+Shift+[1-9] to tag focused view with tag [0-8]
           riverctl map normal Super+Shift $i set-view-tags $tags
@@ -117,25 +156,8 @@
           # Super+Shift+Control+[1-9] to toggle tag [0-8] of focused view
           riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
       done
-      all_tags=$(((1 << 32) - 1))
-
-      scratch_tag=$((i << 20))
-      all_but_scratch_tag=$(( $all_tags ^ $scratch_tag))
-      riverctl spawn-tagmask $all_but_scratch_tag
-
-      sticky_tag=$((1 << 31))
-      all_but_sticky_tag=$(( $all_but_scratch_tag ^ $sticky_tag ))
-
-      riverctl spawn-tagmask $\{all_but_sticky_tag}
 
       # modify the normal keybind to always select the sticky tag
-      for i in $(seq 1 9)
-      do
-          tags=$((1 << ($i - 1)))
-          # Super+[1-9] to focus tag [0-8]
-          riverctl map normal Super $i set-focused-tags $(($sticky_tag + $tags))
-      done
-
 
       # Set background and border color
       riverctl background-color 0x002b36
@@ -143,11 +165,6 @@
       riverctl border-color-unfocused 0x586e75
 
 
-      ## Autostart
-      riverctl spawn "wl-paste --type text --watch cliphist store &"
-      riverctl spawn "wl-paste --type image --watch cliphist store &"
-      riverctl spawn "walker --gapplication-service"
-      riverctl spawn "wlr-randr --output HDMI-A-1 --mode 1920x1080@120Hz"
       # Set and exec into the default layout generator, rivertile.
       # River will send the process group of the init executable SIGTERM on exit.
       riverctl default-layout rivertile
@@ -155,18 +172,6 @@
       # usage: import-gsettings
 
       # Make all views with an app-id that starts with "float" and title "foo" start floating.
-      riverctl rule-add -app-id 'Julia*' -title 'Julia' float
-      riverctl rule-add -app-id 'zen*' -title '*Picture-in-Picture*' float
-      riverctl rule-add -app-id 'zen*' -title 'Open File*' float
-      riverctl rule-add -app-id 'zen*' -title 'Select a File*' float
-      riverctl rule-add -app-id 'yad*' -title 'Choose wallpaper*' float
-      riverctl rule-add -app-id 'zen*' -title 'Open Folder*' float
-      riverctl rule-add -app-id 'zen*' -title 'Save As*' float
-      riverctl rule-add -app-id 'zen*' -title 'Library*' float
-      riverctl rule-add -app-id '*' ssd
-
-      # Make all views with app-id "bar" and any title use client-side decorations
-      # riverctl rule-add -app-id "bar" csd
 
       # Set the default layout generator to be rivertile and start it.
       # River will send the process group of the init executable SIGTERM on exit.
