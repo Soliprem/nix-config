@@ -341,6 +341,7 @@ in {
         "batsignal &"
         # "walker --gapplication-service"
         "nm-applet &"
+        "rm /tmp/soluastal"
       ];
     };
     plugins = [
