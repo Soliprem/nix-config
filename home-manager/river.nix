@@ -15,12 +15,14 @@
       map = {
         normal = {
           "Super Return" = ''spawn foot'';
+          "Super P" = ''set-view-tags $scratch_tag'';
+          "Super S" = ''toggle-view-tags $sticky_tag'';
           "Super Period" = ''focus-output next'';
           "Super Comma" = ''focus-output previous'';
           "Super+Shift Period" = ''send-to-output next'';
           "Super+Shift Comma" = ''send-to-output previous'';
           "Super Q" = ''close'';
-          "Super d" = ''spawn walker'';
+          "Super d" = ''spawn fuzzel'';
           "Super w" = ''spawn zen'';
           "Super J" = ''focus-view next'';
           "Super K" = ''focus-view previous'';
@@ -46,7 +48,8 @@
           "Super+Shift L" = ''send-layout-cmd rivertile "main-count -1"'';
           "Super o" = ''spawn dm-hub'';
           "Super n" = ''spawn dm-notes'';
-          "Super e" = ''spawn walker -m emojis'';
+          "Super+Shift e" = ''spawn dm-special'';
+          "Super e" = ''spawn nautilus'';
           "Super+Shift o" = ''spawn dm-documents'';
           "Super 0" = ''set-focused-tags $all_tags'';
           "Super+Shift 0" = ''set-view-tags $all_tags'';
@@ -112,6 +115,23 @@
           riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
       done
       all_tags=$(((1 << 32) - 1))
+
+      scratch_tag=$((i << 20))
+      all_but_scratch_tag=$(( $all_tags ^ $scratch_tag))
+      riverctl spawn-tagmask $all_but_scratch_tag
+
+      sticky_tag=$((1 << 31))
+      all_but_sticky_tag=$(( $all_tags ^ $sticky_tag ))
+
+      riverctl spawn-tagmask $\{all_but_sticky_tag}
+
+      # modify the normal keybind to always select the sticky tag
+      for i in $(seq 1 9)
+      do
+          tags=$((1 << ($i - 1)))
+          # Super+[1-9] to focus tag [0-8]
+          riverctl map normal Super $i set-focused-tags $(($sticky_tag + $tags))
+      done
 
 
       # Set background and border color
