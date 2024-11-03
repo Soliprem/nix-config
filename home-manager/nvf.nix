@@ -82,6 +82,7 @@
           bash.enable = true;
           tailwind.enable = false;
           typst.enable = true;
+          julia.enable = true;
           clang = {
             enable = true;
             lsp.server = "clangd";
@@ -96,19 +97,12 @@
         visuals = {
           enable = true;
           nvimWebDevicons.enable = true;
-          scrollBar.enable = false;
-          smoothScroll.enable = true;
           cellularAutomaton.enable = true;
           fidget-nvim.enable = true;
           highlight-undo.enable = true;
 
           indentBlankline = {
             enable = true;
-            # fillChar = null;
-            # eolChar = null;
-            # scope = {
-            #   enabled = true;
-            # };
           };
 
           cursorline = {
