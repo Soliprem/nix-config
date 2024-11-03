@@ -6,6 +6,7 @@
     enable = true;
     settings = {
       attach-mode = "bottom";
+      keyboard-layout = "eu";
       set-cursor-warp = "on-output-change";
       declare-mode = [
         "passthrough"
