@@ -72,6 +72,7 @@
           java.enable = false;
           ts.enable = true;
           svelte.enable = false;
+          vala.enable = true;
           go.enable = true;
           elixir.enable = false;
           zig.enable = true;
