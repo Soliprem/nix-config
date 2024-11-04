@@ -19,7 +19,7 @@
           "Super T" = ''spawn notify-time'';
           "Super B" = ''spawn notify-battery'';
           "Super Period" = ''focus-output next'';
-          "Super V" = ''pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'';
+          "Super V" = ''spawn 'pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy' '';
           "Super Comma" = ''focus-output previous'';
           "Super+Shift Period" = ''send-to-output next'';
           "Super+Shift Comma" = ''send-to-output previous'';
