@@ -1,6 +1,7 @@
 {pkgs, ...}: let
-    wayshotpick = pkgs.writeShellApplication {
-    name = "gamemode";
+  wayshotpick = pkgs.writeShellApplication {
+    name = "wayshotpick";
+    runtimeInputs = with pkgs; [wayshot slurp];
     text = ''
       case "$(printf "a selected area\\nfull screen\\na selected area (copy)\\nfull screen (copy)" |\
         fuzzel --dmenu -l 6 -i -p "Screenshot which area?")" in
@@ -12,7 +13,6 @@
       esac
     '';
   };
-
 in {
-  home.homePackages = [ wayshotpick ];
+  home.packages = [wayshotpick];
 }

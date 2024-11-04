@@ -15,6 +15,7 @@
     # ./schizofox.nix
     ./tofi.nix
     ./mako.nix
+    ./scripts.nix
     ./fuzzel.nix
     ./wlogout.nix
     ./spicetify.nix
