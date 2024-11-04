@@ -138,7 +138,7 @@
     packages = with pkgs; [
       wl-clipboard
     ];
-    shell = pkgs.fish;
+    shell = pkgs.nushell;
   };
   virtualisation.docker.enable = true;
   # Install firefox.
