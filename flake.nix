@@ -98,6 +98,7 @@
           nixos-cosmic.nixosModules.default
         ];
       };
+      formatter = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
     };
 
     # Standalone home-manager configuration entrypoint
