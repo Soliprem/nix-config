@@ -23,6 +23,7 @@
           "Super Comma" = ''focus-output previous'';
           "Super+Shift Period" = ''send-to-output next'';
           "Super+Shift Comma" = ''send-to-output previous'';
+          "Super+Shift S" = ''spawn wayshotpick'';
           "Super Q" = ''close'';
           "Super d" = ''spawn fuzzel'';
           "Super+Shift d" = ''spawn fuzzel-run'';
