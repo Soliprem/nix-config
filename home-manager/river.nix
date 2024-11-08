@@ -146,6 +146,7 @@
 
       riverctl input '*ouchpad' tap enabled
       riverctl input '*ouchpad' tap-button-map left-right-middle
+      riverctl input '*ouchpad' natural-scroll enabled
 
       for i in $(seq 1 9)
       do
