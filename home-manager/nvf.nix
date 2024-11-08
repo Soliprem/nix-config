@@ -300,155 +300,27 @@
           #   };
           # };
           oil = {
-            package = pkgs.vimPlugins.oil-nvim;
+            package = oil-nvim;
             setup = "require('oil').setup()";
           };
           zen = {
-            package = pkgs.vimPlugins.zen-mode-nvim;
+            package = zen-mode-nvim;
             setup = ''require('zen-mode').setup()'';
           };
           eyeliner = {
-            package = pkgs.vimPlugins.eyeliner-nvim;
+            package = eyeliner-nvim;
             setup = "require('eyeliner').setup {
                -- highlight_on_key = true, -- show highlights only after key press
                -- dim = true, -- dim all other characters
             }";
           };
           quarto = {
-            package = pkgs.vimPlugins.quarto-nvim;
+            package = quarto-nvim;
             setup = ''
               require('quarto').setup()
             '';
           };
-          # markview = {
-          #   package = pkgs.vimUtils.buildVimPlugin {
-          #     name = "markview.nvim";
-          #     src = pkgs.fetchFromGitHub {
-          #       owner = "OXY2DEV";
-          #       repo = "markview.nvim";
-          #       rev = "v19.0.0";
-          #       hash = "sha256-c1iYZmJXrAOkhyV9K97xPQbHdS/RFoktwhwG5ngXzsk=";
-          #     };
-          #     setup = "require('markview').setup()";
-          #   };
-          # };
-          mkdnflow = {
-            package = mkdnflow-nvim;
-            setup = ''
-              require('mkdnflow').setup {
-                modules = {
-                  bib = true,
-                  buffers = true,
-                  conceal = true,
-                  cursor = true,
-                  folds = true,
-                  links = true,
-                  lists = true,
-                  maps = true,
-                  paths = true,
-                  tables = true,
-                  yaml = false,
-                },
-                filetypes = { md = true, rmd = true, markdown = true },
-                create_dirs = true,
-                perspective = {
-                  priority = 'first',
-                  fallback = 'current',
-                  root_tell = false,
-                  nvim_wd_heel = false,
-                  update = false,
-                },
-                wrap = false,
-                bib = {
-                  default_path = nil,
-                  find_in_root = true,
-                },
-                silent = false,
-                links = {
-                  style = 'markdown',
-                  name_is_source = false,
-                  conceal = false,
-                  context = 0,
-                  implicit_extension = nil,
-                  transform_implicit = false,
-                  transform_explicit = function(text)
-                    text = text:gsub(' ', '-')
-                    text = text:lower()
-                    return text
-                  end,
-                },
-                to_do = {
-                  symbols = { ' ', '-', 'X' },
-                  update_parents = true,
-                  not_started = ' ',
-                  in_progress = '-',
-                  complete = 'X',
-                },
-                tables = {
-                  trim_whitespace = true,
-                  format_on_move = true,
-                  auto_extend_rows = false,
-                  auto_extend_cols = false,
-                },
-                yaml = {
-                  bib = { override = false },
-                },
-                mappings = {
-                  MkdnEnter = { { 'n', 'v' }, '<CR>' },
-                  MkdnTab = false,
-                  MkdnSTab = false,
-                  MkdnNextLink = { 'n', '<Tab>' },
-                  MkdnPrevLink = { 'n', '<S-Tab>' },
-                  MkdnNextHeading = { 'n', ']]' },
-                  MkdnPrevHeading = { 'n', '[[' },
-                  MkdnGoBack = { 'n', '<BS>' },
-                  MkdnGoForward = { 'n', '<Del>' },
-                  MkdnCreateLink = false, -- see MkdnEnter
-                  MkdnCreateLinkFromClipboard = { { 'n', 'v' }, '<leader>pp' }, -- see MkdnEnter
-                  MkdnFollowLink = false, -- see MkdnEnter
-                  MkdnDestroyLink = { 'n', '<M-CR>' },
-                  MkdnTagSpan = { 'v', '<M-CR>' },
-                  MkdnMoveSource = { 'n', '<F2>' },
-                  MkdnYankAnchorLink = { 'n', 'ya' },
-                  MkdnYankFileAnchorLink = { 'n', 'yfa' },
-                  MkdnIncreaseHeading = { 'n', '+' },
-                  MkdnDecreaseHeading = { 'n', '<C>-' },
-                  MkdnToggleToDo = { { 'n', 'v' }, '<C-Space>' },
-                  MkdnNewListItem = false,
-                  MkdnNewListItemBelowInsert = { 'n', 'o' },
-                  MkdnNewListItemAboveInsert = { 'n', 'O' },
-                  MkdnExtendList = false,
-                  MkdnUpdateNumbering = { 'n', '<leader>nn' },
-                  MkdnTableNextCell = { 'i', '<Tab>' },
-                  MkdnTablePrevCell = { 'i', '<S-Tab>' },
-                  MkdnTableNextRow = false,
-                  MkdnTablePrevRow = { 'i', '<M-CR>' },
-                  MkdnTableNewRowBelow = { 'n', '<leader>ir' },
-                  MkdnTableNewRowAbove = { 'n', '<leader>iR' },
-                  MkdnTableNewColAfter = { 'n', '<leader>ic' },
-                  MkdnTableNewColBefore = { 'n', '<leader>iC' },
-                  MkdnFoldSection = { 'n', '<leader>f' },
-                  MkdnUnfoldSection = { 'n', '<leader>F' },
-                },
-                new_file_template = {
-                  template = [[
-                # {{ title }}
-                Date: {{ date }}
-                Tags:
-                ]],
-                },
-                }
-            '';
-          };
         };
-        # startPlugins = with pkgs; [
-        #   luajitPackages.lua-utils-nvim
-        #   luajitPackages.rocks-nvim
-        #   vimPlugins.nvim-nio
-        #   luajitPackages.pathlib-nvim
-        #   vimPlugins.plenary-nvim
-        #   vimPlugins.nui-nvim
-        # ];
         maps.normal = {
           "-" = {
             action = ":Oil<CR>";
