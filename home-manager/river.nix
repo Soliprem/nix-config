@@ -144,6 +144,9 @@
       riverctl map normal Super 0 set-focused-tags $all_tags
       riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
+      riverctl input '*ouchpad' tap enabled
+      riverctl input '*ouchpad' tap-button-map left-right-middle
+
       for i in $(seq 1 9)
       do
           tags=$((1 << ($i - 1)))
