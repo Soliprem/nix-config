@@ -16,6 +16,7 @@
       map = {
         normal = {
           "Super Return" = ''spawn foot'';
+          "Super Tab" = ''focus-previous-tags'';
           "Super T" = ''spawn notify-time'';
           "Super B" = ''spawn notify-battery'';
           "Super Period" = ''focus-output next'';
