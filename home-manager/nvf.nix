@@ -1,9 +1,11 @@
-{pkgs, inputs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.nvf = {
     enable = true;
     enableManpages = true;
-    # your settings need to go into the settings attribute set
-    # most settings are documented in the appendix
     settings = {
       vim = {
         searchCase = "smart";
@@ -12,22 +14,16 @@
         vimAlias = true;
         undoFile = {
           enable = true;
-          # path = "/home/soliprem/.local/state/nvf/undo";
         };
         debugMode = {
           enable = false;
           level = 16;
           logFile = "/tmp/nvim.log";
         };
-
-        spellcheck = {
-          enable = true;
-        };
-
         lsp = {
           formatOnSave = false;
           lspkind.enable = false;
-          lightbulb.enable = true;
+          lightbulb.enable = false;
           lspsaga.enable = false;
           otter-nvim = {
             enable = true;
@@ -51,16 +47,8 @@
           enableFormat = true;
           enableTreesitter = true;
           enableExtraDiagnostics = true;
-
-          # Nim LSP is broken on Darwin and therefore
-          # should be disabled by default. Users may still enable
-          # `vim.languages.vim` to enable it, this does not restrict
-          # that.
-          # See: <https://github.com/PMunch/nimlsp/issues/178#issue-2128106096>
-          nim.enable = false;
-
+          nim.enable = true;
           nix.enable = true;
-
           markdown = {
             enable = true;
             # format.extraFiletypes = ["quarto" "rmarkdown"];
@@ -83,6 +71,7 @@
           bash.enable = true;
           tailwind.enable = false;
           typst.enable = true;
+          typst.treesitter.enable = false;
           julia.enable = true;
           clang = {
             enable = true;
@@ -96,19 +85,20 @@
         };
 
         visuals = {
-          enable = true;
-          nvimWebDevicons.enable = true;
-          cellularAutomaton.enable = true;
+          nvim-web-devicons.enable = true;
+          cellular-automaton.enable = true;
           fidget-nvim.enable = true;
           highlight-undo.enable = true;
 
-          indentBlankline = {
+          indent-blankline = {
             enable = true;
           };
 
-          cursorline = {
+          nvim-cursorline = {
             enable = true;
-            lineTimeout = 0;
+            setupOpts = {
+              lineTimeout = 0;
+            };
           };
         };
 
@@ -119,11 +109,11 @@
           };
         };
 
+        # luaConfigRC.basic = ''
+        #   -- vim.opt.undofile = true
         # vim.g.nvim_ghost_use_script = 1
         # vim.g.nvim_ghost_python_executable = 'python'
-        luaConfigRC.basic = ''
-          -- vim.opt.undofile = true
-        '';
+        # '';
 
         theme = {
           enable = true;
@@ -188,12 +178,13 @@
         utility = {
           ccc.enable = false;
           vim-wakatime.enable = true;
-          icon-picker.enable = false;
+          icon-picker.enable = true;
           surround.enable = true;
           diffview-nvim.enable = true;
           motion = {
             hop.enable = false;
             leap.enable = true;
+            precognition.enable = false;
           };
 
           images = {
@@ -284,7 +275,7 @@
           neocord.enable = false;
         };
 
-        extraPlugins = with pkgs.vimPlugins; {
+        lazy.plugins = with pkgs.vimPlugins; {
           # ghost-nvim = {
           #   package = pkgs.vimUtils.buildVimPlugin {
           #     name = "ghost-nvim";
@@ -299,40 +290,49 @@
           #     '';
           #   };
           # };
-          oil = {
+          ${oil-nvim.pname} = {
+            lazy = true;
             package = oil-nvim;
-            setup = "require('oil').setup()";
-          };
-          zen = {
-            package = zen-mode-nvim;
-            setup = ''require('zen-mode').setup()'';
-          };
-          eyeliner = {
-            package = eyeliner-nvim;
-            setup = "require('eyeliner').setup {
-               -- highlight_on_key = true, -- show highlights only after key press
-               -- dim = true, -- dim all other characters
-            }";
-          };
-          quarto = {
-            package = quarto-nvim;
-            setup = ''
-              require('quarto').setup()
+            setupModule = "oil";
+            after = ''
+              print('loaded oil')
             '';
+            cmd = ["Oil"];
+            keys = [
+              {
+                key = "-";
+                action = ":Oil<CR>";
+              }
+            ];
+          };
+          ${zen-mode-nvim.pname} = {
+            lazy = true;
+            package = zen-mode-nvim;
+            setupModule = "zen-mode-nvim";
+            after = ''print('hello')'';
+            cmd = ["ZenMode"];
+          };
+          ${eyeliner-nvim.pname} = {
+            package = eyeliner-nvim;
+            event = ["BufEnter"];
+            after = ''print('hello')'';
+          };
+          ${quarto-nvim.pname} = {
+            lazy = true;
+            cmd = "QuartoPreview";
+            after = ''print('hello')'';
+            package = quarto-nvim;
           };
         };
-        maps.normal = {
-          "-" = {
-            action = ":Oil<CR>";
-            silent = true;
-            desc = "Oil";
-          };
-          "<esc>" = {
+        keymaps = [
+          {
+            key = "<esc>";
+            mode = "n";
             action = ":noh<CR>";
             silent = true;
             desc = "removes search highlight when pressing esc";
-          };
-        };
+          }
+        ];
       };
     };
   };
