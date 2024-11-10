@@ -124,7 +124,6 @@
       swww
       element-desktop-wayland
       fractal
-      typst
       # xfce.thunar
       nautilus
       spotube
