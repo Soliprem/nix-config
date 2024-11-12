@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   wayshotpick = pkgs.writeShellApplication {
     name = "wayshotpick";
     runtimeInputs = with pkgs; [wayshot slurp];
@@ -13,6 +17,25 @@
       esac
     '';
   };
+  dm-expand =
+    pkgs.writers.writeNuBin "dm-expand" {
+      makeWrapperArgs = [
+        "--prefix"
+        "ATH"
+        ":"
+        "${lib.makeBinPath [pkgs.fuzzel]}"
+      ];
+    }
+    ''
+      let expansions = [
+      [key value];
+      ["mdash" —]
+      ["name" "Francesco Prem Solidoro"]
+      ["sign" "Kindest Regards,\nFrancesco Prem Solidoro"]
+      ]
+      let chosen_key = $expansions.key | to text | fuzzel --dmenu
+      wtype ($expansions | where key == $chosen_key | get value.0)
+    '';
 in {
-  home.packages = [wayshotpick];
+  home.packages = [wayshotpick dm-expand];
 }
