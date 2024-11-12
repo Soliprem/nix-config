@@ -16,6 +16,7 @@
       map = {
         normal = {
           "Super Return" = ''spawn foot'';
+          "Super minus" = ''spawn 'wtype -k emdash' '';
           "Super Tab" = ''focus-previous-tags'';
           "Super T" = ''spawn notify-time'';
           "Super B" = ''spawn notify-battery'';
