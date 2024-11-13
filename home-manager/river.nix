@@ -30,7 +30,7 @@
           "Super Q" = ''close'';
           "Super d" = ''spawn fuzzel'';
           "Super+Shift d" = ''spawn fuzzel-run'';
-          "Super w" = ''spawn zen'';
+          "Super w" = ''spawn qutebrowser'';
           "Super J" = ''focus-view next'';
           "Super K" = ''focus-view previous'';
           "Super+Shift E" = ''exit'';
