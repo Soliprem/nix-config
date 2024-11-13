@@ -111,7 +111,6 @@
       zathura
       yad
       darktable
-      # qutebrowser
       nextcloud-client
       planify
       mpv
@@ -147,6 +146,12 @@
   # Enable home-manager and git and other things
   programs = {
     home-manager.enable = true;
+    qutebrowser = {
+      enable = true;
+      extraConfig = ''
+        c.tabs.show = "switching"
+      '';
+    };
     git = {
       enable = true;
       userName = "Soliprem";
