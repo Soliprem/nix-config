@@ -1294,11 +1294,11 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1731279011,
-        "narHash": "sha256-+U7Ew49J79l0mVfvPdyMnlFISVIgQTAKpdpipTKYQ2Q=",
+        "lastModified": 1731406595,
+        "narHash": "sha256-Pacf43ZT4FTKtpw3gamIu57hE53hjljc62x1mEMQm50=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "12b650fea7bddcdf9773f3b6f831c59c7b660a75",
+        "rev": "a07e113f3a3cc572e1ccfddae44b37003290158d",
         "type": "github"
       },
       "original": {
