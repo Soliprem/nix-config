@@ -3,6 +3,6 @@ _: {
     ./hyprland.nix
     ./hypridle.nix
     ./packages.nix
-    ./hyprlock.nix
+    # ./hyprlock.nix
   ];
 }
