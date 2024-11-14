@@ -63,6 +63,9 @@
       # gimp
       youtube-music
       muse-sounds-manager
+      heroic
+      lutris
+      (inputs.umu.packages.${pkgs.system}.umu.override {version = "${inputs.umu.shortRev}";})
       teams-for-linux
       wlsunset
       musescore
