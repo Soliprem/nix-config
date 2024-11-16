@@ -14,6 +14,7 @@
     ./hypr
     # ./schizofox.nix
     ./tofi.nix
+    ./qutebrowser.nix
     ./mako.nix
     ./scripts.nix
     ./fuzzel.nix
@@ -149,12 +150,6 @@
   # Enable home-manager and git and other things
   programs = {
     home-manager.enable = true;
-    qutebrowser = {
-      enable = true;
-      extraConfig = ''
-        c.tabs.show = "switching"
-      '';
-    };
     git = {
       enable = true;
       userName = "Soliprem";
