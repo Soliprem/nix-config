@@ -55,6 +55,7 @@
           "Super+Shift L" = ''send-layout-cmd rivertile "main-count -1"'';
           "Super o" = ''spawn dm-hub'';
           "Super n" = ''spawn dm-notes'';
+          "Super+Shift n" = ''spawn 'cd ~/Documents/Nextcloud/Notes/; foot nvim -c Oil' '';
           "Super+Shift e" = ''spawn dm-special'';
           "Super e" = ''spawn nautilus'';
           "Super+Shift o" = ''spawn dm-documents'';
