@@ -332,6 +332,13 @@
             silent = true;
             desc = "removes search highlight when pressing esc";
           }
+          {
+            key = "<leader><leader>";
+            mode = "n";
+            action = ":Telescope find_files<CR>";
+            silent = true;
+            desc = "removes search highlight when pressing esc";
+          }
         ];
       };
     };
