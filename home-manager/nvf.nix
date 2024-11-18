@@ -71,7 +71,6 @@
           bash.enable = true;
           tailwind.enable = false;
           typst.enable = true;
-          typst.treesitter.enable = false;
           julia.enable = true;
           clang = {
             enable = true;
