@@ -17,10 +17,7 @@
     # walker.url = "github:abenz1267/walker";
     zen-browser.url = "github:omarcresp/zen-browser-flake";
     soniksnvim.url = "github:Soliprem/soniksnvim";
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     # pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
@@ -39,9 +36,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland";
-    };
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -85,7 +80,7 @@
         # > Our main nixos configuration file <
         modules = [
           ./nixos/laptop/configuration.nix
-          lix-module.nixosModules.default
+          # lix-module.nixosModules.default
           ./system/ollama.nix
           ./system/default.nix
           nixos-cosmic.nixosModules.default
@@ -96,7 +91,7 @@
         # > Our main nixos configuration file <
         modules = [
           ./nixos/pc/configuration.nix
-          lix-module.nixosModules.default
+          # lix-module.nixosModules.default
           ./system/ollamaRocm.nix
           ./system/default.nix
           nixos-cosmic.nixosModules.default
