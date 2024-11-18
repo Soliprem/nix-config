@@ -1,6 +1,11 @@
 _: {
   programs.qutebrowser = {
     enable = true;
+    keyBindings = {
+      normal = {
+        "X" = "hint links spawn mpv {hint-url}";
+      };
+    };
     settings = {
       tabs.show = "switching";
       colors.webpage.darkmode.enabled = false;
