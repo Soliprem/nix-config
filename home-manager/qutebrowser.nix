@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   programs.qutebrowser = {
     enable = true;
     keyBindings = {
@@ -18,6 +18,9 @@ _: {
     searchEngines = {
       da = "https://www.dandwiki.com/w/index.php?title=Special%3ASearch&search={}&go=Go";
       ds = "http://www.d20srd.org/search.htm?q={}";
+      h = "https://home-manager-options.extranix.com/?query={}";
+      np = "https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={}";
+      no = "https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={}";
     };
   };
 }
