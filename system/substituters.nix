@@ -1,6 +1,7 @@
 {
   nix = {
     settings = {
+      trusted-users = ["root" "@wheel"];
       substituters = [
         "https://hyprland.cachix.org"
         "https://cosmic.cachix.org/"
