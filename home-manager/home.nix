@@ -11,7 +11,7 @@
     # inputs.nix-colors.homeManagerModule
     # inputs.walker.homeManagerModules.default
     # ./walker.nix
-    ./hypr
+    # ./hypr
     # ./schizofox.nix
     ./tofi.nix
     ./qutebrowser.nix
@@ -126,7 +126,6 @@
       cliphist
       hyprshot
       # nerdfonts.override {fonts = ["Inconsolata"];}
-      swww
       element-desktop-wayland
       fractal
       # xfce.thunar
