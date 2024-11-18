@@ -3,7 +3,8 @@ _: {
     enable = true;
     keyBindings = {
       normal = {
-        "X" = "hint links spawn mpv {hint-url}";
+        ",h" = "hint links spawn mpv {hint-url}";
+        ",m" = "spawn mpv {url}";
       };
     };
     settings = {
