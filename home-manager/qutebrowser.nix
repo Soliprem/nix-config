@@ -15,7 +15,8 @@ _: {
       };
     };
     searchEngines = {
-      d = "https://www.dandwiki.com/w/index.php?title=Special%3ASearch&search={}&go=Go";
+      da = "https://www.dandwiki.com/w/index.php?title=Special%3ASearch&search={}&go=Go";
+      ds = "http://www.d20srd.org/search.htm?q={}";
     };
   };
 }
