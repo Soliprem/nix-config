@@ -9,8 +9,8 @@
     #   wayland.enable = true;
     # };
     displayManager.cosmic-greeter.enable = true;
-    # desktopManager.cosmic.enable = true;
-    # desktopManager.plasma6.enable = true;
+    desktopManager.cosmic.enable = true;
+    desktopManager.plasma6.enable = true;
     gnome.gnome-keyring.enable = true;
 
     # Configure keymap in X11
