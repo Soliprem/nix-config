@@ -52,8 +52,6 @@
       permittedInsecurePackages = [
         "electron-27.3.11"
         "olm-3.2.16"
-        "cinny-unwrapped-4.2.2"
-        "cinny-4.2.2"
       ];
       allowUnfreePredicate = _: true;
     };
@@ -67,7 +65,6 @@
       youtube-music
       bitwarden-desktop
       muse-sounds-manager
-      cinny-desktop
       nheko
       heroic
       lutris
