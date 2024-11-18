@@ -46,6 +46,7 @@
         # ll="exa --long --header --icons --color-scale all --group-directories-first";
         l = "ls -l";
         nn = "cd ~/.config/nvim/; ls";
+        n = "cd ~/.config/nix-config; ls";
         grep = "grep --color=auto";
         diff = "diff --color=auto";
         ccat = "highlight --out-format=ansi";
