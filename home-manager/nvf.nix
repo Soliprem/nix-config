@@ -302,6 +302,7 @@
               {
                 key = "-";
                 action = ":Oil<CR>";
+                mode = "n";
               }
             ];
           };
