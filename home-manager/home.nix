@@ -52,6 +52,8 @@
       permittedInsecurePackages = [
         "electron-27.3.11"
         "olm-3.2.16"
+        "cinny-unwrapped-4.2.2"
+        "cinny-4.2.2"
       ];
       allowUnfreePredicate = _: true;
     };
@@ -63,7 +65,10 @@
     packages = with pkgs; [
       # gimp
       youtube-music
+      bitwarden-desktop
       muse-sounds-manager
+      cinny-desktop
+      nheko
       heroic
       lutris
       (inputs.umu.packages.${pkgs.system}.umu.override {version = "${inputs.umu.shortRev}";})
