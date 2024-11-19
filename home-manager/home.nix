@@ -64,6 +64,8 @@
       # gimp
       youtube-music
       bitwarden-desktop
+      bitwarden-cli
+      bitwarden-menu
       muse-sounds-manager
       nheko
       heroic
