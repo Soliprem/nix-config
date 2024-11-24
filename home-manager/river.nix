@@ -125,7 +125,8 @@
         ## Autostart
         "'wl-paste --type text --watch cliphist store &'"
         "'wl-paste --type image --watch cliphist store &'"
-        "'wlr-randr --output HDMI-A-1 --mode 1920x1080@120Hz'"
+        "wlr-randr --output HDMI-A-1 --mode 4096x2160@60Hz --scale 2.5"
+        "sww-daemon"
       ];
     };
     xwayland.enable = true;
