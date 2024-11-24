@@ -64,6 +64,7 @@
       # gimp
       youtube-music
       bitwarden-desktop
+      swww
       bitwarden-cli
       bitwarden-menu
       muse-sounds-manager
