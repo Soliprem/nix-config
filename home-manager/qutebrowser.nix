@@ -5,10 +5,16 @@
       normal = {
         ",h" = "hint links spawn mpv {hint-url}";
         ",m" = "spawn mpv {url}";
+        ",t" = "config-cycle tabs.show always switching";
+        ",s" = "config-cycle statusbar.show always in-mode";
       };
     };
     settings = {
-      tabs.show = "switching";
+      tabs = {
+        show = "switching";
+        position = "left";
+      };
+      downloads.remove_finisched = 10000;
       colors.webpage.darkmode.enabled = false;
       url = {
         start_pages = "~/.config/homepage/homepage.html";
