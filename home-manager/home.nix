@@ -10,10 +10,11 @@
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
     # inputs.walker.homeManagerModules.default
-    # ./walker.nix
+    ./walker.nix
     # ./hypr
     # ./schizofox.nix
     ./tofi.nix
+    # ./kanshi.nix
     ./qutebrowser.nix
     ./mako.nix
     ./scripts.nix
@@ -118,6 +119,7 @@
       fd
       killall
       zathura
+      papers
       yad
       darktable
       nextcloud-client

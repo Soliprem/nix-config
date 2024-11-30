@@ -65,6 +65,7 @@
           elixir.enable = false;
           zig.enable = true;
           ocaml.enable = true;
+          nu.enable = true;
           python.enable = true;
           dart.enable = false;
           lua.enable = true;
@@ -104,7 +105,7 @@
         statusline = {
           lualine = {
             enable = true;
-            theme = "gruvbox";
+            theme = "tokyonight";
           };
         };
 
@@ -116,8 +117,8 @@
 
         theme = {
           enable = true;
-          name = "gruvbox";
-          style = "dark";
+          name = "tokyonight";
+          style = "night";
           transparent = false;
         };
 
@@ -309,7 +310,6 @@
             lazy = true;
             package = zen-mode-nvim;
             setupModule = "zen-mode-nvim";
-            after = ''print('hello')'';
             cmd = ["ZenMode"];
           };
           ${eyeliner-nvim.pname} = {
@@ -320,8 +320,15 @@
           ${quarto-nvim.pname} = {
             lazy = true;
             cmd = "QuartoPreview";
-            after = ''print('hello')'';
             package = quarto-nvim;
+          };
+          ${typst-preview-nvim.pname} = {
+            lazy = true;
+            cmd = "TypstPreview";
+            package = typst-preview-nvim;
+            setupOpts = {
+              open_cmd = "zen %s";
+            };
           };
         };
         keymaps = [
