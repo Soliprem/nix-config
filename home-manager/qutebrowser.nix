@@ -14,7 +14,7 @@
         show = "switching";
         position = "left";
       };
-      downloads.remove_finisched = 10000;
+      downloads.remove_finished = 10000;
       colors.webpage.darkmode.enabled = false;
       url = {
         start_pages = "~/.config/homepage/homepage.html";

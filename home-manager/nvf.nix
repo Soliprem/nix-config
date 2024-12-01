@@ -31,7 +31,7 @@
           };
           trouble.enable = true;
           lspSignature.enable = true;
-          lsplines.enable = true;
+          lsplines.enable = false;
           nvim-docs-view.enable = false; # lags *horribly* whenever l is pressed
         };
 
@@ -58,6 +58,7 @@
           r.enable = true;
           sql.enable = true;
           java.enable = false;
+          nu.enable = true;
           ts.enable = true;
           svelte.enable = false;
           vala.enable = true;
@@ -141,6 +142,7 @@
           context.enable = true;
           grammars = [
             inputs.norg-meta.defaultPackage.${pkgs.system}
+            pkgs.vimPlugins.nvim-treesitter-parsers.nu
           ];
         };
 
@@ -246,7 +248,7 @@
               nix = "110";
               ruby = "120";
               java = "130";
-              go = ["90 130"];
+              # go = ["90 130"];
             };
           };
         };
