@@ -5,6 +5,23 @@
 }: let
   scripts = [
     (
+      pkgs.writers.writeNuBin "deflate" {
+        
+        makeWrapperArgs = [
+          "--prefix"
+          "PATH"
+          ":"
+          "${lib.makeBinPath [pkgs.unzip]}"
+        ];
+      }
+    ''
+      def main [archive, output_dir] {
+         let archive = (zipinfo -1 $archive | lines | reverse)
+         cd ($output_dir | default ".")
+         $archive | rm ...$in
+      }
+      '')
+    (
       pkgs.writers.writeNuBin "nixrice" {
         makeWrapperArgs = [
           "--prefix"

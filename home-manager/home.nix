@@ -64,6 +64,8 @@
     packages = with pkgs; [
       # gimp
       youtube-music
+      nexusmods-app-unfree
+      mangohud
       bitwarden-desktop
       swww
       bitwarden-cli
