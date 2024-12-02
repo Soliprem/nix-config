@@ -1,4 +1,4 @@
-{
+_:{
   environment = {
     localBinInPath = true;
     variables = {
