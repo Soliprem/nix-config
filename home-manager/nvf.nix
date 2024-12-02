@@ -58,7 +58,6 @@
           r.enable = true;
           sql.enable = true;
           java.enable = false;
-          nu.enable = true;
           ts.enable = true;
           svelte.enable = false;
           vala.enable = true;
