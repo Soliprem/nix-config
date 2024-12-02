@@ -1,6 +1,9 @@
 {
   services = {
     flatpak.enable = true;
+    openssh = {
+      enable = true;
+    };
     # xserver.enable = true;
 
     # Enable the KDE Plasma Desktop Environment.
