@@ -2,6 +2,7 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
   inputs,
+  config,
   pkgs,
   ...
 }: {
@@ -19,6 +20,7 @@
     ./mako.nix
     ./scripts.nix
     ./fuzzel.nix
+    ./agenix.nix
     ./wlogout.nix
     ./spicetify.nix
     ./river.nix
@@ -67,6 +69,8 @@
       nexusmods-app-unfree
       mangohud
       bitwarden-desktop
+      showtime
+      keyutils
       swww
       bitwarden-cli
       bitwarden-menu
@@ -74,6 +78,7 @@
       nheko
       heroic
       lutris
+      inputs.agenix.packages.${system}.default
       (inputs.umu.packages.${pkgs.system}.umu.override {version = "${inputs.umu.shortRev}";})
       teams-for-linux
       wlsunset
@@ -166,7 +171,14 @@
     # firefox.enable = true;
   };
   # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+  systemd = {
+    user = {
+      startServices = "sd-switch";
+      sessionVariables = {
+        BW_SESSION = "$(cat ${config.age.secrets.bw_sessionkey.path})";
+      };
+    };
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05";
