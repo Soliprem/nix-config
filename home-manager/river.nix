@@ -125,7 +125,7 @@
         ## Autostart
         "'wl-paste --type text --watch cliphist store &'"
         "'wl-paste --type image --watch cliphist store &'"
-        "sww-daemon"
+        "swww-daemon"
       ];
     };
     xwayland.enable = true;
