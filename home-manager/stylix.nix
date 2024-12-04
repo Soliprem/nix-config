@@ -22,11 +22,11 @@
       };
       sansSerif = {
         name = "Inconsolata Nerd Font";
-        package = pkgs.nerdfonts.override {fonts = ["Inconsolata"];};
+        package = pkgs.nerd-fonts.inconsolata;
       };
       monospace = {
         name = "Inconsolata Nerd Font Mono";
-        package = pkgs.nerdfonts.override {fonts = ["Inconsolata"];};
+        package = pkgs.nerd-fonts.inconsolata;
       };
       emoji = {
         name = "Noto Color Emoji";
