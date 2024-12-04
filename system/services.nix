@@ -1,5 +1,6 @@
 {
   services = {
+    cpupower-gui.enable = true;
     flatpak.enable = true;
     openssh = {
       enable = true;
@@ -7,12 +8,12 @@
     # xserver.enable = true;
 
     # Enable the KDE Plasma Desktop Environment.
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-    # displayManager.cosmic-greeter.enable = true;
-    # desktopManager.cosmic.enable = true;
+    # displayManager.sddm = {
+    #   enable = true;
+    #   wayland.enable = true;
+    # };
+    displayManager.cosmic-greeter.enable = true;
+    desktopManager.cosmic.enable = true;
     desktopManager.plasma6.enable = true;
     gnome.gnome-keyring.enable = true;
 
@@ -32,5 +33,6 @@
     pam.services.soliprem.enableGnomeKeyring = true;
     pki.certificateFiles = [ ../assets/almawifi.crt ];
   };
+  xdg.portal.wlr.enable = true;
   networking.networkmanager.enable = true;
 }
