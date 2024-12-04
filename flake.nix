@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixpkgs
-    # agenix.url = "github:ryantm/agenix";
+    agenix.url = "github:ryantm/agenix";
     # nixpkgsurl = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.follows = "nixos-cosmic/nixpkgs";
     soluastal.url = "github:soliprem/soluastal";
