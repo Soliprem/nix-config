@@ -11,7 +11,7 @@
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
     # inputs.walker.homeManagerModules.default
-    ./walker.nix
+    # ./walker.nix
     # ./hypr
     # ./schizofox.nix
     ./tofi.nix
@@ -71,11 +71,13 @@
       bitwarden-desktop
       showtime
       keyutils
+      nh
       swww
       bitwarden-cli
       bitwarden-menu
       muse-sounds-manager
       nheko
+      pwvucontrol
       heroic
       lutris
       inputs.agenix.packages.${system}.default
@@ -117,7 +119,6 @@
       prismlauncher
       protonup-qt
       telegram-desktop
-      pavucontrol
       gamescope
       qpwgraph
       brightnessctl
