@@ -3,8 +3,9 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    agenix.url = "github:ryantm/agenix";
+    # agenix.url = "github:ryantm/agenix";
+    # nixpkgsurl = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.follows = "nixos-cosmic/nixpkgs";
     soluastal.url = "github:soliprem/soluastal";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -34,7 +35,7 @@
     # stylix.url = "github:Soliprem/stylix/patch-1";
     # Neovimflake
     norg-meta.url = "github:nvim-neorg/tree-sitter-norg-meta";
-    nvf.url = "github:notashelf/nvf/v0.7";
+    nvf.url = "github:notashelf/nvf";
     # nvf.url = "github:soliprem/nvf/add-nu";
     # nvf.url = "/home/soliprem/.local/src/nvf/";
     # Home manager
