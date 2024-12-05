@@ -22,7 +22,7 @@
     ./fuzzel.nix
     ./agenix.nix
     ./wlogout.nix
-    ./ags
+    # ./ags
     # ./matugen
     ./spicetify.nix
     ./river.nix
