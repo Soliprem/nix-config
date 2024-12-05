@@ -5,6 +5,16 @@
     # Nixpkgs
     agenix.url = "github:ryantm/agenix";
     # nixpkgsurl = "github:nixos/nixpkgs/nixos-unstable";
+    matugen.url = "github:InioX/Matugen?rev=0bd628f263b1d97f238849315f2ce3ab4439784e";
+    astal = {
+      url = "github:Aylur/astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.astal.follows = "astal";
+    };
     nixpkgs.follows = "nixos-cosmic/nixpkgs";
     soluastal.url = "github:soliprem/soluastal";
     spicetify-nix = {
@@ -86,7 +96,7 @@
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
         modules = [
-          ./nixos/laptop/configuration.nix
+          ./hosts/laptop/configuration.nix
           lix-module.nixosModules.default
           ./system/ollama.nix
           ./system/default.nix
@@ -97,7 +107,7 @@
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
         modules = [
-          ./nixos/pc/configuration.nix
+          ./hosts/pc/configuration.nix
           lix-module.nixosModules.default
           ./system/ollamaRocm.nix
           ./system/default.nix
