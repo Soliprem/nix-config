@@ -57,12 +57,6 @@ in {
           enabled = true;
         };
         # Shadow
-        drop_shadow = false;
-        shadow_ignore_window = true;
-        shadow_range = 20;
-        shadow_offset = " 0 2";
-        shadow_render_power = 2;
-
         # Shader
         # screen_shader = ~/.config/hypr/shaders/nothing.frag
         # screen_shader = ~/.config/hypr/shaders/vibrance.frag
