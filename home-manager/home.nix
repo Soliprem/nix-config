@@ -12,7 +12,7 @@
     # inputs.nix-colors.homeManagerModule
     # inputs.walker.homeManagerModules.default
     # ./walker.nix
-    # ./hypr
+    ./hypr
     # ./schizofox.nix
     ./tofi.nix
     # ./kanshi.nix
@@ -22,6 +22,8 @@
     ./fuzzel.nix
     ./agenix.nix
     ./wlogout.nix
+    ./ags
+    # ./matugen
     ./spicetify.nix
     ./river.nix
     ./theming.nix
