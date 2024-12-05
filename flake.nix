@@ -5,7 +5,7 @@
     # Nixpkgs
     agenix.url = "github:ryantm/agenix";
     # nixpkgsurl = "github:nixos/nixpkgs/nixos-unstable";
-    matugen.url = "github:InioX/Matugen?rev=0bd628f263b1d97f238849315f2ce3ab4439784e";
+    matugen.url = "github:InioX/Matugen";
     astal = {
       url = "github:Aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
