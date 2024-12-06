@@ -73,6 +73,7 @@
       bitwarden-desktop
       showtime
       keyutils
+      revolt-desktop
       nh
       swww
       bitwarden-cli
