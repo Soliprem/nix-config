@@ -15,7 +15,7 @@
     ./hypr
     # ./schizofox.nix
     ./tofi.nix
-    # ./kanshi.nix
+    ./kanshi.nix
     ./qutebrowser.nix
     ./mako.nix
     ./scripts.nix
