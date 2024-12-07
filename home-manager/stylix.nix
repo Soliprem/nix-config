@@ -2,7 +2,7 @@
   stylix = {
     enable = true;
     autoEnable = true;
-    targets.kde.enable = false;
+    targets.kde.enable = true;
     opacity = {
       terminal = 0.9;
       desktop = 0.9;
