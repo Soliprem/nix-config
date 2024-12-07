@@ -126,6 +126,7 @@
         "'wl-paste --type text --watch cliphist store &'"
         "'wl-paste --type image --watch cliphist store &'"
         "swww-daemon"
+        "kanshi"
       ];
     };
     xwayland.enable = true;
