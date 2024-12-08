@@ -1,6 +1,6 @@
 {
   services.mako = {
-    enable = false;
+    enable = true;
     defaultTimeout = 3000;
     borderRadius = 10;
   };
