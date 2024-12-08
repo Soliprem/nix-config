@@ -2,6 +2,9 @@
   home.packages = with pkgs; [
     wlr-randr
   ];
+  imports = [
+    ./mako.nix
+  ];
   wayland.windowManager.river = {
     enable = true;
     settings = {
@@ -126,7 +129,6 @@
         "'wl-paste --type text --watch cliphist store &'"
         "'wl-paste --type image --watch cliphist store &'"
         "swww-daemon"
-        "mako"
         "kanshi"
       ];
     };
