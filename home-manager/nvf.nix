@@ -323,14 +323,11 @@
             cmd = "QuartoPreview";
             package = quarto-nvim;
           };
-          ${typst-preview-nvim.pname} = {
-            lazy = true;
-            cmd = "TypstPreview";
-            package = typst-preview-nvim;
-            setupOpts = {
-              open_cmd = "zen %s";
-            };
-          };
+          # ${typst-preview-nvim.pname} = {
+          #   lazy = true;
+          #   cmd = "TypstPreview";
+          #   package = typst-preview-nvim;
+          # };
         };
         keymaps = [
           {

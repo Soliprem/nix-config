@@ -45,7 +45,7 @@
     # stylix.url = "github:Soliprem/stylix/patch-1";
     # Neovimflake
     norg-meta.url = "github:nvim-neorg/tree-sitter-norg-meta";
-    nvf.url = "github:notashelf/nvf";
+    nvf.url = "github:notashelf/nvf/";
     # nvf.url = "github:soliprem/nvf/add-nu";
     # nvf.url = "/home/soliprem/.local/src/nvf/";
     # Home manager

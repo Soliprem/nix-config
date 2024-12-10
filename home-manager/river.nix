@@ -1,9 +1,11 @@
 {pkgs, ...}: {
+  services.gnome.gnome-keyring.enable = true;
   home.packages = with pkgs; [
     wlr-randr
   ];
   imports = [
     ./mako.nix
+    ./kanshi.nix
   ];
   wayland.windowManager.river = {
     enable = true;
