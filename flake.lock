@@ -1244,11 +1244,11 @@
     },
     "nixpkgs_14": {
       "locked": {
-        "lastModified": 1732521221,
-        "narHash": "sha256-2ThgXBUXAE1oFsVATK1ZX9IjPcS4nKFOAjhPNKuiMn0=",
+        "lastModified": 1733759999,
+        "narHash": "sha256-463SNPWmz46iLzJKRzO3Q2b0Aurff3U1n0nYItxq7jU=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4633a7c72337ea8fd23a4f2ba3972865e3ec685d",
+        "rev": "a73246e2eef4c6ed172979932bc80e1404ba2d56",
         "type": "github"
       },
       "original": {
@@ -1539,6 +1539,7 @@
         "plugin-tokyonight": "plugin-tokyonight",
         "plugin-trouble": "plugin-trouble",
         "plugin-ts-error-translator": "plugin-ts-error-translator",
+        "plugin-typst-preview-nvim": "plugin-typst-preview-nvim",
         "plugin-vim-dirtytalk": "plugin-vim-dirtytalk",
         "plugin-vim-fugitive": "plugin-vim-fugitive",
         "plugin-vim-illuminate": "plugin-vim-illuminate",
@@ -1550,11 +1551,11 @@
         "systems": "systems_7"
       },
       "locked": {
-        "lastModified": 1733489853,
-        "narHash": "sha256-Ir2dsp+e3xTVSmpV+et6DjsVyoaVgctARir+D8hn7Xg=",
+        "lastModified": 1733837717,
+        "narHash": "sha256-S5TbFkCZ9brXsmBkXMy120ZkpLtfGpP5XwPUZSFqF6w=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "f672d3cdee3617ad1321808f51929b2d2dbb5133",
+        "rev": "48829f9d5b83a956affc811a523e48124018eafc",
         "type": "github"
       },
       "original": {
@@ -3309,6 +3310,22 @@
         "type": "github"
       }
     },
+    "plugin-typst-preview-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733120663,
+        "narHash": "sha256-uYMZ2PONiiI3UDvCgNvyy4+jhzmUDbAyxX0phKxELXw=",
+        "owner": "chomosuke",
+        "repo": "typst-preview.nvim",
+        "rev": "0cb5f5627312f50ce089f785ec42b55a85f30ce7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chomosuke",
+        "repo": "typst-preview.nvim",
+        "type": "github"
+      }
+    },
     "plugin-vim-dirtytalk": {
       "flake": false,
       "locked": {
@@ -3937,11 +3954,11 @@
         "nixpkgs": "nixpkgs_14"
       },
       "locked": {
-        "lastModified": 1732806316,
-        "narHash": "sha256-qcI6PxnYuBLwst4oqtf5DSJ5npu14qYhVaR0DqsBUA0=",
+        "lastModified": 1733843126,
+        "narHash": "sha256-coWMVyV/ECBOmnPGm5hKC83Ag3cTU5VqcPtTN6Uj8/4=",
         "owner": "omarcresp",
         "repo": "zen-browser-flake",
-        "rev": "76118b8cf617bde117c9cf44cfdb3156018c6d80",
+        "rev": "7626ef8809d10d5ddf7ba8c0520b95d217ba7753",
         "type": "github"
       },
       "original": {

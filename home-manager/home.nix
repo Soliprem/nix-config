@@ -14,16 +14,13 @@
     # ./walker.nix
     # ./hypr
     # ./schizofox.nix
-    ./river.nix
+    # ./river.nix
     ./tofi.nix
-    ./kanshi.nix
     ./qutebrowser.nix
     ./scripts.nix
     ./fuzzel.nix
     ./agenix.nix
     ./wlogout.nix
-    # ./ags
-    # ./matugen
     ./spicetify.nix
     ./theming.nix
     ./stylix.nix
