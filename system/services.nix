@@ -1,7 +1,12 @@
-{
+{pkgs, ...}: {
+  hardware.keyboard.qmk.enable = true;
   services = {
     cpupower-gui.enable = true;
+    hardware.openrgb.enable = true;
     flatpak.enable = true;
+    udev.packages = [
+      pkgs.via
+    ];
     openssh = {
       enable = true;
     };
@@ -27,11 +32,12 @@
       # mountOnMedia = true;
     };
     printing.enable = true;
+    gnome.gnome-keyring.enable = true;
   };
   security = {
     pam.services.soliprem.enableGnomeKeyring = true;
-    pki.certificateFiles = [ ../assets/almawifi.crt ];
+    pki.certificateFiles = [../assets/almawifi.crt];
   };
-  xdg.portal.wlr.enable = true;
+  # xdg.portal.wlr.enable = true;
   networking.networkmanager.enable = true;
 }
