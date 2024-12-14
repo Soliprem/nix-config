@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  services.gnome.gnome-keyring.enable = true;
   home.packages = with pkgs; [
     wlr-randr
   ];
