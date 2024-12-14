@@ -5,6 +5,7 @@
     wget
     fastfetch
     networkmanagerapplet
+    via
     libgccjit
     linearicons-free
     libnotify
@@ -16,6 +17,7 @@
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
-    river.enable = true;
+    # river.enable = true;
+    niri.enable = true;
   };
 }
