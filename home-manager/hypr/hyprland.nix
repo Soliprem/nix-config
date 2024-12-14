@@ -25,21 +25,6 @@
       hyprctl reload
     '';
   };
-  togglebar = pkgs.writeShellApplication {
-    name = "togglebar";
-    runtimeInputs = [inputs.soluastal.packages.${pkgs.system}.default];
-    text = ''
-      LOCKFILE="/tmp/soluastal"
-      if [[ $(cat $LOCKFILE) ]]; then
-          kill "$(cat $LOCKFILE)"
-          rm $LOCKFILE
-      else
-          touch "$LOCKFILE"
-          astal-lua &
-          echo $! >> $LOCKFILE
-      fi
-    '';
-  };
 in {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -110,13 +95,13 @@ in {
           "windows, 1, 3, md3_decel, popin 60%"
           "border, 1, 10, default"
           "fade, 1, 2.5, md3_decel"
-          "workspaces, 1, 7, fluent_decel, slidevert"
+          "workspaces, 1, 7, fluent_decel"
           "specialWorkspace, 1, 3, md3_decel, slide"
         ];
       };
 
       misc = {
-        vfr = 1;
+        vfr = 0;
         vrr = 1;
         # layers_hog_mouse_focus = true
         focus_on_activate = true;
@@ -184,8 +169,9 @@ in {
       monitor = [
         ",preferred,auto,1"
         "eDP-1, 1920x1200@60.0030,0x0,1"
-        "HDMI-A-1, 1920x1080@120,0x0,1"
+        "HDMI-A-1, 1920x1080@120,320x0,1"
         "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1.5" #TODO: ask Alberto if scale should be 1.5
+        "desc:AOC CQ27G2S 1EKQ3JA006926, 2560x1440@165,0x1080,1"
       ];
       input = {
         kb_layout = "eu, it";
@@ -248,10 +234,11 @@ in {
           "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
           # "$mod, V, exec, pkill walker || cliphist list | walker -dk | cliphist decode | wl-copy"
           "$mod,tab,focuscurrentorlast"
+          "$mod,c,exec, swaync-client -t"
+          "$mod+Shift,c,exec, swaync-client -d"
           "$mod, mouse_up, workspace, +1"
           "$mod, mouse_down, workspace, -1"
           "$mod, F1, exec, ${lib.getExe gamemode}"
-          "$mod+Shift, b, exec, ${lib.getExe togglebar}"
           "$mod+Shift, space, togglefloating"
           "$mod+Alt, l, exec, hyprlock --immediate"
           "$mod, t, exec, notify-time"
@@ -260,10 +247,10 @@ in {
           ", Print, exec, grimblast copy area"
           "$mod, E, exec, nautilus --new-window"
           "$mod+Shift+Alt, Period, exec, fuzzel-emoji"
-          "$mod, Comma, focusmonitor, l"
-          "$mod, Period, focusmonitor, r"
-          "$mod+Shift, Comma, movewindow, mon:l"
-          "$mod+Shift, Period, movewindow, mon:r"
+          "$mod, Comma, focusmonitor, -1"
+          "$mod, Period, focusmonitor, +1"
+          "$mod+Shift, Comma, movewindow, mon:-1"
+          "$mod+Shift, Period, movewindow, mon:+1"
           "$mod, w, exec, $browser"
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "
@@ -335,7 +322,6 @@ in {
         "batsignal &"
         # "walker --gapplication-service"
         "nm-applet &"
-        "rm /tmp/soluastal"
       ];
     };
     plugins = [
