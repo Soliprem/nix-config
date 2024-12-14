@@ -12,7 +12,7 @@
     # inputs.nix-colors.homeManagerModule
     # inputs.walker.homeManagerModules.default
     # ./walker.nix
-    # ./hypr
+    ./hypr
     # ./schizofox.nix
     # ./river.nix
     ./tofi.nix
@@ -66,9 +66,11 @@
       youtube-music
       nexusmods-app-unfree
       mangohud
+      openrgb-with-all-plugins
       bitwarden-desktop
       showtime
       keyutils
+      iamb
       revolt-desktop
       nh
       swww
@@ -138,7 +140,7 @@
       cliphist
       hyprshot
       # nerdfonts.override {fonts = ["Inconsolata"];}
-      element-desktop-wayland
+      element-desktop
       fractal
       # xfce.thunar
       nautilus
