@@ -81,7 +81,7 @@
       pwvucontrol
       heroic
       lutris
-      inputs.roflcat.packages.${system}.default
+      dotacat
       inputs.agenix.packages.${system}.default
       (inputs.umu.packages.${pkgs.system}.umu.override {version = "${inputs.umu.shortRev}";})
       teams-for-linux
@@ -102,7 +102,6 @@
       fortune
       starship
       thunderbird
-      lolcat
       legcord
       impression
       inputs.zen-browser.packages."${system}".default

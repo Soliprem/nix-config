@@ -4,7 +4,6 @@
   inputs = {
     # Nixpkgs
     agenix.url = "github:ryantm/agenix";
-    roflcat.url = "github:soliprem/roflcat";
     # nixpkgsurl = "github:nixos/nixpkgs/nixos-unstable";
     matugen.url = "github:InioX/Matugen";
     astal = {
