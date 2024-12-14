@@ -96,7 +96,7 @@ in {
           "border, 1, 10, default"
           "fade, 1, 2.5, md3_decel"
           "workspaces, 1, 7, fluent_decel"
-          "specialWorkspace, 1, 3, md3_decel, slide"
+          "specialWorkspace, 1, 3, md3_decel, slidevert"
         ];
       };
 
