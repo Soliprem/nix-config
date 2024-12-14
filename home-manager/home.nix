@@ -72,7 +72,6 @@
       keyutils
       iamb
       revolt-desktop
-      nh
       swww
       bitwarden-cli
       bitwarden-menu
@@ -169,6 +168,12 @@
       enable = true;
       userName = "Soliprem";
       userEmail = "franci.solidoro@gmail.com";
+    };
+    nh = {
+      enable = true;
+      # clean.enable = true;
+      # clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/soliprem/.config/nix-config";
     };
     # firefox.enable = true;
   };
