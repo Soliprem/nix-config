@@ -48,11 +48,11 @@ services.kanshi = {
           {
             criteria = "HDMI-A-1"; # First monitor
             mode = "1920x1080@120Hz";
-            position = "0,0";
+            position = "320,0";
             scale = 1.0;
           }
           {
-            criteria = "DP-3"; # Second monitor
+            criteria = "DP-2"; # Second monitor
             mode = "2560x1440@165Hz";
             position = "0,1080"; # Positioned below the first monitor
             scale = 1.0;
