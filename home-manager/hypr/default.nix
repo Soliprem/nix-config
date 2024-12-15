@@ -5,6 +5,6 @@ _: {
     # ../mako.nix
     ../swaync.nix
     ./packages.nix
-    # ./hyprlock.nix
+    ./hyprlock.nix
   ];
 }
