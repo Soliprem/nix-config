@@ -1,4 +1,8 @@
 {
+  lib,
+  pkgs,
+  ...
+}: {
   programs = {
     nushell = {
       enable = true;
@@ -23,7 +27,12 @@
             }
           ]
         }
-        greeting
+      let fish_completer = {|spans|
+        ${lib.getExe pkgs.fish} --command $'complete "--do-complete=($spans | str join " ")"'
+        | $"value(char tab)description(char newline)" + $in
+        | from tsv --flexible --no-infer
+      }
+      greeting
       '';
       shellAliases = {
         # Verbosity and settings that you pretty much just always are going to want.
