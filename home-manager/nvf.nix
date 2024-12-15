@@ -329,11 +329,35 @@
             cmd = "QuartoPreview";
             package = quarto-nvim;
           };
-          # ${typst-preview-nvim.pname} = {
-          #   lazy = true;
-          #   cmd = "TypstPreview";
-          #   package = typst-preview-nvim;
-          # };
+          ${lazygit-nvim.pname} = {
+            lazy = true;
+            cmd = [
+              "LazyGit"
+              "LazyGitConfig"
+              "LazyGitCurrentFile"
+              "LazyGitFilter"
+              "LazyGitFilterCurrentFile"
+            ];
+            package = lazygit-nvim;
+            setupOpts = {
+              open_cmd = "zen %s";
+            };
+            keys = [
+              {
+                key = "<leader>lg";
+                action = "<cmd>LazyGit<cr>";
+                mode = "n";
+              }
+            ];
+          };
+          ${typst-preview-nvim.pname} = {
+            lazy = true;
+            cmd = "TypstPreview";
+            package = typst-preview-nvim;
+            setupOpts = {
+              open_cmd = "zen %s";
+            };
+          };
         };
         keymaps = [
           {
