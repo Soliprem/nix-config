@@ -184,7 +184,13 @@
           diffview-nvim.enable = true;
           motion = {
             hop.enable = false;
-            leap.enable = true;
+            leap = {
+              enable = true;
+              mappings = {
+                leapForwardTo = "s";
+                leapBackwardTo = "S";
+              };
+            };
             precognition.enable = false;
           };
 
