@@ -259,10 +259,13 @@ in {
           "$mod+Shift, Q, exec, hyprctl kill"
           "$mod, d, exec, fuzzel"
           "$mod, o, exec, dm-hub"
+          "$mod+shift, semicolon, exec, dm-expand"
+          "$mod, minus, exec, wtype -k emdash"
           "$mod+Shift, o, exec, walker -m finder"
           "$mod SHIFT, d, exec, fuzzel-run"
           "$mod+Alt, s, movetoworkspacesilent, special"
           "$mod, s, togglespecialworkspace"
+          "$mod+Alt, p, pin"
 
           # Master Layout Movements
 
