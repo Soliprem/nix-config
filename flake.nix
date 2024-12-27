@@ -6,6 +6,7 @@
     agenix.url = "github:ryantm/agenix";
     # nixpkgsurl = "github:nixos/nixpkgs/nixos-unstable";
     matugen.url = "github:InioX/Matugen";
+    ghostty.url = "github:ghostty-org/ghostty";
     astal = {
       url = "github:Aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
