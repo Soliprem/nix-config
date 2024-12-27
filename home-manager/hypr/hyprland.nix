@@ -32,7 +32,7 @@ in {
     # make sure to also set the portal package, so that they are in sync
     settings = {
       "$mod" = "SUPER";
-      "$term" = "foot";
+      "$term" = "ghostty";
       "$editor" = "nvim";
       "$browser" = "zen";
       decoration = {
@@ -113,7 +113,7 @@ in {
         new_window_takes_over_fullscreen = 2;
 
         enable_swallow = true;
-        swallow_regex = "^(foot|kitty)$";
+        swallow_regex = "^(ghostty|foot|kitty)$";
         swallow_exception_regex = "^(nvim|v|vi|wev|R|glxgears|julia)\b.*$";
       };
 
@@ -129,7 +129,7 @@ in {
       ];
 
       windowrule = [
-        "opacity 0.89 override 0.89 override, .* # Applies transparency to EVERY WINDOW"
+        #"opacity 0.89 override 0.89 override, .* # Applies transparency to EVERY WINDOW"
         "float,Julia"
         "float,org.kde.polkit-kde-authentication-agent-1"
         "float,title:^(Picture-in-Picture)$"
