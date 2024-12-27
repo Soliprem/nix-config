@@ -3,7 +3,6 @@
     highlight
     git
     wget
-    fastfetch
     networkmanagerapplet
     via
     libgccjit
