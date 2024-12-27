@@ -16,6 +16,7 @@
     # ./schizofox.nix
     # ./river.nix
     ./tofi.nix
+    ./fastfetch.nix
     ./qutebrowser.nix
     ./scripts.nix
     ./fuzzel.nix
@@ -66,6 +67,7 @@
       youtube-music
       nexusmods-app-unfree
       mangohud
+      inputs.ghostty.packages.${system}.default
       openrgb-with-all-plugins
       bitwarden-desktop
       showtime
