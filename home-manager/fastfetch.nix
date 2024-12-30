@@ -4,6 +4,7 @@ _: {
     settings = {
       logo = {
         padding = {
+          top = 2;
           left = 1;
           right = 2;
         };
@@ -36,11 +37,11 @@ _: {
           type = "uptime";
           key = "{#separator}│  {#keys}󰅐 Uptime";
         }
-        {
-          type = "packages";
-          key = "{#separator}│  {#keys}󰏖 Packages";
-          format = "{all}";
-        }
+        # {
+        #   type = "packages";
+        #   key = "{#separator}│  {#keys}󰏖 Packages";
+        #   format = "{all}";
+        # }
         {
           type = "custom";
           format = "{#1}│";

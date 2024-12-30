@@ -1,4 +1,8 @@
-{inputs, pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     highlight
     git
@@ -7,6 +11,7 @@
     via
     libgccjit
     linearicons-free
+    musescore
     libnotify
   ];
   programs = {
