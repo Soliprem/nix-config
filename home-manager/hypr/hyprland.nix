@@ -328,6 +328,7 @@ in {
         "wl-paste --type text --watch cliphist store &"
         "wl-paste --type image --watch cliphist store &"
         "batsignal &"
+        "ianny"
         "swayosd-server"
         # "walker --gapplication-service"
         "nm-applet &"
