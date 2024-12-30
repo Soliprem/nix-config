@@ -13,6 +13,7 @@
     # inputs.walker.homeManagerModules.default
     # ./walker.nix
     ./hypr
+    ./swayosd.nix
     # ./schizofox.nix
     # ./river.nix
     ./tofi.nix
@@ -54,6 +55,7 @@
       permittedInsecurePackages = [
         "electron-27.3.11"
         "olm-3.2.16"
+        "fluffychat-linux-1.23.0"
       ];
       allowUnfreePredicate = _: true;
     };
@@ -69,6 +71,7 @@
       mangohud
       inputs.ghostty.packages.${system}.default
       openrgb-with-all-plugins
+      fluffychat
       bitwarden-desktop
       showtime
       keyutils
@@ -87,7 +90,6 @@
       (inputs.umu.packages.${pkgs.system}.umu.override {version = "${inputs.umu.shortRev}";})
       teams-for-linux
       wlsunset
-      musescore
       batsignal
       # zed-editor
       ripgrep

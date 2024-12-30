@@ -210,19 +210,24 @@ in {
         "SUPERCTRL,j,resizeactive,0 20 # [hidden]"
       ];
       bindle = [
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && notify-volume# [hidden]"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-volume # [hidden]"
+        # ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && notify-volume# [hidden]"
+        # ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-volume # [hidden]"
+        ",XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
+        ",XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
 
         # Brightness
-        ",XF86MonBrightnessUp, exec, brightnessctl set '12.75+' && notify-brightness"
-        ",XF86MonBrightnessDown, exec, brightnessctl set '12.75-' && notify-brightness"
-        # ",XF86MonBrightnessUp, exec, ags run-js 'brightness.screen_value += 0.05;' # [hidden]"
-        # ",XF86MonBrightnessDown, exec, ags run-js 'brightness.screen_value -= 0.05;' # [hidden]"
+        # ",XF86MonBrightnessUp, exec, brightnessctl set '12.75+' && notify-brightness"
+        # ",XF86MonBrightnessDown, exec, brightnessctl set '12.75-' && notify-brightness"
+        ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
+        ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
+        ",Caps_Lock, exec,sleep 0.1 && swayosd-client --caps-lock"
       ];
       bindl = [
+        # ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle && notify-send \"Toggling Microphone\" "
+        # ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-volume"
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle && notify-send \"Toggling Microphone\" "
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-volume"
-        "$mod+Shift,M, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0% && notify-volume"
+        ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
+        "$mod+Shift,M, exec, swayosd-client --output-volume mute-toggle"
       ];
       bindm = [
         "$mod, mouse:272, movewindow"
@@ -323,6 +328,7 @@ in {
         "wl-paste --type text --watch cliphist store &"
         "wl-paste --type image --watch cliphist store &"
         "batsignal &"
+        "swayosd-server"
         # "walker --gapplication-service"
         "nm-applet &"
       ];
