@@ -71,6 +71,7 @@
       mangohud
       inputs.ghostty.packages.${system}.default
       openrgb-with-all-plugins
+      ianny
       fluffychat
       bitwarden-desktop
       showtime

@@ -8,6 +8,8 @@
     git
     wget
     networkmanagerapplet
+    alsa-utils
+    pipewire
     via
     libgccjit
     linearicons-free

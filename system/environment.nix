@@ -18,7 +18,7 @@ _:{
       WGETRC = "$XDG_CONFIG_HOME/wget/wgetrc";
       INPUTRC = "$XDG_CONFIG_HOME/shell/inputrc";
       ZDOTDIR = "$XDG_CONFIG_HOME/zsh";
-      ALSA_CONFIG_PATH = "$XDG_CONFIG_HOME/alsa/asoundrc";
+      # ALSA_CONFIG_PATH = "$XDG_CONFIG_HOME/alsa/asoundrc";
       GNUPGHOME = "$XDG_DATA_HOME/gnupg";
       WINEPREFIX = "$XDG_DATA_HOME/wineprefixes/default";
       JULIA_DEPOT_PATH = "$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH";
