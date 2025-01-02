@@ -3,7 +3,7 @@ _: {
     ./hyprland.nix
     ./hypridle.nix
     # ../mako.nix
-    ../swaync.nix
+    # ../swaync.nix
     ./packages.nix
     ./hyprlock.nix
   ];
