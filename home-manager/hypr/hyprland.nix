@@ -95,8 +95,8 @@ in {
           "windows, 1, 3, md3_decel, popin 60%"
           "border, 1, 10, default"
           "fade, 1, 2.5, md3_decel"
-          "workspaces, 1, 7, fluent_decel"
-          "specialWorkspace, 1, 3, md3_decel, slidevert"
+          "workspaces, 1, 7, fluent_decel, slidevert"
+          "specialWorkspace, 1, 3, md3_decel"
         ];
       };
 
@@ -262,7 +262,7 @@ in {
           "$mod, n, exec, dm-notes"
           "$mod+Shift, n, exec, $term notes"
           "$mod+Shift, Q, exec, hyprctl kill"
-          "$mod, d, exec, fuzzel"
+          "$mod, d, exec, astal -t launcher"
           "$mod, o, exec, dm-hub"
           "$mod+shift, semicolon, exec, dm-expand"
           "$mod, minus, exec, wtype -k emdash"
@@ -330,6 +330,7 @@ in {
         "batsignal &"
         "ianny"
         "swayosd-server"
+        "sash"
         # "walker --gapplication-service"
         "nm-applet &"
       ];

@@ -84,11 +84,11 @@
       muse-sounds-manager
       nheko
       pwvucontrol
-      heroic
+      # heroic
       lutris
       dotacat
       inputs.agenix.packages.${system}.default
-      (inputs.umu.packages.${pkgs.system}.umu.override {version = "${inputs.umu.shortRev}";})
+      # (inputs.umu.packages.${pkgs.system}.umu.override {version = "${inputs.umu.shortRev}";})
       teams-for-linux
       wlsunset
       batsignal

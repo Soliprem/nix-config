@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     agenix.url = "github:ryantm/agenix";
+    sash.url = "github:soliprem/sash";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     matugen.url = "github:InioX/Matugen";
     ghostty.url = "github:ghostty-org/ghostty";
@@ -28,7 +29,10 @@
     };
     # nixpkgs.url = "github:NixOS/nixpkgs/b79ce4c43f9117b2912e7dbc68ccae4539259dda";
     walker.url = "github:abenz1267/walker";
-    zen-browser.url = "github:omarcresp/zen-browser-flake";
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     soniksnvim.url = "github:Soliprem/soniksnvim";
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     # pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";

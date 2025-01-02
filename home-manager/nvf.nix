@@ -58,7 +58,10 @@
           r.enable = true;
           sql.enable = true;
           java.enable = false;
-          ts.enable = true;
+          ts = {
+            enable = true;
+            extraDiagnostics.enable = false;
+          };
           svelte.enable = false;
           vala.enable = true;
           go.enable = true;

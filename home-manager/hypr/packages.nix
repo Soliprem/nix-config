@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     gammastep
     inputs.iio-hyprland.packages.${pkgs.system}.default
-    inputs.soluastal.inputs.astal.packages.${pkgs.system}.io
+    inputs.astal.packages.${pkgs.system}.io
+    inputs.sash.packages.${pkgs.system}.default
   ];
 }
