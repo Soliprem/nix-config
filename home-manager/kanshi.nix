@@ -11,7 +11,7 @@ services.kanshi = {
         outputs = [
           {
             criteria = "eDP-1"; # Internal laptop display
-            mode = "1920x1080"; # Adjust to your laptop's native resolution
+            mode = "1920x1200"; # Adjust to your laptop's native resolution
             position = "0,0";
             scale = 1.0;
           }
