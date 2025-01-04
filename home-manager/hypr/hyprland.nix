@@ -253,17 +253,12 @@ in {
         # ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle && notify-send \"Toggling Microphone\" "
         # ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-volume"
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle && notify-send \"Toggling Microphone\" "
-<<<<<<< HEAD
         ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
         "$mod+Shift,M, exec, swayosd-client --output-volume mute-toggle"
-=======
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-volume"
-        "$mod+Shift,M, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0% && notify-volume"
         ",XF86AudioMedia, exec, playerctl play-pause"
         ",XF86AudioPlay, exec, playerctl play-pause"
         ",XF86AudioPrev, exec, playerctl previous"
         ",XF86AudioNext, exec, playerctl next"
->>>>>>> b1b2a0b (preparing for merge)
       ];
       bindm = [
         "$mod, mouse:272, movewindow"
@@ -343,9 +338,9 @@ in {
                 in
                   builtins.toString (x + 1 - (c * 10));
               in [
-                "$mod, ${ws}, split-workspace, ${toString (x + 1)}"
-                "$mod SHIFT, ${ws}, split-movetoworkspacesilent, ${toString (x + 1)}"
-                "Alt $mod SHIFT, ${ws}, split-movetoworkspace, ${toString (x + 1)}"
+                "$mod, ${ws}, workspace, ${toString (x + 1)}"
+                "$mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
+                "Alt $mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
               ]
             )
             10)
@@ -377,7 +372,7 @@ in {
       # pkgs.hyprlandPlugins.hyprexpo
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-      inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+      # inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };

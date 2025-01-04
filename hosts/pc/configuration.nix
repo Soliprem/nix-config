@@ -68,7 +68,6 @@
 
   # Enable sound with pipewire.
   hardware = {
-    pulseaudio.enable = false;
     # enableAllFirmware = true;
     bluetooth.enable = true;
     graphics = {
