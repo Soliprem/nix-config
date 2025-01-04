@@ -253,8 +253,17 @@ in {
         # ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle && notify-send \"Toggling Microphone\" "
         # ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-volume"
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle && notify-send \"Toggling Microphone\" "
+<<<<<<< HEAD
         ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
         "$mod+Shift,M, exec, swayosd-client --output-volume mute-toggle"
+=======
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-volume"
+        "$mod+Shift,M, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0% && notify-volume"
+        ",XF86AudioMedia, exec, playerctl play-pause"
+        ",XF86AudioPlay, exec, playerctl play-pause"
+        ",XF86AudioPrev, exec, playerctl previous"
+        ",XF86AudioNext, exec, playerctl next"
+>>>>>>> b1b2a0b (preparing for merge)
       ];
       bindm = [
         "$mod, mouse:272, movewindow"
