@@ -4,6 +4,8 @@
   inputs,
   config,
   pkgs,
+  lib,
+  osConfig,
   ...
 }: {
   # You can import other home-manager modules here
@@ -56,6 +58,8 @@
         "electron-27.3.11"
         "olm-3.2.16"
         "fluffychat-linux-1.23.0"
+        "cinny-4.2.3"
+        "cinny-unwrapped-4.2.3"
       ];
       allowUnfreePredicate = _: true;
     };
@@ -67,7 +71,6 @@
     packages = with pkgs; [
       # gimp
       youtube-music
-      nexusmods-app-unfree
       mangohud
       inputs.ghostty.packages.${system}.default
       openrgb-with-all-plugins
@@ -76,6 +79,7 @@
       bitwarden-desktop
       showtime
       keyutils
+      cinny-desktop
       iamb
       revolt-desktop
       swww
@@ -145,6 +149,7 @@
       hyprshot
       # nerdfonts.override {fonts = ["Inconsolata"];}
       element-desktop
+      fluffychat
       fractal
       # xfce.thunar
       nautilus

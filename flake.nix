@@ -5,7 +5,7 @@
     # Nixpkgs
     agenix.url = "github:ryantm/agenix";
     sash.url = "github:soliprem/sash";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     matugen.url = "github:InioX/Matugen";
     ghostty.url = "github:ghostty-org/ghostty";
     astal = {
@@ -17,7 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.astal.follows = "astal";
     };
-    nixpkgs.follows = "nixos-cosmic/nixpkgs";
+    # nixpkgs.follows = "nixos-cosmic/nixpkgs";
     soluastal.url = "github:soliprem/soluastal";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
