@@ -205,6 +205,12 @@ in {
           scroll_factor = 0.5;
         };
       };
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_touch = true;
+        workspace_swipe_forever = true;
+        # workspace_swipe_use_r = true;
+      };
       general = {
         # Gaps and border
         gaps_in = 4;
