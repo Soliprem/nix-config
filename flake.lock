@@ -250,6 +250,22 @@
         "type": "github"
       }
     },
+    "diniamo": {
+      "locked": {
+        "lastModified": 1735847944,
+        "narHash": "sha256-QtruUishYg7Jfi1lN3pzhO8UilHiJRs8mLhEBD/1gnc=",
+        "owner": "diniamo",
+        "repo": "nixpkgs",
+        "rev": "af6b386835e245851f89e8f216b78f1e173e5725",
+        "type": "github"
+      },
+      "original": {
+        "owner": "diniamo",
+        "ref": "custom",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -1753,11 +1769,11 @@
         "systems": "systems_8"
       },
       "locked": {
-        "lastModified": 1735994155,
-        "narHash": "sha256-ewuykkTMO2+W594knAAMcPrzxg32iq40Q1zVgxJnY4c=",
+        "lastModified": 1736066242,
+        "narHash": "sha256-oSKBFoZ/J1A/KrAEiCLZu3vddaBDuMGK5TsIlOx+814=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "eb6e8b17b7beffd3792d898e30b0e9cd80de06ae",
+        "rev": "b7bea89d9ab669c8ead928c5e087dedcfbb32202",
         "type": "github"
       },
       "original": {
@@ -3721,6 +3737,7 @@
         "agenix": "agenix",
         "ags": "ags",
         "astal": "astal",
+        "diniamo": "diniamo",
         "ghostty": "ghostty",
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
@@ -3793,11 +3810,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1735963147,
-        "narHash": "sha256-hvapYArYuI7awcQ7JAiZqx++Ud5xzgig3w7xXlHKeCk=",
+        "lastModified": 1736053757,
+        "narHash": "sha256-Z1FdFpO12Q5WxmVT+NNbT1bL3FQmNVJi9SCodWYVdE0=",
         "owner": "soliprem",
         "repo": "sash",
-        "rev": "a7ac81dd8953d95010d5b7ac70e02aa0c2a95aaa",
+        "rev": "ed7520a8f3b875ab8299e64069177e0f082ecf09",
         "type": "github"
       },
       "original": {

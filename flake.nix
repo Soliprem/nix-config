@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     agenix.url = "github:ryantm/agenix";
+    diniamo.url = "github:diniamo/nixpkgs/custom";
     sash.url = "github:soliprem/sash";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     matugen.url = "github:InioX/Matugen";
