@@ -157,8 +157,10 @@
 
         git = {
           enable = true;
-          gitsigns.enable = true;
-          gitsigns.codeActions.enable = false; # throws an annoying debug message
+          gitsigns = {
+            enable = true;
+            codeActions.enable = false; # throws an annoying debug message
+          };
         };
 
         minimap = {
