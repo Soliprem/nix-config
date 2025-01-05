@@ -134,7 +134,7 @@ in {
         new_window_takes_over_fullscreen = 2;
 
         enable_swallow = true;
-        swallow_regex = "^(ghostty|foot|kitty)$";
+        swallow_regex = "^(com.mitchellh.ghostty|foot|kitty)$";
         swallow_exception_regex = "^(nvim|v|vi|wev|R|glxgears|julia)\b.*$";
       };
 
@@ -287,6 +287,9 @@ in {
           "$mod, Period, focusmonitor, +1"
           "$mod+Shift, Comma, movewindow, mon:-1"
           "$mod+Shift, Period, movewindow, mon:+1"
+          "$mod+Ctrl, Comma, movecurrentworkspacetomonitor, -1"
+          "$mod+Ctrl, Period, movecurrentworkspacetomonitor, +1"
+          "Alt, tab, focusurgentorlast"
           "$mod, w, exec, $browser"
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "
@@ -340,6 +343,7 @@ in {
               in [
                 "$mod, ${ws}, workspace, ${toString (x + 1)}"
                 "$mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
+                "Alt $mod, ${ws}, focusworkspaceoncurrentmonitor, ${toString (x + 1)}"
                 "Alt $mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
               ]
             )
