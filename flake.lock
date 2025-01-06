@@ -3810,11 +3810,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1736053757,
-        "narHash": "sha256-Z1FdFpO12Q5WxmVT+NNbT1bL3FQmNVJi9SCodWYVdE0=",
+        "lastModified": 1736207243,
+        "narHash": "sha256-8RvUItznELWnKL6On8UYo+as1R3Walp5na2/OsNHFR4=",
         "owner": "soliprem",
         "repo": "sash",
-        "rev": "ed7520a8f3b875ab8299e64069177e0f082ecf09",
+        "rev": "edd32e26864be5cf610d7866160045d61728d939",
         "type": "github"
       },
       "original": {
