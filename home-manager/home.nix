@@ -71,6 +71,7 @@
     packages = with pkgs; [
       # gimp
       youtube-music
+      nexusmods-app-unfree
       mangohud
       inputs.ghostty.packages.${system}.default
       openrgb-with-all-plugins
