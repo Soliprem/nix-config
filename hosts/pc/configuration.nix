@@ -25,6 +25,7 @@
       };
     };
     initrd.kernelModules = ["amdgpu"];
+    kernelParams = ["acpi_backlight=video"];
   };
 
   networking.hostName = "nixos-pc"; # Define your hostname.
@@ -102,7 +103,7 @@
   users.users.soliprem = {
     isNormalUser = true;
     description = "Francesco Prem Solidoro";
-    extraGroups = ["networkmanager" "wheel" "gamemode" "audio"];
+    extraGroups = ["networkmanager" "wheel" "gamemode" "audio" "video"];
     packages = with pkgs; [
       wl-clipboard
     ];
