@@ -71,6 +71,7 @@
     packages = with pkgs; [
       # gimp
       youtube-music
+      nix-output-manager
       nexusmods-app-unfree
       mangohud
       inputs.ghostty.packages.${system}.default
