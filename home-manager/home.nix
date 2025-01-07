@@ -71,6 +71,8 @@
     packages = with pkgs; [
       # gimp
       youtube-music
+      ddcutil
+      ddcui
       nix-output-monitor
       nexusmods-app-unfree
       mangohud
