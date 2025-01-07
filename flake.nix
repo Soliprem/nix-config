@@ -115,8 +115,8 @@
         modules = [
           ./hosts/pc/configuration.nix
           lix-module.nixosModules.default
-          # ./system/ollamaRocm.nix
-          ./system/ollama.nix
+          ./system/ollamaRocm.nix
+          # ./system/ollama.nix
           ./system/default.nix
           nixos-cosmic.nixosModules.default
         ];
