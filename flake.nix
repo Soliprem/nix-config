@@ -84,7 +84,6 @@
     nixpkgs,
     nvf,
     # hyprland,
-    stylix,
     spicetify-nix,
     home-manager,
     lix-module,
@@ -134,7 +133,6 @@
         modules = [
           ./home-manager/home.nix
           nvf.homeManagerModules.default
-          stylix.homeManagerModules.stylix
           spicetify-nix.homeManagerModules.default
           # hyprland.homeManagerModules.default
         ];
@@ -146,7 +144,6 @@
         modules = [
           ./home-manager/home.nix
           nvf.homeManagerModules.default
-          stylix.homeManagerModules.stylix
           spicetify-nix.homeManagerModules.default
           # hyprland.homeManagerModules.default
         ];

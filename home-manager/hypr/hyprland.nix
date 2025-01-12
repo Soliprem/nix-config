@@ -35,6 +35,13 @@ in {
       "$term" = "ghostty";
       "$editor" = "nvim";
       "$browser" = "zen";
+
+      experimental = {
+        wide_color_gamut = true;
+        xx_color_management_v4 = true;
+        # hdr = true;
+      };
+
       decoration = {
         rounding = 20;
 
@@ -134,7 +141,7 @@ in {
         new_window_takes_over_fullscreen = 2;
 
         enable_swallow = true;
-        swallow_regex = "^(com.mitchellh.ghostty|foot|kitty)$";
+        swallow_regex = "^(com.mitchellh.ghostty|kitty)$";
         swallow_exception_regex = "^(nvim|v|vi|wev|R|glxgears|julia)\b.*$";
       };
 
@@ -237,16 +244,16 @@ in {
         "SUPERCTRL,j,resizeactive,0 20 # [hidden]"
       ];
       bindle = [
-        # ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && notify-volume# [hidden]"
-        # ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-volume # [hidden]"
-        ",XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
-        ",XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        # ",XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
+        # ",XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
 
         # Brightness
-        # ",XF86MonBrightnessUp, exec, brightnessctl set '12.75+' && notify-brightness"
-        # ",XF86MonBrightnessDown, exec, brightnessctl set '12.75-' && notify-brightness"
-        ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
-        ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
+        ",XF86MonBrightnessUp, exec, brightnessctl set '12.75+'"
+        ",XF86MonBrightnessDown, exec, brightnessctl set '12.75-'"
+        # ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
+        # ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
         ",Caps_Lock, exec,sleep 0.1 && swayosd-client --caps-lock"
       ];
       bindl = [
@@ -297,6 +304,7 @@ in {
           "$mod+Shift, n, exec, $term notes"
           "$mod+Shift, Q, exec, hyprctl kill"
           "$mod, d, exec, astal -t launcher"
+          "$mod, m, exec, astal -t systemMenuWindow"
           "$mod, o, exec, dm-hub"
           "$mod+shift, semicolon, exec, dm-expand"
           "$mod, minus, exec, wtype -k emdash"
@@ -318,7 +326,7 @@ in {
           "SUPERSHIFT,l,layoutmsg,removemaster # [hidden]"
           " SUPER, f, fullscreen, 1  # [hidden]"
           " SUPERSHIFT, f, fullscreen, 0  # [hidden]"
-          "$mod+Shift, B, exec, astal -t Bar"
+          "$mod+Shift, B, exec, astal bars"
 
           # Special
           "$mod+Alt, F, fullscreenstate, -1 2"
@@ -364,7 +372,6 @@ in {
         "wl-paste --type text --watch cliphist store &"
         "wl-paste --type image --watch cliphist store &"
         "batsignal &"
-        "ianny"
         "swayosd-server"
         "sash"
         # "walker --gapplication-service"
