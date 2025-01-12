@@ -7,6 +7,7 @@
     flatpak.enable = true;
     udev.packages = [
       pkgs.via
+      pkgs.android-udev-rules
     ];
     openssh = {
       enable = true;
@@ -23,10 +24,10 @@
     desktopManager.plasma6.enable = true;
 
     # Configure keymap in X11
-    xserver.xkb = {
-      layout = "eu";
-      options = "caps:swapescape";
-    };
+    # xserver.xkb = {
+    #   layout = "eu";
+    #   options = "caps:swapescape";
+    # };
     gvfs.enable = true;
     udisks2 = {
       enable = true;

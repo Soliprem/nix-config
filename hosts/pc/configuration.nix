@@ -71,6 +71,7 @@
   hardware = {
     # enableAllFirmware = true;
     bluetooth.enable = true;
+    keyboard.qmk.enable = true;
     graphics = {
       enable = true;
       enable32Bit = true;

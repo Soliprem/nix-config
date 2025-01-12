@@ -1,16 +1,23 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [inputs.stylix.homeManagerModules.stylix];
   stylix = {
     enable = true;
     autoEnable = true;
-    targets.kde.enable = true;
-    targets.hyprlock.enable = false;
+    targets = {
+      kde.enable = true;
+      hyprlock.enable = false;
+      spicetify.enable = true;
+    };
     opacity = {
       terminal = 0.9;
       desktop = 0.9;
       popups = 0.9;
       applications = 0.9;
     };
-    targets.spicetify.enable = true;
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";

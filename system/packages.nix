@@ -7,6 +7,7 @@
     highlight
     git
     wget
+    protontricks
     networkmanagerapplet
     alsa-utils
     pipewire
@@ -30,6 +31,14 @@
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/soliprem/.config/nix-config";
+    };
+    gamescope = {
+      enable = true;
+      env = {
+        XKB_DEFAULT_LAYOUT = "eu";
+        XKB_DEFAULT_OPTIONS = "caps:swapescape";
+      };
+      args = ["--force-grab-cursor"];
     };
   };
 }
