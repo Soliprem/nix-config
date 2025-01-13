@@ -3804,11 +3804,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1736675109,
-        "narHash": "sha256-UmvyCwH5wE4lFS9y8qT5i2pC+NEiahUxB3jVXm+d65Y=",
+        "lastModified": 1736739205,
+        "narHash": "sha256-nJPpFzT+LTh6SEeEq8/33aXq6jLRid30GurHAzhWelY=",
         "owner": "soliprem",
         "repo": "sash",
-        "rev": "3b0414f1da28e9bce258cc7f197dbd148bb347fc",
+        "rev": "ff51387f9a36719bb8cf8a76c74e1a9b02e90f49",
         "type": "github"
       },
       "original": {
