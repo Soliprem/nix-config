@@ -55,8 +55,8 @@
     # nvf.url = "github:soliprem/nvf/add-nu";
     # nvf.url = "/home/soliprem/.local/src/nvf/";
     # Home manager
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    hjem = {
+      url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
@@ -85,7 +85,6 @@
     nvf,
     # hyprland,
     spicetify-nix,
-    home-manager,
     lix-module,
     nixos-cosmic,
     # pipewire-screenaudio,
@@ -102,10 +101,8 @@
         # > Our main nixos configuration file <
         modules = [
           ./hosts/laptop/configuration.nix
-          lix-module.nixosModules.default
-          ./system/ollama.nix
-          ./system/default.nix
-          nixos-cosmic.nixosModules.default
+          ./system/modules/ollama.nix
+          ./system
         ];
       };
       nixos-pc = nixpkgs.lib.nixosSystem {
@@ -113,39 +110,15 @@
         # > Our main nixos configuration file <
         modules = [
           ./hosts/pc/configuration.nix
-          lix-module.nixosModules.default
-          ./system/ollamaRocm.nix
-          # ./system/ollama.nix
-          ./system/default.nix
-          nixos-cosmic.nixosModules.default
+          ./system/modules/ollamaRocm.nix
+          ./system
         ];
       };
     };
-
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      # FIXME replace with your username@hostname
-      "soliprem@nixos-laptop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
-        # > Our main home-manager configuration file <
-        modules = [
-          ./home-manager/home.nix
-          nvf.homeManagerModules.default
-          spicetify-nix.homeManagerModules.default
-          # hyprland.homeManagerModules.default
-        ];
-      };
-      "soliprem@nixos-pc" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
-        # > Our main home-manager configuration file <
-        modules = [
-          ./home-manager/home.nix
-          nvf.homeManagerModules.default
-          spicetify-nix.homeManagerModules.default
-          # hyprland.homeManagerModules.default
+    hjem.users = {
+      soliprem.files = {
+        imports = [
+          ./hjem
         ];
       };
     };
