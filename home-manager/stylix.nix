@@ -11,6 +11,7 @@
       kde.enable = true;
       hyprlock.enable = false;
       spicetify.enable = true;
+      ghostty.enable = true;
     };
     opacity = {
       terminal = 0.9;

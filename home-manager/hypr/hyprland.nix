@@ -37,7 +37,7 @@ in {
       "$browser" = "zen";
 
       experimental = {
-        wide_color_gamut = true;
+        # wide_color_gamut = true;
         xx_color_management_v4 = true;
         # hdr = true;
       };
@@ -195,11 +195,11 @@ in {
         "f[1], gapsout:80"
       ];
       monitor = [
-        ",preferred,auto,1"
         "eDP-1, 1920x1200@60.0030,0x0,1"
         "HDMI-A-1, 1920x1080@120,320x0,1"
-        "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1.5" #TODO: ask Alberto if scale should be 1.5
-        "desc:AOC CQ27G2S 1EKQ3JA006926, 2560x1440@165,0x1080,1"
+        "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 0x1080,1"
+        "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1.5"
+        ",preferred,auto,1"
       ];
       input = {
         kb_layout = "eu, it";
@@ -250,8 +250,10 @@ in {
         # ",XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
 
         # Brightness
-        ",XF86MonBrightnessUp, exec, brightnessctl set '12.75+'"
-        ",XF86MonBrightnessDown, exec, brightnessctl set '12.75-'"
+        # ",XF86MonBrightnessUp, exec, brightnessctl set '12.75+'"
+        # ",XF86MonBrightnessDown, exec, brightnessctl set '12.75-'"
+        ",XF86MonBrightnessUp, exec, brightness-ddcutil 10"
+        ",XF86MonBrightnessDown, exec, brightness-ddcutil -10"
         # ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
         # ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
         ",Caps_Lock, exec,sleep 0.1 && swayosd-client --caps-lock"
@@ -349,8 +351,8 @@ in {
                 in
                   builtins.toString (x + 1 - (c * 10));
               in [
-                "$mod, ${ws}, workspace, ${toString (x + 1)}"
-                "$mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
+                "$mod, ${ws}, split-workspace, ${toString (x + 1)}"
+                "$mod SHIFT, ${ws}, split-movetoworkspacesilent, ${toString (x + 1)}"
                 "Alt $mod, ${ws}, focusworkspaceoncurrentmonitor, ${toString (x + 1)}"
                 "Alt $mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
               ]
@@ -360,6 +362,10 @@ in {
       plugin = {
         hyprtrails = {
           color = "rgba(${colors.base09}ff)";
+        };
+        split-monitor-workspaces = {
+          count = 10;
+          enable_persistent_workspaces = false;
         };
         # hycov = {
         #   enable_hotarea = 0;
@@ -383,7 +389,7 @@ in {
       # pkgs.hyprlandPlugins.hyprexpo
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-      # inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+      inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
   };

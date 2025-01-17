@@ -14,8 +14,11 @@
     # inputs.nix-colors.homeManagerModule
     # inputs.walker.homeManagerModules.default
     # ./walker.nix
+    ./matugen.nix
     ./hypr
     ./swayosd.nix
+    # ./kanshi.nix
+    ./ghostty.nix
     # ./schizofox.nix
     # ./river.nix
     ./tofi.nix
@@ -71,12 +74,15 @@
     packages = with pkgs; [
       # gimp
       youtube-music
+      godot_4
+      obs-studio
+      lazygit
       ddcutil
       ddcui
       nix-output-monitor
       nexusmods-app-unfree
       mangohud
-      inputs.ghostty.packages.${system}.default
+      # inputs.ghostty.packages.${system}.default
       openrgb-with-all-plugins
       fluffychat
       bitwarden-desktop
