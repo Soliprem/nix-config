@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  modules = [
+  imports = [
     inputs.nixos-cosmic.nixosModules.default
   ];
 
