@@ -1,15 +1,14 @@
 {inputs, ...}: {
-  modules = [
-    inputs.lix-module.nixosModules.default
-  ];
   imports = [
+    inputs.lix-module.nixosModules.default
     ./vpn.nix
     ./printing.nix
     ./modules
-    ./overlays.nix
+    ./nixpkgs.nix
     ./substituters.nix
     ./services.nix
     ./environment.nix
     ./packages.nix
+    ./fonts.nix
   ];
 }

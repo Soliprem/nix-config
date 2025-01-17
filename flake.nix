@@ -82,12 +82,6 @@
   outputs = {
     self,
     nixpkgs,
-    nvf,
-    # hyprland,
-    spicetify-nix,
-    lix-module,
-    nixos-cosmic,
-    # pipewire-screenaudio,
     ...
   } @ inputs: let
     inherit (self) outputs;

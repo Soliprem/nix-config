@@ -49,10 +49,7 @@
     teams-for-linux
     wlsunset
     batsignal
-    # zed-editor
     ripgrep
-    # ungoogled-chromium
-    # signal-desktop
     android-tools
     android-udev-rules
     hyprshade
@@ -68,7 +65,6 @@
     inputs.zen-browser.packages."${system}".default
     freetube
     appimage-run
-    # nvim-pkg
     obsidian
     plasma5Packages.kdeconnect-kde
     beeper
@@ -83,7 +79,6 @@
     telegram-desktop
     qpwgraph
     brightnessctl
-    # hugo
     stremio
     fd
     killall
@@ -99,11 +94,9 @@
     timer
     cliphist
     hyprshot
-    # nerdfonts.override {fonts = ["Inconsolata"];}
     element-desktop
     fluffychat
     fractal
-    # xfce.thunar
     nautilus
     spotube
     glib
@@ -112,11 +105,6 @@
     blueman
     blueberry
     pamixer
-    # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
-    # python312Packages.simple-websocket-server
-    # python312Packages.pynvim
-    # python312Packages.requests
-    # python312
   ];
   programs = {
     kdeconnect.enable = true;
