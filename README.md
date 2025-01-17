@@ -7,3 +7,6 @@ This is my personal nixos flake to configure my system.
 ![screenshot2](assets/screenshots/feet.png)
 
 ![screenshot3](assets/screenshots/full.png)
+
+## Credits
+Massive thanks to @notashelf for answering many of my dumb questions
