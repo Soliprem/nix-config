@@ -1,12 +1,14 @@
-_: {
+{inputs, ...}: {
+  modules = [
+    inputs.lix-module.nixosModules.default
+  ];
   imports = [
     ./vpn.nix
     ./printing.nix
-    ./steam.nix
+    ./modules
     ./overlays.nix
     ./substituters.nix
     ./services.nix
-    ./regreet.nix
     ./environment.nix
     ./packages.nix
   ];
