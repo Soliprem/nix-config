@@ -303,7 +303,7 @@ in {
           "$mod, Return, exec, $term"
           "$mod, Q, killactive, "
           "$mod, n, exec, dm-notes"
-          "$mod+Shift, n, exec, $term notes"
+          "$mod+Shift, n, exec, $term -e notes"
           "$mod+Shift, Q, exec, hyprctl kill"
           "$mod, d, exec, astal -t launcher"
           "$mod, m, exec, astal -t systemMenuWindow"

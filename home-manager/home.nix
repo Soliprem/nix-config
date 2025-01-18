@@ -14,7 +14,7 @@
     # inputs.nix-colors.homeManagerModule
     # inputs.walker.homeManagerModules.default
     # ./walker.nix
-    ./matugen.nix
+    # ./matugen.nix
     ./hypr
     ./swayosd.nix
     # ./kanshi.nix
