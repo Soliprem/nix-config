@@ -5,6 +5,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     highlight
+    matugen
     git
     wget
     protontricks
