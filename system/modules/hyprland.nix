@@ -34,6 +34,7 @@ in {
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     # make sure to also set the portal package, so that they are in sync
     settings = {
+      source = "~/.config/hypr/colors.conf";
       "$mod" = "SUPER";
       "$term" = "ghostty";
       "$editor" = "nvim";
@@ -362,7 +363,7 @@ in {
         );
       plugin = {
         # hyprtrails = {
-          # color = "rgba(${colors.base09}ff)";
+        # color = "rgba(${colors.base09}ff)";
         # };
         # hycov = {
         #   enable_hotarea = 0;

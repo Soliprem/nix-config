@@ -15,6 +15,18 @@
           inputs_path = ./matugen-themes/templates/gtk-colors.css;
           output_path = "~/.conifg/gtk-4.0/colors.css";
         };
+        hyprland = {
+          input_path = ./matugen-themes/templates/hyprland-colors.conf;
+          output_path = "~/.config/hypr/colors.conf";
+        };
+        starship = {
+          input_path = ./matugen-themes/templates/starship-colors.toml;
+          output_path = "~/.config/starship.toml";
+        };
+        pywalfox = {
+          input_path = ./matugen-themes/templates/pywalfox-colors.json;
+          output_path = "~/.cache/wal/colors.json";
+        };
       };
     };
   };
