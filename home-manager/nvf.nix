@@ -145,6 +145,7 @@
           grammars = [
             inputs.norg-meta.defaultPackage.${pkgs.system}
             pkgs.vimPlugins.nvim-treesitter-parsers.nu
+            pkgs.vimPlugins.nvim-treesitter-parsers.kdl
           ];
         };
 
