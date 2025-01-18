@@ -93,6 +93,7 @@
           ./hosts/laptop/configuration.nix
           ./system/modules/ollama.nix
           ./system
+          ./hjem
         ];
       };
       nixos-pc = nixpkgs.lib.nixosSystem {
@@ -102,12 +103,6 @@
           ./hosts/pc/configuration.nix
           ./system/modules/ollamaRocm.nix
           ./system
-        ];
-      };
-    };
-    hjem.users = {
-      soliprem.files = {
-        imports = [
           ./hjem
         ];
       };
