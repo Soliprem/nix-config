@@ -9,4 +9,4 @@ This is my personal nixos flake to configure my system.
 ![screenshot3](assets/screenshots/full.png)
 
 ## Credits
-Massive thanks to @notashelf for answering many of my dumb questions
+Massive thanks to [Raf](https://github.com/notashelf) for answering many of my dumb questions
