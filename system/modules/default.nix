@@ -3,5 +3,7 @@ _:{
     ./nvf.nix
     ./steam.nix
     ./regreet.nix
+    ./vpn.nix
+    ./hyprland.nix
   ];
 }
