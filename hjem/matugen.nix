@@ -33,6 +33,10 @@
           input_path = ./templates/ghostty;
           output_path = "~/.config/ghostty/themes/matugen";
         };
+        midnight-discord = {
+          input_path = ./templates/midnight-discord.css;
+          output_path = "~/.config/legcord/themes/midnight.css";
+        };
       };
     };
   };
