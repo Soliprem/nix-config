@@ -5,6 +5,17 @@
 }: {
   environment.systemPackages = with pkgs; [
     highlight
+    fuzzel
+    bibata-cursors
+    atuin
+    fastfetch
+    carapace
+    starship
+    zoxide
+    gammastep
+    inputs.iio-hyprland.packages.${pkgs.system}.default
+    inputs.astal.packages.${pkgs.system}.io
+    inputs.sash.packages.${pkgs.system}.default
     matugen
     git
     wget
@@ -26,7 +37,7 @@
     nix-output-monitor
     nexusmods-app-unfree
     mangohud
-    # inputs.ghostty.packages.${system}.default
+    inputs.ghostty.packages.${system}.default
     openrgb-with-all-plugins
     fluffychat
     bitwarden-desktop

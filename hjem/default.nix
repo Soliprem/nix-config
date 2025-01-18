@@ -1,8 +1,10 @@
-_: {
+{inputs, ...}: {
   imports = [
+    inputs.hjem.nixosModules.default
     ./matugen.nix
     ./nushell.nix
     ./hypr.nix
     ./ghostty.nix
+    ./gtk.nix
   ];
 }
