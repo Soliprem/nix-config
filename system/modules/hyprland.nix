@@ -309,8 +309,8 @@ in {
           "$mod, n, exec, dm-notes"
           "$mod+Shift, n, exec, $term -e notes"
           "$mod+Shift, Q, exec, hyprctl kill"
-          "$mod, d, exec, astal -t launcher"
-          "$mod, m, exec, astal -t systemMenuWindow"
+          "$mod, d, exec, astal -i sash -t launcher"
+          "$mod, m, exec, astal -i sash -t systemMenuWindow"
           "$mod, o, exec, dm-hub"
           "$mod+shift, semicolon, exec, dm-expand"
           "$mod, minus, exec, wtype -k emdash"
@@ -332,7 +332,7 @@ in {
           "SUPERSHIFT,l,layoutmsg,removemaster # [hidden]"
           " SUPER, f, fullscreen, 1  # [hidden]"
           " SUPERSHIFT, f, fullscreen, 0  # [hidden]"
-          "$mod+Shift, B, exec, astal bars"
+          "$mod+Shift, B, exec, astal -i sash bars"
 
           # Special
           "$mod+Alt, F, fullscreenstate, -1 2"
