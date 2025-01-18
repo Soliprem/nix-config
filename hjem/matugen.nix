@@ -35,7 +35,7 @@
         };
         midnight-discord = {
           input_path = ./templates/midnight-discord.css;
-          output_path = "~/.config/legcord/themes/midnight.css";
+          output_path = "~/.config/legcord/themes/midnight-BD/src.css";
         };
       };
     };
