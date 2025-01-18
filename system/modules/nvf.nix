@@ -11,6 +11,7 @@
     enableManpages = true;
     settings = {
       vim = {
+        preventJunkFiles = true;
         searchCase = "smart";
         useSystemClipboard = true;
         viAlias = true;
@@ -148,6 +149,7 @@
           grammars = [
             inputs.norg-meta.defaultPackage.${pkgs.system}
             pkgs.vimPlugins.nvim-treesitter-parsers.nu
+            pkgs.vimPlugins.nvim-treesitter-parsers.kdl
           ];
         };
 
