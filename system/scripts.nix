@@ -51,11 +51,8 @@
         fi
 
         if [[ $wallpaper ]]; then
-        	rm "$XDG_CONFIG_HOME"/nix-config/assets/bg || echo "no bg file found"
-        	cp "$wallpaper" "$XDG_CONFIG_HOME"/nix-config/assets/bg
-        	notify-send -i "$HOME"/.config/nix-config/assets/bg "Changing theme (this may take a while)..."
-        	home-manager switch --flake "$XDG_CONFIG_HOME"/nix-config/#"$USER"@"$HOSTNAME"
-        	notify-send "all done!"
+          matugen image "$wallpaper"
+          astal -i sash -q; sash
         else
         	echo "no wallpaper selected"
         fi
