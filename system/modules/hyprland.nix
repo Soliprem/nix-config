@@ -5,7 +5,7 @@
   config,
   ...
 }: let
-  inherit (config.lib.stylix) colors;
+  # inherit (config.lib.stylix) colors;
   gamemode = pkgs.writeShellApplication {
     name = "gamemode";
     text = ''
@@ -25,6 +25,9 @@
     '';
   };
 in {
+  imports = [
+    inputs.hyprland.nixosModules.default
+  ];
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
@@ -358,9 +361,9 @@ in {
             10)
         );
       plugin = {
-        hyprtrails = {
-          color = "rgba(${colors.base09}ff)";
-        };
+        # hyprtrails = {
+          # color = "rgba(${colors.base09}ff)";
+        # };
         # hycov = {
         #   enable_hotarea = 0;
         # };
