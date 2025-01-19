@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     highlight
     fuzzel
+    adw-gtk3
     bibata-cursors
     atuin
     fastfetch
