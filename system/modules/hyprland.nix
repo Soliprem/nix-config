@@ -384,13 +384,13 @@ in {
         "batsignal &"
         "swayosd-server"
         "sash"
+        "swww-daemon &"
         # "walker --gapplication-service"
         "nm-applet &"
       ];
     };
     plugins = [
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      # pkgs.hyprlandPlugins.hyprexpo
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
       inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces

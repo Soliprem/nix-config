@@ -20,5 +20,6 @@
       marketplace
       reddit
     ];
+    theme = spicePkgs.themes.hazy;
   };
 }
