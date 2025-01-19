@@ -6,7 +6,6 @@ _: {
       gtk-single-instance = true
       gtk-titlebar = false
       quit-after-last-window-closed = false
-      font-family = IosevkaMono Nerd Font
       theme = matugen
     '';
   };

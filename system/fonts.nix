@@ -16,9 +16,8 @@ in {
       defaultFonts = let
         # fonts that should be in each font family
         # if applicable
-        # "Inconsolata Nerd Font"
         common = [
-          "Iosevka Nerd Font"
+          "Inconsolata Nerd Font"
           "Symbols Nerd Font"
           "Noto Color Emoji"
         ];
@@ -51,7 +50,7 @@ in {
 
       # programming fonts
       sarasa-gothic
-      nerd-fonts.iosevka
+      nerd-fonts.inconsolata
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
       # desktop fonts
