@@ -1,6 +1,6 @@
 _: {
   hjem.users.soliprem.files = {
-    ".config/fuzzel/fuzzel.ini" = ''
+    ".config/fuzzel/fuzzel.ini".text = ''
       include=~/.config/fuzzel/colors.ini
       terminal=ghostty
       prompt=">>  "
