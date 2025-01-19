@@ -37,6 +37,10 @@
           input_path = ./templates/midnight-discord.css;
           output_path = "~/.config/legcord/themes/midnight-BD/src.css";
         };
+        fuzzel = {
+          input_path = ./templates/fuzzel.ini;
+          output_path = "~/.config/fuzzel/colors.ini";
+        };
       };
     };
   };
