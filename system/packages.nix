@@ -5,6 +5,8 @@
 }: {
   environment.systemPackages = with pkgs; [
     highlight
+    helix
+    cartridges
     fuzzel
     adw-gtk3
     bibata-cursors
