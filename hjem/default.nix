@@ -7,5 +7,6 @@
     ./ghostty.nix
     ./gtk.nix
     ./fuzzel.nix
+    ./helix.nix
   ];
 }
