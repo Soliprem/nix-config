@@ -6,5 +6,6 @@ _:{
     ./vpn.nix
     ./hyprland.nix
     ./spicetify.nix
+    ./open-webui.nix
   ];
 }
