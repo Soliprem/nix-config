@@ -59,8 +59,9 @@
     lutris
     dotacat
     inputs.agenix.packages.${system}.default
-    inputs.diniamo.legacyPackages.${pkgs.system}.umu-launcher
+    # inputs.diniamo.legacyPackages.${pkgs.system}.umu-launcher
     # (inputs.umu.packages.${pkgs.system}.umu.override {version = "${inputs.umu.shortRev}";})
+    umu-launcher
     teams-for-linux
     wlsunset
     batsignal
