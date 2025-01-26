@@ -74,6 +74,7 @@ _: {
       source ~/.cache/atuin/init.nu
 
       alias D = cd $'($env.HOME)Downloads'; ls -a
+      alias lg = lazygit
       alias YT = youtube-viewer
       alias bc = bc -ql
       alias cac = cd $'($env.HOME)/.cache'; ls -a
