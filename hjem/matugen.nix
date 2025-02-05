@@ -41,6 +41,14 @@
           input_path = ./templates/fuzzel.ini;
           output_path = "~/.config/fuzzel/colors.ini";
         };
+        qt5ct = {
+          input_path = ./templates/qtct-colors.conf;
+          output_path = "~/.config/qt5ct/colors/matugen.conf";
+        };
+        qt6ct = {
+          input_path = ./templates/qtct-colors.conf;
+          output_path = "~/.config/qt6ct/colors/matugen.conf";
+        };
       };
     };
   };
