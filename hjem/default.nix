@@ -8,5 +8,6 @@
     ./gtk.nix
     ./fuzzel.nix
     ./helix.nix
+    ./qt.nix
   ];
 }
