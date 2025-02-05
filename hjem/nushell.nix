@@ -88,7 +88,6 @@ _: {
       alias diff = diff --color=auto
       alias dt = cd $'($env.HOME)/.local/share'; ls -a
       alias e = nvim
-      alias ffmpeg = ffmpeg -hide_banne
       alias g = git
       alias grep = grep --color=auto
       alias h = cd $env.HOME; ls -a
