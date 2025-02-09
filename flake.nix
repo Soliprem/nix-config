@@ -49,6 +49,7 @@
     # Neovimflake
     norg-meta.url = "github:nvim-neorg/tree-sitter-norg-meta";
     nvf.url = "github:notashelf/nvf/";
+    nvf-soli.url = "github:soliprem/nvf-soli";
     # nvf.url = "github:soliprem/nvf/add-nu";
     # nvf.url = "/home/soliprem/.local/src/nvf/";
     hjem = {
