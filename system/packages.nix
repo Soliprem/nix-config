@@ -5,6 +5,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     ffmpeg
+    inputs.nvf-soli.packages.${pkgs.system}.default
     libsForQt5.qt5ct
     kdePackages.qt6ct
     highlight
@@ -53,8 +54,8 @@
     iamb
     revolt-desktop
     swww
-    bitwarden-cli
-    bitwarden-menu
+    # bitwarden-cli
+    # bitwarden-menu
     muse-sounds-manager
     nheko
     kdePackages.neochat
