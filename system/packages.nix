@@ -4,6 +4,9 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    ffmpeg
+    libsForQt5.qt5ct
+    kdePackages.qt6ct
     highlight
     helix
     cartridges
@@ -54,6 +57,7 @@
     bitwarden-menu
     muse-sounds-manager
     nheko
+    kdePackages.neochat
     pwvucontrol
     heroic
     lutris
