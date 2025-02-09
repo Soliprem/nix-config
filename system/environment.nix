@@ -47,8 +47,8 @@ _:{
       LESS_TERMCAP_se = "$(printf '%b' '[0m')";
       LESS_TERMCAP_us = "$(printf '%b' '[1;32m')";
       LESS_TERMCAP_ue = "$(printf '%b' '[0m')";
-      QT_QPA_PLATFORMTHEME = "gtk2"; # Have QT use gtk2 theme.
-      # QT_QPA_PLATFORM="wayland";
+      QT_QPA_PLATFORMTHEME = "qt6ct"; # Have QT use gtk2 theme.
+      QT_QPA_PLATFORM="wayland";
       MOZ_USE_XINPUT2 = "1"; # Mozilla smooth scrolling/touchpads.
       AWT_TOOLKIT = "MToolkit wmname LG3D"; #May have to install wmname
       _JAVA_AWT_WM_NONREPARENTING = "1"; # Fix for Java applications
