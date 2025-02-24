@@ -4,10 +4,14 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    affine
+    protonvpn-gui
     ffmpeg
     inputs.nvf-soli.packages.${pkgs.system}.default
     libsForQt5.qt5ct
     kdePackages.qt6ct
+    vulkan-hdr-layer-kwin6
+    gimp
     highlight
     helix
     cartridges

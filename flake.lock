@@ -7401,11 +7401,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1737301309,
-        "narHash": "sha256-Dy7yvaksYdGv09JX7sNsxPjMdyaYvbbShusGHOV2aQ0=",
+        "lastModified": 1739186024,
+        "narHash": "sha256-6cqwplikh/D0UeZbAsb/LN/f2qHGLHzOt3+/99MsxCk=",
         "owner": "soliprem",
         "repo": "sash",
-        "rev": "c2446dbcac67ebe6fc30bb4f71562e67680f2080",
+        "rev": "bf17f540c600d0cedc13310dc25d6e01165381da",
         "type": "github"
       },
       "original": {
