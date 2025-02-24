@@ -10,6 +10,7 @@
   hardware.keyboard.qmk.enable = true;
   services = {
     cpupower-gui.enable = true;
+    tailscale.enable = true;
     pulseaudio.enable = false;
     hardware.openrgb.enable = true;
     flatpak.enable = true;
