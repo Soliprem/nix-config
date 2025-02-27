@@ -12,6 +12,7 @@
     cpupower-gui.enable = true;
     tailscale.enable = true;
     pulseaudio.enable = false;
+    tailscale.enable = true;
     hardware.openrgb.enable = true;
     flatpak.enable = true;
     udev.packages = [

@@ -74,7 +74,6 @@
 
   # Enable sound with pipewire.
   hardware = {
-    pulseaudio.enable = false;
     sensor.iio.enable = true;
     bluetooth.enable = true;
   };

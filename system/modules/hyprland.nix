@@ -256,8 +256,8 @@ in {
           # ",XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
 
           # Brightness
-          # ",XF86MonBrightnessUp, exec, brightnessctl set '12.75+'"
-          # ",XF86MonBrightnessDown, exec, brightnessctl set '12.75-'"
+          ",XF86MonBrightnessUp, exec, brightnessctl set '12.75+'"
+          ",XF86MonBrightnessDown, exec, brightnessctl set '12.75-'"
           ",XF86MonBrightnessUp, exec, brightness-ddcutil 10"
           ",XF86MonBrightnessDown, exec, brightness-ddcutil -10"
           # ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"

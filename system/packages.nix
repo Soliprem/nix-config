@@ -7,6 +7,7 @@
     affine
     protonvpn-gui
     ffmpeg
+    chromium
     inputs.nvf-soli.packages.${pkgs.system}.default
     libsForQt5.qt5ct
     kdePackages.qt6ct
