@@ -5,6 +5,8 @@
 }: {
   environment.systemPackages = with pkgs; [
     affine
+    gale
+    r2modman
     protonvpn-gui
     ffmpeg
     chromium
