@@ -44,7 +44,7 @@ in {
 
         experimental = {
           # wide_color_gamut = true;
-          xx_color_management_v4 = true;
+          # xx_color_management_v4 = true;
           # hdr = true;
         };
 
@@ -152,6 +152,7 @@ in {
         };
 
         debug = {
+          full_cm_proto = 1;
           # overlay = true
           # damage_tracking = 0
           # damage_blink = yes
