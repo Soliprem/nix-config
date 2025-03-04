@@ -23,10 +23,10 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    umu = {
-      url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # umu = {
+    #   url = "github:Open-Wine-Components/umu-launcher/";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # nixpkgs.url = "github:NixOS/nixpkgs/b79ce4c43f9117b2912e7dbc68ccae4539259dda";
     walker.url = "github:abenz1267/walker";
     zen-browser = {
@@ -57,6 +57,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland/d5920bc5da75b8eaf3476bc814bd46d225709788";
+    # hyprland.url = "github:UjinT34/Hyprland/simple-cm";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
