@@ -15,14 +15,11 @@
   # fileSystems."/home".neededForBoot = true;
 
   # Use the systemd-boot EFI boot loader.
+  # Bootloader.
   boot = {
     loader = {
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiInstallAsRemovable = true;
-        efiSupport = true;
-      };
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
     };
     initrd.kernelModules = ["amdgpu"];
     kernelParams = ["acpi_backlight=video"];
