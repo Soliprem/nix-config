@@ -267,9 +267,9 @@ in {
         ];
         bindl = [
           # ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle && notify-send \"Toggling Microphone\" "
-          # ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-volume"
+          # ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
           ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle && notify-send \"Toggling Microphone\" "
-          ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
+          ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-volume"
           "$mod+Shift,M, exec, swayosd-client --output-volume mute-toggle"
           ",XF86AudioMedia, exec, playerctl play-pause"
           ",XF86AudioPlay, exec, playerctl play-pause"
