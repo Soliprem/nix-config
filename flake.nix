@@ -13,6 +13,10 @@
       url = "github:Aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ags = {
       url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,7 +60,7 @@
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland/d5920bc5da75b8eaf3476bc814bd46d225709788";
+    hyprland.url = "github:hyprwm/Hyprland";
     # hyprland.url = "github:UjinT34/Hyprland/simple-cm";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
