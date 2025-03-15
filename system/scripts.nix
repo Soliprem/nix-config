@@ -14,7 +14,7 @@
         ];
       }
       ''
-        let path_list = waypaper | parse "Selected image path: {path}" | get path
+        let path_list = waypaper | parse "Selected file: {path}" | get path
         let path = $path_list | last
         wallpaper-to-rice-nix $path
       ''
