@@ -17,8 +17,8 @@ gui:
     cherryPickedCommitFgColor:
       - "{{colors.primary.default.hex}}"
     unstagedChangesColor:
-      - "{{colors.red.default.hex}}"
+      - "{{colors.primary.default.hex}}"
     defaultFgColor:
       - "{{colors.on_surface.default.hex}}"
     searchingActiveBorderColor:
-      - "{{colors.yellow.default.hex}}"
+      - "{{colors.tertiary.default.hex}}"
