@@ -49,6 +49,10 @@
           input_path = ./templates/qtct-colors.conf;
           output_path = "~/.config/qt6ct/colors/matugen.conf";
         };
+        lazygit = {
+          input_path = ./templates/lazygit.yml;
+          output_path = "~/.config/lazygit/config.yml";
+        };
       };
     };
   };
