@@ -4,6 +4,12 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    inputs.quickshell.packages.${pkgs.system}.default
+    inputs.walker.packages.${pkgs.system}.default
+    zed-editor
+    kdePackages.qtmultimedia
+    kdePackages.plasmatube
+    libsForQt5.qt5.qtgraphicaleffects
     affine
     gale
     r2modman
