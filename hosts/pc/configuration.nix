@@ -107,7 +107,10 @@
     ];
     shell = pkgs.nushell;
   };
-  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
