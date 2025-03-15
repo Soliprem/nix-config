@@ -1,9 +1,10 @@
-_:{
+_: {
   environment = {
     localBinInPath = true;
     variables = {
       EDITOR = "nvim";
       BROWSER = "firefox";
+      DXVK_HDR = 1;
       TERMINAL = "foot";
       MANPAGER = "nvim -c 'Man!'";
       XKB_DEFAULT_OPTIONS = "caps:swapescape";
@@ -11,29 +12,29 @@ _:{
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_DATA_HOME = "$HOME/.local/share";
       XDG_CACHE_HOME = "$HOME/.cache";
-      XINITRC = "$XDG_CONFIG_HOME/x11/xinitrc";
-      NOTMUCH_CONFIG = "$XDG_CONFIG_HOME/notmuch-config";
-      GTK2_RC_FILES = "$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0";
+      XINITRC = "$HOME/.config/x11/xinitrc";
+      NOTMUCH_CONFIG = "$HOME/.config/notmuch-config";
+      GTK2_RC_FILES = "$HOME/.config/gtk-2.0/gtkrc-2.0";
       LESSHISTFILE = "$XDG_CACHEHOME/less/history";
-      WGETRC = "$XDG_CONFIG_HOME/wget/wgetrc";
-      INPUTRC = "$XDG_CONFIG_HOME/shell/inputrc";
-      ZDOTDIR = "$XDG_CONFIG_HOME/zsh";
-      # ALSA_CONFIG_PATH = "$XDG_CONFIG_HOME/alsa/asoundrc";
+      WGETRC = "$HOME/.config/wget/wgetrc";
+      INPUTRC = "$HOME/.config/shell/inputrc";
+      ZDOTDIR = "$HOME/.config/zsh";
+      # ALSA_CONFIG_PATH = "$HOME/.config/alsa/asoundrc";
       GNUPGHOME = "$XDG_DATA_HOME/gnupg";
       WINEPREFIX = "$XDG_DATA_HOME/wineprefixes/default";
       JULIA_DEPOT_PATH = "$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH";
       KODI_DATA = "$XDG_DATA_HOME/kodi";
       PASSWORD_STORE_DIR = "$XDG_DATA_HOME/password-store";
       TMUX_TMPDIR = "$XDG_RUNTIME_DIR";
-      ANDROID_SDK_HOME = "$XDG_CONFIG_HOME/android";
+      ANDROID_SDK_HOME = "$HOME/.config/android";
       CARGO_HOME = "$XDG_DATA_HOME/cargo";
       GOPATH = "$XDG_DATA_HOME/go";
       LEIN_HOME = "$XDG_DATA_HOME/lein";
-      ANSIBLE_CONFIG = "$XDG_CONFIG_HOME/ansible/ansible.cfg";
+      ANSIBLE_CONFIG = "$HOME/.config/ansible/ansible.cfg";
       UNISON = "$XDG_DATA_HOME/unison";
       HISTFILE = "$XDG_DATA_HOME/history";
-      WEECHAT_HOME = "$XDG_CONFIG_HOME/weechat";
-      MBSYNCRC = "$XDG_CONFIG_HOME/mbsync/config";
+      WEECHAT_HOME = "$HOME/.config/weechat";
+      MBSYNCRC = "$HOME/.config/mbsync/config";
       ELECTRUMDIR = "$XDG_DATA_HOME/electrum";
       # Other program settings:;
       DICS = "/usr/share/stardict/dic/";
@@ -48,7 +49,7 @@ _:{
       LESS_TERMCAP_us = "$(printf '%b' '[1;32m')";
       LESS_TERMCAP_ue = "$(printf '%b' '[0m')";
       QT_QPA_PLATFORMTHEME = "qt6ct"; # Have QT use gtk2 theme.
-      QT_QPA_PLATFORM="wayland";
+      QT_QPA_PLATFORM = "wayland";
       MOZ_USE_XINPUT2 = "1"; # Mozilla smooth scrolling/touchpads.
       AWT_TOOLKIT = "MToolkit wmname LG3D"; #May have to install wmname
       _JAVA_AWT_WM_NONREPARENTING = "1"; # Fix for Java applications
@@ -98,7 +99,7 @@ _:{
       lf = "lfub";
       # alias yay="paru"
       magit = "nvim -c MagitOnly";
-      #alias ref="shortcuts >/dev/null; source $XDG_CONFIG_HOME/shell/shortcutrc ; source $XDG_CONFIG_HOME/.config}/shell/zshnameddirrc"
+      #alias ref="shortcuts >/dev/null; source $HOME/.config/shell/shortcutrc ; source $HOME/.config/.config}/shell/zshnameddirrc"
       #alias weath="less -S $XDG_DATA_HOME/share}/weatherreport"
 
       # vim: filetype=sh
