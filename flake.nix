@@ -9,6 +9,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     matugen.url = "github:InioX/Matugen";
     ghostty.url = "github:ghostty-org/ghostty";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     astal = {
       url = "github:Aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
