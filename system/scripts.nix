@@ -52,7 +52,8 @@
 
         if [[ $wallpaper ]]; then
           matugen image "$wallpaper"
-          astal -i sash -q; sash
+          astal -i hyprpanel -q; hyprpanel
+          cp "$wallpaper" ~/.config/bg
         else
         	echo "no wallpaper selected"
         fi
