@@ -62,6 +62,7 @@ in {
           nix.enable = true;
           markdown = {
             enable = true;
+            extensions.render-markdown-nvim.enable = true;
             # format.extraFiletypes = ["quarto" "rmarkdown"];
           };
           html.enable = true;
@@ -127,6 +128,7 @@ in {
             -- vim.opt.undofile = true
           vim.g.nvim_ghost_use_script = 1
           vim.g.nvim_ghost_python_executable = '${ghosttext-dependencies}/bin/python'
+          vim.o.conceallevel = 2
         '';
 
         theme = {
@@ -217,7 +219,17 @@ in {
         };
 
         notes = {
-          obsidian.enable = false; # FIXME: neovim fails to build if obsidian is enabled
+          obsidian = {
+            enable = true; # FIXME: neovim fails to build if obsidian is enabled
+            setupOpts = {
+              workspaces = [
+                {
+                  name = "notes";
+                  path = "~/Documents/Nextcloud/Notes/markdown";
+                }
+              ];
+            };
+          };
           neorg = {
             enable = true;
             setupOpts = {
