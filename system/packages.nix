@@ -4,6 +4,10 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    hyprpanel
+    maptool
+    logseq
+    anytype
     inputs.quickshell.packages.${pkgs.system}.default
     inputs.walker.packages.${pkgs.system}.default
     zed-editor
