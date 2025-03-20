@@ -127,7 +127,7 @@ _: {
       if not ($zoxide_cache | path exists) {
         mkdir $zoxide_cache
       }
-      zoxide init nushell --cmd cd |
+      zoxide init nushell --cmd cd --hook none |
         save --force $'($env.HOME)/.cache/zoxide/init.nu'
 
       let starship_cache = $'($env.HOME)/.cache/starship'
