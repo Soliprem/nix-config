@@ -18,6 +18,10 @@ in {
     enableManpages = true;
     settings = {
       vim = {
+        options = {
+          shiftwidth = 2;
+          conceallevel = 2;
+        };
         preventJunkFiles = true;
         searchCase = "smart";
         useSystemClipboard = true;
@@ -42,7 +46,7 @@ in {
           };
           trouble.enable = true;
           lspSignature.enable = true;
-          lsplines.enable = false;
+          lsplines.enable = true;
           nvim-docs-view.enable = false; # lags *horribly* whenever l is pressed
         };
 
@@ -67,7 +71,10 @@ in {
           };
           html.enable = true;
           css.enable = true;
-          r.enable = true;
+          r = {
+            enable = true;
+            format.type = "styler";
+          };
           sql.enable = true;
           java.enable = false;
           ts = {
@@ -125,10 +132,8 @@ in {
         };
 
         luaConfigRC.basic = ''
-            -- vim.opt.undofile = true
           vim.g.nvim_ghost_use_script = 1
           vim.g.nvim_ghost_python_executable = '${ghosttext-dependencies}/bin/python'
-          vim.o.conceallevel = 2
         '';
 
         theme = {
