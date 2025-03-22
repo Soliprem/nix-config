@@ -203,11 +203,12 @@ in {
         monitor = [
           "eDP-1, 1920x1200@60.0030,0x0,1"
           "HDMI-A-1, 1920x1080@120,0x0,1"
-          "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 1920x0,1,cm,hdr,sdrbrightness,1.4,sdrsaturation,1.0"
+          # "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 1920x0,1,cm,hdr,sdrbrightness,1.4,sdrsaturation,1.0"
+          "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 1920x0,1,cm,auto"
           "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1.5"
           ",preferred,auto,1"
         ];
-        render.cm_fs_passthrough = false;
+        render.cm_fs_passthrough = true;
         input = {
           kb_layout = "eu, it";
           kb_options = "caps:swapescape, grp:alt_space_toggle";
