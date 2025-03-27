@@ -53,6 +53,10 @@
           input_path = ./templates/lazygit.yml;
           output_path = "~/.config/lazygit/config.yml";
         };
+        walker = {
+          input_path = ./templates/walker.css;
+          output_path = "~/.config/walker/themes/matugen.css";
+        };
       };
     };
   };
