@@ -46,7 +46,6 @@ in {
           };
           trouble.enable = true;
           lspSignature.enable = true;
-          lsplines.enable = true;
           nvim-docs-view.enable = false; # lags *horribly* whenever l is pressed
         };
 
