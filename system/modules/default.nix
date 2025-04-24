@@ -6,7 +6,7 @@ _: {
     ./vpn.nix
     ./hyprland.nix
     ./spicetify.nix
-    ./server.nix
+    # ./server.nix
     # ./open-webui.nix
   ];
 }
