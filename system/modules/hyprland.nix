@@ -164,16 +164,16 @@ in {
 
         windowrule = [
           #"opacity 0.89 override 0.89 override, .* # Applies transparency to EVERY WINDOW"
-          "float,Julia"
-          "float,org.kde.polkit-kde-authentication-agent-1"
+          "float,title:Julia"
+          "float,title:org.kde.polkit-kde-authentication-agent-1"
           "float,title:^(Picture-in-Picture)$"
           "move 1275 45,title:^(Picture-in-Picture)$"
           # --------- FOR GIMP ---------
-          "float,flame"
-          "move 700 250,flame"
-          "float,script-fu"
-          "move 700 250,script-fu"
-          "float,org.gtk_rs.HelloWorld2"
+          "float,title:^(flame)$"
+          "move 700 250,title:^(flame)$"
+          "float,title:^(script-fu)$"
+          "move 700 250,title:^(script-fu)$"
+          "float,title:^(org.gtk_rs.HelloWorld2)$"
 
           # Dialogs
           "float,title:^(Open File)(.*)$"
@@ -182,10 +182,7 @@ in {
           "float,title:^(Open Folder)(.*)$"
           "float,title:^(Save As)(.*)$"
           "float,title:^(Library)(.*)$ "
-        ];
-        # Keybinds
 
-        windowrulev2 = [
           "rounding 20, onworkspace:1"
           "opacity 1 override 1 override, class: ^(mpv|steam_app)(.*)$"
           "opacity 1 override 1 override, title: ^(.*.)(YouTube|Invidious)(.*)$"
@@ -193,6 +190,8 @@ in {
           "workspace special,title:^(Firefox — Sharing Indicator)$"
           "workspace special,title:^(zen — Sharing Indicator)$"
         ];
+        # Keybinds
+
         # workspace = [
         #   "w[t1], gapsout:80"
         #   "w[tg1], gapsout:80"
@@ -202,9 +201,9 @@ in {
         # ];
         monitor = [
           "eDP-1, 1920x1200@60.0030,0x0,1"
-          "HDMI-A-1, 1920x1080@120,0x0,1"
           # "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 1920x0,1,cm,hdr,sdrbrightness,1.4,sdrsaturation,1.0"
           "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 1920x0,1,cm,auto"
+          "HDMI-A-1, 1920x1080@120,0x0,1"
           "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1.5"
           ",preferred,auto,1"
         ];

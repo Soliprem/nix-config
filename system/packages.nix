@@ -4,13 +4,17 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    code-cursor
+    jujutsu
+    lazyjj
+    calibre
     hyprpanel
+    qutebrowser
     maptool
-    logseq
     anytype
     inputs.quickshell.packages.${pkgs.system}.default
     inputs.walker.packages.${pkgs.system}.default
-    zed-editor
+    # zed-editor
     kdePackages.qtmultimedia
     kdePackages.plasmatube
     libsForQt5.qt5.qtgraphicaleffects

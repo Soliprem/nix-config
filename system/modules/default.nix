@@ -1,4 +1,4 @@
-_:{
+_: {
   imports = [
     ./nvf.nix
     ./steam.nix
@@ -6,6 +6,7 @@ _:{
     ./vpn.nix
     ./hyprland.nix
     ./spicetify.nix
-    ./open-webui.nix
+    ./server.nix
+    # ./open-webui.nix
   ];
 }

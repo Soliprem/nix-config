@@ -20,7 +20,7 @@ in {
       vim = {
         options = {
           shiftwidth = 2;
-          conceallevel = 2;
+          conceallevel = 1;
         };
         preventJunkFiles = true;
         searchCase = "smart";
@@ -225,7 +225,7 @@ in {
 
         notes = {
           obsidian = {
-            enable = true; # FIXME: neovim fails to build if obsidian is enabled
+            enable = true;
             setupOpts = {
               workspaces = [
                 {
@@ -233,6 +233,11 @@ in {
                   path = "~/Documents/Nextcloud/Notes/markdown";
                 }
               ];
+              templates = {
+                folder = "templates";
+                date_format = "%Y-%m-%d-%a";
+                time_format = "%H:%M";
+              };
             };
           };
           neorg = {
@@ -294,6 +299,22 @@ in {
 
         assistant = {
           chatgpt.enable = false;
+          codecompanion-nvim = {
+            enable = true;
+            setupOpts = {
+              strategies = {
+                chat = {
+                  adapter = "ollama";
+                };
+                inline = {
+                  adapter = "ollama";
+                };
+                cmd = {
+                  adapter = "ollama";
+                };
+              };
+            };
+          };
           copilot = {
             enable = false;
             cmp.enable = true;
@@ -394,6 +415,27 @@ in {
             setupOpts = {
               open_cmd = "zen %s";
             };
+          };
+          ${harpoon2.pname} = {
+            lazy = true;
+            cmd = "TypstPreview";
+            package = harpoon2;
+            keys = [
+              {
+                key = "<leader>ad";
+                mode = "n";
+                action = '':lua require("harpoon"):list():add()<CR>'';
+                silent = true;
+                desc = "Harpoon add";
+              }
+              {
+                key = "<leader>as";
+                mode = "n";
+                action = '':lua require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())<CR>'';
+                silent = true;
+                desc = "Harpoon switch";
+              }
+            ];
           };
         };
         keymaps = [
