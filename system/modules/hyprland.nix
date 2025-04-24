@@ -344,7 +344,7 @@ in {
             "$mod+Alt, F, fullscreenstate, -1 2"
 
             # Plugins
-            "$mod+Shift, g, hyprexpo:expo, toggle"
+            # "$mod+Shift, g, hyprexpo:expo, toggle"
 
             # screenshots
             "$mod, P,exec, hyprshot -m output -c # [hidden]"
@@ -397,7 +397,7 @@ in {
       };
       plugins = [
         # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-        inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+        # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
         # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
         inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
         # inputs.hycov.packages.${pkgs.system}.hycov
