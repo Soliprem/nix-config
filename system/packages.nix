@@ -5,6 +5,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     cozy
+    gcs
     code-cursor
     jujutsu
     lazyjj
