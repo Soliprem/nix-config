@@ -18,13 +18,16 @@ in {
     enableManpages = true;
     settings = {
       vim = {
+        clipboard = {
+          enable = true;
+          providers.wl-copy.enable = true;
+        };
         options = {
           shiftwidth = 2;
           conceallevel = 1;
         };
         preventJunkFiles = true;
         searchCase = "smart";
-        useSystemClipboard = true;
         viAlias = true;
         vimAlias = true;
         undoFile = {
@@ -36,6 +39,7 @@ in {
           logFile = "/tmp/nvim.log";
         };
         lsp = {
+          enable = true;
           formatOnSave = false;
           lspkind.enable = false;
           lightbulb.enable = false;
@@ -57,7 +61,6 @@ in {
         };
 
         languages = {
-          enableLSP = true;
           enableFormat = true;
           enableTreesitter = true;
           enableExtraDiagnostics = true;
