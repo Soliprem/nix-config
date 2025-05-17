@@ -45,6 +45,7 @@
       text = ''
         if [[ ''${1:-} ]]; then
         	wallpaper="$1"
+                cp "$wallpaper" ~/.config/bg
         else
         	cd "$HOME"/Pictures/wallpapers || return 1
         	wallpaper="$(yad --width 1200 --height 800 --file --add-preview --large-preview --title='Choose wallpaper')"
@@ -52,7 +53,7 @@
 
         if [[ $wallpaper ]]; then
           matugen image "$wallpaper"
-          astal -i hyprpanel -q; hyprpanel
+          astal -i sash -q; sash
           cp "$wallpaper" ~/.config/bg
         else
         	echo "no wallpaper selected"
@@ -72,6 +73,33 @@
             "a selected area (copy)") wayshot -s "$(slurp -f '%x %y %w %h')" --stdout | wl-copy ;;
             "full screen (copy)") wayshot --stdout | wl-copy ;;
         esac
+      '';
+    })
+    (pkgs.writeShellApplication {
+      name = "grimpick";
+      runtimeInputs = with pkgs; [grim slurp swappy];
+      text = ''
+        if [[ ''${1:-} ]]; then
+          mode="$1"
+        else
+          mode="$(printf "region\\n\\nall" |\
+                fuzzel --dmenu -l 6 -i -p "Screenshot which area?")"
+        fi
+
+        case $mode in
+            "region")
+                grim -g "$(slurp)" - | swappy -f -
+                ;;
+            "all")
+                grim - | swappy -f -
+                ;;
+            *)
+                echo >&2 "unsupported command \"$mode\""
+                echo >&2 "Usage:"
+                echo >&2 "grimpick <region|all>"
+                exit 1
+esac
+
       '';
     })
     (pkgs.writeShellApplication {
