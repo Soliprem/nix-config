@@ -38,7 +38,7 @@ in {
       settings = {
         source = "~/.config/hypr/colors.conf";
         "$mod" = "SUPER";
-        "$term" = "ghostty";
+        "$term" = "foot";
         "$editor" = "nvim";
         "$browser" = "zen";
 
@@ -146,7 +146,7 @@ in {
           new_window_takes_over_fullscreen = 2;
 
           enable_swallow = true;
-          swallow_regex = "^(com.mitchellh.ghostty|kitty)$";
+          swallow_regex = "^(com.mitchellh.ghostty|kitty|foot)$";
           swallow_exception_regex = "^(nvim|v|vi|wev|R|glxgears|julia)\b.*$";
         };
 
@@ -347,9 +347,9 @@ in {
             # "$mod+Shift, g, hyprexpo:expo, toggle"
 
             # screenshots
-            "$mod, P,exec, hyprshot -m output -c # [hidden]"
-            "$mod+Shift,P,exec, hyprshot -m window # [hidden]"
-            "$mod+Shift, S, exec, hyprshot -m region # [hidden]"
+            "$mod, P,exec, hyprshot -m output -c -r - | swappy -f - # [hidden]"
+            "$mod+Shift,P,exec, hyprshot -m window -r - | swappy -f - # [hidden]"
+            "$mod+Shift, S, exec, hyprshot -m region -r - |swappy -f - # [hidden]"
           ]
           ++ (
             # workspaces
@@ -389,7 +389,7 @@ in {
           "wl-paste --type image --watch cliphist store &"
           "batsignal &"
           "swayosd-server"
-          "hyprpanel"
+          "sash"
           "swww-daemon &"
           # "walker --gapplication-service"
           "nm-applet &"
