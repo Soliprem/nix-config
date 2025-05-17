@@ -21,7 +21,7 @@
       permittedInsecurePackages = [
         "electron-27.3.11"
         "olm-3.2.16"
-        "fluffychat-linux-1.25.1"
+        "fluffychat-linux-1.26.0"
         "cinny-4.2.3"
         "cinny-unwrapped-4.2.3"
       ];
