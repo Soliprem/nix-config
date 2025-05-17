@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    audacity
     cozy
     gcs
     code-cursor
@@ -13,7 +14,7 @@
     hyprpanel
     qutebrowser
     maptool
-    anytype
+    # anytype
     inputs.quickshell.packages.${pkgs.system}.default
     inputs.walker.packages.${pkgs.system}.default
     # zed-editor
@@ -68,6 +69,7 @@
     nexusmods-app-unfree
     mangohud
     inputs.ghostty.packages.${system}.default
+    foot
     openrgb-with-all-plugins
     fluffychat
     bitwarden-desktop
@@ -138,6 +140,7 @@
     timer
     cliphist
     hyprshot
+    swappy
     element-desktop
     fluffychat
     fractal
