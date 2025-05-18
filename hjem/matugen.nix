@@ -57,6 +57,10 @@
           input_path = ./templates/walker.css;
           output_path = "~/.config/walker/themes/matugen.css";
         };
+        foot = {
+          input_path = ./templates/foot-colors.ini;
+          output_path = "~/.config/foot/themes/matugen.ini";
+        };
       };
     };
   };
