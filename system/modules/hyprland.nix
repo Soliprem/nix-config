@@ -31,6 +31,11 @@ in {
   programs = {
     hyprlock.enable = true;
     hyprland = {
+      topPrefixes = [
+        "$"
+        "bezier"
+        "source"
+      ];
       enable = true;
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
@@ -344,7 +349,8 @@ in {
             "$mod+Alt, F, fullscreenstate, -1 2"
 
             # Plugins
-            # "$mod+Shift, g, hyprexpo:expo, toggle"
+            "$mod+Shift, g, hyprexpo:expo, toggle"
+            "$mod, g, overview:toggle"
 
             # screenshots
             "$mod, P,exec, hyprshot -m output -c -r - | swappy -f - # [hidden]"
@@ -370,9 +376,9 @@ in {
               10)
           );
         plugin = {
-          # hyprtrails = {
-          #   color = "$primary";
-          # };
+          hyprtrails = {
+            color = "$primary";
+          };
           split-monitor-workspaces = {
             count = 10;
             enable_persistent_workspaces = false;
@@ -396,9 +402,9 @@ in {
         ];
       };
       plugins = [
-        # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-        # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-        # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+        inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+        inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+        inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
         inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
         # inputs.hycov.packages.${pkgs.system}.hycov
       ];
