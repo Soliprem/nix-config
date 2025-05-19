@@ -73,9 +73,7 @@
     };
     Hyprspace = {
       url = "github:KZDKM/Hyprspace";
-
-      # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     }; #   };
     # schizofox = {
     #   url = "github:schizofox/schizofox";
