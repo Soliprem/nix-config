@@ -3,6 +3,19 @@
   inputs,
   ...
 }: let
+  norg = pkgs.tree-sitter.buildGrammar {
+    language = "norg";
+    version = "0.0.0+rev=d89d95a";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-neorg";
+      repo = "tree-sitter-norg";
+      rev = "d89d95af13d409f30a6c7676387bde311ec4a2c8";
+      hash = "sha256-z3h5qMuNKnpQgV62xZ02F5vWEq4VEnm5lxwEnIFu+Rw=";
+    };
+
+    meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg";
+  };
   ghosttext-dependencies = pkgs.python313.withPackages (ps:
     with ps; [
       pynvim
@@ -164,6 +177,7 @@ in {
           context.enable = true;
           grammars = [
             inputs.norg-meta.defaultPackage.${pkgs.system}
+            norg
             pkgs.vimPlugins.nvim-treesitter-parsers.nu
             pkgs.vimPlugins.nvim-treesitter-parsers.kdl
           ];
@@ -244,6 +258,7 @@ in {
           };
           neorg = {
             enable = true;
+            treesitter.enable = false;
             setupOpts = {
               load = {
                 "core.defaults" = {};
