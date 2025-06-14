@@ -4,6 +4,11 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    inkscape
+    anki-bin
+    kew
+    gapless
+    spotdl
     audacity
     cozy
     gcs
