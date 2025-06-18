@@ -12,7 +12,7 @@ _: {
 
                   // For example:
                   layout "eu,it"
-                  options "grp:win_space_toggle,compose:ralt,caps:swapescape"
+                  options "grp:alt_space_toggle,caps:swapescape"
               }
           }
 
