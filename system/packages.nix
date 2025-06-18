@@ -4,6 +4,12 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    nwg-drawer
+    swaynotificationcenter
+    xwayland-satellite
+    inputs.ignis.packages.${system}.ignis
+    inputs.way-edges.packages.${system}.way-edges
+    comma
     inkscape
     anki-bin
     kew
@@ -138,7 +144,7 @@
     yad
     darktable
     nextcloud-client
-    planify
+    # planify
     mpv
     btop
     termdown
