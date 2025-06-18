@@ -9,7 +9,7 @@
     ./fuzzel.nix
     ./helix.nix
     ./qt.nix
-    ./niri.nix
-    ./way-edges.nix
+    # ./niri.nix
+    # ./way-edges.nix
   ];
 }

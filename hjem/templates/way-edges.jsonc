@@ -307,4 +307,11 @@
             "border-color": "{{colors.outline.default.hex}}"
           },
           "header-draw-config": {
-            "text-color": "{{colors.on_
+            "text-color": "{{colors.on_surface_variant.default.hex}}",
+          },
+          "grid-align": "bottom-left"
+        }
+      ]
+    },
+  ]
+}
