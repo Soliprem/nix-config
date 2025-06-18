@@ -53,7 +53,10 @@
 
         if [[ $wallpaper ]]; then
           matugen image "$wallpaper"
-          astal -i sash -q; sash
+          # astal -i sash -q; sash
+          niri msg do-screen-transition
+          ka way-edges
+          way-edges
           cp "$wallpaper" ~/.config/bg
         else
         	echo "no wallpaper selected"
