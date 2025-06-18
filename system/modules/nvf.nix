@@ -83,6 +83,7 @@ in {
           markdown = {
             enable = true;
             extensions.render-markdown-nvim.enable = true;
+            format.type = "prettierd";
             # format.extraFiletypes = ["quarto" "rmarkdown"];
           };
           html.enable = true;
@@ -104,7 +105,10 @@ in {
           zig.enable = true;
           ocaml.enable = true;
           nu.enable = true;
-          python.enable = true;
+          python = {
+            enable = true;
+            lsp.server = "pyright";
+          };
           dart.enable = false;
           lua.enable = true;
           bash.enable = true;
@@ -316,6 +320,7 @@ in {
         };
 
         assistant = {
+          avante-nvim.enable = true;
           chatgpt.enable = false;
           codecompanion-nvim = {
             enable = true;
