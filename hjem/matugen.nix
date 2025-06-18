@@ -61,6 +61,10 @@
           input_path = ./templates/foot-colors.ini;
           output_path = "~/.config/foot/themes/matugen.ini";
         };
+        niri = {
+          input_path = ./templates/niri.kdl;
+          output_path = "~/.config/niri/config.kdl";
+        };
       };
     };
   };
