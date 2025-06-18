@@ -307,6 +307,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return { spawn "foot"; }
     Mod+W { spawn "zen"; }
+    Mod+E { spawn "nautilus"; }
     Mod+D { spawn "walker"; }
     Mod+Shift+D { spawn "walker" "-m" "runner"; }
     Super+Alt+L { spawn "swaylock"; }
