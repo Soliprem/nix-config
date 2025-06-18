@@ -65,6 +65,10 @@
           input_path = ./templates/niri.kdl;
           output_path = "~/.config/niri/config.kdl";
         };
+        way-edges = {
+          input_path = ./templates/way-edges.jsonc;
+          output_path = "~/.config/way-edges/config.jsonc";
+        };
       };
     };
   };

@@ -1,0 +1,310 @@
+{
+  // "$schema": "https://raw.githubusercontent.com/way-edges/way-edges/master/config/config.schema.json",
+  "$schema": "./schema.json",
+  "widgets": [
+    {
+      "edge": "right",
+      "position": "top",
+      "monitor": "*",
+      "layer": "overlay",
+      "margins": {
+        "top": "10%"
+      },
+      "thickness": 40,
+      "length": "25%",
+      "fg-color": "{{colors.primary.default.hex}}cc",
+      "bg-color": "{{colors.surface.default.hex}}00",
+      "border-color": "{{colors.primary.default.hex}}ff",
+      "fg-text-color": "{{colors.on_surface.default.hex}}fa",
+      "bg-text-color": "{{colors.on_surface.default.hex}}fa",
+      "radius": 10,
+      "obtuse-angle": 90,
+      "type": "slider",
+      "preset": {
+        "type": "backlight"
+      }
+    },
+    {
+      "pin-with-key": false,
+      "edge": "top",
+      "position": "left",
+      "monitor": "*",
+      "layer": "overlay",
+      "margins": {
+        "left": "25%"
+      },
+      "thickness": 20,
+      "length": "25%",
+      "type": "btn",
+      "color": "{{colors.surface_variant.default.hex}}",
+      "event-map": {
+        "272": "niri msg action focus-column-left",
+        "273": "niri msg action focus-workspace-up"
+      }
+    },
+    {
+      "pin-with-key": false,
+      "edge": "top",
+      "position": "right",
+      "monitor": "*",
+      "layer": "overlay",
+      "margins": {
+        "right": "25%"
+      },
+      "thickness": 20,
+      "length": "25%",
+      "type": "btn",
+      "color": "{{colors.surface_variant.default.hex}}",
+      "event-map": {
+        "272": "niri msg action focus-column-right",
+        "273": "niri msg action focus-workspace-down"
+      }
+    },
+    {
+      "pin-with-key": false,
+      "edge": "bottom",
+      "monitor": "*",
+      "layer": "overlay",
+      "thickness": 20,
+      "length": "40%",
+      "type": "btn",
+      "event-map": {
+        "273": "niri msg action maximize-column",
+        "272": "sh -c pkill nwg-drawer || nwg-drawer",
+        "274": "niri msg action close-window",
+        "276": "niri msg action toggle-column-tabbed-display",
+        "275": "niri msg action toggle-overview"
+      }
+    },
+    // {
+    //   "edge": "left",
+    //   "position": "bottom",
+    //   "layer": "overlay",
+    //   "monitor": "*",
+    //   "type": "workspace",
+    //   "thickness": 30,
+    //   "length": "50%",
+    //   "hover-color": "{{colors.on_surface.default.hex}}22",
+    //   "active-increase": 0.2,
+    //   /// "active-color": "{{colors.on_surface.default.hex}}",
+    //   "focus-color": "{{colors.secondary.default.hex}}",
+    //   "default-color": "{{colors.surface.default.hex}}",
+    //   "focused-only": true,
+    //   "preset": { "type": "niri", "filter-empty": false }
+    // },
+    {
+      "edge": "right",
+      "position": "bottom",
+      "layer": "overlay",
+      "monitor": "*",
+      "type": "workspace",
+      "thickness": 30,
+      "length": "50%",
+      "hover-color": "{{colors.on_surface.default.hex}}22",
+      "active-increase": 0.2,
+      /// "active-color": "{{colors.on_surface.default.hex}}",
+      "focus-color": "{{colors.secondary.default.hex}}",
+      "default-color": "{{colors.surface.default.hex}}",
+      "focused-only": true,
+      "preset": { "type": "niri", "filter-empty": false }
+    },
+    {
+      "namespace": "stats",
+      "edge": "left",
+      "position": "top",
+      "margins": {
+        "top": 40
+      },
+      "monitor": "*",
+      "layer": "overlay",
+      "type": "wrap-box",
+      "outlook": {
+        "type": "window",
+        "color": "{{colors.surface_container.default.hex}}"
+      },
+      "items": [
+        {
+          // "radius": 18,
+          // "ring-width": 8,
+          "font-size": 20,
+          "font-family": "JetBrainsMono Nerd Font",
+          "fg-color": "{{colors.primary.default.hex}}",
+          "bg-color": "{{colors.surface.default.hex}}44",
+          "type": "ring",
+          "prefix": " ",
+          "suffix": " {preset}",
+          "suffix-hide": true,
+          "preset": {
+            "update-interval": 500,
+            "type": "disk"
+          }
+        },
+        {
+          // "radius": 18,
+          // "ring-width": 8,
+          "font-size": 20,
+          "font-family": "JetBrainsMono Nerd Font",
+          "fg-color": "{{colors.tertiary.default.hex}}",
+          "bg-color": "{{colors.surface.default.hex}}44",
+          "type": "ring",
+          "prefix": " ",
+          "suffix": " {preset}",
+          "suffix-hide": true,
+          "preset": {
+            "update-interval": 500,
+            "type": "battery"
+          }
+        },
+        {
+          // "radius": 18,
+          // "ring-width": 8,
+          "font-size": 20,
+          "font-family": "JetBrainsMono Nerd Font",
+          "fg-color": "{{colors.error.default.hex}}",
+          "bg-color": "{{colors.surface.default.hex}}44",
+          "type": "ring",
+          "prefix": " ",
+          "suffix": " {preset}",
+          "suffix-hide": true,
+          "preset": {
+            "update-interval": 500,
+            "type": "cpu"
+          }
+        },
+        {
+          // "radius": 18,
+          // "ring-width": 8,
+          "font-size": 20,
+          "font-family": "JetBrainsMono Nerd Font",
+          "fg-color": "{{colors.secondary_container.default.hex}}",
+          "bg-color": "{{colors.surface.default.hex}}44",
+          "type": "ring",
+          "prefix": "󰾶 ",
+          "suffix": " {preset}",
+          "suffix-hide": true,
+          "preset": {
+            "update-interval": 500,
+            "type": "swap"
+          }
+        },
+        {
+          // "radius": 18,
+          // "ring-width": 8,
+          "font-size": 20,
+          "font-family": "JetBrainsMono Nerd Font",
+          "bg-color": "{{colors.surface.default.hex}}44",
+          "type": "ring",
+          "prefix": " ",
+          "suffix": " {preset}",
+          "suffix-hide": true,
+          "preset": {
+            "update-interval": 500,
+            "type": "ram"
+          }
+        }
+      ]
+    },
+    {
+      "namespace": "time",
+      "edge": "top",
+      "position": "right",
+      "monitor": "*",
+      "layer": "overlay",
+      "type": "wrap-box",
+      "outlook": {
+        "type": "window",
+        "color": "{{colors.surface_container_low.default.hex}}",
+        "margins": {
+          "top": 10,
+          "left": 30,
+          "right": 30,
+          "bottom": 10
+        }
+      },
+      "items": [
+        {
+          "type": "text",
+          "fg-color": "{{colors.on_surface.default.hex}}",
+          "font-size": 30,
+          "font-family": "serif",
+          "preset": {
+            "type": "time",
+            "update-interval": 500,
+            "format": "%v %T %A"
+          }
+        }
+      ]
+    },
+    {
+      "edge": "top",
+      "monitor": "*",
+      "layer": "overlay",
+      "position": "left",
+      // "preview-size": 0,
+      "type": "slider",
+      "thickness": 40,
+      "border-width": 3,
+      "length": "12.5%",
+      "radius": 10,
+      "obtuse-angle": 90,
+      "fg-color": "{{colors.secondary.default.hex}}cc",
+      "bg-color": "{{colors.surface.default.hex}}00",
+      "border-color": "{{colors.secondary.default.hex}}",
+      "fg-text-color": "{{colors.on_surface.default.hex}}fa",
+      "bg-text-color": "{{colors.on_surface.default.hex}}fa",
+      "redraw-only-on-internal-update": true,
+      "preset": {
+        "type": "speaker"
+      }
+    },
+    {
+      "edge": "top",
+      "monitor": "*",
+      "position": "left",
+      "layer": "overlay",
+      "margins": {
+        "left": "12.5%"
+      },
+      // "preview-size": 9,
+      "type": "slider",
+      "thickness": 40,
+      "border-width": 3,
+      "length": "12.5%",
+      "radius": 10,
+      "obtuse-angle": 90,
+      "fg-color": "{{colors.tertiary.default.hex}}cc",
+      "bg-color": "{{colors.surface.default.hex}}00",
+      "border-color": "{{colors.tertiary.default.hex}}",
+      "fg-text-color": "{{colors.on_surface.default.hex}}fa",
+      "bg-text-color": "{{colors.on_surface.default.hex}}fa",
+      "redraw-only-on-internal-update": true,
+      "preset": {
+        "type": "microphone"
+      }
+    },
+    {
+      "namespace": "tray",
+      "edge": "bottom",
+      "position": "left",
+      "monitor": "*",
+      "layer": "overlay",
+      "type": "wrap-box",
+      "align": "bottom-left",
+      "outlook": {
+        "type": "window",
+        "color": "{{colors.primary_container.default.hex}}"
+      },
+      "items": [
+        {
+          "font-family": "sans-serif",
+          "type": "tray",
+          "icon-size": 40,
+          "header-menu-stack": "menu-top",
+          "header-menu-align": "left",
+          "menu-draw-config": {
+            "font-pixel-height": 18,
+            "text-color": "{{colors.on_surface_variant.default.hex}}",
+            "border-color": "{{colors.outline.default.hex}}"
+          },
+          "header-draw-config": {
+            "text-color": "{{colors.on_
