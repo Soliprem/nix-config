@@ -10,5 +10,6 @@
     ./helix.nix
     ./qt.nix
     ./niri.nix
+    ./way-edges.nix
   ];
 }
