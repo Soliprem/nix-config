@@ -156,7 +156,7 @@ in {
         };
 
         debug = {
-          # full_cm_proto = 1;
+          full_cm_proto = 1;
           # overlay = true
           # damage_tracking = 0
           # damage_blink = yes
@@ -206,8 +206,8 @@ in {
         # ];
         monitor = [
           "eDP-1, 1920x1200@60.0030,0x0,1"
-          "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 1920x0,1,bitdepth,10,cm,hdr,sdrbrightness,1.5,sdrsaturation,1.2"
-          # "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 1920x0,1,cm,auto"
+          # "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 1920x0,1,bitdepth,10,cm,hdr,sdrbrightness,1.5,sdrsaturation,1.2"
+          "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 1920x0,1,cm,auto"
           "HDMI-A-1, 1920x1080@120,0x0,1"
           "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1.5"
           ",preferred,auto,1"
@@ -376,9 +376,9 @@ in {
               10)
           );
         plugin = {
-          hyprtrails = {
-            color = "$primary";
-          };
+          # hyprtrails = {
+          #   color = "$primary";
+          # };
           split-monitor-workspaces = {
             count = 10;
             enable_persistent_workspaces = false;
@@ -404,7 +404,7 @@ in {
       plugins = [
         inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-        inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+        # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
         inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
         # inputs.hycov.packages.${pkgs.system}.hycov
       ];

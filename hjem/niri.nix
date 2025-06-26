@@ -311,6 +311,7 @@ _: {
           Mod+Return { spawn "foot"; }
           Mod+W { spawn "zen"; }
           Mod+D { spawn "walker"; }
+          Mod+Space { spawn "nwg-drawer"; }
           Mod+Shift+D { spawn "walker" "-m" "runner"; }
           Super+Alt+L { spawn "swaylock"; }
           Super+Shift+C { spawn "swaync-client" "-t"; }
@@ -328,6 +329,8 @@ _: {
           XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
           Mod+Q { close-window; }
+          Mod+Shift+Space { toggle-window-floating; }
+          Mod+Control+Space { switch-focus-between-floating-and-tiling; }
 
           Mod+Left  { focus-column-left; }
           Mod+Down  { focus-window-down; }
