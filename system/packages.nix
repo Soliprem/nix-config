@@ -82,7 +82,7 @@
     inputs.ghostty.packages.${system}.default
     foot
     openrgb-with-all-plugins
-    fluffychat
+    # fluffychat
     bitwarden-desktop
     showtime
     keyutils
@@ -93,7 +93,6 @@
     # bitwarden-cli
     # bitwarden-menu
     muse-sounds-manager
-    nheko
     kdePackages.neochat
     pwvucontrol
     heroic
@@ -153,8 +152,6 @@
     hyprshot
     swappy
     element-desktop
-    fluffychat
-    fractal
     nautilus
     spotube
     glib
@@ -165,6 +162,47 @@
     pamixer
   ];
   programs = {
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        glib
+        nss
+        nspr
+        dbus
+        atk
+        cups
+        gtk3
+        alsa-lib
+        at-spi2-atk
+        at-spi2-core
+        pango
+        cairo
+        fontconfig
+        freetype
+        harfbuzz
+        libgbm
+        libdrm
+        gdk-pixbuf
+        expat
+        glibc
+        # X11 libraries
+        xorg.libX11
+        xorg.libXcomposite
+        xorg.libXdamage
+        xorg.libXext
+        xorg.libXfixes
+        xorg.libXrandr
+        xorg.libXrender
+        xorg.libXtst
+        xorg.libXScrnSaver
+        xorg.libxcb
+        xorg.libXi
+        xorg.libXcursor
+        # Additional libraries that might be needed
+        libxkbcommon
+        wayland
+      ];
+    };
     kdeconnect.enable = true;
     # hyprland = {
     #   enable = true;
