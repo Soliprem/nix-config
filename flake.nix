@@ -11,7 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sash.url = "github:soliprem/sash";
-    nixpkgs.url = "github:nixos/nixpkgs/c3d807369d56b6be013e0662dc9ad204dfd3c8b6";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     matugen.url = "github:InioX/Matugen";
     ghostty.url = "github:ghostty-org/ghostty";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
