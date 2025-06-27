@@ -23,7 +23,7 @@
     lazyjj
     calibre
     hyprpanel
-    qutebrowser
+    # qutebrowser
     maptool
     # anytype
     inputs.quickshell.packages.${pkgs.system}.default
@@ -77,7 +77,7 @@
     ddcutil
     ddcui
     nix-output-monitor
-    nexusmods-app-unfree
+    # nexusmods-app-unfree
     mangohud
     inputs.ghostty.packages.${system}.default
     foot
