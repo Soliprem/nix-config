@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    emacs
     nwg-drawer
     swaynotificationcenter
     xwayland-satellite

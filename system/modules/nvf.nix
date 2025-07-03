@@ -16,12 +16,12 @@
 
     meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg";
   };
-  ghosttext-dependencies = pkgs.python313.withPackages (ps:
-    with ps; [
-      pynvim
-      requests
-      simple-websocket-server
-    ]);
+  # ghosttext-dependencies = pkgs.python313.withPackages (ps:
+  #   with ps; [
+  #     pynvim
+  #     requests
+  #     simple-websocket-server
+  #   ]);
 in {
   imports = [
     inputs.nvf.nixosModules.default
@@ -151,10 +151,10 @@ in {
           };
         };
 
-        luaConfigRC.basic = ''
-          vim.g.nvim_ghost_use_script = 1
-          vim.g.nvim_ghost_python_executable = '${ghosttext-dependencies}/bin/python'
-        '';
+        # luaConfigRC.basic = ''
+        #   vim.g.nvim_ghost_use_script = 1
+        #   vim.g.nvim_ghost_python_executable = '${ghosttext-dependencies}/bin/python'
+        # '';
 
         theme = {
           enable = true;
@@ -361,20 +361,20 @@ in {
         };
 
         extraPlugins = {
-          ghost-nvim = {
-            package = pkgs.vimUtils.buildVimPlugin {
-              name = "ghost-nvim";
-              src = pkgs.fetchFromGitHub {
-                owner = "subnut";
-                repo = "nvim-ghost.nvim";
-                rev = "v0.5.4";
-                hash = "sha256-XldDgPqVeIfUjaRLVUMp88eHBHLzoVgOmT3gupPs+ao=";
-              };
-              setup = ''
-                require('ghost').setup(),
-              '';
-            };
-          };
+          # ghost-nvim = {
+          #   package = pkgs.vimUtils.buildVimPlugin {
+          #     name = "ghost-nvim";
+          #     src = pkgs.fetchFromGitHub {
+          #       owner = "subnut";
+          #       repo = "nvim-ghost.nvim";
+          #       rev = "v0.5.4";
+          #       hash = "sha256-XldDgPqVeIfUjaRLVUMp88eHBHLzoVgOmT3gupPs+ao=";
+          #     };
+          #     setup = ''
+          #       require('ghost').setup(),
+          #     '';
+          #   };
+          # };
         };
 
         lazy.plugins = with pkgs.vimPlugins; {
