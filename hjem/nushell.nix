@@ -65,8 +65,6 @@ _: {
         shape_custom: { attr: b }
       }
 
-      source ~/.cache/zoxide/init.nu
-
       use ~/.cache/starship/init.nu
 
       source ~/.cache/carapace/init.nu
@@ -120,6 +118,8 @@ _: {
       alias yt = yt-dlp --embed-metadata -i
       alias yta = yt -x -f bestaudio/best
       alias z = zathura
+
+      source ~/.cache/zoxide/init.nu
     '';
 
     ".config/nushell/env.nu".text = ''
