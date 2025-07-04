@@ -72,6 +72,7 @@ _: {
       source ~/.cache/atuin/init.nu
 
       alias D = cd $'($env.HOME)Downloads'; ls -a
+      alias ,, = , (history | last | get command)
       alias lg = lazygit
       alias YT = youtube-viewer
       alias bc = bc -ql
@@ -123,13 +124,6 @@ _: {
     '';
 
     ".config/nushell/env.nu".text = ''
-      let zoxide_cache = $'($env.HOME)/.cache/zoxide'
-      if not ($zoxide_cache | path exists) {
-        mkdir $zoxide_cache
-      }
-      zoxide init nushell --cmd cd --hook none |
-        save --force $'($env.HOME)/.cache/zoxide/init.nu'
-
       let starship_cache = $'($env.HOME)/.cache/starship'
       if not ($starship_cache | path exists) {
         mkdir $starship_cache
@@ -147,6 +141,13 @@ _: {
         mkdir $atuin_cache
       }
       atuin init nu  | save --force $'($env.HOME)/.cache/atuin/init.nu'
+
+      let zoxide_cache = $'($env.HOME)/.cache/zoxide'
+      if not ($zoxide_cache | path exists) {
+        mkdir $zoxide_cache
+      }
+      zoxide init nushell --cmd cd |
+        save --force $'($env.HOME)/.cache/zoxide/init.nu'
 
       load-env {}
     '';
