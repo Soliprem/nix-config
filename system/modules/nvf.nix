@@ -185,6 +185,10 @@ in {
             norg
             pkgs.vimPlugins.nvim-treesitter-parsers.nu
             pkgs.vimPlugins.nvim-treesitter-parsers.kdl
+            pkgs.vimPlugins.nvim-treesitter-parsers.rnoweb
+            pkgs.vimPlugins.nvim-treesitter-parsers.yaml
+            pkgs.vimPlugins.nvim-treesitter-parsers.markdown
+            pkgs.vimPlugins.nvim-treesitter-parsers.r
           ];
         };
 
@@ -406,6 +410,21 @@ in {
           #     '';
           #   };
           # };
+          R-nvim = {
+            package = pkgs.vimUtils.buildVimPlugin {
+              name = "R-nvim";
+              src = pkgs.fetchFromGitHub {
+                owner = "R-nvim";
+                repo = "R.nvim";
+                rev = "68a033246a1863c8028f7d7aae91d65fc06058c8";
+                hash = "sha256-GhgzmIylttMyaV/B2QjlRcdtHW/Epw8ghQtJbQEJZN0=";
+              };
+              doCheck = false;
+              setup = ''
+                require('r').setup(),
+              '';
+            };
+          };
         };
 
         lazy.plugins = with pkgs.vimPlugins; {
