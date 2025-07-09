@@ -131,7 +131,7 @@
           "fg-color": "{{colors.primary.default.hex}}",
           "bg-color": "{{colors.surface.default.hex}}44",
           "type": "ring",
-          "prefix": " ",
+          "prefix": "󰋊 ",
           "suffix": " {preset}",
           "suffix-hide": true,
           "preset": {
@@ -147,7 +147,7 @@
           "fg-color": "{{colors.tertiary.default.hex}}",
           "bg-color": "{{colors.surface.default.hex}}44",
           "type": "ring",
-          "prefix": " ",
+          "prefix": "󰁹 ",
           "suffix": " {preset}",
           "suffix-hide": true,
           "preset": {
@@ -163,7 +163,7 @@
           "fg-color": "{{colors.error.default.hex}}",
           "bg-color": "{{colors.surface.default.hex}}44",
           "type": "ring",
-          "prefix": " ",
+          "prefix": "󰻠 ",
           "suffix": " {preset}",
           "suffix-hide": true,
           "preset": {
@@ -194,7 +194,7 @@
           "font-family": "JetBrainsMono Nerd Font",
           "bg-color": "{{colors.surface.default.hex}}44",
           "type": "ring",
-          "prefix": " ",
+          "prefix": "󰍛 ",
           "suffix": " {preset}",
           "suffix-hide": true,
           "preset": {
