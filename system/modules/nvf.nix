@@ -93,6 +93,7 @@ in {
             format.type = "styler";
           };
           sql.enable = true;
+          haskell.enable = true;
           java.enable = false;
           ts = {
             enable = true;
