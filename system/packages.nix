@@ -24,12 +24,12 @@
     lazyjj
     calibre
     hyprpanel
-    # qutebrowser
+    qutebrowser
     maptool
     # anytype
     inputs.quickshell.packages.${pkgs.system}.default
     inputs.walker.packages.${pkgs.system}.default
-    # zed-editor
+    zed-editor
     kdePackages.qtmultimedia
     kdePackages.plasmatube
     libsForQt5.qt5.qtgraphicaleffects
@@ -42,7 +42,6 @@
     # inputs.nvf-soli.packages.${pkgs.system}.default
     libsForQt5.qt5ct
     kdePackages.qt6ct
-    # vulkan-hdr-layer-kwin6
     gimp
     highlight
     helix
@@ -78,7 +77,7 @@
     ddcutil
     ddcui
     nix-output-monitor
-    # nexusmods-app-unfree
+    nexusmods-app-unfree
     mangohud
     inputs.ghostty.packages.${system}.default
     foot
