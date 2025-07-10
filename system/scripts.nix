@@ -20,6 +20,14 @@
       ''
     )
 
+    (
+      pkgs.writers.writeNuBin "clear-trash" {
+      }
+      ''
+        rm -rp ~/.local/share/Trash/*
+      ''
+    )
+
     (pkgs.writers.writeNuBin "dm-expand" {
         makeWrapperArgs = [
           "--prefix"
