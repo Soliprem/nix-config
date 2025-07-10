@@ -4,6 +4,7 @@ _: {
       $env.config = {
           show_banner: false
           edit_mode: vi
+          rm: {always_trash: true}
           keybindings: [
             {
               name: history_completion
@@ -82,7 +83,6 @@ _: {
       alias cd.. = cd ..
       alias cf = cd $'($env.HOME)/.config'; ls -a
       alias config = /usr/bin/git --git-dir=$'($env.HOME)/.cfg/' --work-tree=$'($env.HOME)'
-      alias cpi = cp -iv
       alias cp = cp -v
       alias d = cd $'($env.HOME)/Documents'; ls -a
       alias diff = diff --color=auto
@@ -106,7 +106,7 @@ _: {
       alias nvimtutor = nvim -c Tutor
       alias p = pacman
       alias pp = cd $'($env.HOME)/Pictures'; ls -a
-      alias rm = rm -vI
+      alias rm = rm -v
       alias rr = cd $'($env.HOME)/.local/src'; ls -a
       alias sc = cd $'($env.HOME)/.local/bin'; ls -a
       alias sdn = shutdown -h now
