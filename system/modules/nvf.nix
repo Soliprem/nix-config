@@ -31,6 +31,13 @@ in {
     enableManpages = true;
     settings = {
       vim = {
+        spellcheck = {
+          enable = true;
+          languages = [
+            "en"
+            "it"
+          ];
+        };
         clipboard = {
           enable = true;
           registers = "unnamedplus";
