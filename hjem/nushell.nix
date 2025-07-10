@@ -82,7 +82,8 @@ _: {
       alias cd.. = cd ..
       alias cf = cd $'($env.HOME)/.config'; ls -a
       alias config = /usr/bin/git --git-dir=$'($env.HOME)/.cfg/' --work-tree=$'($env.HOME)'
-      alias cp = cp -iv
+      alias cpi = cp -iv
+      alias cp = cp -v
       alias d = cd $'($env.HOME)/Documents'; ls -a
       alias diff = diff --color=auto
       alias dt = cd $'($env.HOME)/.local/share'; ls -a
