@@ -1,5 +1,5 @@
 format = '''
-$directory$git_branch$rust$python
+$directory$git_branch$nix_shell$shlvl$rust$python$rlang$quarto
 $character'''
 
 palette = 'colors'
