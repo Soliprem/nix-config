@@ -2,27 +2,7 @@
   pkgs,
   inputs,
   ...
-}: let
-  norg = pkgs.tree-sitter.buildGrammar {
-    language = "norg";
-    version = "0.0.0+rev=d89d95a";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "nvim-neorg";
-      repo = "tree-sitter-norg";
-      rev = "d89d95af13d409f30a6c7676387bde311ec4a2c8";
-      hash = "sha256-z3h5qMuNKnpQgV62xZ02F5vWEq4VEnm5lxwEnIFu+Rw=";
-    };
-
-    meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg";
-  };
-  # ghosttext-dependencies = pkgs.python313.withPackages (ps:
-  #   with ps; [
-  #     pynvim
-  #     requests
-  #     simple-websocket-server
-  #   ]);
-in {
+}: {
   imports = [
     inputs.nvf.nixosModules.default
   ];
@@ -73,7 +53,7 @@ in {
             setupOpts.buffers.write_to_disk = true;
           };
           trouble.enable = true;
-          lspSignature.enable = true;
+          lspSignature.enable = false; # doesn't work with blink
           nvim-docs-view.enable = false; # lags *horribly* whenever l is pressed
         };
 
@@ -171,7 +151,13 @@ in {
 
         autopairs.nvim-autopairs.enable = true;
 
-        autocomplete.nvim-cmp.enable = true;
+        autocomplete.blink-cmp = {
+          enable = true;
+          friendly-snippets.enable = true;
+          setupOpts = {
+            signature.enabled = true;
+          };
+        };
         snippets.luasnip.enable = true;
 
         filetree = {
@@ -187,8 +173,6 @@ in {
         treesitter = {
           context.enable = true;
           grammars = [
-            inputs.norg-meta.defaultPackage.${pkgs.system}
-            norg
             pkgs.vimPlugins.nvim-treesitter-parsers.nu
             pkgs.vimPlugins.nvim-treesitter-parsers.kdl
             pkgs.vimPlugins.nvim-treesitter-parsers.rnoweb
@@ -274,7 +258,6 @@ in {
           };
           neorg = {
             enable = true;
-            treesitter.enable = false;
             setupOpts = {
               load = {
                 "core.defaults" = {};
