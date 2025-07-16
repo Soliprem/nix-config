@@ -31,6 +31,9 @@ in {
     enableManpages = true;
     settings = {
       vim = {
+        repl = {
+          conjure.enable = true;
+        };
         spellcheck = {
           enable = true;
           languages = [
