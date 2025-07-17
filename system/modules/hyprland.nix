@@ -213,6 +213,7 @@ in {
           ",preferred,auto,1"
         ];
         # render.cm_fs_passthrough = true;
+        render.cm_auto_hdr = 1;
         input = {
           kb_layout = "eu, it";
           kb_options = "caps:swapescape, grp:alt_space_toggle";
