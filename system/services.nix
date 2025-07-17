@@ -3,10 +3,6 @@
   inputs,
   ...
 }: {
-  imports = [
-    inputs.nixos-cosmic.nixosModules.default
-  ];
-
   hardware.keyboard.qmk.enable = true;
   services = {
     resolved.enable = true;
@@ -25,13 +21,19 @@
     # xserver.enable = true;
 
     # Enable the KDE Plasma Desktop Environment.
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
+    displayManager = {
+      sddm = {
+        enable = false;
+        wayland.enable = true;
+      };
+      cosmic-greeter.enable = true;
     };
     # displayManager.cosmic-greeter.enable = true;
     # desktopManager.cosmic.enable = true;
-    desktopManager.plasma6.enable = true;
+    desktopManager = {
+      plasma6.enable = true;
+      cosmic.enable = true;
+      };
 
     # Configure keymap in X11
     xserver.xkb = {
