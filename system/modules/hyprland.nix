@@ -207,8 +207,8 @@ in {
         monitor = [
           "eDP-1, 1920x1200@60.0030,0x0,1"
           # "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 1920x0,1,bitdepth,10,cm,hdr,sdrbrightness,1.5,sdrsaturation,1.2"
-          "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 1920x0,1,cm,auto"
-          "HDMI-A-1, 1920x1080@120,0x0,1"
+          "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 0x0,1,cm,auto"
+          "HDMI-A-1, 1920x1080@120,2560x0,1"
           "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1.5"
           ",preferred,auto,1"
         ];
@@ -320,7 +320,7 @@ in {
             "$mod+Shift, n, exec, $term -e notes"
             "$mod+Shift, Q, exec, hyprctl kill"
             # "$mod, d, exec, astal -i sash -t launcher"
-            "$mod, d, exec, walker"
+            "$mod, d, exec, caelestia shell drawers toggle launcher"
             "$mod, m, exec, astal -i sash -t systemMenuWindow"
             "$mod, o, exec, dm-hub"
             "$mod+shift, semicolon, exec, dm-expand"
