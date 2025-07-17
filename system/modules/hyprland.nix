@@ -240,7 +240,7 @@ in {
 
           resize_on_border = true;
           no_focus_fallback = true;
-          layout = "master";
+          layout = "scrolling";
 
           #focus_to_other_workspaces = true # ahhhh i still haven't properly implemented this
           allow_tearing = false; # some guy told me tearing might make things smoother idk
@@ -332,6 +332,16 @@ in {
             "$mod, s, togglespecialworkspace"
             "$mod+Alt, p, pin"
 
+            # Scrolling Layout Movements
+
+            "SUPER,h,layoutmsg,focus left"
+            "SUPER,l,layoutmsg,focus right"
+            "SUPER,k,layoutmsg,focus up"
+            "SUPER,j,layoutmsg,focus down"
+            "SUPERSHIFT,h,layoutmsg,movewindowto l"
+            "SUPERSHIFT,l,layoutmsg,movewindowto r"
+            "SUPER,space,layoutmsg,promote"
+
             # Master Layout Movements
 
             "SUPER,j,layoutmsg,cyclenext # Focus on next window in the layout"
@@ -351,7 +361,7 @@ in {
 
             # Plugins
             "$mod+Shift, g, hyprexpo:expo, toggle"
-            "$mod, g, overview:toggle"
+            # "$mod, g, overview:toggle"
 
             # screenshots
             "$mod, P,exec, hyprshot -m output -c -r - | swappy -f - # [hidden]"
@@ -387,6 +397,9 @@ in {
           # hycov = {
           #   enable_hotarea = 0;
           # };
+          hyprscrolling = {
+            focus_fit_method = 1;
+          };
         };
         exec-once = [
           "iio-hyprland"
@@ -405,6 +418,7 @@ in {
       plugins = [
         inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+        inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
         # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
         inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
         # inputs.hycov.packages.${pkgs.system}.hycov
