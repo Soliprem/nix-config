@@ -4,6 +4,8 @@
   inputs = {
     # Nixpkgs
     agenix.url = "github:ryantm/agenix";
+    caelestia.url = "github:caelestia-dots/shell";
+    caelestia-cli.url = "github:caelestia-dots/cli";
     diniamo.url = "github:diniamo/nixpkgs/custom";
     way-edges.url = "github:way-edges/way-edges";
     ignis = {
