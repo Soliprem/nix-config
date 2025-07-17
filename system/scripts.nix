@@ -5,6 +5,21 @@
 }: let
   scripts = [
     (
+      pkgs.writers.writeNuBin "update-openrgb-color" {
+        makeWrapperArgs = [
+          "--prefix"
+          "PATH"
+          ":"
+          "${lib.makeBinPath [pkgs.waypaper pkgs.swww]}"
+        ];
+      }
+      ''
+        let accent_color = (caelestia scheme get | lines | get 6 | parse "{foo}: {bar}" | get bar | get 0 | ansi strip)
+        openrgb --color $accent_color
+      ''
+    )
+
+    (
       pkgs.writers.writeNuBin "nixrice" {
         makeWrapperArgs = [
           "--prefix"
