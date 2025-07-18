@@ -27,6 +27,11 @@ _: {
         | $"value(char tab)description(char newline)" + $in
         | from tsv --flexible --no-infer
       }
+      try {
+          open ~/.local/state/caelestia/sequences.txt | print
+      } catch {
+          # Silently ignore if file doesn't exist (equivalent to 2> /dev/null)
+      }
       greeting
 
       $env.config.color_config = {
