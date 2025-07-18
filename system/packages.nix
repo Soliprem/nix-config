@@ -4,10 +4,12 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    spicetify-cli
     emacs
     bottles
+    phoronix-test-suite
     nwg-drawer
-    swaynotificationcenter
+    # swaynotificationcenter
     xwayland-satellite
     inputs.ignis.packages.${system}.ignis
     inputs.way-edges.packages.${system}.way-edges
@@ -37,7 +39,7 @@
     kdePackages.plasmatube
     libsForQt5.qt5.qtgraphicaleffects
     affine
-    gale
+    # gale
     r2modman
     protonvpn-gui
     ffmpeg
@@ -154,7 +156,7 @@
     zathura
     papers
     yad
-    darktable
+    # darktable
     nextcloud-client
     # planify
     mpv
