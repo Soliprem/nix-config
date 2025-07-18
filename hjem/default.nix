@@ -5,10 +5,10 @@
     ./nushell.nix
     ./hypr.nix
     ./ghostty.nix
-    ./gtk.nix
-    ./fuzzel.nix
+    # ./gtk.nix
+    # ./fuzzel.nix
     ./helix.nix
-    ./qt.nix
+    # ./qt.nix
     ./fastfetch.nix
   ];
 }
