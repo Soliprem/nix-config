@@ -43,7 +43,7 @@ in {
       settings = {
         source = "~/.config/hypr/colors.conf";
         "$mod" = "SUPER";
-        "$term" = "foot";
+        "$term" = "ghostty";
         "$editor" = "nvim";
         "$browser" = "zen";
 
