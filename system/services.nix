@@ -33,7 +33,7 @@
     desktopManager = {
       plasma6.enable = true;
       cosmic.enable = true;
-      };
+    };
 
     # Configure keymap in X11
     xserver.xkb = {
@@ -54,5 +54,16 @@
     pki.certificateFiles = [../assets/almawifi.crt];
   };
   # xdg.portal.wlr.enable = true;
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-fortisslvpn
+      networkmanager-l2tp
+      networkmanager-openconnect
+      networkmanager-openvpn
+      networkmanager-sstp
+      networkmanager-vpnc
+      networkmanager-strongswan
+    ];
+  };
 }
