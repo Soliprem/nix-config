@@ -10,6 +10,7 @@
     ./hypr.nix
     ./ghostty.nix
     ./starship.nix
+    ./caelestia.nix
     # ./gtk.nix
     # ./fuzzel.nix
     ./helix.nix
