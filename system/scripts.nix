@@ -106,27 +106,59 @@
       name = "grimpick";
       runtimeInputs = with pkgs; [grim slurp swappy];
       text = ''
-        if [[ ''${1:-} ]]; then
-          mode="$1"
+                if [[ ''${1:-} ]]; then
+                  mode="$1"
+                else
+                  mode="$(printf "region\\n\\nall" |\
+                        fuzzel --dmenu -l 6 -i -p "Screenshot which area?")"
+                fi
+
+                case $mode in
+                    "region")
+                        grim -g "$(slurp)" - | swappy -f -
+                        ;;
+                    "all")
+                        grim - | swappy -f -
+                        ;;
+                    *)
+                        echo >&2 "unsupported command \"$mode\""
+                        echo >&2 "Usage:"
+                        echo >&2 "grimpick <region|all>"
+                        exit 1
+        esac
+
+      '';
+    })
+    (pkgs.writeShellApplication {
+      name = "greeting";
+      text = ''
+        hour=$(date "+%H")
+
+        if [ "$hour" -ge 5 ] && [ "$hour" -lt 12 ]; then
+                greeting="Good Morning"
+        elif [ "$hour" -ge 12 ] && [ "$hour" -lt 17 ]; then
+                greeting="Good Day"
+        elif [ "$hour" -ge 17 ] && [ "$hour" -lt 20 ]; then
+                greeting="Good Afternoon"
+        elif [ "$hour" -ge 20 ] && [ "$hour" -lt 23 ]; then
+                greeting="Good Evening"
         else
-          mode="$(printf "region\\n\\nall" |\
-                fuzzel --dmenu -l 6 -i -p "Screenshot which area?")"
+                greeting="Good Night"
         fi
 
-        case $mode in
-            "region")
-                grim -g "$(slurp)" - | swappy -f -
-                ;;
-            "all")
-                grim - | swappy -f -
-                ;;
-            *)
-                echo >&2 "unsupported command \"$mode\""
-                echo >&2 "Usage:"
-                echo >&2 "grimpick <region|all>"
-                exit 1
-esac
+        # fastfetch --data-raw "$(cowsay -f elephant "$greeting, Soli" | dotacat)"
 
+        ele=$(cat << EOF
+        $greeting, Soli!
+             \\/
+              ,  __
+              '.'°()--.
+                ', . ,|'
+                 /_)-_!
+        EOF
+        )
+
+        fastfetch --data-raw "$(dotacat <<< "$ele")" --logo-position right --logo-padding-top 3
       '';
     })
     (pkgs.writeShellApplication {
