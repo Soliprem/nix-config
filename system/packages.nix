@@ -5,9 +5,12 @@
 }: {
   environment.systemPackages = with pkgs; [
     spicetify-cli
+    openvpn
+    spotify
     emacs
     bottles
     phoronix-test-suite
+    furmark
     nwg-drawer
     # swaynotificationcenter
     xwayland-satellite
@@ -96,7 +99,6 @@
         ];
     }))
     foot
-    openrgb-with-all-plugins
     # fluffychat
     bitwarden-desktop
     showtime
@@ -147,6 +149,7 @@
     fzf
     prismlauncher
     protonup-qt
+    protonplus
     telegram-desktop
     qpwgraph
     brightnessctl

@@ -9,7 +9,14 @@
     cpupower-gui.enable = true;
     tailscale.enable = true;
     pulseaudio.enable = false;
-    hardware.openrgb.enable = true;
+    hardware.openrgb = {
+      enable = true;
+      package = pkgs.openrgb-with-all-plugins;
+      motherboard = "amd";
+      server = {
+        port = 6742;
+      };
+    };
     flatpak.enable = true;
     udev.packages = [
       pkgs.via
