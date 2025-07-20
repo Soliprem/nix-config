@@ -9,6 +9,7 @@
     ./nushell.nix
     ./hypr.nix
     ./ghostty.nix
+    ./starship.nix
     # ./gtk.nix
     # ./fuzzel.nix
     ./helix.nix
