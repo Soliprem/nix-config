@@ -29,7 +29,6 @@ in {
     inputs.hyprland.nixosModules.default
   ];
   programs = {
-    hyprlock.enable = true;
     hyprland = {
       topPrefixes = [
         "$"
@@ -298,7 +297,7 @@ in {
             "$mod, mouse_down, workspace, -1"
             "$mod, F1, exec, ${lib.getExe gamemode}"
             "$mod+Shift, space, togglefloating"
-            "$mod+Alt, l, exec, hyprlock --immediate"
+            "$mod+Alt, l, exec, caelestia shell lock lock"
             "$mod, t, exec, notify-time"
             "$mod+Shift, v, exec, notify-volume"
             "$mod, b, exec, notify-battery"
