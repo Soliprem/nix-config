@@ -17,7 +17,6 @@
         port = 6742;
       };
     };
-    flatpak.enable = true;
     udev.packages = [
       pkgs.via
       pkgs.android-udev-rules

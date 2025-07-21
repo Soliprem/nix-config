@@ -4,6 +4,7 @@ _: {
     ./steam.nix
     ./regreet.nix
     ./vpn.nix
+    ./flatpak.nix
     ./hyprland.nix
     ./spicetify.nix
     # ./server.nix
