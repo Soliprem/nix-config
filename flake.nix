@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     agenix.url = "github:ryantm/agenix";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
     caelestia.url = "github:caelestia-dots/shell";
     caelestia-cli.url = "github:caelestia-dots/cli";
     diniamo.url = "github:diniamo/nixpkgs/custom";
