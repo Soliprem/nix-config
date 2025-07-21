@@ -4,6 +4,9 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    nicotine-plus
+    slskd
+    feishin
     spicetify-cli
     openvpn
     spotify
