@@ -13,7 +13,7 @@
       }
     ];
     packages = [
-      "com.github.taiko2k.taunonmb"
+      "com.github.taiko2k.tauonmb"
     ];
   };
 }
