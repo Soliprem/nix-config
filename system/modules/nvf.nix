@@ -216,6 +216,7 @@
         };
 
         utility = {
+          oil-nvim.enable = true;
           ccc.enable = false;
           vim-wakatime.enable = true;
           icon-picker.enable = true;
@@ -418,22 +419,6 @@
         };
 
         lazy.plugins = with pkgs.vimPlugins; {
-          ${oil-nvim.pname} = {
-            lazy = true;
-            package = oil-nvim;
-            setupModule = "oil";
-            after = ''
-              print('loaded oil')
-            '';
-            cmd = ["Oil"];
-            keys = [
-              {
-                key = "-";
-                action = ":Oil<CR>";
-                mode = "n";
-              }
-            ];
-          };
           ${zen-mode-nvim.pname} = {
             lazy = true;
             package = zen-mode-nvim;
@@ -515,6 +500,13 @@
             action = ":Telescope find_files<CR>";
             silent = true;
             desc = "removes search highlight when pressing esc";
+          }
+          {
+            key = "-";
+            action = ":Oil<CR>";
+            mode = "n";
+            silent = true;
+            desc = "enable Oil";
           }
         ];
       };
