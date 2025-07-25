@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    spek
     nicotine-plus
     slskd
     feishin
