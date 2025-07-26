@@ -24,6 +24,7 @@
     initrd.kernelModules = ["amdgpu"];
     kernelParams = ["acpi_backlight=video"];
     kernelPackages = pkgs.linuxPackages_latest;
+    plymouth.enable = true;
   };
 
   networking.hostName = "nixos-pc"; # Define your hostname.
