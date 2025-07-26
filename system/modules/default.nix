@@ -8,6 +8,6 @@ _: {
     ./hyprland.nix
     ./spicetify.nix
     # ./server.nix
-    # ./open-webui.nix
+    ./open-webui.nix
   ];
 }
