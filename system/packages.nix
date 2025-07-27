@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    wl-clipboard
     spek
     nicotine-plus
     slskd

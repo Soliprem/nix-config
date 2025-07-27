@@ -1,9 +1,6 @@
 # Shared configuration
 
-{
-  pkgs,
-  ...
-}: {
+_: {
   imports = [
     ./default_user.nix
   ];
