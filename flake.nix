@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "Soli's Nixos Config";
 
   outputs = {
     self,
