@@ -40,21 +40,7 @@ _: {
     jack.enable = true;
     audio.enable = true;
     pulse.enable = true;
-    wireplumber = {
-      enable = true;
-    };
-    extraConfig = {
-      pipewire = {
-        switch-on-connect = {
-          "pulse.cmd" = [
-            {
-              cmd = "load-module";
-              args = ["module-switch-on-connect"];
-            }
-          ];
-        };
-      };
-    };
+    wireplumber.enable = true;
   };
 
   programs.fish.enable = true;
