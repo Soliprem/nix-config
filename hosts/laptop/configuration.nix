@@ -1,12 +1,5 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: {
+# Laptop config
+_: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -18,11 +11,13 @@
     sensor.iio.enable = true;
   };
 
-  wireplumber = {
-    extraConfig = {
-      "10-disable-camera" = {
-        "wireplumber.profiles" = {
-          main."monitor.libcamera" = "disabled";
+  services.pipewire = {
+    wireplumber = {
+      extraConfig = {
+        "10-disable-camera" = {
+          "wireplumber.profiles" = {
+            main."monitor.libcamera" = "disabled";
+          };
         };
       };
     };
