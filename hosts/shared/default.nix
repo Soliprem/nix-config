@@ -43,6 +43,18 @@ _: {
     wireplumber = {
       enable = true;
     };
+    extraConfig = {
+      pipewire = {
+        switch-on-connect = {
+          "pulse.cmd" = [
+            {
+              cmd = "load-module";
+              args = ["module-switch-on-connect"];
+            }
+          ];
+        };
+      };
+    };
   };
 
   programs.fish.enable = true;
