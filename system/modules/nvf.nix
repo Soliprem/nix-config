@@ -216,6 +216,7 @@
         };
 
         utility = {
+          undotree.enable = true;
           oil-nvim.enable = true;
           ccc.enable = false;
           vim-wakatime.enable = true;
@@ -342,7 +343,7 @@
                 };
                 ollama = {
                   endpoint = "http://127.0.0.1:11434";
-                  model = "mistral:latest";
+                  model = "qwen2.5-coder:14b";
                 };
               };
             };
@@ -499,7 +500,7 @@
             mode = "n";
             action = ":Telescope find_files<CR>";
             silent = true;
-            desc = "removes search highlight when pressing esc";
+            desc = "Look for Files";
           }
           {
             key = "-";
@@ -507,6 +508,13 @@
             mode = "n";
             silent = true;
             desc = "enable Oil";
+          }
+          {
+            key = "<F5>";
+            action = ":UndotreeToggle<CR>";
+            mode = "n";
+            silent = true;
+            desc = "Toggle Undotree";
           }
         ];
       };
