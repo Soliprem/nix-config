@@ -4,6 +4,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./default_user.nix
+  ];
+
   boot = {
     loader = {
       systemd-boot.enable = true;
