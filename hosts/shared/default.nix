@@ -1,8 +1,9 @@
 # Shared configuration
-
 _: {
   imports = [
     ./default_user.nix
+    ../../system
+    ../../hjem
   ];
 
   boot = {

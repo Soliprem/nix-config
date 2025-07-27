@@ -4,6 +4,7 @@ _: {
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../shared
+    ../../system/modules/ollama.nix
   ];
 
   networking.hostName = "nixos-laptop"; # Define your hostname.
