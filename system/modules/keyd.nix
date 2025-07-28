@@ -5,10 +5,12 @@ _:{
       default = {
         ids = [ "*" ];
         settings = {
+          global.overload_tap_timeout = 200;
           main = {
-            # Space Cadet: tap shift for parentheses, hold for shift
-            leftshift = "overload(shift, S-9)";   # S-9 produces (
-            rightshift = "overload(shift, S-0)";  # S-0 produces )
+            leftshift = "overload(shift, S-9)";
+            rightshift = "overload(shift, S-0)";
+            capslock = "overload(control,esc)";
+            esc = "capslock";
           };
         };
       };
