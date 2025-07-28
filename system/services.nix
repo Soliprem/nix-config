@@ -17,9 +17,11 @@
         port = 6742;
       };
     };
-    udev.packages = [
-      pkgs.via
-      pkgs.android-udev-rules
+    udev.packages = with pkgs; [
+      via
+      vial
+      android-udev-rules
+      qmk-udev-rules
     ];
     openssh = {
       enable = true;
