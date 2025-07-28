@@ -29,6 +29,7 @@
         options = {
           shiftwidth = 2;
           conceallevel = 1;
+          scrolloff = 1;
         };
         preventJunkFiles = true;
         searchCase = "smart";
@@ -420,11 +421,37 @@
         };
 
         lazy.plugins = with pkgs.vimPlugins; {
+          ${twilight-nvim.pname} = {
+            lazy = true;
+            package = twilight-nvim;
+            setupModule = "twilight-nvim";
+            cmd = ["Twilight"];
+            after = ''print('hello')'';
+            keys = [
+              {
+                key = "<leader>ut";
+                mode = "n";
+                action = '':Twilight<CR>'';
+                silent = true;
+                desc = "Toggle Twilight";
+              }
+            ];
+          };
           ${zen-mode-nvim.pname} = {
             lazy = true;
             package = zen-mode-nvim;
             setupModule = "zen-mode-nvim";
             cmd = ["ZenMode"];
+            after = ''print('hello')'';
+            keys = [
+              {
+                key = "<leader>uz";
+                mode = "n";
+                action = '':ZenMode<CR>'';
+                silent = true;
+                desc = "Toggle ZenMode";
+              }
+            ];
           };
           ${eyeliner-nvim.pname} = {
             package = eyeliner-nvim;
