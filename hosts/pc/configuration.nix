@@ -13,10 +13,6 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
-  hardware = {
-    keyboard.qmk.enable = true;
-  };
-
   users.users.soliprem.extraGroups = ["gamemode" "audio" "video"];
 
   virtualisation.docker.rootless = {
