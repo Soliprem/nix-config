@@ -5,7 +5,7 @@ _:{
       default = {
         ids = [ "*" ];
         settings = {
-          global.overload_tap_timeout = 200;
+          global.overload_tap_timeout = 125;
           main = {
             leftshift = "overload(shift, S-9)";
             rightshift = "overload(shift, S-0)";
