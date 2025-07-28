@@ -215,7 +215,7 @@ in {
         render.cm_auto_hdr = 1;
         input = {
           kb_layout = "eu, it";
-          kb_options = "caps:swapescape, grp:alt_space_toggle";
+          kb_options = "grp:alt_space_toggle";
           follow_mouse = 2;
           touchpad = {
             natural_scroll = "yes";
