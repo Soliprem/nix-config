@@ -1,12 +1,16 @@
 {pkgs, ...}: {
   hjem.users.soliprem.files = {
     ".config/caelestia/shell.json".source = pkgs.writers.writeJSON "shell.json" {
-      paths = {
-        wallpaperDir = "~/.local/src/wallpapers/";
+      bar = {
+        externalAudioProgram = ["pwvucontrol"];
+        status = {
+          showAudio = true;
+        };
       };
       launcher = {
-        vimKeybinds = false;
+        vimKeybinds = true;
       };
+      session.vimKeybinds = true;
     };
   };
 }
