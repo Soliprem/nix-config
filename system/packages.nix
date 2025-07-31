@@ -5,6 +5,10 @@
 }: {
   environment.systemPackages = with pkgs; [
     wl-clipboard
+    aonsoku
+    navidrome
+    supersonic
+    feishin
     spek
     nicotine-plus
     slskd
