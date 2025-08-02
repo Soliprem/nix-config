@@ -410,7 +410,7 @@ in {
           "swayosd-server"
           "caelestia pip -d"
           "caelestia shell -d"
-          "swww-daemon &"
+          # "swww-daemon &"
           # "walker --gapplication-service"
           "nm-applet &"
         ];
