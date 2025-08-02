@@ -7,6 +7,8 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = {
       nixos-laptop = nixpkgs.lib.nixosSystem {
@@ -22,6 +24,22 @@
         ];
       };
     };
+    packages.${system}.nvf =
+      (inputs.nvf.lib.neovimConfiguration {
+        inherit pkgs;
+        modules = [
+          {
+            imports = [
+              (
+                import ./system/modules/nvf.nix {
+                  inherit pkgs inputs;
+                }
+              )
+            ];
+          }
+        ];
+      })
+      .neovim;
   };
 
   inputs = {
