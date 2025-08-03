@@ -172,7 +172,7 @@
     nextcloud-client
     # planify
     mpv
-    btop
+    btop-rocm
     termdown
     timer
     cliphist
