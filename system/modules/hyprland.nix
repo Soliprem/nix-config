@@ -288,6 +288,7 @@ in {
         ];
         bind =
           [
+            ", XF86PowerOff, exec, caelestia shell drawers toggle session"
             "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
             # "$mod, V, exec, pkill walker || cliphist list | walker -dk | cliphist decode | wl-copy"
             "$mod,tab,focuscurrentorlast"
