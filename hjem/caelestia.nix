@@ -1,8 +1,11 @@
 {pkgs, ...}: {
   hjem.users.soliprem.files = {
     ".config/caelestia/shell.json".source = pkgs.writers.writeJSON "shell.json" {
+      general.apps = {
+        terminal = "ghostty";
+        audio = ["pavucontrol"];
+      };
       bar = {
-        externalAudioProgram = ["pwvucontrol"];
         status = {
           showAudio = true;
         };
