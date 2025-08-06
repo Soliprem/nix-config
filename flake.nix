@@ -26,6 +26,7 @@
 
   inputs = {
     agenix.url = "github:ryantm/agenix";
+    atuin.url = "github:atuinsh/atuin";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     caelestia.url = "github:caelestia-dots/shell";
     caelestia-cli.url = "github:caelestia-dots/cli";
@@ -33,7 +34,10 @@
     sash.url = "github:soliprem/sash";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     matugen.url = "github:InioX/Matugen";
-    ghostty.url = "github:ghostty-org/ghostty";
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     ignis = {
       url = "github:ignis-sh/ignis";
