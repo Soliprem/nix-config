@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     wl-clipboard
     aonsoku
+    tauon
     navidrome
     supersonic
     feishin
@@ -45,7 +46,6 @@
     maptool
     # anytype
     inputs.quickshell.packages.${pkgs.system}.default
-    inputs.walker.packages.${pkgs.system}.default
     zed-editor
     kdePackages.qtmultimedia
     kdePackages.plasmatube
@@ -66,7 +66,7 @@
     fuzzel
     adw-gtk3
     bibata-cursors
-    atuin
+    inputs.atuin.packages.${pkgs.system}.default
     fastfetch
     carapace
     starship
@@ -112,7 +112,6 @@
     bitwarden-desktop
     showtime
     keyutils
-    cinny-desktop
     iamb
     revolt-desktop
     swww
