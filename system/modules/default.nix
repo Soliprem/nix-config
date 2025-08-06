@@ -9,6 +9,6 @@ _: {
     ./spicetify.nix
     ./keyd.nix
     # ./server.nix
-    ./open-webui.nix
+    # ./open-webui.nix
   ];
 }
