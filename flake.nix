@@ -8,6 +8,7 @@
   } @ inputs: let
     inherit (self) outputs;
   in {
+    templates = import ./flake-templates;
     nixosConfigurations = {
       nixos-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
