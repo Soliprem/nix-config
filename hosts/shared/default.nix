@@ -1,5 +1,5 @@
 # Shared configuration
-_: {
+{inputs, ...}: {
   imports = [
     ./default_user.nix
     ../../system
@@ -49,5 +49,10 @@ _: {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix = {
+    settings.experimental-features = ["nix-command" "flakes"];
+    registry.t = {
+      flake = inputs.self;
+    };
+  };
 }
