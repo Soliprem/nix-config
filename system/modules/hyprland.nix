@@ -411,6 +411,7 @@ in {
           "swayosd-server"
           "caelestia pip -d"
           "caelestia shell -d"
+          "/usr/lib/polkit-kde-authentication-agent-1"
           # "swww-daemon &"
           # "walker --gapplication-service"
           "nm-applet &"
