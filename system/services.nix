@@ -61,6 +61,7 @@
     pam.services.soliprem.enableGnomeKeyring = true;
     pam.services.sddm.enableGnomeKeyring = true;
     pki.certificateFiles = [../assets/almawifi.crt];
+    polkit.enable = true;
   };
   # xdg.portal.wlr.enable = true;
   networking.networkmanager = {
