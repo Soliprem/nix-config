@@ -157,6 +157,10 @@
           friendly-snippets.enable = true;
           setupOpts = {
             signature.enabled = true;
+            cmdline = {
+              keymap.preset = "cmdline";
+              completion.menu.auto_show = true;
+            };
           };
         };
         snippets.luasnip.enable = true;
