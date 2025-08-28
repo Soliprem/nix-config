@@ -4,6 +4,8 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    beyond-all-reason
+    mediawriter
     wl-clipboard
     aonsoku
     tauon
@@ -49,6 +51,7 @@
     zed-editor
     kdePackages.qtmultimedia
     kdePackages.plasmatube
+    kdePackages.polkit-kde-agent-1
     libsForQt5.qt5.qtgraphicaleffects
     affine
     # gale
