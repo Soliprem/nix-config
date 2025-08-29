@@ -76,12 +76,7 @@
         fi
 
         if [[ $wallpaper ]]; then
-          matugen image "$wallpaper"
-          # astal -i sash -q; sash
-          niri msg do-screen-transition
-          ka way-edges
-          way-edges
-          cp "$wallpaper" ~/.config/bg
+                caelestia wallpaper -f "$wallpaper"
         else
         	echo "no wallpaper selected"
         fi
