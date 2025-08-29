@@ -7,7 +7,7 @@
   services = {
     resolved.enable = true;
     cpupower-gui.enable = true;
-    logind.powerKey = "ignore";
+    logind.settings.Login.HandlePowerKey = "ignore";
     tailscale.enable = true;
     pulseaudio.enable = false;
     hardware.openrgb = {

@@ -20,6 +20,7 @@
       permittedInsecurePackages = [
         "electron-27.3.11"
         "libsoup-2.74.3"
+        "qtwebengine-5.15.19"
         "olm-3.2.16"
         "fluffychat-linux-1.26.1"
         "cinny-4.2.3"
