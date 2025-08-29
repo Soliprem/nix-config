@@ -254,6 +254,12 @@ in {
           "SUPERCTRL,l,resizeactive,20 0 # [hidden]"
           "SUPERCTRL,k,resizeactive,0 -20 # [hidden]"
           "SUPERCTRL,j,resizeactive,0 20 # [hidden]"
+          "SUPER,h,layoutmsg,focus left"
+          "SUPER,l,layoutmsg,focus right"
+          "SUPER,k,layoutmsg,focus up"
+          "SUPER,j,layoutmsg,focus down"
+          "SUPER,=,layoutmsg,colresize,-0.2"
+          "SUPER,+,layoutmsg,colresize,+0.2"
         ];
         bindle = [
           ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
@@ -334,17 +340,11 @@ in {
 
             # Scrolling Layout Movements
 
-            "SUPER,h,layoutmsg,focus left"
-            "SUPER,l,layoutmsg,focus right"
-            "SUPER,k,layoutmsg,focus up"
-            "SUPER,j,layoutmsg,focus down"
             "SUPERSHIFT,h,layoutmsg,movewindowto l"
             "SUPERSHIFT,l,layoutmsg,movewindowto r"
-            "SUPER,space,layoutmsg,promote"
-            "SUPERCTRL,h,layoutmsg,colresize,-0.2"
-            "SUPERCTRL,l,layoutmsg,colresize,+0.2"
             "SUPER,r,layoutmsg,colresize,+conf"
             "SUPERSHIFT,r,layoutmsg,colresize,-conf"
+            "SUPER,space,layoutmsg,promote"
 
             # Master Layout Movements
 
