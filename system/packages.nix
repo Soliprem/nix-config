@@ -150,7 +150,7 @@
     freetube
     appimage-run
     obsidian
-    plasma5Packages.kdeconnect-kde
+    kdePackages.kdeconnect-kde
     beeper
     bat
     gamemode
