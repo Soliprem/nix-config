@@ -342,8 +342,8 @@ in {
             "SUPERSHIFT,h,layoutmsg,movewindowto l"
             "SUPERSHIFT,l,layoutmsg,movewindowto r"
             "SUPER,space,layoutmsg,promote"
-            "SUPER,h,layoutmsg,colresize,-0.2"
-            "SUPER,l,layoutmsg,colresize,+0.2"
+            "SUPERCTRL,h,layoutmsg,colresize,-0.2"
+            "SUPERCTRL,l,layoutmsg,colresize,+0.2"
             "SUPER,r,layoutmsg,colresize,+conf"
             "SUPERSHIFT,r,layoutmsg,colresize,-conf"
 
