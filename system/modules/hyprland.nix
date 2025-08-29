@@ -224,12 +224,13 @@ in {
             scroll_factor = 0.5;
           };
         };
-        gestures = {
-          workspace_swipe = true;
-          workspace_swipe_touch = true;
-          workspace_swipe_forever = true;
-          # workspace_swipe_use_r = true;
-        };
+        gesture = [
+          "3, down, mod: SUPER, fullscreen"
+          "3, up, mod: SUPER, scale: 1.5, fullscreen"
+          "3, left, scale: 1.5, fullscreen"
+          "3, vertical, workspace"
+          "3, horizontal, special, special"
+        ];
         general = {
           # Gaps and border
           gaps_in = 4;
@@ -248,8 +249,8 @@ in {
           new_on_top = 0;
         };
         binde = [
-          "SUPER,h,resizeactive,-20 0 # [hidden]"
-          "SUPER,l,resizeactive,20 0 # [hidden]"
+          "SUPER,h,resizeactive,-20 0"
+          "SUPER,l,resizeactive,20 0"
           "SUPERCTRL,h,resizeactive,-20 0 # [hidden]"
           "SUPERCTRL,l,resizeactive,20 0 # [hidden]"
           "SUPERCTRL,k,resizeactive,0 -20 # [hidden]"
@@ -341,6 +342,10 @@ in {
             "SUPERSHIFT,h,layoutmsg,movewindowto l"
             "SUPERSHIFT,l,layoutmsg,movewindowto r"
             "SUPER,space,layoutmsg,promote"
+            "SUPER,h,layoutmsg,colresize,-0.2"
+            "SUPER,l,layoutmsg,colresize,+0.2"
+            "SUPER,r,layoutmsg,colresize,+conf"
+            "SUPERSHIFT,r,layoutmsg,colresize,-conf"
 
             # Master Layout Movements
 
@@ -360,7 +365,7 @@ in {
             "$mod+Alt, F, fullscreenstate, -1 2"
 
             # Plugins
-            "$mod+Shift, g, hyprexpo:expo, toggle"
+            # "$mod+Shift, g, hyprexpo:expo, toggle"
             # "$mod, g, overview:toggle"
 
             # screenshots
@@ -419,7 +424,7 @@ in {
       };
       plugins = [
         inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-        inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+        # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
         # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
         inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
