@@ -238,7 +238,6 @@ in {
           border_size = 1;
 
           resize_on_border = true;
-          no_focus_fallback = true;
           layout = "scrolling";
 
           #focus_to_other_workspaces = true # ahhhh i still haven't properly implemented this
@@ -258,8 +257,8 @@ in {
           "SUPER,l,layoutmsg,focus right"
           "SUPER,k,layoutmsg,focus up"
           "SUPER,j,layoutmsg,focus down"
-          "SUPER,=,layoutmsg,colresize,-0.2"
-          "SUPER,+,layoutmsg,colresize,+0.2"
+          "SUPER,equal,layoutmsg,colresize,-0.2"
+          "SUPERSHIFT,equal,layoutmsg,colresize,+0.2"
         ];
         bindle = [
           ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
