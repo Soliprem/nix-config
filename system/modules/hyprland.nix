@@ -248,8 +248,8 @@ in {
           new_on_top = 0;
         };
         binde = [
-          "SUPER,h,resizeactive,-20 0"
-          "SUPER,l,resizeactive,20 0"
+          # "SUPER,h,resizeactive,-20 0"
+          # "SUPER,l,resizeactive,20 0"
           "SUPERCTRL,h,resizeactive,-20 0 # [hidden]"
           "SUPERCTRL,l,resizeactive,20 0 # [hidden]"
           "SUPERCTRL,k,resizeactive,0 -20 # [hidden]"
