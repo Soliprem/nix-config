@@ -225,11 +225,10 @@ in {
           };
         };
         gesture = [
-          "3, down, mod: SUPER, fullscreen"
+          "3, down, mod: SUPER, close"
           "3, up, mod: SUPER, scale: 1.5, fullscreen"
-          "3, left, scale: 1.5, fullscreen"
-          "3, vertical, workspace"
-          "3, horizontal, special, special"
+          "3, horizontal, workspace"
+          "3, vertical, special, special"
         ];
         general = {
           # Gaps and border
