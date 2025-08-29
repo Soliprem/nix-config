@@ -257,8 +257,8 @@ in {
           "SUPER,l,layoutmsg,focus right"
           "SUPER,k,layoutmsg,focus up"
           "SUPER,j,layoutmsg,focus down"
-          "SUPER,equal,layoutmsg,colresize,-0.2"
-          "SUPERSHIFT,equal,layoutmsg,colresize,+0.2"
+          "SUPER,equal,layoutmsg,colresize -0.02"
+          "SUPERSHIFT,equal,layoutmsg,colresize +0.02"
         ];
         bindle = [
           ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
@@ -341,8 +341,8 @@ in {
 
             "SUPERSHIFT,h,layoutmsg,movewindowto l"
             "SUPERSHIFT,l,layoutmsg,movewindowto r"
-            "SUPER,r,layoutmsg,colresize,+conf"
-            "SUPERSHIFT,r,layoutmsg,colresize,-conf"
+            "SUPER,r,layoutmsg,colresize +conf"
+            "SUPERSHIFT,r,layoutmsg,colresize -conf"
             "SUPER,space,layoutmsg,promote"
 
             # Master Layout Movements
