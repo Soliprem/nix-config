@@ -10,7 +10,7 @@ _:{
             leftshift = "overload(shift, S-9)";
             rightshift = "overload(shift, S-0)";
             capslock = "overload(control,esc)";
-            esc = "capslock";
+            "control+esc" = "capslock";
           };
         };
       };
