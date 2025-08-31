@@ -203,16 +203,25 @@ in {
         #   "w[tg2], gapsout:40"
         #   "f[1], gapsout:80"
         # ];
+
+        "monitorv2[DP-3]" = {
+          mode = "2560x1440@180.0019999";
+          position = "0x0";
+          scale = 1;
+          supports_wide_color = 1;
+          supports_hdr = 1;
+          sdr_min_luminance = 0.005;
+          sdr_max_luminance = 250;
+        };
+
         monitor = [
-          "eDP-1, 1920x1200@60.0030,0x0,1"
-          # "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 1920x0,1,bitdepth,10,cm,hdr,sdrbrightness,1.5,sdrsaturation,1.2"
-          "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 0x0,1,cm,auto"
           "HDMI-A-1, 1920x1080@120,2560x0,1"
+          "eDP-1, 1920x1200@60.0030,0x0,1"
           "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1.5"
           ",preferred,auto,1"
         ];
         # render.cm_fs_passthrough = true;
-        render.cm_auto_hdr = 1;
+        # render.cm_auto_hdr = 1;
         input = {
           kb_layout = "eu, it";
           kb_options = "grp:alt_space_toggle";
