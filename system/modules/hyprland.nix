@@ -204,7 +204,7 @@ in {
         #   "f[1], gapsout:80"
         # ];
 
-        "monitorv2[DP-3]" = {
+        "monitorv2[desc:AOC Q27G3XMN 1APQ7JA005710]" = {
           mode = "2560x1440@180.0019999";
           position = "0x0";
           scale = 1;
@@ -216,6 +216,7 @@ in {
 
         monitor = [
           "HDMI-A-1, 1920x1080@120,2560x0,1"
+          # "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 0x0,1,cm,auto"
           "eDP-1, 1920x1200@60.0030,0x0,1"
           "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1.5"
           ",preferred,auto,1"
