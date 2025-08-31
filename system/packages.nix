@@ -28,7 +28,7 @@
     xwayland-satellite
     inputs.ignis.packages.${system}.ignis
     inputs.way-edges.packages.${system}.way-edges
-    inputs.caelestia.packages.${system}.default
+    inputs.caelestia.packages.${system}.debug
     inputs.caelestia-cli.packages.${system}.default
     comma
     inkscape
