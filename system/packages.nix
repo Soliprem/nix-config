@@ -42,7 +42,7 @@
     gcs
     code-cursor
     jujutsu
-    lazyjj
+    # lazyjj
     calibre
     hyprpanel
     qutebrowser
