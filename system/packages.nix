@@ -5,6 +5,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     beyond-all-reason
+    eza
     ladybird
     mediawriter
     wl-clipboard
