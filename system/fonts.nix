@@ -53,8 +53,11 @@ in {
       nerd-fonts.inconsolata
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
+      nerd-fonts.cousine
       # desktop fonts
       corefonts # MS fonts
+      courier-prime
+      vista-fonts
       b612 # high legibility
       material-icons # used in widgets and such
       material-design-icons
