@@ -48,7 +48,7 @@
     hyprpanel
     qutebrowser
     maptool
-    # anytype
+    anytype
     inputs.quickshell.packages.${pkgs.system}.default
     zed-editor
     kdePackages.qtmultimedia
