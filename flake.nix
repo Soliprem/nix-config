@@ -78,7 +78,7 @@
       inputs.lix.follows = "lix";
     };
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
-    nvf.url = "github:notashelf/nvf/";
+    nvf.url = "github:notashelf/nvf/v0.8";
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
