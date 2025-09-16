@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     beyond-all-reason
     eza
+    brave
     ladybird
     mediawriter
     wl-clipboard
