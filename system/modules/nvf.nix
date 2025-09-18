@@ -94,7 +94,7 @@
           nu.enable = true;
           python = {
             enable = true;
-            lsp.server = "pyright";
+            lsp.servers = "pyright";
           };
           dart.enable = false;
           lua.enable = true;
@@ -104,7 +104,7 @@
           julia.enable = true;
           clang = {
             enable = true;
-            lsp.server = "clangd";
+            lsp.servers = "clangd";
           };
 
           rust = {
