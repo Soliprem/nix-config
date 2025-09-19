@@ -101,7 +101,7 @@
     ddcui
     nix-output-monitor
     nexusmods-app-unfree
-    limo
+    # limo
     mangohud
     inputs.ghostty.packages.${system}.default
     foot
@@ -158,15 +158,15 @@
     telegram-desktop
     qpwgraph
     brightnessctl
-    stremio
+    # stremio
     fd
     killall
     zathura
     papers
     yad
-    # darktable
+    darktable
     nextcloud-client
-    # planify
+    planify
     mpv
     btop-rocm
     termdown
