@@ -336,6 +336,7 @@ in {
             "$mod+Shift, Q, exec, hyprctl kill"
             # "$mod, d, exec, astal -i sash -t launcher"
             "$mod, d, exec, caelestia shell drawers toggle launcher"
+            "$mod, c, exec, caelestia shell drawers toggle sidebar"
             "$mod, m, exec, astal -i sash -t systemMenuWindow"
             "$mod, o, exec, dm-hub"
             "$mod+shift, semicolon, exec, dm-expand"
