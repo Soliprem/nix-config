@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    gdb
     beyond-all-reason
     eza
     brave
