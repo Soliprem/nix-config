@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    wayneko
     gdb
     beyond-all-reason
     eza
