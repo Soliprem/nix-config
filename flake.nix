@@ -85,7 +85,7 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
+      url = "github:hyprwm/hyprland-plugins/scroll-overview";
       inputs.hyprland.follows = "hyprland";
     };
     split-monitor-workspaces = {
