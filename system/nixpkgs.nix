@@ -18,7 +18,7 @@
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       permittedInsecurePackages = [
-        "electron-27.3.11"
+        "electron-35.7.5"
         "libsoup-2.74.3"
         "qtwebengine-5.15.19"
         "olm-3.2.16"
