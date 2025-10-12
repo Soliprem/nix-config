@@ -5,6 +5,8 @@
 }: {
   environment.systemPackages = with pkgs; [
     wayneko
+    omnissa-horizon-client
+    newsflash
     gdb
     beyond-all-reason
     eza
