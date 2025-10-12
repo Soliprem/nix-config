@@ -2,7 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ../shared
-    ../../system/modules/ollamaRocm.nix
+    ../../system/modules/ollama.nix
   ];
 
   networking.hostName = "nixos-pc";
