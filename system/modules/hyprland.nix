@@ -374,7 +374,7 @@ in {
             "$mod+Alt, F, fullscreenstate, -1 2"
 
             # Plugins
-            # "$mod+Shift, g, hyprexpo:expo, toggle"
+            "$mod+Shift, g, hyprexpo:expo, toggle"
             # "$mod, g, overview:toggle"
 
             # screenshots
@@ -432,8 +432,8 @@ in {
         ];
       };
       plugins = [
-        inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-        # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+        # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+        inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
         # inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
         inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
