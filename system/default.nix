@@ -1,6 +1,7 @@
 {inputs, ...}: {
   imports = [
     inputs.lix-module.nixosModules.default
+    inputs.walker.nixosModules.default
     ./printing.nix
     ./scripts.nix
     ./modules
