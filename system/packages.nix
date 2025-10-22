@@ -4,6 +4,12 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    gnome-feeds
+    darkly
+    darkly-qt5
+    tree-sitter-grammars.tree-sitter-typst
+    typst
+    tinymist
     wayneko
     omnissa-horizon-client
     newsflash
@@ -137,7 +143,6 @@
     hyprshade
     loupe
     transmission_4-gtk
-    # walker
     cowsay
     fortune
     starship
@@ -238,6 +243,7 @@
     # };
     # river.enable = true;
     niri.enable = true;
+    walker.enable = true;
     nh = {
       enable = true;
       clean.enable = true;
