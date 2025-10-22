@@ -127,6 +127,7 @@ _: {
       alias z = zathura
 
       source ~/.cache/zoxide/init.nu
+      source ~/.cache/niri/completions.nu
     '';
 
     ".config/nushell/env.nu".text = ''
@@ -154,6 +155,12 @@ _: {
       }
       zoxide init nushell --cmd cd |
         save --force $'($env.HOME)/.cache/zoxide/init.nu'
+      
+      let niri_cache = $'($env.HOME)/.cache/niri'
+      if not ($niri_cache | path exists) {
+        mkdir $niri_cache
+      }
+      niri completions nushell | save -f $'($env.HOME)/.cache/niri/completions.nu'
 
       load-env {}
     '';
