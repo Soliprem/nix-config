@@ -12,7 +12,7 @@ _: {
 
                   // For example:
                   layout "eu,it"
-                  options "grp:alt_space_toggle,caps:swapescape"
+                  options "grp:alt_space_toggle"
               }
           }
 
@@ -97,13 +97,13 @@ _: {
 
       output "HDMI-A-1" {
         mode "1920x1080@120"
-        position x=0 y=0
+        position x=2560 y=0
       }
 
       output "AOC Q27G3XMN 1APQ7JA005710" {
         focus-at-startup
         mode "2560x1440@180.002"
-        position x=1920 y=0
+        position x=0 y=0
       }
 
       // Settings that influence how windows are positioned and sized.
