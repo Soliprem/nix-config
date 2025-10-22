@@ -61,7 +61,12 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # walker.url = "github:abenz1267/walker";
+    elephant.url = "github:abenz1267/elephant/f37977c557f2c570a2e0b1c9c49698b104b3b1d0";
+
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.elephant.follows = "elephant";
+    };
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -78,7 +83,8 @@
       inputs.lix.follows = "lix";
     };
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
-    nvf.url = "github:notashelf/nvf/v0.8";
+    nvf.url = "github:notashelf/nvf/ea3ee477fa1814352b30d114f31bf4895eed053e";
+    # nvf.url = "path:/home/soliprem/.local/src/nvf-maint/";
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -96,5 +102,6 @@
       url = "github:KZDKM/Hyprspace";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
+    mango.url = "github:DreamMaoMao/mango";
   };
 }
