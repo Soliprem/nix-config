@@ -12,7 +12,7 @@
       # Terminal, Launcher, Browser
       bind=SUPER,Return,spawn,ghostty
       bind=SUPER,w,spawn,zen
-      bind=SUPER,d,spawn,caelestia shell drawers toggle launcher
+      bind=SUPER,d,spawn,wmenu-run
       bind=SUPER+SHIFT,d,spawn,fuzzel-run
 
       # Window Management
@@ -44,9 +44,9 @@
       bind=SUPER+SHIFT,Period,tagmon,right,0
 
       # Application/Script Binds
-      bind=NONE,XF86PowerOff,spawn,caelestia shell drawers toggle session
+      bind=NONE,XF86PowerOff,spawn,wmenu-run
       bind=SUPER,V,spawn,pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
-      bind=SUPER,c,spawn,caelestia shell drawers toggle sidebar
+      bind=SUPER,c,spawn,swaync-client
       bind=SUPER,E,spawn,nautilus --new-window
       bind=SUPER,t,spawn,notify-time
       bind=SUPER+SHIFT,v,spawn,notify-volume
@@ -62,8 +62,7 @@
       bind=SUPER+SHIFT,B,spawn,astal -i sash bars
       bind=SUPER,f,setlayout,monocle
       bind=SUPER+SHIFT,f,setlayout,tile
-      bind=SUPER+Alt,l,spawn,caelestia shell lock lock
-      bind=SUPER,F1,spawn,gamemode # Translated from ${lib.getExe gamemode}
+      bind=SUPER+Alt,l,spawn,notify-send "implement a lock plz"
 
       # Screenshots
       bind=SUPER,P,spawn,hyprshot -m output -c -r - | swappy -f -
