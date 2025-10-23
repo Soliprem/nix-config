@@ -5,6 +5,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     gnome-feeds
+    wmenu
     darkly
     darkly-qt5
     scenefx
@@ -244,6 +245,7 @@
     # };
     # river.enable = true;
     niri.enable = true;
+    mango.enable = true;
     walker.enable = true;
     nh = {
       enable = true;
