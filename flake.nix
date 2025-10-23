@@ -91,7 +91,7 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins/scroll-overview";
+      url = "github:hyprwm/hyprland-plugins/";
       inputs.hyprland.follows = "hyprland";
     };
     split-monitor-workspaces = {
@@ -102,6 +102,9 @@
       url = "github:KZDKM/Hyprspace";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
-    mango.url = "github:DreamMaoMao/mango";
+    mango = {
+      url = "github:DreamMaoMao/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
