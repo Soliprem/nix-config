@@ -39,7 +39,7 @@
     phoronix-test-suite
     furmark
     nwg-drawer
-    # swaynotificationcenter
+    swaynotificationcenter
     xwayland-satellite
     inputs.ignis.packages.${system}.ignis
     inputs.way-edges.packages.${system}.way-edges
