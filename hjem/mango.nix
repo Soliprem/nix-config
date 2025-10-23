@@ -4,8 +4,8 @@
       # More option see https://github.com/DreamMaoMao/mango/wiki/
 
       # Window effect
-      blur=0
-      blur_layer=0
+      blur=1
+      blur_layer=1
       blur_optimized=1
       blur_params_num_passes = 2
       blur_params_radius = 5
@@ -30,21 +30,21 @@
 
       # Animation Configuration(support type:zoom,slide)
       # tag_animation_direction: 0-horizontal,1-vertical
-      animations=0
+      animations=1
       layer_animations=1
-      animation_type_open=slide
-      animation_type_close=slide
+      animation_type_open=fade
+      animation_type_close=fade
       animation_fade_in=1
       animation_fade_out=1
-      tag_animation_direction=1
+      tag_animation_direction=0
       zoom_initial_ratio=0.3
       zoom_end_ratio=0.8
       fadein_begin_opacity=0.5
       fadeout_begin_opacity=0.8
-      animation_duration_move=500
-      animation_duration_open=400
-      animation_duration_tag=350
-      animation_duration_close=800
+      animation_duration_move=200
+      animation_duration_open=100
+      animation_duration_tag=90
+      animation_duration_close=100
       animation_curve_open=0.46,1.0,0.29,1
       animation_curve_move=0.46,1.0,0.29,1
       animation_curve_tag=0.46,1.0,0.29,1
@@ -288,6 +288,10 @@
       bind=SUPER,l,focusstack,next
       bind=SUPER+SHIFT,h,exchange_stack_client,prev
       bind=SUPER+SHIFT,l,exchange_stack_client,next
+      bind=SUPER,j,viewtoright
+      bind=SUPER,k,viewtoleft
+      bind=SUPER+SHIFT,j,tagtoright
+      bind=SUPER+SHIFT,k,tagtoleft
 
       # Tile (Master/Stack)
       keymode=tile
