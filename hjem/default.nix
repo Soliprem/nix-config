@@ -6,6 +6,7 @@
   imports = [
     inputs.hjem.nixosModules.default
     ./matugen.nix
+    ./mango.nix
     ./nushell.nix
     ./hypr.nix
     ./ghostty.nix

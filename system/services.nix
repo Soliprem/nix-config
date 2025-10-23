@@ -5,6 +5,7 @@
 }: {
   hardware.keyboard.qmk.enable = true;
   services = {
+    mango.enable = true;
     resolved.enable = true;
     cpupower-gui.enable = true;
     logind.settings.Login.HandlePowerKey = "ignore";
