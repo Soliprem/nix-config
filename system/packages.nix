@@ -7,6 +7,7 @@
     gnome-feeds
     darkly
     darkly-qt5
+    scenefx
     tree-sitter-grammars.tree-sitter-typst
     typst
     tinymist
