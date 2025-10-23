@@ -7,7 +7,7 @@ _: {
       DXVK_HDR = 1;
       TERMINAL = "foot";
       MANPAGER = "nvim -c 'Man!'";
-      XKB_DEFAULT_OPTIONS = "caps:swapescape";
+      XKB_DEFAULT_OPTIONS = "grp:alt_space_toggle";
       XKD_DEFAULT_LAYOUT = "eu";
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_DATA_HOME = "$HOME/.local/share";
