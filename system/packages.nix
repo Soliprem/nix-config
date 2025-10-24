@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    dissent
     gnome-feeds
     tray-tui
     wmenu
