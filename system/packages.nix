@@ -5,6 +5,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     gnome-feeds
+    tray-tui
     wmenu
     darkly
     darkly-qt5
