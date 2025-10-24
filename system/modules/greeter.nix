@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   programs.regreet = {
     enable = false;
     settings = {
