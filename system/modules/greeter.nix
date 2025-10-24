@@ -8,10 +8,11 @@
   };
   services.greetd = {
     enable = true;
+    useTextGreeter = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-        user = "greeter";
+        command = "${pkgs.tuigreet}/bin/tuigreet --remember --remember-user-session --time --cmd mango";
+        user = "soliprem";
       };
     };
   };
