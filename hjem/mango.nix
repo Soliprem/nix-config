@@ -6,7 +6,7 @@
       # Window effect
       blur=1
       blur_layer=1
-      blur_optimized=1
+      blur_optimized=0
       blur_params_num_passes = 2
       blur_params_radius = 5
       blur_params_noise = 0.02
@@ -189,9 +189,8 @@
       bind=SUPER+ALT,l,spawn,notify-send "implement a lock plz"
 
       # Screenshots
-      bind=SUPER,P,spawn,hyprshot -m output -c -r - | swappy -f -
-      bind=SUPER+SHIFT,P,spawn,hyprshot -m window -r - | swappy -f -
-      bind=SUPER+SHIFT,S,spawn,hyprshot -m region -r - |swappy -f -
+      bind=SUPER,P,spawn,grimpick
+      bind=SUPER+SHIFT,S,spawn,grimpick region
 
       # Media Keys (Volume)
       bind=NONE,XF86AudioRaiseVolume,spawn,wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
@@ -271,7 +270,7 @@
       bind=SUPER+CTRL,L,switch_proportion_preset
 
       # Cycle through keymodes
-      bind=SUPER+SHIFT,S,setkeymode,cycle
+      bind=SUPER+CTRL+SHIFT,S,setkeymode,cycle
 
       ## Mouse Bindings
       mousebind=SUPER,btn_left,moveresize,curmove
