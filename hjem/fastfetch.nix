@@ -7,7 +7,6 @@ _: {
     "display": {
         "separator": "  ",
         "color": "white",
-        "constants": ["\u001b[37m", "\u001b[38;5;16m", "\u001b[38;5;17m", "\u001b[38;5;18m"]
     },
     "modules": [
         "break",
@@ -17,8 +16,8 @@ _: {
         },
         {
             "type": "kernel",
-            "key": "│ {$2}{$1}  kernel",
-            "format": "{$2}{release>22}{$1} │"
+            "key": "│   kernel",
+            "format": "{release>22} │"
         },
         {
             "type": "command",
@@ -28,14 +27,14 @@ _: {
         },
         {
             "type": "shell",
-            "key": "│ {$2}{$1}  shell ",
-            "format": "{$2}{pretty-name>22}{$1} │"
+            "key": "│   shell ",
+            "format": "{pretty-name>22} │"
         },
         {
             "type": "command",
-            "key": "│ {$3}{$1}  mem   ",
+            "key": "│   mem   ",
             "text": "free -m | awk 'NR==2{printf \"%.2f GiB / %.2f GiB\",$3/1024,$2/1024}'",
-            "format": "{$3}{>22}{$1} │"
+            "format": "{>22} │"
         },
         {
             "type": "packages",
@@ -44,9 +43,9 @@ _: {
         },
         {
             "type": "command",
-            "key": "│ {$2}{$1}  user  ",
+            "key": "│   user  ",
             "text": "echo $USER",
-            "format": "{$2}{>22}{$1} │"
+            "format": "{>22} │"
         },
         {
             "type": "command",
@@ -56,8 +55,8 @@ _: {
         },
         {
             "type": "os",
-            "key": "│ {$4}󰻀{$1}  distro",
-            "format": "{$4}{pretty-name>22}{$1} │"
+            "key": "│ 󰻀  distro",
+            "format": "{pretty-name>22} │"
         },
         {
             "type": "custom",
