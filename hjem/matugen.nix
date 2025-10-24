@@ -9,6 +9,10 @@
         };
       };
       templates = {
+        sequence = {
+          input_path = ./templates/sequences.txt;
+          output_path = "~/.cache/sequences.txt";
+        };
         gtk3 = {
           input_path = ./templates/gtk-colors.css;
           output_path = "~/.config/gtk-3.0/colors.css";

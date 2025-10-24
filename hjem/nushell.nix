@@ -28,7 +28,7 @@ _: {
         | from tsv --flexible --no-infer
       }
       try {
-          open ~/.local/state/caelestia/sequences.txt | print
+          open ~/.cache/sequences.txt | print
       } catch {
           # Silently ignore if file doesn't exist (equivalent to 2> /dev/null)
       }
