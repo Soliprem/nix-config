@@ -5,6 +5,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     gnome-feeds
+    tuigreet
     tray-tui
     wmenu
     darkly
