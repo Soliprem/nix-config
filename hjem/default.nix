@@ -12,10 +12,10 @@
     ./ghostty.nix
     ./starship.nix
     ./caelestia.nix
-    # ./gtk.nix
+    ./gtk.nix
     # ./fuzzel.nix
     ./helix.nix
-    # ./qt.nix
+    ./qt.nix
     ./fastfetch.nix
   ];
 

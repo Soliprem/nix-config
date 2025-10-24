@@ -76,7 +76,8 @@
         fi
 
         if [[ $wallpaper ]]; then
-                caelestia wallpaper -f "$wallpaper"
+                matugen image "$wallpaper"
+                cp "$wallpaper" ~/.config/bg
         else
         	echo "no wallpaper selected"
         fi
