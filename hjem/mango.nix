@@ -169,7 +169,7 @@
       # Application/Script Binds
       bind=NONE,XF86PowerOff,spawn,wmenu-run
       bind=SUPER,V,spawn,pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
-      bind=SUPER,c,spawn,swaync-client
+      bind=SUPER,c,spawn,swaync-client -t
       bind=SUPER,E,spawn,nautilus --new-window
       bind=SUPER,t,spawn,notify-time
       bind=SUPER+SHIFT,v,spawn,notify-volume

@@ -31,7 +31,7 @@
         enable = false;
         wayland.enable = true;
       };
-      cosmic-greeter.enable = true;
+      cosmic-greeter.enable = false;
     };
     # displayManager.cosmic-greeter.enable = true;
     # desktopManager.cosmic.enable = true;
