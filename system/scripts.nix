@@ -70,7 +70,7 @@
         if [[ ''${1:-} ]]; then
         	wallpaper="$1"
                 cp "$wallpaper" ~/.config/bg
-                cp "$wallpaper" ~/.config/nix-confix/assets/bg
+                cp "$wallpaper" ~/.config/nix-config/assets/bg
         else
         	cd "$HOME"/Pictures/wallpapers || return 1
         	wallpaper="$(yad --width 1200 --height 800 --file --add-preview --large-preview --title='Choose wallpaper')"
@@ -79,7 +79,7 @@
         if [[ $wallpaper ]]; then
                 matugen image "$wallpaper"
                 cp "$wallpaper" ~/.config/bg
-                cp "$wallpaper" ~/.config/nix-confix/assets/bg
+                cp "$wallpaper" ~/.config/nix-config/assets/bg
         else
         	echo "no wallpaper selected"
         fi
