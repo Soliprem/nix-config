@@ -37,11 +37,6 @@ _: {
             "format": "{>22} │"
         },
         {
-            "type": "packages",
-            "key": "│   pkgs  ",
-            "format": "{all>22} │"
-        },
-        {
             "type": "command",
             "key": "│   user  ",
             "text": "echo $USER",
