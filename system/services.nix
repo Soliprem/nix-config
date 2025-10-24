@@ -27,6 +27,12 @@
 
     # Enable the KDE Plasma Desktop Environment.
     displayManager = {
+      ly = {
+        enable = true;
+        settings = {
+          save = true;
+        };
+      };
       sddm = {
         enable = false;
         wayland.enable = true;
