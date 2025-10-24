@@ -21,10 +21,10 @@
           input_path = ./templates/hyprland-colors.conf;
           output_path = "~/.config/hypr/colors.conf";
         };
-        starship = {
-          input_path = ./templates/starship-colors.toml;
-          output_path = "~/.config/starship.toml";
-        };
+        # starship = {
+        #   input_path = ./templates/starship-colors.toml;
+        #   output_path = "~/.config/starship.toml";
+        # };
         pywalfox = {
           input_path = ./templates/pywalfox-colors.json;
           output_path = "~/.cache/wal/colors.json";
