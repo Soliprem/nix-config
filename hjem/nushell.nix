@@ -23,7 +23,7 @@ _: {
           ]
         }
       let fish_completer = {|spans|
-        /nix/store/hgpny1fdshhc1y3nnsjxdaiwm96frb51-fish-3.7.1/bin/fish --command $'complete "--do-complete=($spans | str join " ")"'
+        fish --command $'complete "--do-complete=($spans | str join " ")"'
         | $"value(char tab)description(char newline)" + $in
         | from tsv --flexible --no-infer
       }
