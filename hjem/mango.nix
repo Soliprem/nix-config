@@ -146,6 +146,7 @@
       # Common mode - bindings available in all modes
       keymode = common
       bind=SUPER+CTRL,R,reload_config
+      bind=SUPER+CTRL,t,spawn,ghostty -e tray-tui
       bind=SUPER,g,toggleoverview
       bind=SUPER,s,toggleglobal
       bind=SUPER+SHIFT,o,toggleoverlay
@@ -154,7 +155,7 @@
       bind=SUPER,Return,spawn,ghostty
       bind=SUPER,w,spawn,zen
       bind=SUPER,d,spawn,wmenu-run
-      bind=SUPER+SHIFT,d,spawn,fuzzel-run
+      bind=SUPER+SHIFT,d,spawn,fuzzel
 
       # Window Management
       bind=SUPER,Q,killclient
