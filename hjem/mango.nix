@@ -187,7 +187,7 @@
       bind=SUPER,f,togglemaxmizescreen
       bind=SUPER+SHIFT,f,togglefullscreen
       bind=SUPER+ALT,f,togglefakefullscreen
-      bind=SUPER+ALT,l,spawn,notify-send "implement a lock plz"
+      bind=SUPER+ALT,l,spawn,swaylock --grace 0
 
       # Screenshots
       bind=SUPER,P,spawn,grimpick
