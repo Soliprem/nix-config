@@ -12,6 +12,7 @@
     ./ghostty.nix
     ./starship.nix
     ./caelestia.nix
+    ./swaylock.nix
     ./gtk.nix
     # ./fuzzel.nix
     ./helix.nix
