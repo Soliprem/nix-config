@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    swaylock-effects
     dissent
     gnome-feeds
     tray-tui
