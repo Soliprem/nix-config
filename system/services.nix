@@ -17,7 +17,6 @@
     udev.packages = with pkgs; [
       via
       vial
-      android-udev-rules
       qmk-udev-rules
     ];
     openssh = {
