@@ -83,7 +83,8 @@
       inputs.lix.follows = "lix";
     };
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
-    nvf.url = "github:notashelf/nvf/ea3ee477fa1814352b30d114f31bf4895eed053e";
+    nvf.url = "github:notashelf/nvf/v0.8";
+    nvf-soli.url = "github:soliprem/nvf-soli/";
     # nvf.url = "path:/home/soliprem/.local/src/nvf-maint/";
     hjem = {
       url = "github:feel-co/hjem";
