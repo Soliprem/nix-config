@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./nvf.nix
+    # ./nvf.nix
     ./steam.nix
     ./greeter.nix
     ./vpn.nix
