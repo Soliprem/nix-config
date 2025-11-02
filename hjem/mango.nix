@@ -146,6 +146,7 @@
       # Common mode - bindings available in all modes
       keymode = common
       bind=SUPER+CTRL,R,reload_config
+      bind=SUPER+CTRL,L,spawn,wlogout
       bind=SUPER+CTRL,t,spawn,ghostty -e tray-tui
       bind=SUPER,g,toggleoverview
       bind=SUPER,s,toggleglobal
@@ -267,8 +268,6 @@
       bind=SUPER+CTRL,X,setkeymode,vertical_scroller
       bind=SUPER+CTRL,D,setlayout,vertical_deck
       bind=SUPER+CTRL,D,setkeymode,vertical_deck
-
-      bind=SUPER+CTRL,L,switch_proportion_preset
 
       # Cycle through keymodes
       bind=SUPER+CTRL+SHIFT,S,setkeymode,cycle
