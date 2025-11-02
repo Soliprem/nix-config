@@ -5,6 +5,8 @@
 }: {
   environment.systemPackages = with pkgs; [
     swaylock-effects
+    winboat
+    wlogout
     dissent
     gnome-feeds
     tray-tui
@@ -65,7 +67,7 @@
     qutebrowser
     maptool
     anytype
-    inputs.quickshell.packages.${pkgs.system}.default
+    # inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     zed-editor
     kdePackages.qtmultimedia
     kdePackages.plasmatube
@@ -77,7 +79,7 @@
     protonvpn-gui
     ffmpeg
     chromium
-    # inputs.nvf-soli.packages.${pkgs.system}.default
+    inputs.nvf-soli.packages.${pkgs.stdenv.hostPlatform.system}.default
     libsForQt5.qt5ct
     kdePackages.qt6ct
     gimp
@@ -87,15 +89,15 @@
     fuzzel
     adw-gtk3
     bibata-cursors
-    inputs.atuin.packages.${pkgs.system}.default
+    inputs.atuin.packages.${pkgs.stdenv.hostPlatform.system}.default
     fastfetch
     carapace
     starship
     zoxide
     gammastep
-    inputs.iio-hyprland.packages.${pkgs.system}.default
-    inputs.astal.packages.${pkgs.system}.io
-    inputs.sash.packages.${pkgs.system}.default
+    inputs.iio-hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.astal.packages.${pkgs.stdenv.hostPlatform.system}.io
+    inputs.sash.packages.${pkgs.stdenv.hostPlatform.system}.default
     matugen
     git
     wget
@@ -130,21 +132,19 @@
     # bitwarden-cli
     # bitwarden-menu
     muse-sounds-manager
-    kdePackages.neochat
     pwvucontrol
     heroic
     lutris
     dotacat
     inputs.agenix.packages.${system}.default
-    # inputs.diniamo.legacyPackages.${pkgs.system}.umu-launcher
-    # (inputs.umu.packages.${pkgs.system}.umu.override {version = "${inputs.umu.shortRev}";})
+    # inputs.diniamo.legacyPackages.${pkgs.stdenv.hostPlatform.system}.umu-launcher
+    # (inputs.umu.packages.${pkgs.stdenv.hostPlatform.system}.umu.override {version = "${inputs.umu.shortRev}";})
     umu-launcher
     teams-for-linux
     wlsunset
     batsignal
     ripgrep
     android-tools
-    android-udev-rules
     hyprshade
     loupe
     transmission_4-gtk
