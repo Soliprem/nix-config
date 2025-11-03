@@ -15,9 +15,8 @@
 
   users.users.soliprem.extraGroups = ["gamemode" "audio" "video"];
 
-  virtualisation.docker.rootless = {
+  virtualisation.docker = {
     enable = true;
-    setSocketVariable = true;
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
