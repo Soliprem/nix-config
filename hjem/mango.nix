@@ -120,7 +120,7 @@
       bordercolor=0x444444ff
       focuscolor=0xc9b890ff
       # focuscolor=0x005577ff
-      maxmizescreencolor=0x89aa61ff
+      maximizescreencolor=0x89aa61ff
       urgentcolor=0xad401fff
       scratchpadcolor=0x516c93ff
       globalcolor=0xb153a7ff
@@ -185,7 +185,7 @@
       bind=SUPER+SHIFT,semicolon,spawn,dm-expand
       bind=SUPER,minus,spawn,wtype -k emdash
       bind=SUPER+SHIFT,B,spawn,astal -i sash bars
-      bind=SUPER,f,togglemaxmizescreen
+      bind=SUPER,f,togglemaximizescreen
       bind=SUPER+SHIFT,f,togglefullscreen
       bind=SUPER+ALT,f,togglefakefullscreen
       bind=SUPER+ALT,l,spawn,swaylock --grace 0
