@@ -5,6 +5,8 @@
 }: {
   environment.systemPackages = with pkgs; [
     swaylock-effects
+    super-productivity
+    blanket
     winboat
     wlogout
     dissent
