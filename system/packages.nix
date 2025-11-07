@@ -5,6 +5,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     swaylock-effects
+    faugus-launcher
     super-productivity
     blanket
     winboat
