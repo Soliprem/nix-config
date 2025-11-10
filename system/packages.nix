@@ -5,6 +5,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     swaylock-effects
+    gretl
     faugus-launcher
     super-productivity
     blanket
