@@ -160,6 +160,12 @@
       '';
     })
     (pkgs.writeShellApplication {
+      name = "clipmenu";
+      text = ''
+        pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
+      '';
+    })
+    (pkgs.writeShellApplication {
       name = "remove-hjem-dangles";
       text = ''
         rm ~/.config/gtk-3.0/settings.ini

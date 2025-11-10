@@ -170,7 +170,7 @@
 
       # Application/Script Binds
       bind=NONE,XF86PowerOff,spawn,wmenu-run
-      bind=SUPER,V,spawn,pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
+      bind=SUPER,V,spawn, clipmenu
       bind=SUPER,c,spawn,swaync-client -t
       bind=SUPER,E,spawn,nautilus --new-window
       bind=SUPER,t,spawn,notify-time
@@ -184,7 +184,7 @@
       bind=SUPER,o,spawn,dm-hub
       bind=SUPER+SHIFT,semicolon,spawn,dm-expand
       bind=SUPER,minus,spawn,wtype -k emdash
-      bind=SUPER+SHIFT,B,spawn,astal -i sash bars
+      bind=SUPER+SHIFT,B,spawn,overskride
       bind=SUPER,f,togglemaximizescreen
       bind=SUPER+SHIFT,f,togglefullscreen
       bind=SUPER+ALT,f,togglefakefullscreen
