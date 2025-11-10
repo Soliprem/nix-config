@@ -248,7 +248,7 @@ in {
           border_size = 1;
 
           resize_on_border = true;
-          layout = "scrolling";
+          layout = "master";
 
           #focus_to_other_workspaces = true # ahhhh i still haven't properly implemented this
           allow_tearing = false; # some guy told me tearing might make things smoother idk
