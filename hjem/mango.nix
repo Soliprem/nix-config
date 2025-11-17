@@ -138,8 +138,8 @@
       tagrule=id:9,layout_name:scroller
 
       # Monitor Config
-      monitorrule=HDMI-A-1, 0.55,1,scroller,0,1,2560, 0, 1920,1080,144.013000
-      monitorrule=DP-3, 0.55,1,scroller,0,1,0,0,2560, 1440, 180.001999
+      # monitorrule=HDMI-A-1, 0.55,1,scroller,0,1,2560, 0, 1920,1080,144.013000
+      # monitorrule=DP-3, 0.55,1,scroller,0,1,0,0,2560, 1440, 180.001999
 
       # --- Keymodes and Bindings ---
 
@@ -410,8 +410,7 @@
       swaync &
       nm-applet &
       swaync &
-      notify-send Commander...
-      notify-send beer me!
+      kanshi &
       '';
   };
 }
