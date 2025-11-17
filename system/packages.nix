@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    kanshi
     swaylock-effects
     gretl
     faugus-launcher
