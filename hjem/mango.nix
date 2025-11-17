@@ -411,6 +411,7 @@
       nm-applet &
       swaync &
       kanshi &
+      protonvpn-app &
       '';
   };
 }
