@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    limo
     kanshi
     swaylock-effects
     gretl
