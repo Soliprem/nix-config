@@ -15,6 +15,7 @@
     ./kanshi.nix
     ./swaylock.nix
     ./gtk.nix
+    ./git.nix
     # ./fuzzel.nix
     ./helix.nix
     ./qt.nix
