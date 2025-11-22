@@ -73,6 +73,10 @@
           input_path = ./templates/way-edges.jsonc;
           output_path = "~/.config/way-edges/config.jsonc";
         };
+        tauon = {
+          input_path = ./templates/tauon.ttheme;
+          output_path = "~/.local/share/TauonMusicBox/theme/matugen.ttheme";
+        };
       };
     };
   };

@@ -1,0 +1,81 @@
+#Tauon Music Box theme file (Matugen MD3)
+
+#-Backgrounds-----
+# Using 'surface' for the main player creates a clean base.
+{{colors.surface.default.hex}}        player background (top panel)
+{{colors.surface.default.hex}}          playlist panel
+{{colors.surface.default.hex}}        side panel
+{{colors.surface.default.hex}}        bottom panel
+{{colors.surface.default.hex}}        queue panel
+
+#-Playlist-------
+
+{{colors.on_surface.default.hex}}        track line
+{{colors.on_surface_variant.default.hex}}        track time
+{{colors.on_surface_variant.default.hex}}        track index
+{{colors.primary.default.hex}}        track artist
+{{colors.tertiary.default.hex}}        album line
+
+{{colors.primary.default.hex}}        track playing
+{{colors.secondary.default.hex}}        index playing
+{{colors.primary.default.hex}}        artist playing
+{{colors.tertiary.default.hex}}        album playing
+{{colors.primary.default.hex}}        time playing
+
+{{colors.error.default.hex}}        track missing
+
+{{colors.tertiary.default.hex}}        fav line
+{{colors.secondary.default.hex}}        folder line
+{{colors.on_surface.default.hex}}        folder title
+
+# Using Containers for highlights ensures text remains readable on top of them.
+{{colors.secondary_container.default.hex}},127        playing highlight
+{{colors.surface_variant.default.hex}},127        select highlight
+{{colors.on_surface.default.hex}}            gallery highlight
+
+#-Menu-------------
+{{colors.surface_container_high.default.hex}}        menu background
+{{colors.primary.default.hex}}        menu highlight
+{{colors.on_surface.default.hex}}     menu text
+{{colors.on_surface_variant.default.hex}}        menu disable text
+
+#-Bottom panel------
+
+{{colors.outline.default.hex}}        buttons off
+{{colors.primary.default.hex}}        buttons over
+{{colors.primary.default.hex}}        buttons active
+
+{{colors.on_surface.default.hex}}        playing time
+
+{{colors.primary.default.hex}}        seek bar
+{{colors.primary.default.hex}}        volume bar
+# Using surface_variant for the 'empty' part of the bar
+{{colors.surface_variant.default.hex}}        seek bg
+{{colors.surface_variant.default.hex}}        volume bg
+{{colors.outline.default.hex}}        scroll bar
+
+{{colors.outline.default.hex}}        mode off
+{{colors.secondary.default.hex}}        mode over
+{{colors.primary.default.hex}}        mode on
+
+{{colors.on_surface.default.hex}}        bottom title
+
+#-Top panel---------
+
+{{colors.primary.default.hex}}        tab active line
+{{colors.outline_variant.default.hex}}        tab line
+{{colors.surface.default.hex}}        tab background
+{{colors.secondary.default.hex}}        tab over
+{{colors.surface_container.default.hex}}        tab active background
+{{colors.primary.default.hex}}        music vis
+
+#-Side panel--------
+
+{{colors.primary.default.hex}}        title info
+{{colors.on_surface_variant.default.hex}}        extra info
+{{colors.outline.default.hex}}        art border
+
+#-Mini Mode---------
+
+{{colors.surface.default.hex}}        mini bg
+{{colors.primary.default.hex}}        mini border
