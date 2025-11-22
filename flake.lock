@@ -2171,11 +2171,11 @@
         "nvf": "nvf_2"
       },
       "locked": {
-        "lastModified": 1763345334,
-        "narHash": "sha256-cXOBXHPIu2yVt5QGzFKouDfHXv/GOBCHIew+ALO7Kxs=",
+        "lastModified": 1763812666,
+        "narHash": "sha256-JEqpL90AxWawyKyiXD6b6tZE6rq9Pla4tKeuyH5xnYE=",
         "owner": "soliprem",
         "repo": "nvf-soli",
-        "rev": "156bdd73ab3a9f666b804cb06c56494edd7460d1",
+        "rev": "b5705174972a3dcaf838b659c15c0283b7e2a110",
         "type": "github"
       },
       "original": {
