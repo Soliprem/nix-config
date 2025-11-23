@@ -4,6 +4,8 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    litemdview
+    servo
     limo
     kanshi
     swaylock-effects
