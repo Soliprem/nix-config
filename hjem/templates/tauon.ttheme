@@ -2,80 +2,80 @@
 
 #-Backgrounds-----
 # Using 'surface' for the main player creates a clean base.
-{{colors.surface.default.hex}}        player background (top panel)
-{{colors.surface.default.hex}}          playlist panel
-{{colors.surface.default.hex}}        side panel
-{{colors.surface.default.hex}}        bottom panel
-{{colors.surface.default.hex}}        queue panel
+{{colors.surface.default.rgb}}        player background (top panel)
+{{colors.surface.default.rgb}}          playlist panel
+{{colors.surface.default.rgb}}        side panel
+{{colors.surface.default.rgb}}        bottom panel
+{{colors.surface.default.rgb}}        queue panel
 
 #-Playlist-------
 
-{{colors.on_surface.default.hex}}        track line
-{{colors.on_surface_variant.default.hex}}        track time
-{{colors.on_surface_variant.default.hex}}        track index
-{{colors.primary.default.hex}}        track artist
-{{colors.tertiary.default.hex}}        album line
+{{colors.on_surface.default.rgb}}        track line
+{{colors.on_surface_variant.default.rgb}}        track time
+{{colors.on_surface_variant.default.rgb}}        track index
+{{colors.primary.default.rgb}}        track artist
+{{colors.tertiary.default.rgb}}        album line
 
-{{colors.primary.default.hex}}        track playing
-{{colors.secondary.default.hex}}        index playing
-{{colors.primary.default.hex}}        artist playing
-{{colors.tertiary.default.hex}}        album playing
-{{colors.primary.default.hex}}        time playing
+{{colors.primary.default.rgb}}        track playing
+{{colors.secondary.default.rgb}}        index playing
+{{colors.primary.default.rgb}}        artist playing
+{{colors.tertiary.default.rgb}}        album playing
+{{colors.primary.default.rgb}}        time playing
 
-{{colors.error.default.hex}}        track missing
+{{colors.error.default.rgb}}        track missing
 
-{{colors.tertiary.default.hex}}        fav line
-{{colors.secondary.default.hex}}        folder line
-{{colors.on_surface.default.hex}}        folder title
+{{colors.tertiary.default.rgb}}        fav line
+{{colors.secondary.default.rgb}}        folder line
+{{colors.on_surface.default.rgb}}        folder title
 
 # Using Containers for highlights ensures text remains readable on top of them.
-{{colors.secondary_container.default.hex}},127        playing highlight
-{{colors.surface_variant.default.hex}},127        select highlight
-{{colors.on_surface.default.hex}}            gallery highlight
+{{colors.secondary_container.default.rgb}},127        playing highlight
+{{colors.surface_variant.default.rgb}},127        select highlight
+{{colors.on_surface.default.rgb}}            gallery highlight
 
 #-Menu-------------
-{{colors.surface_container_high.default.hex}}        menu background
-{{colors.primary.default.hex}}        menu highlight
-{{colors.on_surface.default.hex}}     menu text
-{{colors.on_surface_variant.default.hex}}        menu disable text
+{{colors.surface_container_high.default.rgb}}        menu background
+{{colors.primary.default.rgb}}        menu highlight
+{{colors.on_surface.default.rgb}}     menu text
+{{colors.on_surface_variant.default.rgb}}        menu disable text
 
 #-Bottom panel------
 
-{{colors.outline.default.hex}}        buttons off
-{{colors.primary.default.hex}}        buttons over
-{{colors.primary.default.hex}}        buttons active
+{{colors.outline.default.rgb}}        buttons off
+{{colors.primary.default.rgb}}        buttons over
+{{colors.primary.default.rgb}}        buttons active
 
-{{colors.on_surface.default.hex}}        playing time
+{{colors.on_surface.default.rgb}}        playing time
 
-{{colors.primary.default.hex}}        seek bar
-{{colors.primary.default.hex}}        volume bar
+{{colors.primary.default.rgb}}        seek bar
+{{colors.primary.default.rgb}}        volume bar
 # Using surface_variant for the 'empty' part of the bar
-{{colors.surface_variant.default.hex}}        seek bg
-{{colors.surface_variant.default.hex}}        volume bg
-{{colors.outline.default.hex}}        scroll bar
+{{colors.surface_variant.default.rgb}}        seek bg
+{{colors.surface_variant.default.rgb}}        volume bg
+{{colors.outline.default.rgb}}        scroll bar
 
-{{colors.outline.default.hex}}        mode off
-{{colors.secondary.default.hex}}        mode over
-{{colors.primary.default.hex}}        mode on
+{{colors.outline.default.rgb}}        mode off
+{{colors.secondary.default.rgb}}        mode over
+{{colors.primary.default.rgb}}        mode on
 
-{{colors.on_surface.default.hex}}        bottom title
+{{colors.on_surface.default.rgb}}        bottom title
 
 #-Top panel---------
 
-{{colors.primary.default.hex}}        tab active line
-{{colors.outline_variant.default.hex}}        tab line
-{{colors.surface.default.hex}}        tab background
-{{colors.secondary.default.hex}}        tab over
-{{colors.surface_container.default.hex}}        tab active background
-{{colors.primary.default.hex}}        music vis
+{{colors.primary.default.rgb}}        tab active line
+{{colors.outline_variant.default.rgb}}        tab line
+{{colors.surface.default.rgb}}        tab background
+{{colors.secondary.default.rgb}}        tab over
+{{colors.surface_container.default.rgb}}        tab active background
+{{colors.primary.default.rgb}}        music vis
 
 #-Side panel--------
 
-{{colors.primary.default.hex}}        title info
-{{colors.on_surface_variant.default.hex}}        extra info
-{{colors.outline.default.hex}}        art border
+{{colors.primary.default.rgb}}        title info
+{{colors.on_surface_variant.default.rgb}}        extra info
+{{colors.outline.default.rgb}}        art border
 
 #-Mini Mode---------
 
-{{colors.surface.default.hex}}        mini bg
-{{colors.primary.default.hex}}        mini border
+{{colors.surface.default.rgb}}        mini bg
+{{colors.primary.default.rgb}}        mini border
