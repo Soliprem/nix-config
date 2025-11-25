@@ -102,7 +102,7 @@
     starship
     zoxide
     gammastep
-    inputs.iio-hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default
+    iio-hyprland
     inputs.astal.packages.${pkgs.stdenv.hostPlatform.system}.io
     matugen
     git
