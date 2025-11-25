@@ -94,10 +94,6 @@
       inputs.lix.follows = "lix";
     };
 
-    iio-hyprland = {
-      url = "github:JeanSchoeller/iio-hyprland";
-      inputs.hyprland.follows = "hyprland";
-    };
     nvf-soli.url = "github:soliprem/nvf-soli/";
     # nvf.url = "github:notashelf/nvf/v0.8";
     # nvf.url = "path:/home/soliprem/.local/src/nvf-maint/";
