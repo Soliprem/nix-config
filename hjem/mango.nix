@@ -195,23 +195,23 @@
       bind=SUPER+SHIFT,S,spawn,grimpick region
 
       # Media Keys (Volume)
-      bind=NONE,XF86AudioRaiseVolume,spawn,wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
-      bind=NONE,XF86AudioLowerVolume,spawn,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-      bind=NONE,XF86AudioMute,spawn,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-volume
+      bind=NONE,XF86AudioRaiseVolume,spawn,swayosd-client --output-volume raise
+      bind=NONE,XF86AudioLowerVolume, spawn, swayosd-client --output-volume lower
+      bind=NONE,XF86AudioMute,spawn, swayosd-client --output-volume mute-toggle
 
       # Media Keys (Mic)
       bind=NONE,XF86AudioMicMute,spawn,wpctl set-mute @DEFAULT_SOURCE@ toggle && notify-send \"Toggling Microphone\"
       bind=SUPER+SHIFT,M,spawn,swayosd-client --output-volume mute-toggle
 
       # Media Keys (Playback)
-      bind=NONE,XF86AudioMedia,spawn,playerctl play-pause
-      bind=NONE,XF86AudioPlay,spawn,playerctl play-pause
+      bind=NONE,XF86AudioMedia,spawn,swayosd-client --playerctl play-pause
+      bind=NONE,XF86AudioPlay,spawn,swayosd-client --playerctl play-pause
       bind=NONE,XF86AudioPrev,spawn,playerctl previous
       bind=NONE,XF86AudioNext,spawn,playerctl next
 
       # Media Keys (Brightness)
-      bind=NONE,XF86MonBrightnessUp,spawn,brightnessctl set '12.75+'
-      bind=NONE,XF86MonBrightnessDown,spawn,brightnessctl set '12.75-'
+      bind=NONE,XF86MonBrightnessUp,spawn,swayosd-client --brightness raise
+      bind=NONE,XF86MonBrightnessDown,spawn,swayosd-client --brightness lower
 
       # Other Keys
       bind=NONE,Caps_Lock,spawn,sleep 0.1 && swayosd-client --caps-lock
@@ -412,6 +412,7 @@
       swaync &
       kanshi &
       protonvpn-app &
+      swayosd-server &
       '';
   };
 }
