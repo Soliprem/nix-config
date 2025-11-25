@@ -25,10 +25,6 @@
           input_path = ./templates/hyprland-colors.conf;
           output_path = "~/.config/hypr/colors.conf";
         };
-        # starship = {
-        #   input_path = ./templates/starship-colors.toml;
-        #   output_path = "~/.config/starship.toml";
-        # };
         pywalfox = {
           input_path = ./templates/pywalfox-colors.json;
           output_path = "~/.cache/wal/colors.json";
@@ -57,10 +53,6 @@
           input_path = ./templates/lazygit.yml;
           output_path = "~/.config/lazygit/config.yml";
         };
-        walker = {
-          input_path = ./templates/walker.css;
-          output_path = "~/.config/walker/themes/matugen.css";
-        };
         foot = {
           input_path = ./templates/foot-colors.ini;
           output_path = "~/.config/foot/themes/matugen.ini";
@@ -68,10 +60,6 @@
         niri = {
           input_path = ./templates/niri.kdl;
           output_path = "~/.config/niri/config.kdl";
-        };
-        way-edges = {
-          input_path = ./templates/way-edges.jsonc;
-          output_path = "~/.config/way-edges/config.jsonc";
         };
         tauon = {
           input_path = ./templates/tauon.ttheme;

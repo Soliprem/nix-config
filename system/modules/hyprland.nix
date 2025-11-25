@@ -305,7 +305,6 @@ in {
           [
             ", XF86PowerOff, exec, caelestia shell drawers toggle session"
             "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
-            # "$mod, V, exec, pkill walker || cliphist list | walker -dk | cliphist decode | wl-copy"
             "$mod,tab,focuscurrentorlast"
             "$mod,c,exec, swaync-client -t"
             "$mod+Shift,c,exec, swaync-client -d"
@@ -320,7 +319,6 @@ in {
             ", Print, exec, grimblast copy area"
             "$mod, E, exec, nautilus --new-window"
             "$mod+Shift+Alt, Period, exec, fuzzel-emoji"
-            # "$mod+Alt, Period, exec, walker -m emojis"
             "$mod, Comma, focusmonitor, -1"
             "$mod, Period, focusmonitor, +1"
             "$mod+Shift, Comma, movewindow, mon:-1"
@@ -334,16 +332,12 @@ in {
             "$mod, n, exec, dm-notes"
             "$mod+Shift, n, exec, $term -e notes"
             "$mod+Shift, Q, exec, hyprctl kill"
-            # "$mod, d, exec, astal -i sash -t launcher"
             "$mod, d, exec, caelestia shell drawers toggle launcher"
             "$mod, c, exec, caelestia shell drawers toggle sidebar"
-            "$mod, m, exec, astal -i sash -t systemMenuWindow"
             "$mod, o, exec, dm-hub"
             "$mod+shift, semicolon, exec, dm-expand"
             "$mod, minus, exec, wtype -k emdash"
-            # "$mod+Shift, o, exec, walker -m finder"
             "$mod SHIFT, d, exec, fuzzel-run"
-            # "$mod SHIFT, d, exec, walker -m runner"
             "$mod+Alt, s, movetoworkspacesilent, special"
             "$mod, s, togglespecialworkspace"
             "$mod+Alt, p, pin"
@@ -368,7 +362,6 @@ in {
             "SUPERSHIFT,l,layoutmsg,removemaster # [hidden]"
             " SUPER, f, fullscreen, 1  # [hidden]"
             " SUPERSHIFT, f, fullscreen, 0  # [hidden]"
-            "$mod+Shift, B, exec, astal -i sash bars"
 
             # Special
             "$mod+Alt, F, fullscreenstate, -1 2"
@@ -417,7 +410,6 @@ in {
         };
         exec-once = [
           "iio-hyprland"
-          # "walker --gapplication-service"
           # "nextcloud"
           "wl-paste --type text --watch cliphist store &"
           "wl-paste --type image --watch cliphist store &"
@@ -427,7 +419,6 @@ in {
           "caelestia shell -d"
           "/usr/lib/polkit-kde-authentication-agent-1"
           # "swww-daemon &"
-          # "walker --gapplication-service"
           "nm-applet &"
         ];
       };

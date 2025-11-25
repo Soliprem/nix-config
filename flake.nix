@@ -26,20 +26,36 @@
   };
 
   inputs = {
-    agenix.url = "github:ryantm/agenix";
-    atuin.url = "github:atuinsh/atuin";
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
-    caelestia.url = "github:caelestia-dots/shell";
-    caelestia-cli.url = "github:caelestia-dots/cli";
-    way-edges.url = "github:way-edges/way-edges";
-    sash.url = "github:soliprem/sash";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    matugen.url = "github:InioX/Matugen";
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    caelestia = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.caelestia-cli.follows = "caelestia-cli";
+    };
+
+    caelestia-cli = {
+      url = "github:caelestia-dots/cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    matugen = {
+      url = "github:InioX/Matugen";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ghostty = {
       url = "github:ghostty-org/ghostty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     ignis = {
       url = "github:ignis-sh/ignis";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -61,30 +77,29 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    elephant.url = "github:abenz1267/elephant/f37977c557f2c570a2e0b1c9c49698b104b3b1d0";
 
-    walker = {
-      url = "github:abenz1267/walker";
-      inputs.elephant.follows = "elephant";
-    };
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    soniksnvim.url = "github:Soliprem/soniksnvim";
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+
     lix = {
       url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
       flake = false;
     };
+
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.lix.follows = "lix";
     };
-    iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
-    nvf.url = "github:notashelf/nvf/v0.8";
+
+    iio-hyprland = {
+      url = "github:JeanSchoeller/iio-hyprland";
+      inputs.hyprland.follows = "hyprland";
+    };
     nvf-soli.url = "github:soliprem/nvf-soli/";
+    # nvf.url = "github:notashelf/nvf/v0.8";
     # nvf.url = "path:/home/soliprem/.local/src/nvf-maint/";
     hjem = {
       url = "github:feel-co/hjem";
@@ -101,7 +116,7 @@
     };
     Hyprspace = {
       url = "github:KZDKM/Hyprspace";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hyprland.follows = "hyprland";
     };
     mango = {
       url = "github:DreamMaoMao/mango";

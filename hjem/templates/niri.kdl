@@ -221,7 +221,6 @@ environment {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
-spawn-at-startup "walker" "--gapplication-service"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-at-startup "xwayland-satellite"
@@ -309,8 +308,8 @@ binds {
     Mod+Minus { spawn "wtype" "-k" "emdash"; }
     Mod+W { spawn "zen"; }
     Mod+E { spawn "nautilus"; }
-    Mod+D { spawn "walker"; }
-    Mod+Shift+D { spawn "walker" "-m" "runner"; }
+    Mod+D { spawn "fuzzel"; }
+    Mod+Shift+D { spawn "fuzzel-run"; }
     Super+Alt+L { spawn "swaylock"; }
     Super+Shift+C { spawn "swaync-client" "-t"; }
     Super+V {spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }

@@ -2,7 +2,6 @@
   imports = [
     inputs.lix-module.nixosModules.default
     inputs.mango.nixosModules.mango
-    inputs.walker.nixosModules.default
     ./printing.nix
     ./scripts.nix
     ./modules

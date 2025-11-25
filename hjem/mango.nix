@@ -180,7 +180,6 @@
       bind=SUPER+SHIFT+ALT,period,spawn,fuzzel-emoji
       bind=SUPER,n,spawn,dm-notes
       bind=SUPER+SHIFT,n,spawn,ghostty -e notes
-      bind=SUPER,m,spawn,astal -i sash -t systemMenuWindow
       bind=SUPER,o,spawn,dm-hub
       bind=SUPER+SHIFT,semicolon,spawn,dm-expand
       bind=SUPER,minus,spawn,wtype -k emdash
@@ -402,7 +401,6 @@
       bind=SUPER+SHIFT,l,incnmaster,-1
     '';
     ".config/mango/autostart.sh".source = pkgs.writers.writeBash "autostart.sh" ''
-      walker --gapplication-service &
       wl-paste --type text --watch cliphist store &
       wl-paste --type image --watch cliphist store &
       xwayland-satellite &
