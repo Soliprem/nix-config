@@ -56,7 +56,6 @@
     swaynotificationcenter
     xwayland-satellite
     inputs.ignis.packages.${system}.ignis
-    inputs.way-edges.packages.${system}.way-edges
     inputs.caelestia.packages.${system}.default
     inputs.caelestia-cli.packages.${system}.default
     comma
@@ -72,7 +71,6 @@
     jujutsu
     # lazyjj
     calibre
-    hyprpanel
     qutebrowser
     maptool
     anytype
@@ -98,7 +96,7 @@
     fuzzel
     adw-gtk3
     bibata-cursors
-    inputs.atuin.packages.${pkgs.stdenv.hostPlatform.system}.default
+    atuin
     fastfetch
     carapace
     starship
@@ -106,7 +104,6 @@
     gammastep
     inputs.iio-hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.astal.packages.${pkgs.stdenv.hostPlatform.system}.io
-    inputs.sash.packages.${pkgs.stdenv.hostPlatform.system}.default
     matugen
     git
     wget
@@ -258,7 +255,6 @@
     # river.enable = true;
     niri.enable = true;
     mango.enable = true;
-    walker.enable = true;
     nh = {
       enable = true;
       clean.enable = true;

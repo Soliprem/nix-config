@@ -224,12 +224,10 @@ _: {
       // which may be more convenient to use.
       // See the binds section below for more spawn examples.
       // spawn-at-startup "alacritty" "-e" "fish"
-      spawn-at-startup "walker --gapplication-service"
       spawn-at-startup "wl-paste --type text --watch cliphist store"
       spawn-at-startup "wl-paste --type image --watch cliphist store"
       spawn-at-startup "xwayland-satellite"
       spawn-at-startup "swww-daemon"
-      spawn-at-startup "way-edges"
       spawn-at-startup "swaync"
       spawn-at-startup "nm-applet"
 
@@ -310,9 +308,9 @@ _: {
           // Suggested binds for running programs: terminal, app launcher, screen locker.
           Mod+Return { spawn "foot"; }
           Mod+W { spawn "zen"; }
-          Mod+D { spawn "walker"; }
+          Mod+D { spawn "fuzzel-run"; }
           Mod+Space { spawn "nwg-drawer"; }
-          Mod+Shift+D { spawn "walker" "-m" "runner"; }
+          Mod+Shift+D { spawn "fuzzel"; }
           Super+Alt+L { spawn "swaylock"; }
           Super+Shift+C { spawn "swaync-client" "-t"; }
           Super+V {spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
