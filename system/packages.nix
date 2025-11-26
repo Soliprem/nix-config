@@ -69,19 +69,16 @@
     gcs
     code-cursor
     jujutsu
-    # lazyjj
+    lazyjj
     calibre
     qutebrowser
-    maptool
     anytype
-    # inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     zed-editor
     kdePackages.qtmultimedia
     kdePackages.plasmatube
     kdePackages.polkit-kde-agent-1
     libsForQt5.qt5.qtgraphicaleffects
     affine
-    # gale
     r2modman
     protonvpn-gui
     ffmpeg
@@ -124,27 +121,21 @@
     ddcui
     nix-output-monitor
     nexusmods-app-unfree
-    # limo
     mangohud
     inputs.ghostty.packages.${system}.default
     foot
-    # fluffychat
     bitwarden-desktop
     showtime
     keyutils
     iamb
     revolt-desktop
     swww
-    # bitwarden-cli
-    # bitwarden-menu
     muse-sounds-manager
     pwvucontrol
     heroic
     lutris
     dotacat
     inputs.agenix.packages.${system}.default
-    # inputs.diniamo.legacyPackages.${pkgs.stdenv.hostPlatform.system}.umu-launcher
-    # (inputs.umu.packages.${pkgs.stdenv.hostPlatform.system}.umu.override {version = "${inputs.umu.shortRev}";})
     umu-launcher
     teams-for-linux
     wlsunset
@@ -178,7 +169,6 @@
     telegram-desktop
     qpwgraph
     brightnessctl
-    # stremio
     fd
     killall
     zathura
@@ -247,11 +237,6 @@
       ];
     };
     kdeconnect.enable = true;
-    # hyprland = {
-    #   enable = true;
-    #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    #   portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    # };
     # river.enable = true;
     niri.enable = true;
     mango.enable = true;
