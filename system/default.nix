@@ -1,6 +1,5 @@
 {inputs, ...}: {
   imports = [
-    inputs.lix-module.nixosModules.default
     inputs.mango.nixosModules.mango
     ./printing.nix
     ./scripts.nix
