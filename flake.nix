@@ -82,17 +82,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lix = {
-      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
-      flake = false;
-    };
-
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.lix.follows = "lix";
-    };
-
     nvf-soli.url = "github:soliprem/nvf-soli/";
     # nvf.url = "github:notashelf/nvf/v0.8";
     # nvf.url = "path:/home/soliprem/.local/src/nvf-maint/";
@@ -114,7 +103,7 @@
       inputs.hyprland.follows = "hyprland";
     };
     mango = {
-      url = "github:DreamMaoMao/mango";
+      url = "github:horriblename/mangowc/touch-patched";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
