@@ -103,7 +103,7 @@
       inputs.hyprland.follows = "hyprland";
     };
     mango = {
-      url = "github:horriblename/mangowc/touch-patched";
+      url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
