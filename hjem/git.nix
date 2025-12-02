@@ -8,7 +8,7 @@
       url = {
         "ssh://git@github.com/" = {
           insteadOf = [
-            "https://github.com"
+            "https://github.com/"
             "gh:"
           ];
         };
