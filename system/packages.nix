@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    nushell
     darkman
     swayosd
     litemdview
