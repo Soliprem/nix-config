@@ -10,8 +10,8 @@
     ".local/share/dark-mode.d/nixrice".source = pkgs.writers.writeBash /* bash */ ''
       nixrice ~/.config/bg dark
     '';
-  };
     ".local/share/light-mode.d/nixrice".source = pkgs.writers.writeBash /* bash */ ''
       nixrice ~/.config/bg light
     '';
+  };
 }
