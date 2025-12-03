@@ -2,7 +2,6 @@ _: {
   hjem.users.soliprem.files = {
     ".config/gtk-3.0/settings.ini".text = ''
       [Settings]
-      gtk-application-prefer-dark-theme=true
       gtk-cursor-theme-name=Bibata-Modern-Ice
       gtk-cursor-theme-size=24
       gtk-font-name=Inconsolata Nerd Font 12
@@ -14,7 +13,6 @@ _: {
     '';
     ".config/gtk-4.0/settings.ini".text = ''
       [Settings]
-      gtk-application-prefer-dark-theme=true
       gtk-cursor-theme-name=Bibata-Modern-Ice
       gtk-cursor-theme-size=24
       gtk-font-name=Inconsolata Nerd Font 12
