@@ -78,6 +78,7 @@ _: {
       source ~/.cache/atuin/init.nu
 
       alias D = cd $'($env.HOME)Downloads'; ls -a
+      alias fg = job unfreeze
       alias ,, = , (history | last | get command)
       alias lg = lazygit
       alias YT = youtube-viewer
