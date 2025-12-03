@@ -2,57 +2,72 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   scripts = [
-    (
-      pkgs.writers.writeNuBin "update-openrgb-color" {
+    (pkgs.writers.writeNuBin "update-openrgb-color"
+      {
         makeWrapperArgs = [
           "--prefix"
           "PATH"
           ":"
-          "${lib.makeBinPath [pkgs.waypaper pkgs.swww]}"
+          "${lib.makeBinPath [
+            pkgs.waypaper
+            pkgs.swww
+          ]}"
         ];
       }
-      ''
+      /* nu */ ''
         let accent_color = (caelestia scheme get | lines | get 6 | parse "{foo}: {bar}" | get bar | get 0 | ansi strip)
         echo $accent_color
         openrgb --color $accent_color
       ''
     )
 
-    (
-      pkgs.writers.writeNuBin "nixrice" {
+    (pkgs.writers.writeNuBin "nixrice"
+      {
         makeWrapperArgs = [
           "--prefix"
           "PATH"
           ":"
-          "${lib.makeBinPath [pkgs.waypaper pkgs.swww]}"
+          "${lib.makeBinPath [
+            pkgs.waypaper
+            pkgs.swww
+          ]}"
         ];
       }
-      ''
-        let path_list = waypaper | parse "Selected file: {path}" | get path
-        let path = $path_list | last
-        wallpaper-to-rice-nix $path
+      /* nu */ ''
+        def main [mode?: string] {
+            let path_list = waypaper | parse "Selected file: {path}" | get path
+            let path = $path_list | last
+            
+            if ($mode == null) {
+                wallpaper-to-rice-nix $path
+            } else {
+                wallpaper-to-rice-nix $path $mode
+            }
+        }
       ''
     )
 
-    (
-      pkgs.writers.writeNuBin "clear-trash" {
+    (pkgs.writers.writeNuBin "clear-trash"
+      {
       }
-      ''
+      /* nu */ ''
         rm -rp ~/.local/share/Trash/*
       ''
     )
 
-    (pkgs.writers.writeNuBin "dm-expand" {
+    (pkgs.writers.writeNuBin "dm-expand"
+      {
         makeWrapperArgs = [
           "--prefix"
           "PATH"
           ":"
-          "${lib.makeBinPath [pkgs.fuzzel]}"
+          "${lib.makeBinPath [ pkgs.fuzzel ]}"
         ];
       }
-      ''
+      /* nu */ ''
         let expansions = [
         [key value];
         ["mdash" —]
@@ -61,12 +76,20 @@
         ]
         let chosen_key = $expansions.key | to text | fuzzel --dmenu
         wtype ($expansions | where key == $chosen_key | get value.0)
-      '')
+      ''
+    )
 
     (pkgs.writeShellApplication {
       name = "wallpaper-to-rice-nix";
-      runtimeInputs = with pkgs; [yad libnotify];
+      runtimeInputs = with pkgs; [
+        yad
+        libnotify
+      ];
       text = ''
+        MODE="dark"
+        if [[ "''${2:-}" == "light" ]]; then
+            MODE="light"
+        fi
         if [[ ''${1:-} ]]; then
         	wallpaper="$1"
                 cp "$wallpaper" ~/.config/bg
@@ -88,7 +111,10 @@
 
     (pkgs.writeShellApplication {
       name = "wayshotpick";
-      runtimeInputs = with pkgs; [wayshot slurp];
+      runtimeInputs = with pkgs; [
+        wayshot
+        slurp
+      ];
       text = ''
         case "$(printf "a selected area\\nfull screen\\na selected area (copy)\\nfull screen (copy)" |\
           wmenu -ip "Screenshot which area?")" in
@@ -102,7 +128,11 @@
     })
     (pkgs.writeShellApplication {
       name = "grimpick";
-      runtimeInputs = with pkgs; [grim slurp swappy];
+      runtimeInputs = with pkgs; [
+        grim
+        slurp
+        swappy
+      ];
       text = ''
                 if [[ ''${1:-} ]]; then
                   mode="$1"
@@ -168,23 +198,24 @@
     (pkgs.writeShellApplication {
       name = "remove-hjem-dangles";
       text = ''
-        rm ~/.config/gtk-3.0/settings.ini
-        rm ~/.config/gtk-3.0/gtk.css
-        rm ~/.config/gtk-4.0/settings.ini
-        rm ~/.config/gtk-4.0/gtk.css
-        rm ~/.config/helix/config.toml
-        rm ~/.config/hypr/hypridle.conf
-        rm ~/.config/hypr/hyprlock.conf
-        rm ~/.config/matugen/config.toml
-        rm ~/.config/nushell/config.nu
-        rm ~/.config/nushell/env.nu
-        rm ~/.config/qt5ct/qt5ct.conf
-        rm ~/.config/qt6ct/qt6ct.conf
-        rm ~/.config/ghostty/config
-        rm ~/.config/fuzzel/fuzzel.ini
+          rm ~/.config/gtk-3.0/settings.ini
+          rm ~/.config/gtk-3.0/gtk.css
+          rm ~/.config/gtk-4.0/settings.ini
+          rm ~/.config/gtk-4.0/gtk.css
+          rm ~/.config/helix/config.toml
+          rm ~/.config/hypr/hypridle.conf
+          rm ~/.config/hypr/hyprlock.conf
+          rm ~/.config/matugen/config.toml
+          rm ~/.config/nushell/config.nu
+          rm ~/.config/nushell/env.nu
+          rm ~/.config/qt5ct/qt5ct.conf
+          rm ~/.config/qt6ct/qt6ct.conf
+          rm ~/.config/ghostty/config
+        nu  rm ~/.config/fuzzel/fuzzel.ini
       '';
     })
   ];
-in {
+in
+{
   environment.systemPackages = scripts;
 }
