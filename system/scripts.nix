@@ -36,24 +36,17 @@ let
           ]}"
         ];
       }
-      /* nu */ ''
-        def main [mode?: string] {
-            let path_list = waypaper | parse "Selected file: {path}" | get path
-            let path = $path_list | last
-            
-            if ($mode == null) {
-                wallpaper-to-rice-nix $path
-            } else {
-                wallpaper-to-rice-nix $path $mode
-            }
-        }
+      /* nu */''
+        let path_list = waypaper | parse "Selected file: {path}" | get path
+        let path = $path_list | last
+        wallpaper-to-rice-nix $path
       ''
     )
 
     (pkgs.writers.writeNuBin "clear-trash"
       {
       }
-      /* nu */ ''
+      /*nu*/''
         rm -rp ~/.local/share/Trash/*
       ''
     )
@@ -67,7 +60,7 @@ let
           "${lib.makeBinPath [ pkgs.fuzzel ]}"
         ];
       }
-      /* nu */ ''
+      /*nu*/''
         let expansions = [
         [key value];
         ["mdash" —]
@@ -84,12 +77,10 @@ let
       runtimeInputs = with pkgs; [
         yad
         libnotify
+        matugen
+        swww
       ];
       text = ''
-        MODE="dark"
-        if [[ "''${2:-}" == "light" ]]; then
-            MODE="light"
-        fi
         if [[ ''${1:-} ]]; then
         	wallpaper="$1"
                 cp "$wallpaper" ~/.config/bg
@@ -100,20 +91,11 @@ let
         fi
 
         if [[ $wallpaper ]]; then
-            matugen image "$wallpaper" -m "$MODE"
-            
-            if [[ "$MODE" == "light" ]]; then
-                gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
-                gsettings set org.gnome.desktop.interface gtk-application-prefer-dark-theme false
-            else
-                gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-                gsettings set org.gnome.desktop.interface gtk-application-prefer-dark-theme true
-            fi
-
-            cp "$wallpaper" ~/.config/bg
-            cp "$wallpaper" ~/.config/nix-config/assets/bg
+                matugen image "$wallpaper"
+                cp "$wallpaper" ~/.config/bg
+                cp "$wallpaper" ~/.config/nix-config/assets/bg
         else
-            echo "no wallpaper selected"
+        	echo "no wallpaper selected"
         fi
       '';
     })
@@ -207,20 +189,20 @@ let
     (pkgs.writeShellApplication {
       name = "remove-hjem-dangles";
       text = ''
-          rm ~/.config/gtk-3.0/settings.ini
-          rm ~/.config/gtk-3.0/gtk.css
-          rm ~/.config/gtk-4.0/settings.ini
-          rm ~/.config/gtk-4.0/gtk.css
-          rm ~/.config/helix/config.toml
-          rm ~/.config/hypr/hypridle.conf
-          rm ~/.config/hypr/hyprlock.conf
-          rm ~/.config/matugen/config.toml
-          rm ~/.config/nushell/config.nu
-          rm ~/.config/nushell/env.nu
-          rm ~/.config/qt5ct/qt5ct.conf
-          rm ~/.config/qt6ct/qt6ct.conf
-          rm ~/.config/ghostty/config
-        nu  rm ~/.config/fuzzel/fuzzel.ini
+        rm ~/.config/gtk-3.0/settings.ini
+        rm ~/.config/gtk-3.0/gtk.css
+        rm ~/.config/gtk-4.0/settings.ini
+        rm ~/.config/gtk-4.0/gtk.css
+        rm ~/.config/helix/config.toml
+        rm ~/.config/hypr/hypridle.conf
+        rm ~/.config/hypr/hyprlock.conf
+        rm ~/.config/matugen/config.toml
+        rm ~/.config/nushell/config.nu
+        rm ~/.config/nushell/env.nu
+        rm ~/.config/qt5ct/qt5ct.conf
+        rm ~/.config/qt6ct/qt6ct.conf
+        rm ~/.config/ghostty/config
+      nu  rm ~/.config/fuzzel/fuzzel.ini
       '';
     })
   ];
