@@ -100,11 +100,20 @@ let
         fi
 
         if [[ $wallpaper ]]; then
-                matugen image "$wallpaper"
-                cp "$wallpaper" ~/.config/bg
-                cp "$wallpaper" ~/.config/nix-config/assets/bg
+            matugen image "$wallpaper" -m "$MODE"
+            
+            if [[ "$MODE" == "light" ]]; then
+                gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+                gsettings set org.gnome.desktop.interface gtk-application-prefer-dark-theme false
+            else
+                gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+                gsettings set org.gnome.desktop.interface gtk-application-prefer-dark-theme true
+            fi
+
+            cp "$wallpaper" ~/.config/bg
+            cp "$wallpaper" ~/.config/nix-config/assets/bg
         else
-        	echo "no wallpaper selected"
+            echo "no wallpaper selected"
         fi
       '';
     })
