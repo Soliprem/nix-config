@@ -1,8 +1,13 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   users.users.soliprem = {
     isNormalUser = true;
     description = "Francesco Prem Solidoro";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.bash;
   };
 
@@ -11,7 +16,8 @@
   ];
 
   programs.bash.interactiveShellInit = ''
-    if ! [ "$TERM" = "dumb" ] && [ -z "$BASH_EXECUTION_STRING" ]; then
+    if ! [ "$TERM" = "dumb" ] && [ -z "$BASH_EXECUTION_STRING" ] && [ -z "$IN_NIX_SHELL" ];
+    then
       exec nu
     fi
   '';
