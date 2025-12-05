@@ -1,6 +1,8 @@
-_: {
+{ pkgs, ... }:
+{
   hjem.users.soliprem.files = {
     ".config/ghostty/config".text = ''
+      command = ${pkgs.nushell}/bin/nu
       window-decoration = false
       background-opacity = 0.78
       gtk-single-instance = true
