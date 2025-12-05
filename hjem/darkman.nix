@@ -6,6 +6,7 @@ let
     text = ''
       export XDG_DATA_DIRS=${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS
       matugen image ~/.config/bg -m dark
+      gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     '';
   };
 
@@ -15,6 +16,7 @@ let
     text = ''
       export XDG_DATA_DIRS=${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS
       matugen image ~/.config/bg -m light
+      gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
     '';
   };
 in
