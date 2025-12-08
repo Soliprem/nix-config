@@ -405,6 +405,8 @@
       wl-paste --type image --watch cliphist store &
       xwayland-satellite &
       swww-daemon &
+      batsignal &
+      darkman run &
       swaync &
       nm-applet &
       swaync &
