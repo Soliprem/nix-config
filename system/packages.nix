@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    batsignal
     nushell
     darkman
     swayosd
