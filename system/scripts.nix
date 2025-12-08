@@ -36,7 +36,7 @@ let
           ]}"
         ];
       }
-      /* nu */''
+      /* nu */ ''
         let path_list = waypaper | parse "Selected file: {path}" | get path
         let path = $path_list | last
         wallpaper-to-rice-nix $path
@@ -46,7 +46,7 @@ let
     (pkgs.writers.writeNuBin "clear-trash"
       {
       }
-      /*nu*/''
+      /* nu */ ''
         rm -rp ~/.local/share/Trash/*
       ''
     )
@@ -60,7 +60,7 @@ let
           "${lib.makeBinPath [ pkgs.fuzzel ]}"
         ];
       }
-      /*nu*/''
+      /* nu */ ''
         let expansions = [
         [key value];
         ["mdash" —]
@@ -187,22 +187,47 @@ let
       '';
     })
     (pkgs.writeShellApplication {
+      name = "sll";
+      runtimeInputs = with pkgs; [
+        mpv
+        sl
+      ];
+      text = ''
+        # very subtle easter egg, turn up the volume and wear headphones to get the best experience
+        trap "pkill mpv" EXIT
+        if ! [ -e ~/.cache/thomas.mp3 ]; then
+            pushd .
+            cd ~/.cache/ || exit 1
+            wget -q thomasthetankengine.surge.sh/thomas.mp3
+            popd || echo "bruh"
+        fi
+
+        if pgrep mpv; then
+            sl "$@"
+            exit
+        fi
+
+        mpv ~/.cache/thomas.mp3 &>/dev/null &
+        command sl "$@"
+      '';
+    })
+    (pkgs.writeShellApplication {
       name = "remove-hjem-dangles";
       text = ''
-        rm ~/.config/gtk-3.0/settings.ini
-        rm ~/.config/gtk-3.0/gtk.css
-        rm ~/.config/gtk-4.0/settings.ini
-        rm ~/.config/gtk-4.0/gtk.css
-        rm ~/.config/helix/config.toml
-        rm ~/.config/hypr/hypridle.conf
-        rm ~/.config/hypr/hyprlock.conf
-        rm ~/.config/matugen/config.toml
-        rm ~/.config/nushell/config.nu
-        rm ~/.config/nushell/env.nu
-        rm ~/.config/qt5ct/qt5ct.conf
-        rm ~/.config/qt6ct/qt6ct.conf
-        rm ~/.config/ghostty/config
-      nu  rm ~/.config/fuzzel/fuzzel.ini
+          rm ~/.config/gtk-3.0/settings.ini
+          rm ~/.config/gtk-3.0/gtk.css
+          rm ~/.config/gtk-4.0/settings.ini
+          rm ~/.config/gtk-4.0/gtk.css
+          rm ~/.config/helix/config.toml
+          rm ~/.config/hypr/hypridle.conf
+          rm ~/.config/hypr/hyprlock.conf
+          rm ~/.config/matugen/config.toml
+          rm ~/.config/nushell/config.nu
+          rm ~/.config/nushell/env.nu
+          rm ~/.config/qt5ct/qt5ct.conf
+          rm ~/.config/qt6ct/qt6ct.conf
+          rm ~/.config/ghostty/config
+        nu  rm ~/.config/fuzzel/fuzzel.ini
       '';
     })
   ];
