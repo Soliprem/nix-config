@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    openai-whisper
     batsignal
     nushell
     darkman
