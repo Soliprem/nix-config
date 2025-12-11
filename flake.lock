@@ -972,11 +972,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1764942778,
-        "narHash": "sha256-ckqiiTix/f48V+UCA9enKa2BMGnvVufXzsKF60K8Zio=",
+        "lastModified": 1765476931,
+        "narHash": "sha256-QUIb9US3VU45qnj4EDXXvl3MGcxco1J3EGiqFxjL7QY=",
         "owner": "soliprem",
         "repo": "nvf-soli",
-        "rev": "5270a2849b7da1f2e6b6ee7bacb3b97c319de707",
+        "rev": "038c96a972659bb745b5a6a375b0a10c27f82d7a",
         "type": "github"
       },
       "original": {
