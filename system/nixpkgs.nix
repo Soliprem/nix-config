@@ -34,6 +34,7 @@
         "olm-3.2.16"
         "fluffychat-linux-1.26.1"
         "cinny-4.2.3"
+        "gradle-7.6.6"
         "cinny-unwrapped-4.2.3"
       ];
       allowUnfreePredicate = _: true;
