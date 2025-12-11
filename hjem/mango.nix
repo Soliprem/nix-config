@@ -399,6 +399,7 @@
       bind=SUPER,space,zoom
       bind=SUPER+SHIFT,h,incnmaster,+1
       bind=SUPER+SHIFT,l,incnmaster,-1
+      exec-once=~/.config/mango/autostart.sh
     '';
     ".config/mango/autostart.sh".source = pkgs.writers.writeBash "autostart.sh" ''
       wl-paste --type text --watch cliphist store &
