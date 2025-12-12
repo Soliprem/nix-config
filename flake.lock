@@ -992,11 +992,11 @@
         "systems": "systems_7"
       },
       "locked": {
-        "lastModified": 1765513468,
-        "narHash": "sha256-nXc3ngiwQt+HFWDTc4pC1xpzQ9m9Acv8E/ha59wRauQ=",
+        "lastModified": 1765538316,
+        "narHash": "sha256-6xrEkfZZaRSbbEa8dKMs0N+E+0DnNTFlNVRhJ3Cl0SQ=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "d6a2a1a60a08998c27d78291c6bb72cfa721ee72",
+        "rev": "13b3916c1cac0adf865eaa2624604de1b89f0902",
         "type": "github"
       },
       "original": {
@@ -1015,11 +1015,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1765513570,
-        "narHash": "sha256-sd9Qz6ol8W2CS5rXdUHB+j/QDIfRO8DnJYzIpiqSFKs=",
+        "lastModified": 1765540737,
+        "narHash": "sha256-A+LwQiYd9GY2zQpz+wyW/NkLwe8+6Zyw5q68cNnPj1A=",
         "owner": "soliprem",
         "repo": "nvf-soli",
-        "rev": "c79fe8bd7b158ddbd2d3a362194a7636bfa88baa",
+        "rev": "97b93b66aa6e1cabcba22bcf948370661d3040e0",
         "type": "github"
       },
       "original": {
