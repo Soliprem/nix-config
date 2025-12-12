@@ -303,7 +303,7 @@ in {
         ];
         bind =
           [
-            ", XF86PowerOff, exec, caelestia shell drawers toggle session"
+            ", XF86PowerOff, exec, wlogout"
             "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
             "$mod,tab,focuscurrentorlast"
             "$mod,c,exec, swaync-client -t"
@@ -312,7 +312,7 @@ in {
             "$mod, mouse_down, workspace, -1"
             "$mod, F1, exec, ${lib.getExe gamemode}"
             "$mod+Shift, space, togglefloating"
-            "$mod+Alt, l, exec, caelestia shell lock lock"
+            "$mod+Alt, l, exec, swaylock"
             "$mod, t, exec, notify-time"
             "$mod+Shift, v, exec, notify-volume"
             "$mod, b, exec, notify-battery"
@@ -332,8 +332,7 @@ in {
             "$mod, n, exec, dm-notes"
             "$mod+Shift, n, exec, $term -e notes"
             "$mod+Shift, Q, exec, hyprctl kill"
-            "$mod, d, exec, caelestia shell drawers toggle launcher"
-            "$mod, c, exec, caelestia shell drawers toggle sidebar"
+            "$mod, d, exec, $(tofi-run)"
             "$mod, o, exec, dm-hub"
             "$mod+shift, semicolon, exec, dm-expand"
             "$mod, minus, exec, wtype -k emdash"
@@ -394,32 +393,31 @@ in {
               10)
           );
         plugin = {
-          # hyprtrails = {
-          #   color = "$primary";
-          # };
+          hyprtrails = {
+            color = "$primary";
+          };
           split-monitor-workspaces = {
             count = 10;
             enable_persistent_workspaces = false;
           };
-          # hycov = {
-          #   enable_hotarea = 0;
-          # };
           hyprscrolling = {
             focus_fit_method = 1;
           };
         };
         exec-once = [
           "iio-hyprland"
-          # "nextcloud"
           "wl-paste --type text --watch cliphist store &"
           "wl-paste --type image --watch cliphist store &"
           "batsignal &"
           "swayosd-server"
-          "caelestia pip -d"
-          "caelestia shell -d"
           "/usr/lib/polkit-kde-authentication-agent-1"
-          # "swww-daemon &"
+          "swww-daemon &"
           "nm-applet &"
+          "swaync &"
+          "protonvpn-app &"
+          "darkman run &"
+          "kanshi &"
+          "kanshi &"
         ];
       };
       plugins = [
@@ -428,7 +426,6 @@ in {
         inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
         # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprtrails
         inputs.split-monitor-workspaces.packages.${pkgs.stdenv.hostPlatform.system}.split-monitor-workspaces
-        # inputs.hycov.packages.${pkgs.stdenv.hostPlatform.system}.hycov
       ];
     };
   };
