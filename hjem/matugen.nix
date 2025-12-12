@@ -65,6 +65,10 @@
           input_path = ./templates/tauon.ttheme;
           output_path = "~/.local/share/TauonMusicBox/theme/matugen.ttheme";
         };
+        tofi = {
+          input_path = ./templates/tofi;
+          output_path = "~/.config/tofi/matugen";
+        };
       };
     };
   };
