@@ -108,7 +108,7 @@ let
       ];
       text = ''
         case "$(printf "a selected area\\nfull screen\\na selected area (copy)\\nfull screen (copy)" |\
-          wmenu -ip "Screenshot which area?")" in
+          tofi --p "Screenshot which area?")" in
             "a selected area") wayshot -s "$(slurp -f '%x %y %w %h')" -f\
               ~/Pictures/wayshot/sel-area-"$(date '+%y%m%d-%H%M-%S').png" ;;
             "full screen") wayshot -f ~/Pictures/wayshot/pic-full-"$(date '+%y%m%d-%H%M-%S').png" ;;
@@ -129,7 +129,7 @@ let
                   mode="$1"
                 else
                   mode="$(printf "region\\n\\nall" |\
-                        wmenu -ip "Screenshot which area?")"
+                        wmenu --p "Screenshot which area?")"
                 fi
 
                 case $mode in

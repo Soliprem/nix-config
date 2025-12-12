@@ -5,6 +5,7 @@
 }: {
   imports = [
     inputs.hjem.nixosModules.default
+    ./tofi.nix
     ./caelestia.nix
     ./darkman.nix
     ./fastfetch.nix

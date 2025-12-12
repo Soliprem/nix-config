@@ -155,7 +155,7 @@
       # Terminal, Launcher, Browser
       bind=SUPER,Return,spawn,ghostty
       bind=SUPER,w,spawn,zen
-      bind=SUPER,d,spawn,wmenu-run
+      bind=SUPER,d,spawn,tofi-run
       bind=SUPER+SHIFT,d,spawn,fuzzel
 
       # Window Management
@@ -169,7 +169,7 @@
       bind=SUPER+SHIFT,period,tagmon,right,0
 
       # Application/Script Binds
-      bind=NONE,XF86PowerOff,spawn,wmenu-run
+      bind=NONE,XF86PowerOff,spawn,tofi-run
       bind=SUPER,V,spawn, clipmenu
       bind=SUPER,c,spawn,swaync-client -t
       bind=SUPER,E,spawn,nautilus --new-window

@@ -1,0 +1,10 @@
+background-color = {{colors.surface.default.hex}}
+text-color = {{colors.on_surface.default.hex}}
+input-color = {{colors.on_surface.default.hex}}
+prompt-color = {{colors.primary.default.hex}}
+placeholder-color = {{colors.on_surface_variant.default.hex}}
+selection-background = {{colors.primary.default.hex}}
+selection-color = {{colors.on_primary.default.hex}}
+default-result-color = {{colors.primary.default.hex}}
+# Note: 'tertiary' or 'inverse_primary' are also good options here for contrast
+selection-match-color = {{colors.tertiary_container.default.hex}}

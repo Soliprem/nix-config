@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    tofi
     openai-whisper
     batsignal
     nushell
