@@ -1,5 +1,5 @@
 _: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/tofi/config".text = ''
       include = matugen
       anchor = top

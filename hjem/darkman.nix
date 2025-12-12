@@ -21,7 +21,7 @@ let
   };
 in
 {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/darkman/config.yml".source = pkgs.writers.writeYAML "config.yml" {
       lat = 41.9;
       lng = 12.5;

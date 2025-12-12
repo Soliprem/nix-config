@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/ghostty/config".text = ''
       command = ${pkgs.nushell}/bin/nu
       window-decoration = false

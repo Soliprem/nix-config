@@ -1,5 +1,5 @@
 _: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/gtk-3.0/settings.ini".text = ''
       [Settings]
       gtk-cursor-theme-name=Bibata-Modern-Ice

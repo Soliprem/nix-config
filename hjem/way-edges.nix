@@ -1,5 +1,5 @@
 _: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/way-edges/config.jsonc".text = ''
       {
         // "$schema": "https://raw.githubusercontent.com/way-edges/way-edges/master/config/config.schema.json",

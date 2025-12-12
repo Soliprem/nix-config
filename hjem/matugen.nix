@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/matugen/config.toml".source = pkgs.writers.writeTOML "config.toml" {
       config = {
         wallpaper = {

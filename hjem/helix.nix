@@ -1,5 +1,5 @@
 _: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/helix/config.toml".text = ''
       theme = "tokyonight"
 

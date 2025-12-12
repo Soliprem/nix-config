@@ -1,5 +1,5 @@
 _: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/fastfetch/config.jsonc".text = ''
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",

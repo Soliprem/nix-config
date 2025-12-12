@@ -1,5 +1,5 @@
 _: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/niri/config.kdl".text = ''
       // Input device configuration.
       // Find the full list of options on the wiki:

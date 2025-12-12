@@ -1,5 +1,5 @@
 _: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/hypr/hypridle.conf".text = ''
       general {
         after_sleep_cmd=hyprctl dispatch dpms on

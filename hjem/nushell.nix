@@ -1,5 +1,5 @@
 _: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/nushell/config.nu".text = ''
       $env.config = {
           show_banner: false

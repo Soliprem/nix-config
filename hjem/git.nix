@@ -1,5 +1,5 @@
 {lib, ...}: {
-  hjem.users.soliprem.files = {
+  files = {
     ".gitconfig".text = lib.generators.toGitINI {
       user = {
         email = "franci.solidoro@gmail.com";
