@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ../shared
+    ../../hjem/desktop.nix
     ../../system/modules/ollamaRocm.nix
   ];
 
