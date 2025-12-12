@@ -8,17 +8,18 @@
   } @ inputs: let
     inherit (self) outputs;
     pkgs = nixpkgs.legacyPackages.${"x86_64-linux"};
+    configRoot = ./.;
   in {
     templates = import ./flake-templates;
     nixosConfigurations = {
       nixos-laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs configRoot;};
         modules = [
           ./hosts/laptop/configuration.nix
         ];
       };
       nixos-pc = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs configRoot;};
         modules = [
           ./hosts/pc/configuration.nix
         ];

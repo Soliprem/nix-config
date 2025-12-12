@@ -1,7 +1,6 @@
 {inputs, ...}: {
   imports = [
     inputs.mango.nixosModules.mango
-    ./printing.nix
     ./scripts.nix
     ./modules
     ./nixpkgs.nix
