@@ -13,10 +13,13 @@ config, and not a configuration framework, so take things with a grain of salt.
 - **Dotfiles**: Managed with Hjem
 - **Secrets**: Encrypted with agenix (WIP)
 
+## Gallery
 <details><summary>Gallery</summary>
+
 ![Screenshot](assets/screenshots/screenshot-mango.png)
 ![Screenshot](assets/screenshots/screenshot-mango2.png)
 ![Screenshot](assets/screenshots/screenshot-mango3.png)
+
 </details>
 
 ## Quick Start
