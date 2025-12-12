@@ -7,6 +7,7 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    pkgs = nixpkgs.legacyPackages.${"x86_64-linux"};
   in {
     templates = import ./flake-templates;
     nixosConfigurations = {
@@ -22,6 +23,23 @@
           ./hosts/pc/configuration.nix
         ];
       };
+    };
+
+    packages.${pkgs.stdenv.hostPlatform.system} = {
+      nvf =
+        (inputs.nvf.lib.neovimConfiguration {
+          inherit pkgs;
+          modules = [
+            ./export/nvf.nix
+          ];
+        }).neovim;
+      nvf-minimal =
+        (inputs.nvf.lib.neovimConfiguration {
+          inherit pkgs;
+          modules = [
+            ./export/nvf-minimal.nix
+          ];
+        }).neovim;
     };
   };
 
@@ -82,8 +100,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvf-soli.url = "github:soliprem/nvf-soli/";
-    # nvf.url = "github:notashelf/nvf/v0.8";
+    # nvf-soli.url = "github:soliprem/nvf-soli/";
+    nvf.url = "github:notashelf/nvf/";
     # nvf.url = "path:/home/soliprem/.local/src/nvf-maint/";
     hjem = {
       url = "github:feel-co/hjem";
