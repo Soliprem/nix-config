@@ -1015,11 +1015,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1765540737,
-        "narHash": "sha256-A+LwQiYd9GY2zQpz+wyW/NkLwe8+6Zyw5q68cNnPj1A=",
+        "lastModified": 1765542761,
+        "narHash": "sha256-1UAgw8oABsfB3LjXSspwvOpitZipUCKTEJzs91ga1k4=",
         "owner": "soliprem",
         "repo": "nvf-soli",
-        "rev": "97b93b66aa6e1cabcba22bcf948370661d3040e0",
+        "rev": "42f7190098001f1eb14856a55a052e59ae0f880f",
         "type": "github"
       },
       "original": {
