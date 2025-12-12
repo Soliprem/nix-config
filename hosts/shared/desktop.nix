@@ -11,7 +11,6 @@
     "matugen.nix"
     "swaylock.nix"
     "darkman.nix"
-    "caelestia.nix"
   ];
 
   imports = map (file: configRoot + "/system/modules/${file}") [

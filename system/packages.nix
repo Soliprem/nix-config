@@ -62,9 +62,6 @@
     nwg-drawer
     swaynotificationcenter
     xwayland-satellite
-    inputs.ignis.packages.${system}.ignis
-    inputs.caelestia.packages.${system}.default
-    inputs.caelestia-cli.packages.${system}.default
     comma
     inkscape
     anki-bin
@@ -81,7 +78,6 @@
     qutebrowser
     maptool
     anytype
-    # inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     zed-editor
     kdePackages.qtmultimedia
     kdePackages.plasmatube
@@ -93,7 +89,6 @@
     protonvpn-gui
     ffmpeg
     chromium
-    # inputs.nvf-soli.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.self.packages.${pkgs.system}.nvf
     libsForQt5.qt5ct
     kdePackages.qt6ct
@@ -111,7 +106,6 @@
     zoxide
     gammastep
     iio-hyprland
-    inputs.astal.packages.${pkgs.stdenv.hostPlatform.system}.io
     matugen
     git
     wget
