@@ -3,7 +3,6 @@ _: {
     ./hypr.nix
     ./ghostty.nix
     ./gtk.nix
-    ./matugen.nix
     ./qt.nix
     ./tofi.nix
     ./kanshi.nix
@@ -12,6 +11,5 @@ _: {
     ./swaylock.nix
     ./darkman.nix
     ./caelestia.nix
-    ./ghostty.nix
   ];
 }
