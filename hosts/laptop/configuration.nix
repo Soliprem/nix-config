@@ -4,6 +4,7 @@ _: {
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../shared
+    ../../hjem/desktop.nix
     ../../system/modules/ollama.nix
   ];
 
