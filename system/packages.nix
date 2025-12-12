@@ -2,8 +2,10 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   environment.systemPackages = with pkgs; [
+    imv
     tofi
     openai-whisper
     batsignal
@@ -91,7 +93,8 @@
     protonvpn-gui
     ffmpeg
     chromium
-    inputs.nvf-soli.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # inputs.nvf-soli.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.self.packages.${pkgs.system}.nvf
     libsForQt5.qt5ct
     kdePackages.qt6ct
     gimp
@@ -272,7 +275,7 @@
         XKB_DEFAULT_LAYOUT = "eu";
         XKB_DEFAULT_OPTIONS = "caps:swapescape";
       };
-      args = ["--force-grab-cursor"];
+      args = [ "--force-grab-cursor" ];
     };
   };
 }

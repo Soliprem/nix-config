@@ -281,7 +281,6 @@
     "flake-parts_2": {
       "inputs": {
         "nixpkgs-lib": [
-          "nvf-soli",
           "nvf",
           "nixpkgs"
         ]
@@ -1005,29 +1004,6 @@
         "type": "github"
       }
     },
-    "nvf-soli": {
-      "inputs": {
-        "nixpkgs": [
-          "nvf-soli",
-          "nvf",
-          "nixpkgs"
-        ],
-        "nvf": "nvf"
-      },
-      "locked": {
-        "lastModified": 1765542761,
-        "narHash": "sha256-1UAgw8oABsfB3LjXSspwvOpitZipUCKTEJzs91ga1k4=",
-        "owner": "soliprem",
-        "repo": "nvf-soli",
-        "rev": "42f7190098001f1eb14856a55a052e59ae0f880f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "soliprem",
-        "repo": "nvf-soli",
-        "type": "github"
-      }
-    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -1131,7 +1107,7 @@
         "matugen": "matugen",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs_2",
-        "nvf-soli": "nvf-soli",
+        "nvf": "nvf",
         "quickshell": "quickshell_3",
         "spicetify-nix": "spicetify-nix",
         "split-monitor-workspaces": "split-monitor-workspaces",
