@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/mango/config.conf".text = ''
       # More option see https://github.com/DreamMaoMao/mango/wiki/
 

@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/caelestia/shell.json".source = pkgs.writers.writeJSON "shell.json" {
       general.apps = {
         terminal = "ghostty";

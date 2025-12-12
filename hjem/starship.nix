@@ -1,5 +1,5 @@
 _: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/starship.toml".text = ''
       # version: 1.0.0
 

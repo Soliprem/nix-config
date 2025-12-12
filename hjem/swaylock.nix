@@ -1,5 +1,5 @@
 _: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/swaylock/config".text = ''
       daemonize
       ignore-empty-password

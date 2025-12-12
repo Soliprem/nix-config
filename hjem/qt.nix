@@ -1,5 +1,5 @@
 _: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/qt5ct/qt5ct.conf".text = ''
       [Appearance]
       color_scheme_path=~/.config/qt5ct/colors/matugen.conf

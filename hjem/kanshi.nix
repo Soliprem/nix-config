@@ -1,5 +1,5 @@
 _: {
-  hjem.users.soliprem.files = {
+  files = {
     ".config/kanshi/config".text = ''
       # Profile 1: Desk (AOC Main + HDMI Side)
       # HDMI offset 2560 implies it sits right of the AOC (2560px wide)
