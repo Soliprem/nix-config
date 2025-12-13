@@ -1243,11 +1243,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1765652599,
-        "narHash": "sha256-5U5qgJL0k9ovVBVaIfUazXh1tZ3X268a9tSOzzBk2Sc=",
+        "lastModified": 1765658203,
+        "narHash": "sha256-tCLICtuXX+BF23ycMM2FLINNbef5/K3E28Y2MSB93ZQ=",
         "owner": "soliprem",
         "repo": "thumbpick",
-        "rev": "7b42816c7d5fc7be22bc24552dca7957c5de1bee",
+        "rev": "ebf10d94aaaa8b8b5032f00cb84e8c8c27d4ddcd",
         "type": "github"
       },
       "original": {
