@@ -38,7 +38,7 @@ let
         ];
       }
       /* nu */ ''
-        let path = thumbpick | parse "path: {path}" | get path
+        let path = thumbpick ~/Pictures/wallpapers | parse "path: {path}" | get path
         wallpaper-to-rice-nix $path
       ''
     )
