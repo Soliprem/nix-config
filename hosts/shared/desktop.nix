@@ -2,6 +2,7 @@
 {
   hjem.users.soliprem.imports = map (file: configRoot + "/hjem/${file}") [
     "hypr.nix"
+    "niri.nix"
     "ghostty.nix"
     "gtk.nix"
     "qt.nix"
