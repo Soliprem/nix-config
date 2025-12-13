@@ -147,7 +147,7 @@ in {
 
           disable_hyprland_logo = true;
           force_default_wallpaper = 0;
-          new_window_takes_over_fullscreen = 2;
+          # new_window_takes_over_fullscreen = 2;
 
           enable_swallow = true;
           swallow_regex = "^(com.mitchellh.ghostty|kitty|foot)$";
@@ -163,36 +163,36 @@ in {
 
         # Window and layer rules
         layerrule = [
-          "noanim, selection"
+          # "noanim, selection"
         ];
 
         windowrule = [
           #"opacity 0.89 override 0.89 override, .* # Applies transparency to EVERY WINDOW"
-          "float,title:Julia"
-          "float,title:org.kde.polkit-kde-authentication-agent-1"
-          "float,title:^(Picture-in-Picture)$"
-          "move 1275 45,title:^(Picture-in-Picture)$"
+          "match:title Julia, float on"
+          "match:title org.kde.polkit-kde-authentication-agent-1, float on"
+          "match:title ^(Picture-in-Picture)$, float on"
+          "move 1275 45,match:title ^(Picture-in-Picture)$"
           # --------- FOR GIMP ---------
-          "float,title:^(flame)$"
-          "move 700 250,title:^(flame)$"
-          "float,title:^(script-fu)$"
-          "move 700 250,title:^(script-fu)$"
-          "float,title:^(org.gtk_rs.HelloWorld2)$"
+          "match:title ^(flame)$, float on"
+          "move 700 250,match:title ^(flame)$"
+          "match:title ^(script-fu)$, float on"
+          "move 700 250,match:title ^(script-fu)$"
+          "match:title ^(org.gtk_rs.HelloWorld2)$, float on"
 
           # Dialogs
-          "float,title:^(Open File)(.*)$"
-          "float,title:^(Select a File)(.*)$"
-          "float,title:^(Choose wallpaper)(.*)$"
-          "float,title:^(Open Folder)(.*)$"
-          "float,title:^(Save As)(.*)$"
-          "float,title:^(Library)(.*)$ "
+          "match:title ^(Open File)(.*)$, float on"
+          "match:title ^(Select a File)(.*)$, float on"
+          "match:title ^(Choose wallpaper)(.*)$, float on"
+          "match:title ^(Open Folder)(.*)$, float on"
+          "match:title ^(Save As)(.*)$, float on"
+          "match:title ^(Library)(.*)$ , float on"
 
-          "rounding 20, onworkspace:1"
-          "opacity 1 override 1 override, class: ^(mpv|steam_app)(.*)$"
-          "opacity 1 override 1 override, title: ^(.*.)(YouTube|Invidious)(.*)$"
-          "fullscreenstate -1 2,class:^(firefox)$, title:^((?!Enter name of file to save to…|Save))"
-          "workspace special,title:^(Firefox — Sharing Indicator)$"
-          "workspace special,title:^(zen — Sharing Indicator)$"
+          "rounding 20, match:workspace 1"
+          "opacity 1 override 1 override, match:class  ^(mpv|steam_app)(.*)$"
+          "opacity 1 override 1 override, match:title  ^(.*.)(YouTube|Invidious)(.*)$"
+          "fullscreen_state -1 2, match:class ^(firefox)$, match:title ^((?!Enter name of file to save to…|Save))"
+          "workspace special,match:title ^(Firefox — Sharing Indicator)$"
+          "workspace special,match:title ^(zen — Sharing Indicator)$"
         ];
         # Keybinds
 
@@ -416,7 +416,6 @@ in {
           "swaync &"
           "protonvpn-app &"
           "darkman run &"
-          "kanshi &"
           "kanshi &"
         ];
       };
