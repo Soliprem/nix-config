@@ -5,6 +5,7 @@
 }:
 {
   environment.systemPackages = with pkgs; [
+    nix-your-shell
     imv
     tofi
     openai-whisper

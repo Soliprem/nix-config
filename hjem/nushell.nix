@@ -76,6 +76,7 @@ _: {
       source ~/.cache/carapace/init.nu
 
       source ~/.cache/atuin/init.nu
+      source ~/.cache/nix_your_shell/nix-your-shell.nu
 
       alias D = cd $'($env.HOME)Downloads'; ls -a
       alias sl = sll
@@ -133,6 +134,12 @@ _: {
     '';
 
     ".config/nushell/env.nu".text = ''
+      let nix_your_shell_cache = $'($env.HOME)/.cache/nix_your_shell'
+      if not ($nix_your_shell_cache | path exists) {
+        mkdir $nix_your_shell_cache
+      }
+      nix-your-shell nu | save -f $'($nix_your_shell_cache)/nix-your-shell.nu'
+
       let starship_cache = $'($env.HOME)/.cache/starship'
       if not ($starship_cache | path exists) {
         mkdir $starship_cache
