@@ -86,7 +86,7 @@ _: {
           open-floating true
       }
       window-rule {
-          match app-id="zen$" title="^(Picture-in-Picture|YouTube|Invidious|zen — Sharing Indicator|?!Enter name of file to save to…|Save)(.*)$"
+          match app-id="zen$" title=r#"^(Picture-in-Picture|YouTube|Invidious|zen — Sharing Indicator|Enter name of file to save to…|Save)(.*)$"#
           open-floating true
       }
 
