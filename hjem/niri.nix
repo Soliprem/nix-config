@@ -156,8 +156,8 @@ _: {
           Mod+Ctrl+Home { move-column-to-first; }
           Mod+Ctrl+End  { move-column-to-last; }
 
-          Mod+Shift+Comma  { focus-monitor-left; }
-          Mod+Shift+Period { focus-monitor-right; }
+          Mod+Shift+Comma  { focus-monitor-previous; }
+          Mod+Shift+Period { focus-monitor-next; }
           Mod+Shift+H     { focus-monitor-left; }
           Mod+Shift+J     { focus-monitor-down; }
           Mod+Shift+K     { focus-monitor-up; }
