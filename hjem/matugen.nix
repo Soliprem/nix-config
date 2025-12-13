@@ -59,7 +59,7 @@
         };
         niri = {
           input_path = ./templates/niri.kdl;
-          output_path = "~/.config/niri/config.kdl";
+          output_path = "~/.config/niri/colors.kdl";
         };
         tauon = {
           input_path = ./templates/tauon.ttheme;
