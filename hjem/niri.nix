@@ -228,8 +228,13 @@ _: {
       spawn-at-startup "wl-paste --type image --watch cliphist store"
       spawn-at-startup "xwayland-satellite"
       spawn-at-startup "swww-daemon"
+      spawn-at-startup "batsignal"
+      spawn-at-startup "darkman run"
       spawn-at-startup "swaync"
       spawn-at-startup "nm-applet"
+      spawn-at-startup "kanshi"
+      spawn-at-startup "protonvpn-app"
+      spawn-at-startup "swayosd-server"
 
       // Uncomment this line to ask the clients to omit their client-side decorations if possible.
       // If the client will specifically ask for CSD, the request will be honored.

@@ -410,7 +410,6 @@
       darkman run &
       swaync &
       nm-applet &
-      swaync &
       kanshi &
       protonvpn-app &
       swayosd-server &
