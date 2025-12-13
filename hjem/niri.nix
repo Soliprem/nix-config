@@ -308,9 +308,9 @@ _: {
           // Suggested binds for running programs: terminal, app launcher, screen locker.
           Mod+Return { spawn "foot"; }
           Mod+W { spawn "zen"; }
-          Mod+D { spawn "fuzzel-run"; }
+          Mod+D { spawn "$(tofi-run)"; }
           Mod+Space { spawn "nwg-drawer"; }
-          Mod+Shift+D { spawn "fuzzel"; }
+          Mod+Shift+D { spawn "$(tofi-drun)"; }
           Super+Alt+L { spawn "swaylock"; }
           Super+Shift+C { spawn "swaync-client" "-t"; }
           Super+V {spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
@@ -321,10 +321,12 @@ _: {
 
           // Example volume keys mappings for PipeWire & WirePlumber.
           // The allow-when-locked=true property makes them work even when the session is locked.
-          XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-          XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-          XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-          XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+          XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
+          XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
+          XF86AudioMute        allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+          XF86AudioMicMute     allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+
+          Caps_Lock { spawn "sleep" "0.1" "&&" "swayosd-client" "--caps-lock" }
 
           Mod+Q { close-window; }
           Mod+Shift+Space { toggle-window-floating; }
@@ -435,8 +437,8 @@ _: {
           // These binds are also affected by touchpad's natural-scroll, so these
           // example binds are "inverted", since we have natural-scroll enabled for
           // touchpads by default.
-          // Mod+TouchpadScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
-          // Mod+TouchpadScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
+          // Mod+TouchpadScrollDown { spawn "swayosd-client" "--output-volume" "raise"; }
+          // Mod+TouchpadScrollUp   { spawn "swayosd-client" "--output-volume" "lower"; }
 
           // You can refer to workspaces by index. However, keep in mind that
           // niri is a dynamic workspace system, so these commands are kind of
