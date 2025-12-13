@@ -5,6 +5,7 @@
 }:
 {
   environment.systemPackages = with pkgs; [
+    lutgen-studio
     nix-your-shell
     imv
     tofi
@@ -90,7 +91,8 @@
     protonvpn-gui
     ffmpeg
     chromium
-    inputs.self.packages.${pkgs.system}.nvf
+    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvf
+    inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
     libsForQt5.qt5ct
     kdePackages.qt6ct
     gimp
