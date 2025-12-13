@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -12,7 +13,7 @@ let
           "PATH"
           ":"
           "${lib.makeBinPath [
-            pkgs.waypaper
+            inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
             pkgs.swww
           ]}"
         ];
@@ -31,14 +32,13 @@ let
           "PATH"
           ":"
           "${lib.makeBinPath [
-            pkgs.waypaper
+            inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
             pkgs.swww
           ]}"
         ];
       }
       /* nu */ ''
-        let path_list = waypaper | parse "Selected file: {path}" | get path
-        let path = $path_list | last
+        let path = thumbpick | parse "path: {path}" | get path
         wallpaper-to-rice-nix $path
       ''
     )
