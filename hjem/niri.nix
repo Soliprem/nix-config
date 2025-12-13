@@ -98,13 +98,13 @@ _: {
 
       output "HDMI-A-1" {
         mode "1920x1080@120"
-        position x=0 y=0
+        position x=2560 y=0
       }
 
-      output "AOC Q27G3XMN 1APQ7JA005710" {
+      output "PNP(AOC) Q27G3XMN 1APQ7JA005710" {
         focus-at-startup
         mode "2560x1440@180.002"
-        position x=1920 y=0
+        position x=0 y=0
       }
 
       // Settings that influence how windows are positioned and sized.
@@ -265,16 +265,17 @@ _: {
           Mod+Shift+Slash { show-hotkey-overlay; }
 
           // Suggested binds for running programs: terminal, app launcher, screen locker.
-          Mod+Return { spawn "foot"; }
+          Mod+Return { spawn "ghostty"; }
           Mod+Minus { spawn "wtype" "-k" "emdash"; }
           Mod+W { spawn "zen"; }
           Mod+E { spawn "nautilus"; }
-          Mod+B { spawn "overskride"; }
-          Mod+D { spawn "$(tofi-run)"; }
-          Mod+Shift+D { spawn "$(tofi-drun)"; }
+          Mod+Shift+B { spawn "overskride"; }
+          Mod+Ctrl+T { spawn "bash" "-c" "overskride"; }
+          Mod+D { spawn "bash" "-c" "$(tofi-run)"; }
+          Mod+Shift+D { spawn "bash" "-c" "$(tofi-drun)"; }
           Super+Alt+L { spawn "swaylock"; }
           Super+Shift+C { spawn "swaync-client" "-t"; }
-          Super+V {spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
+          Super+V {spawn "bash" "-c" "pkill tofi || cliphist list | tofi | cliphist decode | wl-copy"; }
 
           // You can also use a shell. Do this if you need pipes, multiple commands, etc.
           // Note: the entire command goes as a single argument in the end.
