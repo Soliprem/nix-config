@@ -83,7 +83,7 @@ Set wallpaper and generate theme:
 ```bash
 nixrice  # Interactive picker
 # or
-wallpaper-to-rice-nix /path/to/wallpaper.png
+nixrice /path/to/wallpaper.png
 ```
 
 ## Mango Shortcuts

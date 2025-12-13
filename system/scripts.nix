@@ -25,24 +25,6 @@ let
       ''
     )
 
-    (pkgs.writers.writeNuBin "nixrice"
-      {
-        makeWrapperArgs = [
-          "--prefix"
-          "PATH"
-          ":"
-          "${lib.makeBinPath [
-            inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
-            pkgs.swww
-          ]}"
-        ];
-      }
-      /* nu */ ''
-        let path = thumbpick ~/Pictures/wallpapers
-        wallpaper-to-rice-nix $path
-      ''
-    )
-
     (pkgs.writers.writeNuBin "clear-trash"
       {
       }
@@ -73,7 +55,7 @@ let
     )
 
     (pkgs.writeShellApplication {
-      name = "wallpaper-to-rice-nix";
+      name = "nixrice";
       runtimeInputs = with pkgs; [
         yad
         libnotify
@@ -87,7 +69,7 @@ let
                 cp "$wallpaper" ~/.config/nix-config/assets/bg
         else
         	cd "$HOME"/Pictures/wallpapers || return 1
-        	wallpaper="$(yad --width 1200 --height 800 --file --add-preview --large-preview --title='Choose wallpaper')"
+        	wallpaper="$(thumbpick ~/Pictures/wallpapers)"
         fi
 
         if [[ $wallpaper ]]; then
