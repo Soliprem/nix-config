@@ -134,8 +134,8 @@ _: {
           XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
           XF86AudioMute        allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
           XF86AudioMicMute     allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
-          XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "12.75+"; }
-          XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "12.75-"; }
+          XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
+          XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
           Caps_Lock { spawn "sleep" "0.1" "&&" "swayosd-client" "--caps-lock"; }
 
           Mod+Q { close-window; }
