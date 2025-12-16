@@ -115,6 +115,7 @@ _: {
 
           Mod+Shift+Slash { show-hotkey-overlay; }
 
+          Mod+Control+T { spawn "ghostty" "-e" "tray-tui"; }
           Mod+Return { spawn "ghostty"; }
           Mod+Minus { spawn "wtype" "-k" "emdash"; }
           Mod+W { spawn "zen"; }
@@ -126,6 +127,9 @@ _: {
           Super+Alt+L { spawn "swaylock"; }
           Super+Shift+C { spawn "swaync-client" "-t"; }
           Super+V {spawn "bash" "-c" "pkill tofi || cliphist list | tofi | cliphist decode | wl-copy"; }
+          Mod+T     { spawn "notify-volume"; }
+          Mod+W     { spawn "ghostty" "-e" "wiki-tui"}
+          Mod+B     { spawn "notify-battery"; }
 
           XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
           XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
@@ -144,7 +148,7 @@ _: {
           Mod+K     { focus-window-up; }
           Mod+L     { focus-column-right; }
 
-          Mod+T     { toggle-column-tabbed-display; }
+          Mod+Shift+T     { toggle-column-tabbed-display; }
 
           Mod+Ctrl+H     { move-column-left; }
           Mod+Ctrl+J     { move-window-down; }
