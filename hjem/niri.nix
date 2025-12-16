@@ -121,14 +121,13 @@ _: {
           Mod+W { spawn "zen"; }
           Mod+E { spawn "nautilus"; }
           Mod+Shift+B { spawn "overskride"; }
-          Mod+Ctrl+T { spawn "bash" "-c overskride"; }
           Mod+D { spawn "bash" "-c" "$(tofi-run)"; }
           Mod+Shift+D { spawn "bash" "-c" "$(tofi-drun)"; }
           Super+Alt+L { spawn "swaylock"; }
           Super+Shift+C { spawn "swaync-client" "-t"; }
           Super+V {spawn "bash" "-c" "pkill tofi || cliphist list | tofi | cliphist decode | wl-copy"; }
           Mod+T     { spawn "notify-volume"; }
-          Mod+W     { spawn "ghostty" "-e" "wiki-tui"; }
+          Mod+Control+W     { spawn "ghostty" "-e" "wiki-tui"; }
           Mod+B     { spawn "notify-battery"; }
 
           XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
