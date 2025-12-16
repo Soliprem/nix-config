@@ -134,7 +134,7 @@
     nexusmods-app-unfree
     # limo
     mangohud
-    inputs.ghostty.packages.${system}.default
+    ghostty
     foot
     # fluffychat
     bitwarden-desktop
