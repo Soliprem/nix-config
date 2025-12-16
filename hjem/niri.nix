@@ -128,7 +128,7 @@ _: {
           Super+Shift+C { spawn "swaync-client" "-t"; }
           Super+V {spawn "bash" "-c" "pkill tofi || cliphist list | tofi | cliphist decode | wl-copy"; }
           Mod+T     { spawn "notify-volume"; }
-          Mod+W     { spawn "ghostty" "-e" "wiki-tui"}
+          Mod+W     { spawn "ghostty" "-e" "wiki-tui"; }
           Mod+B     { spawn "notify-battery"; }
 
           XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
