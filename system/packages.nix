@@ -5,6 +5,7 @@
 }:
 {
   environment.systemPackages = with pkgs; [
+    tor-browser
     lutgen-studio
     nix-your-shell
     imv
@@ -122,6 +123,8 @@
     musescore
     libnotify
     youtube-music
+    youtube-tui
+    gtk-pipe-viewer
     godot_4
     obs-studio
     lazygit
