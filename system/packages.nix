@@ -5,6 +5,7 @@
 }:
 {
   environment.systemPackages = with pkgs; [
+    wiki-tui
     tor-browser
     lutgen-studio
     nix-your-shell
