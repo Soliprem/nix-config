@@ -1,6 +1,5 @@
-{pkgs, ...}: {
+_: {
   services.ollama = {
     enable = true;
   };
-  virtualisation.docker.enable = true;
 }
