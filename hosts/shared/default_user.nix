@@ -6,7 +6,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "docker"
+      "podman"
     ];
     shell = pkgs.dash;
   };
