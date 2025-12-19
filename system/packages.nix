@@ -5,6 +5,8 @@
 }:
 {
   environment.systemPackages = with pkgs; [
+    distrobox
+    distrobox-tui
     wiki-tui
     tor-browser
     lutgen-studio
