@@ -169,6 +169,12 @@ let
       '';
     })
     (pkgs.writeShellApplication {
+      name = "swappy-clip";
+      text = ''
+        wl-paste | swappy -f -
+      '';
+    })
+    (pkgs.writeShellApplication {
       name = "sll";
       runtimeInputs = with pkgs; [
         mpv
