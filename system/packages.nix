@@ -5,6 +5,7 @@
 }:
 {
   environment.systemPackages = with pkgs; [
+    scarab
     lumafly
     distrobox
     distrobox-tui
