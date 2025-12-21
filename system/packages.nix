@@ -5,6 +5,7 @@
 }:
 {
   environment.systemPackages = with pkgs; [
+    lumafly
     distrobox
     distrobox-tui
     wiki-tui
