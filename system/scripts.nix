@@ -165,7 +165,7 @@ let
     (pkgs.writeShellApplication {
       name = "clipmenu";
       text = ''
-        pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
+        pkill tofi || cliphist list | tofi | cliphist decode | wl-copy
       '';
     })
     (pkgs.writeShellApplication {
