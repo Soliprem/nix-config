@@ -124,7 +124,7 @@ _: {
           Mod+Shift+D { spawn "bash" "-c" "$(tofi-drun)"; }
           Super+Alt+L { spawn "swaylock"; }
           Super+Shift+C { spawn "swaync-client" "-t"; }
-          Super+V {spawn "bash" "-c" "pkill tofi || cliphist list | tofi | cliphist decode | wl-copy"; }
+          Super+V {spawn "clipmenu"; }
           Mod+T     { spawn "notify-time"; }
           Mod+Control+W     { spawn "ghostty" "-e" "wiki-tui"; }
           Mod+B     { spawn "notify-battery"; }
