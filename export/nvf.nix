@@ -559,6 +559,20 @@
         desc = "Toggle Undotree";
       }
       {
+        key = "j";
+        action = "gj";
+        mode = ["n" "x" "v"];
+        silent = true;
+        desc = "Toggle Undotree";
+      }
+      {
+        key = "k";
+        action = "gk";
+        mode = ["n" "x" "v"];
+        silent = true;
+        desc = "Toggle Undotree";
+      }
+      {
         key = "<leader>lc";
         mode = "n";
         lua = true;
