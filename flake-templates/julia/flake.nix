@@ -17,6 +17,7 @@
         ];
         shellHook = ''
           export SHELL=${pkgs.nushell}/bin/nu
+          export JULIA_PROJECT="."
           exec nu
         '';
       };
