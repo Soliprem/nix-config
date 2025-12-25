@@ -1,5 +1,5 @@
 {
-    description = "devFlake for Julia";
+  description = "devFlake for Julia";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -23,4 +23,3 @@
     };
   };
 }
-
