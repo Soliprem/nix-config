@@ -12,4 +12,16 @@
         - Run `cargo init` to initialise your project
       '';
     };
+    julia = {
+      path = ./julia;
+      description = "Simple Julia Flake";
+      welcomeText = ''
+        # Julia Flake template
+        ## Features
+        - handles julia packages
+
+        ## TO-DO
+        - edit the required packages
+      '';
+    };
 }
