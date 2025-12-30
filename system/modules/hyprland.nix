@@ -434,8 +434,6 @@ in {
       };
       plugins = [
         # inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace
-        inputs.hyprgrass.packages.${pkgs.stdenv.hostPlatform.system}.default
-        inputs.hyprgrass.packages.${pkgs.stdenv.hostPlatform.system}.hyprgrass-pulse
         inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
         inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
         # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprtrails
