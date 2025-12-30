@@ -5,6 +5,7 @@ _: {
     ../shared
     ../shared/desktop.nix
     ../../system/modules/ollama.nix
+    ../../system/modules/iio-niri.nix
   ];
 
   networking.hostName = "nixos-laptop";
