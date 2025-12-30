@@ -213,12 +213,23 @@ in {
           sdr_min_luminance = 0.005;
           sdr_max_luminance = 250;
         };
+        "monitorv2[HDMI-A-1]" = {
+          mode = "1920x1080@120";
+          position = "2560x0";
+          scale = 1;
+        };
+        "monitorv2[eDP-1]" = {
+          mode = "1920x1200@60";
+          position = "0x0";
+          scale = 1;
+        };
+        "monitorv2[desc:Seiko Epson Corporation EPSON PJ 0x01010101]" = {
+          mode = "preferred";
+          position = "auto";
+          scale = 1.5;
+        };
 
         monitor = [
-          "HDMI-A-1, 1920x1080@120,2560x0,1"
-          # "desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180.0019999, 0x0,1,cm,auto"
-          "eDP-1, 1920x1200@60.0030,0x0,1"
-          "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1.5"
           ",preferred,auto,1"
         ];
         # render.cm_fs_passthrough = true;
@@ -248,7 +259,7 @@ in {
           border_size = 1;
 
           resize_on_border = true;
-          layout = "master";
+          layout = "scrolling";
 
           #focus_to_other_workspaces = true # ahhhh i still haven't properly implemented this
           allow_tearing = false; # some guy told me tearing might make things smoother idk
@@ -366,7 +377,7 @@ in {
             "$mod+Alt, F, fullscreenstate, -1 2"
 
             # Plugins
-            # "$mod+Shift, g, hyprexpo:expo, toggle"
+            "$mod+Shift, g, hyprexpo:expo, toggle"
             # "$mod, g, overview:toggle"
 
             # screenshots
@@ -410,7 +421,6 @@ in {
           "wl-paste --type image --watch cliphist store &"
           "batsignal &"
           "swayosd-server"
-          "/usr/lib/polkit-kde-authentication-agent-1"
           "swww-daemon &"
           "nm-applet &"
           "swaync &"
@@ -421,7 +431,7 @@ in {
       };
       plugins = [
         # inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace
-        # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+        inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
         inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
         # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprtrails
         inputs.split-monitor-workspaces.packages.${pkgs.stdenv.hostPlatform.system}.split-monitor-workspaces
