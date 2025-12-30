@@ -72,6 +72,7 @@ in {
       noto-fonts-cjk-sans
 
       # emojis
+      font-awesome
       noto-fonts-color-emoji
       twemoji-color-font
       openmoji-color
