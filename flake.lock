@@ -337,31 +337,6 @@
         "type": "github"
       }
     },
-    "hyprgrass": {
-      "inputs": {
-        "hyprland": [
-          "hyprland"
-        ],
-        "nixpkgs": [
-          "hyprgrass",
-          "hyprland",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1767096944,
-        "narHash": "sha256-pHOEbgyj7bGeyFYcAQFUyOMyOICfr9wyia2vSegCiZ4=",
-        "owner": "horriblename",
-        "repo": "hyprgrass",
-        "rev": "c7a813608ebb736cd7e98bf111a09be61f696d14",
-        "type": "github"
-      },
-      "original": {
-        "owner": "horriblename",
-        "repo": "hyprgrass",
-        "type": "github"
-      }
-    },
     "hyprland": {
       "inputs": {
         "aquamarine": "aquamarine",
@@ -927,7 +902,6 @@
         "Hyprspace": "Hyprspace",
         "agenix": "agenix",
         "hjem": "hjem",
-        "hyprgrass": "hyprgrass",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
         "mango": "mango",
