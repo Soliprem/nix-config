@@ -35,6 +35,7 @@ _: {
 
 
       alias D = cd $'($env.HOME)Downloads'; ls -a
+      alias nd = nix develop
       alias sl = sll
       alias fg = job unfreeze
       alias ,, = , (history | last | get command)
