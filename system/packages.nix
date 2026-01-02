@@ -127,7 +127,7 @@
     linearicons-free
     musescore
     libnotify
-    pear-desktop
+    youtube-music
     youtube-tui
     gtk-pipe-viewer
     godot_4
