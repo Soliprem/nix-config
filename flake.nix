@@ -1,51 +1,55 @@
 {
   description = "Soli's Nixos Config";
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    pkgs = nixpkgs.legacyPackages.${"x86_64-linux"};
-    configRoot = ./.;
-  in {
-    templates = import ./flake-templates;
-    nixosConfigurations = {
-      nixos-laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs configRoot;};
-        modules = [
-          ./hosts/laptop/configuration.nix
-        ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      pkgs = nixpkgs.legacyPackages.${"x86_64-linux"};
+      configRoot = ./.;
+    in
+    {
+      templates = import ./flake-templates;
+      nixosConfigurations = {
+        nixos-laptop = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs configRoot; };
+          modules = [
+            ./hosts/laptop/configuration.nix
+          ];
+        };
+        nixos-pc = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs configRoot; };
+          modules = [
+            ./hosts/pc/configuration.nix
+          ];
+        };
       };
-      nixos-pc = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs configRoot;};
-        modules = [
-          ./hosts/pc/configuration.nix
-        ];
-      };
-    };
 
-    packages.${pkgs.stdenv.hostPlatform.system} = {
-      nvf =
-        (inputs.nvf.lib.neovimConfiguration {
-          inherit pkgs;
-          modules = [
-            ./export/nvf.nix
-          ];
-        }).neovim;
-      nvf-minimal =
-        (inputs.nvf.lib.neovimConfiguration {
-          inherit pkgs;
-          modules = [
-            ./export/nvf-minimal.nix
-          ];
-        }).neovim;
+      packages.${pkgs.stdenv.hostPlatform.system} = {
+        nvf =
+          (inputs.nvf.lib.neovimConfiguration {
+            inherit pkgs;
+            modules = [
+              ./export/nvf.nix
+            ];
+          }).neovim;
+        nvf-minimal =
+          (inputs.nvf.lib.neovimConfiguration {
+            inherit pkgs;
+            modules = [
+              ./export/nvf-minimal.nix
+            ];
+          }).neovim;
+      };
     };
-  };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     thumbpick.url = "github:soliprem/thumbpick";
 
