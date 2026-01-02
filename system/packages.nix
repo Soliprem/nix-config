@@ -17,7 +17,6 @@
     imv
     tofi
     openai-whisper
-    batsignal
     nushell
     darkman
     swayosd
@@ -42,6 +41,7 @@
     tree-sitter-grammars.tree-sitter-typst
     typst
     tinymist
+    wayneko
     omnissa-horizon-client
     newsflash
     gdb
