@@ -213,6 +213,11 @@ in
     bind = $mod+Alt, l, exec, swaylock
     bind = , Print, exec, grimblast copy area
 
+    
+    bindm=$mod, mouse:272, movewindow
+    bindm=$mod, z, movewindow
+    bindm=$mod, mouse:273, resizewindow
+
     # Applications
     bind = $mod, Return, exec, $term
     bind = $mod, w, exec, $browser
