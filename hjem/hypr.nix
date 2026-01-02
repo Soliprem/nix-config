@@ -245,6 +245,13 @@ in
     bind = $mod+Shift,r,layoutmsg,colresize -conf
     bind = $mod+Shift,space,layoutmsg,promote
 
+    bind = $mod,h,layoutmsg,focus left
+    bind = $mod,l,layoutmsg,focus right
+    bind = $mod,k,layoutmsg,focus up
+    bind = $mod,j,layoutmsg,focus down
+    bind = $mod,equal,layoutmsg,colresize -0.02
+    bind = $mod SHIFT,equal,layoutmsg,colresize +0.02
+
 
     # Monitor Focus
     bind = $mod, Comma, focusmonitor, -1
