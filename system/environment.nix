@@ -51,7 +51,7 @@ _: {
       QT_QPA_PLATFORMTHEME = "qt6ct"; # Have QT use gtk2 theme.
       QT_QPA_PLATFORM = "wayland";
       MOZ_USE_XINPUT2 = "1"; # Mozilla smooth scrolling/touchpads.
-      AWT_TOOLKIT = "MToolkit wmname LG3D"; #May have to install wmname
+      AWT_TOOLKIT = "MToolkit wmname LG3D"; # May have to install wmname
       _JAVA_AWT_WM_NONREPARENTING = "1"; # Fix for Java applications
     };
     shellAliases = {
