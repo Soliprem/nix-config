@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   hardware.keyboard.qmk.enable = true;
   services = {
     resolved.enable = true;
@@ -56,7 +57,7 @@
   security = {
     pam.services.soliprem.enableGnomeKeyring = true;
     pam.services.sddm.enableGnomeKeyring = true;
-    pki.certificateFiles = [../assets/almawifi.crt];
+    pki.certificateFiles = [ ../assets/almawifi.crt ];
     polkit.enable = true;
   };
   # xdg.portal.wlr.enable = true;
@@ -72,18 +73,33 @@
       networkmanager-strongswan
     ];
   };
-  systemd.services.swayosd-libinput-backend = {
-    description = "SwayOSD LibInput backend for listening to certain keys like CapsLock, ScrollLock, VolumeUp, etc.";
-    documentation = ["https://github.com/ErikReider/SwayOSD"];
-    wantedBy = ["graphical.target"];
-    partOf = ["graphical.target"];
-    after = ["graphical.target"];
+  systemd = {
+    services.swayosd-libinput-backend = {
+      description = "SwayOSD LibInput backend for listening to certain keys like CapsLock, ScrollLock, VolumeUp, etc.";
+      documentation = [ "https://github.com/ErikReider/SwayOSD" ];
+      wantedBy = [ "graphical.target" ];
+      partOf = [ "graphical.target" ];
+      after = [ "graphical.target" ];
 
-    serviceConfig = {
-      Type = "dbus";
-      BusName = "org.erikreider.swayosd";
-      ExecStart = "${pkgs.swayosd}/bin/swayosd-libinput-backend";
-      Restart = "on-failure";
+      serviceConfig = {
+        Type = "dbus";
+        BusName = "org.erikreider.swayosd";
+        ExecStart = "${pkgs.swayosd}/bin/swayosd-libinput-backend";
+        Restart = "on-failure";
+      };
+    };
+    user.services.polkit-kde-authentication-agent-1 = {
+      description = "polkit-kde-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1 ";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
     };
   };
 }
