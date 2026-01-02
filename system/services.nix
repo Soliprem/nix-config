@@ -34,8 +34,6 @@
       };
       cosmic-greeter.enable = false;
     };
-    # displayManager.cosmic-greeter.enable = true;
-    # desktopManager.cosmic.enable = true;
     desktopManager = {
       plasma6.enable = true;
       cosmic.enable = true;
