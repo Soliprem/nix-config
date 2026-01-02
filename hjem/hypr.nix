@@ -18,7 +18,7 @@ let
 
 in
 {
-  files.".config/hypr/hyprland.conf".text = /*hyprlang*/''
+  files.".config/hypr/hyprland.conf".text = /* hyprlang */ ''
     # -----------------------------------------------------
     # VARIABLES & SOURCE
     # -----------------------------------------------------
@@ -238,6 +238,13 @@ in
     bind = $mod, j, layoutmsg, cyclenext
     bind = $mod, k, layoutmsg, cycleprev
     bind = $mod, space, layoutmsg, swapwithmaster
+
+    bind = $mod SHIFT,h,layoutmsg,movewindowto l
+    bind = $mod SHIFT,l,layoutmsg,movewindowto r
+    bind = $mod,r,layoutmsg,colresize +conf
+    bind = $mod+Shift,r,layoutmsg,colresize -conf
+    bind = $mod+Shift,space,layoutmsg,promote
+
 
     # Monitor Focus
     bind = $mod, Comma, focusmonitor, -1
