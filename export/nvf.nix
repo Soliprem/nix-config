@@ -93,7 +93,7 @@
       bash.enable = true;
       tailwind.enable = false;
       typst.enable = true;
-      julia.enable = true;
+      julia.enable = false;
       clang = {
         enable = true;
         lsp.servers = [ "clangd" ];
