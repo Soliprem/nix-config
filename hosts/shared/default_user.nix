@@ -11,7 +11,8 @@
     shell = pkgs.dash;
   };
 
-  environment.shells = [
-    pkgs.nushell
+  environment.shells = with pkgs; [
+    nushell
+    dash
   ];
 }
