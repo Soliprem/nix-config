@@ -42,7 +42,6 @@
     tree-sitter-grammars.tree-sitter-typst
     typst
     tinymist
-    wayneko
     omnissa-horizon-client
     newsflash
     gdb
