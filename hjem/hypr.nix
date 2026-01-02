@@ -52,11 +52,32 @@ in
     # MONITORS
     # -----------------------------------------------------
     # Syntax: name, resolution, position, scale
-    monitor = desc:AOC Q27G3XMN 1APQ7JA005710, 2560x1440@180, 0x0, 1, bitdepth, 10
-    monitor = HDMI-A-1, 1920x1080@120, 2560x0, 1
     monitor = eDP-1, 1920x1200@60, 0x0, 1
-    monitor = desc:Seiko Epson Corporation EPSON PJ 0x01010101, preferred, auto, 1.5
     monitor = , preferred, auto, 1
+
+
+    monitorv2 {
+      output = HDMI-A-1
+      mode = 1920x1080@120
+      position = 2560x0
+    }
+
+    monitorv2 {
+      output = desc:AOC Q27G3XMN 1APQ7JA005710
+      mode = 2560x1440@180
+      position = 0x0
+      supports_wide_color = 1
+      supports_hdr = 1
+      sdr_min_luminance = 0.005
+      sdr_max_luminance = 250
+    }
+
+    monitorv2 {
+      output = Seiko Epson Corporation EPSON PJ 0x01010101
+      mode = preferred
+      position = auto
+      scale = 1.5
+    }
 
     # -----------------------------------------------------
     # AUTOSTART
