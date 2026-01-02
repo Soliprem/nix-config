@@ -22,7 +22,7 @@ let
 in
 {
   files = {
-    ".config/darkman/config.yml".source = pkgs.writers.writeYAML "config.yml" {
+    ".config/darkman/config.yaml".source = pkgs.writers.writeYAML "config.yaml" {
       lat = 41.9;
       lng = 12.5;
       usegeoclue = false;
