@@ -233,6 +233,9 @@ in
     bind = $mod, F1, exec, gamemode  # Requires gamemode in system packages
     bind = $mod+Alt, l, exec, swaylock
     bind = , Print, exec, grimblast copy area
+    bind = $mod, P,exec, hyprshot -m output -c -r - | swappy -f -
+    bind = $mod+Shift,P,exec, hyprshot -m window -r - | swappy -f -
+    bind = $mod+Shift, S, exec, hyprshot -m region -r - |swappy -f -
 
     
     bindm=$mod, mouse:272, movewindow
