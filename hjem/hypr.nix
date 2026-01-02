@@ -8,10 +8,10 @@ let
         key = if x == 9 then "0" else toString (x + 1);
       in
       [
-        "$mod, ${key}, split-workspace, ${ws}"
-        "$mod SHIFT, ${key}, split-movetoworkspacesilent, ${ws}"
-        "Alt $mod, ${key}, focusworkspaceoncurrentmonitor, ${ws}"
-        "Alt $mod SHIFT, ${key}, movetoworkspace, ${ws}"
+        "bind = $mod, ${key}, split:workspace, ${ws}"
+        "bind = $mod+SHIFT, ${key}, split:movetoworkspacesilent, ${ws}"
+        "bind = $mod+Alt, ${key}, focusworkspaceoncurrentmonitor, ${ws}"
+        "bind = $mod+Alt+SHIFT, ${key}, split:movetoworkspace, ${ws}"
       ]
     ) 10
   );
@@ -33,7 +33,7 @@ in
     # PLUGINS (Loaded via Nix store paths)
     # -----------------------------------------------------
     exec-once = hyprctl plugin load ${pkgs.hyprlandPlugins.hyprscrolling}/lib/libhyprscrolling.so
-    exec-once = hyprctl plugin load ${pkgs.hyprlandPlugins.split-monitor-workspaces}/lib/libsplit-monitor-workspaces.so
+    exec-once = hyprctl plugin load ${pkgs.hyprlandPlugins.hyprsplit}/lib/libhyprsplit.so
 
     plugin {
         hyprscrolling {
