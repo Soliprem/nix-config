@@ -7,7 +7,10 @@
     ../../system/modules/ollamaRocm.nix
   ];
 
-  networking.hostName = "nixos-pc";
+  networking = {
+    hostName = "nixos-pc";
+    firewall.trustedInterfaces = [ "tailscale0" ];
+  };
 
   boot = {
     initrd.kernelModules = [ "amdgpu" ];
@@ -20,7 +23,6 @@
     "audio"
     "video"
   ];
-
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
