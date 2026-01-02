@@ -176,6 +176,7 @@
         pkgs.vimPlugins.nvim-treesitter-parsers.yaml
         pkgs.vimPlugins.nvim-treesitter-parsers.markdown
         pkgs.vimPlugins.nvim-treesitter-parsers.r
+        pkgs.vimPlugins.nvim-treesitter-parsers.hyprlang
       ];
     };
 
