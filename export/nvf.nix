@@ -169,14 +169,14 @@
 
     treesitter = {
       context.enable = true;
-      grammars = [
-        pkgs.vimPlugins.nvim-treesitter-parsers.nu
-        pkgs.vimPlugins.nvim-treesitter-parsers.kdl
-        pkgs.vimPlugins.nvim-treesitter-parsers.rnoweb
-        pkgs.vimPlugins.nvim-treesitter-parsers.yaml
-        pkgs.vimPlugins.nvim-treesitter-parsers.markdown
-        pkgs.vimPlugins.nvim-treesitter-parsers.r
-        pkgs.vimPlugins.nvim-treesitter-parsers.hyprlang
+      grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        nu
+        kdl
+        rnoweb
+        yaml
+        markdown
+        r
+        hyprlang
       ];
     };
 
