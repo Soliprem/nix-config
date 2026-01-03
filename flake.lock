@@ -53,11 +53,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1767444146,
-        "narHash": "sha256-7y/a7ciNlm9hhdUQl3rNXtAuYp+sLo/4l8mUxr5JbAY=",
+        "lastModified": 1767444383,
+        "narHash": "sha256-z6HuQAuiDIGNo4GehgCM4k7R+QiomSsi1geFbZ4NpgY=",
         "owner": "soliprem",
         "repo": "dm-scripts",
-        "rev": "44239208b46673e8a7db682e2858151d71d90199",
+        "rev": "c4d485a18086815ee3f715c70d13919acf24b61d",
         "type": "github"
       },
       "original": {
