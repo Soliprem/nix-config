@@ -52,6 +52,10 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     thumbpick.url = "github:soliprem/thumbpick";
+    dm-scripts = {
+      url = "github:soliprem/dm-scripts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     agenix = {
       url = "github:ryantm/agenix";
