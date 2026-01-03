@@ -237,7 +237,7 @@ in
     bind = $mod, P,exec, hyprshot -m output -c -r - | swappy -f -
     bind = $mod+Shift,P,exec, hyprshot -m window -r - | swappy -f -
     bind = $mod+Shift, S, exec, hyprshot -m region -r - |swappy -f -
-    bind = $mod+Alt, N, exec, sunsetr toggle
+    bind = $mod+Alt, N, exec, dm-sunsetr
 
     
     bindm=$mod, mouse:272, movewindow
