@@ -12,6 +12,7 @@
     "matugen.nix"
     "swaylock.nix"
     "darkman.nix"
+    "dmscripts.nix"
   ];
 
   imports = map (file: configRoot + "/system/modules/${file}") [
