@@ -280,6 +280,8 @@ in
     bind = $mod,j,layoutmsg,focus down
     bind = $mod,equal,layoutmsg,colresize -0.02
     bind = $mod SHIFT,equal,layoutmsg,colresize +0.02
+    bind = $mod,space,layoutmsg,promote
+
 
 
     # Monitor Focus
