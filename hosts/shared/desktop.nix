@@ -13,6 +13,7 @@
     "swaylock.nix"
     "darkman.nix"
     "dmscripts.nix"
+    "sunsetr.nix"
   ];
 
   imports = map (file: configRoot + "/system/modules/${file}") [

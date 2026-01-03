@@ -413,6 +413,7 @@
       kanshi &
       protonvpn-app &
       swayosd-server &
+      sunsetr &
       '';
   };
 }

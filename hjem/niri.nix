@@ -60,6 +60,7 @@ _: {
       spawn-at-startup "kanshi"
       spawn-at-startup "protonvpn-app"
       spawn-at-startup "swayosd-server"
+      spawn-at-startup "sunsetr"
 
       prefer-no-csd
 
@@ -128,6 +129,7 @@ _: {
           Mod+T     { spawn "notify-time"; }
           Mod+Control+W     { spawn "ghostty" "-e" "wiki-tui"; }
           Mod+B     { spawn "notify-battery"; }
+          Mod+Alt+N { spawn "sunsetr" "toggle"; }
 
           XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
           XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }

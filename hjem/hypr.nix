@@ -93,6 +93,7 @@ in
     exec-once = kanshi &
     exec-once = wl-paste --type text --watch cliphist store &
     exec-once = wl-paste --type image --watch cliphist store &
+    exec-once = sunsetr &
 
     # -----------------------------------------------------
     # GENERAL & DECORATION
@@ -236,6 +237,7 @@ in
     bind = $mod, P,exec, hyprshot -m output -c -r - | swappy -f -
     bind = $mod+Shift,P,exec, hyprshot -m window -r - | swappy -f -
     bind = $mod+Shift, S, exec, hyprshot -m region -r - |swappy -f -
+    bind = $mod+Alt, N, exec, sunsetr toggle
 
     
     bindm=$mod, mouse:272, movewindow

@@ -5,6 +5,7 @@
 }:
 {
   environment.systemPackages = with pkgs; [
+    tealdeer
     jq
     scarab
     lumafly
@@ -160,7 +161,7 @@
     # (inputs.umu.packages.${pkgs.stdenv.hostPlatform.system}.umu.override {version = "${inputs.umu.shortRev}";})
     umu-launcher
     teams-for-linux
-    wlsunset
+    sunsetr
     batsignal
     ripgrep
     android-tools
