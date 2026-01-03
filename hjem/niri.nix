@@ -1,6 +1,6 @@
 _: {
   files = {
-    ".config/niri/config.kdl".text = ''
+    ".config/niri/config.kdl".text = /* kdl */ ''
       include "colors.kdl"
       input {
           keyboard {
