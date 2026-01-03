@@ -199,25 +199,6 @@ let
         command sl "$@"
       '';
     })
-    (pkgs.writeShellApplication {
-      name = "remove-hjem-dangles";
-      text = ''
-          rm ~/.config/gtk-3.0/settings.ini
-          rm ~/.config/gtk-3.0/gtk.css
-          rm ~/.config/gtk-4.0/settings.ini
-          rm ~/.config/gtk-4.0/gtk.css
-          rm ~/.config/helix/config.toml
-          rm ~/.config/hypr/hypridle.conf
-          rm ~/.config/hypr/hyprlock.conf
-          rm ~/.config/matugen/config.toml
-          rm ~/.config/nushell/config.nu
-          rm ~/.config/nushell/env.nu
-          rm ~/.config/qt5ct/qt5ct.conf
-          rm ~/.config/qt6ct/qt6ct.conf
-          rm ~/.config/ghostty/config
-        nu  rm ~/.config/fuzzel/fuzzel.ini
-      '';
-    })
   ];
 in
 {
