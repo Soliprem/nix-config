@@ -99,7 +99,6 @@
     chromium
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvf
     inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.dm-scripts.packages.${pkgs.stdenv.hostPlatform.system}.default
     libsForQt5.qt5ct
     kdePackages.qt6ct
     gimp

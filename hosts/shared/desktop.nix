@@ -20,6 +20,7 @@
     "open-webui.nix"
     "printing.nix"
     "spicetify.nix"
+    "dmscripts.nix"
   ];
 
   virtualisation = {

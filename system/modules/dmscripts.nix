@@ -1,11 +1,13 @@
-{ config, pkgs, ... }:
-
+{ inputs, ... }:
 {
+  imports = [
+    inputs.dm-scripts.nixosModules.default
+  ];
   programs.dmscripts = {
     enable = true;
-    
+
     # Choose your display server dependencies
-    displayServer = "wayland"; 
+    displayServer = "wayland";
 
     # The new option to build and install manpages
     manPages = true;
