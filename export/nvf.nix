@@ -177,6 +177,7 @@
         markdown
         r
         hyprlang
+        toml
       ];
     };
 
