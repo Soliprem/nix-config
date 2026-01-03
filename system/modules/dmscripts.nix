@@ -25,6 +25,7 @@
       "dm-documents"
       "dm-dragdir"
       "dm-dragdrop"
+      "dm-sunsetr"
     ];
   };
 }
