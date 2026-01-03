@@ -19,6 +19,12 @@
       "dm-confedit"
       "dm-wifi"
       "dm-websearch"
+      "dm-spam"
+      "dm-dictionary"
+      "dm-spellcheck"
+      "dm-documents"
+      "dm-dragdir"
+      "dm-dragdrop"
     ];
   };
 }
