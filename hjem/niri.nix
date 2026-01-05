@@ -130,6 +130,7 @@ _: {
           Mod+Control+W     { spawn "ghostty" "-e" "wiki-tui"; }
           Mod+B     { spawn "notify-battery"; }
           Mod+Alt+N { spawn "dm-sunsetr"; }
+          Mod+O { spawn "dm-hub"; }
 
           XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
           XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
