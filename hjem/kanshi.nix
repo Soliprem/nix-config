@@ -10,8 +10,8 @@ _: {
 
       # Profile 2: Projector Presentation
       profile {
-          output "eDP-1" enable mode 1920x1200@60 position 0,0 scale 1.5
-          output "Seiko Epson Corporation EPSON PJ 0x01010101" scale 1.5 position 1920,0
+          output "eDP-1" enable mode 1920x1200@60 position 0,0 scale 1.2
+          output "Seiko Epson Corporation EPSON PJ 0x01010101" mode 4096x2160@60 scale 2 position 1920,0
       }
 
       # Profile 3: Laptop Only (Fallback)
