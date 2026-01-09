@@ -3,10 +3,10 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   scripts = [
-    (
-      pkgs.writers.writeNuBin "update-openrgb-color"
+    (pkgs.writers.writeNuBin "update-openrgb-color"
       {
         makeWrapperArgs = [
           "--prefix"
@@ -18,42 +18,31 @@
           ]}"
         ];
       }
-      /*
-      nu
-      */
-      ''
+      /* nu */ ''
         let accent_color = (caelestia scheme get | lines | get 6 | parse "{foo}: {bar}" | get bar | get 0 | ansi strip)
         echo $accent_color
         openrgb --color $accent_color
       ''
     )
 
-    (
-      pkgs.writers.writeNuBin "clear-trash"
+    (pkgs.writers.writeNuBin "clear-trash"
       {
       }
-      /*
-      nu
-      */
-      ''
+      /* nu */ ''
         rm -rp ~/.local/share/Trash/*
       ''
     )
 
-    (
-      pkgs.writers.writeNuBin "dm-expand"
+    (pkgs.writers.writeNuBin "dm-expand"
       {
         makeWrapperArgs = [
           "--prefix"
           "PATH"
           ":"
-          "${lib.makeBinPath [pkgs.fuzzel]}"
+          "${lib.makeBinPath [ pkgs.fuzzel ]}"
         ];
       }
-      /*
-      nu
-      */
-      ''
+      /* nu */ ''
         let expansions = [
         [key value];
         ["mdash" —]
@@ -177,17 +166,27 @@
       name = "fuzzel-run";
       runtimeInputs = with pkgs; [
         fuzzel
+        fd
       ];
       text = ''
-        selected=$(compgen -c | sort -u | fuzzel -d \
-          --cache "$XDG_CACHE_HOME/fuzzel-run-history" \
-          --prompt="Run ➜ " \
-          --placeholder="System Binaries..." \
-          || true)
+        IFS=':' read -ra raw_paths <<< "$PATH"
+        valid_paths=()
+        for dir in "''${raw_paths[@]}"; do
+            [[ -d "$dir" ]] && valid_paths+=("$dir")
+        done
 
-        if [ -n "$selected" ]; then
-          setsid -f "$selected"
-        fi
+        fd . "''${valid_paths[@]}" \
+          --max-depth 1 \
+          --type x \
+          --hidden \
+          --follow \
+          --format "{/}" \
+        | sort -u \
+        | fuzzel -d \
+          --cache "$XDG_CACHE_HOME/fuzzel-run-history" \
+          --prompt "Run ➜ " \
+          --placeholder "System Binaries..." \
+        | xargs -r -I{} setsid -f {}
       '';
     })
     (pkgs.writeShellApplication {
@@ -228,6 +227,7 @@
       '';
     })
   ];
-in {
+in
+{
   environment.systemPackages = scripts;
 }
