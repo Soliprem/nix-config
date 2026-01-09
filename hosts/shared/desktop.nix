@@ -7,6 +7,7 @@
     "gtk.nix"
     "qt.nix"
     "tofi.nix"
+    "fuzzel.nix"
     "kanshi.nix"
     "mango.nix"
     "matugen.nix"
