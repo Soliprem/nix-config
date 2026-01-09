@@ -4,7 +4,7 @@
       config = {
         wallpaper = {
           command = "swww";
-          arguments = ["img" "--transition-type" "random" "transition-step" "4" "--transition-fps" "120"];
+          arguments = ["img" "--transition-type" "random" "--transition-step" "4" "--transition-fps" "120"];
           set = true;
         };
       };
