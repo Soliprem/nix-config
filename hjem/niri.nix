@@ -121,8 +121,8 @@ _: {
           Mod+W { spawn "zen"; }
           Mod+E { spawn "nautilus"; }
           Mod+Shift+B { spawn "overskride"; }
-          Mod+D { spawn "bash" "-c" "fuzzel-run"; }
-          Mod+Shift+D { spawn "bash" "-c" "fuzzel"; }
+          Mod+D { spawn "fuzzel-run"; }
+          Mod+Shift+D { spawn "fuzzel"; }
           Super+Alt+L allow-when-locked=true { spawn "swaylock"; }
           Super+Shift+C { spawn "swaync-client" "-t"; }
           Super+V {spawn "clipmenu"; }
