@@ -7,6 +7,7 @@ _: {
       dpi-aware=no
       inner-pad=10
       horizontal-pad=40
+      placeholder=" :3"
       vertical-pad=15
       match-counter=yes
       include=~/.config/fuzzel/colors.ini
