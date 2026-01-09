@@ -7,7 +7,7 @@ _: {
       # --- Main Program Definitions ---
 
       # DMENU variable
-      DMENU="tofi --prompt-text"
+      DMENU="fuzzel --cache "$XDG_CACHE_HOME/fuzzel-dmscripts-history" -dp"
 
       # Fallback/Alternative Menus (defaults preserved)
       RMENU="rofi -dmenu -i -p"

@@ -3,10 +3,10 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   scripts = [
-    (pkgs.writers.writeNuBin "update-openrgb-color"
+    (
+      pkgs.writers.writeNuBin "update-openrgb-color"
       {
         makeWrapperArgs = [
           "--prefix"
@@ -18,31 +18,42 @@ let
           ]}"
         ];
       }
-      /* nu */ ''
+      /*
+      nu
+      */
+      ''
         let accent_color = (caelestia scheme get | lines | get 6 | parse "{foo}: {bar}" | get bar | get 0 | ansi strip)
         echo $accent_color
         openrgb --color $accent_color
       ''
     )
 
-    (pkgs.writers.writeNuBin "clear-trash"
+    (
+      pkgs.writers.writeNuBin "clear-trash"
       {
       }
-      /* nu */ ''
+      /*
+      nu
+      */
+      ''
         rm -rp ~/.local/share/Trash/*
       ''
     )
 
-    (pkgs.writers.writeNuBin "dm-expand"
+    (
+      pkgs.writers.writeNuBin "dm-expand"
       {
         makeWrapperArgs = [
           "--prefix"
           "PATH"
           ":"
-          "${lib.makeBinPath [ pkgs.fuzzel ]}"
+          "${lib.makeBinPath [pkgs.fuzzel]}"
         ];
       }
-      /* nu */ ''
+      /*
+      nu
+      */
+      ''
         let expansions = [
         [key value];
         ["mdash" —]
@@ -90,7 +101,7 @@ let
       ];
       text = ''
         case "$(printf "a selected area\\nfull screen\\na selected area (copy)\\nfull screen (copy)" |\
-          tofi --p "Screenshot which area?")" in
+          fuzzel -dp "Screenshot which area?")" in
             "a selected area") wayshot -s "$(slurp -f '%x %y %w %h')" -f\
               ~/Pictures/wayshot/sel-area-"$(date '+%y%m%d-%H%M-%S').png" ;;
             "full screen") wayshot -f ~/Pictures/wayshot/pic-full-"$(date '+%y%m%d-%H%M-%S').png" ;;
@@ -163,9 +174,26 @@ let
       '';
     })
     (pkgs.writeShellApplication {
+      name = "fuzzel-run";
+      runtimeInputs = with pkgs; [
+        fuzzel
+      ];
+      text = ''
+        selected=$(compgen -c | sort -u | fuzzel -d \
+          --cache "$XDG_CACHE_HOME/fuzzel-run-history" \
+          --prompt="Run ➜ " \
+          --placeholder="System Binaries..." \
+          || true)
+
+        if [ -n "$selected" ]; then
+          setsid -f "$selected"
+        fi
+      '';
+    })
+    (pkgs.writeShellApplication {
       name = "clipmenu";
       text = ''
-        pkill tofi || cliphist list | tofi | cliphist decode | wl-copy
+        pkill fuzzel || cliphist list | fuzzel -dp "Clipboard History:" | cliphist decode | wl-copy
       '';
     })
     (pkgs.writeShellApplication {
@@ -200,7 +228,6 @@ let
       '';
     })
   ];
-in
-{
+in {
   environment.systemPackages = scripts;
 }

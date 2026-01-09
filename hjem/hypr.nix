@@ -255,8 +255,8 @@ in
     bind = $mod+Ctrl, v, exec, pwvuctontrol
 
     # Launchers / Menus
-    bind = $mod, d, exec, $(tofi-run)
-    bind = $mod SHIFT, d, exec, fuzzel-run
+    bind = $mod, d, exec, fuzzel-run
+    bind = $mod SHIFT, d, exec, fuzzel
     bind = $mod, V, exec, pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
     bind = $mod+Shift+Alt, Period, exec, fuzzel-emoji
     bind = $mod, o, exec, dm-hub
