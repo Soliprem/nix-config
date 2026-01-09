@@ -155,8 +155,8 @@
       # Terminal, Launcher, Browser
       bind=SUPER,Return,spawn,ghostty
       bind=SUPER,w,spawn,zen
-      bind=SUPER,d,spawn,fuzzel-run
-      bind=SUPER+SHIFT,d,spawn,fuzzel
+      bind=SUPER,d,spawn,fuzzel
+      bind=SUPER+SHIFT,d,spawn,fuzzel-run
 
       # Window Management
       bind=SUPER,Q,killclient
