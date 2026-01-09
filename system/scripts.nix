@@ -86,6 +86,7 @@ let
       name = "nixrice";
       desktopName = "NixRice";
       exec = "nixrice";
+      icon = "tools-wizard";
       categories = [ "Utility" ];
     })
 
