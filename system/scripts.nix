@@ -82,6 +82,13 @@ let
       '';
     })
 
+    (pkgs.makeDesktopItem {
+      name = "nixrice";
+      desktopName = "NixRice";
+      exec = "nixrice";
+      categories = [ "Utility" ];
+    })
+
     (pkgs.writeShellApplication {
       name = "wayshotpick";
       runtimeInputs = with pkgs; [
