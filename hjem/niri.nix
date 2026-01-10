@@ -50,11 +50,11 @@ _: {
           DISPLAY ":0"
       }
 
-      spawn-at-startup "wl-paste --watch cliphist store"
+      spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
       spawn-at-startup "xwayland-satellite"
       spawn-at-startup "swww-daemon"
       spawn-at-startup "batsignal"
-      spawn-at-startup "darkman run"
+      spawn-at-startup "darkman" "run"
       spawn-at-startup "swaync"
       spawn-at-startup "nm-applet"
       spawn-at-startup "kanshi"
