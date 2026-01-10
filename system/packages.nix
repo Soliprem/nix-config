@@ -157,7 +157,7 @@
     heroic
     lutris
     dotacat
-    inputs.agenix.packages.${system}.default
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
     # inputs.diniamo.legacyPackages.${pkgs.stdenv.hostPlatform.system}.umu-launcher
     # (inputs.umu.packages.${pkgs.stdenv.hostPlatform.system}.umu.override {version = "${inputs.umu.shortRev}";})
     umu-launcher
