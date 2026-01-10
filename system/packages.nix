@@ -175,7 +175,7 @@
     thunderbird
     legcord
     impression
-    inputs.zen-browser.packages."${system}".default
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     freetube
     appimage-run
     obsidian
