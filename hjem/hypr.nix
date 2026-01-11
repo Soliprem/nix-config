@@ -236,7 +236,7 @@ in
     bind = , Print, exec, grimblast copy area
     bind = $mod, P,exec, hyprshot -m output -c -r - | swappy -f -
     bind = $mod+Shift,P,exec, hyprshot -m window -r - | swappy -f -
-    bind = $mod+Shift, S, exec, hyprshot -m region -r - |swappy -f -
+    bind = $mod+Shift, S, exec, hyprshot -m region -r - | swappy -f -
     bind = $mod+Alt, N, exec, dm-sunsetr
 
     
