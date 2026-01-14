@@ -138,16 +138,18 @@
       tagrule=id:9,layout_name:scroller
 
       # Monitor Config
-      # monitorrule=HDMI-A-1, 0.55,1,scroller,0,1,2560, 0, 1920,1080,144.013000
-      # monitorrule=DP-3, 0.55,1,scroller,0,1,0,0,2560, 1440, 180.001999
+      # monitorrule=name, mfact, nmaster, layout, top_gap, bottom_gap, x, y, width, height, refresh
+      monitorrule=HDMI-A-1, 0.55, 1, scroller, 0, 1, 2560, 0, 1920, 1080, 120
+      monitorrule=PNP(AOC) Q27G3XMN 1APQ7JA005710, 0.55, 1, scroller, 0, 1, 0, 0, 2560, 1440, 180.002
+      monitorrule=eDP-1, 0.55, 1, scroller, 0, 1, 0, 0, 1920, 1200, 60
 
       # --- Keymodes and Bindings ---
 
       # Common mode - bindings available in all modes
       keymode = common
       bind=SUPER+CTRL,R,reload_config
-      bind=SUPER+CTRL,L,spawn,wlogout
       bind=SUPER+CTRL,t,spawn,ghostty -e tray-tui
+      bind=SUPER+CTRL,w,spawn,ghostty -e wiki-tui
       bind=SUPER,g,toggleoverview
       bind=SUPER,s,toggleglobal
       bind=SUPER+SHIFT,o,toggleoverlay
@@ -160,6 +162,8 @@
 
       # Window Management
       bind=SUPER,Q,killclient
+      bind=SUPER+SHIFT,E,quit
+      bind=CTRL+ALT,Delete,quit
       bind=SUPER+SHIFT,space,togglefloating
 
       # Monitor Control
@@ -169,9 +173,9 @@
       bind=SUPER+SHIFT,period,tagmon,right,0
 
       # Application/Script Binds
-      bind=NONE,XF86PowerOff,spawn,$(tofi-run)
+      bind=NONE,XF86PowerOff,spawn,wlogout
       bind=SUPER,V,spawn, clipmenu
-      bind=SUPER,c,spawn,swaync-client -t
+      bind=SUPER+SHIFT,c,spawn,swaync-client -t
       bind=SUPER,E,spawn,nautilus --new-window
       bind=SUPER,t,spawn,notify-time
       bind=SUPER+SHIFT,v,spawn,notify-volume
@@ -184,14 +188,19 @@
       bind=SUPER+SHIFT,semicolon,spawn,dm-expand
       bind=SUPER,minus,spawn,wtype -k emdash
       bind=SUPER+SHIFT,B,spawn,overskride
+      bind=SUPER+CTRL,v,spawn,pwvucontrol
+      bind=SUPER+ALT,n,spawn,dm-sunsetr
+      
       bind=SUPER,f,togglemaximizescreen
       bind=SUPER+SHIFT,f,togglefullscreen
       bind=SUPER+ALT,f,togglefakefullscreen
-      bind=SUPER+ALT,l,spawn,swaylock --grace 0
+      bind=SUPER+ALT,l,spawn,swaylock
 
       # Screenshots
       bind=SUPER,P,spawn,grimpick
       bind=SUPER+SHIFT,S,spawn,grimpick region
+      bind=SUPER+SHIFT,P,spawn,grimblast save output
+      bind=SUPER+ALT,P,spawn,grimblast save active
 
       # Media Keys (Volume)
       bind=NONE,XF86AudioRaiseVolume,spawn,swayosd-client --output-volume raise
@@ -199,7 +208,7 @@
       bind=NONE,XF86AudioMute,spawn, swayosd-client --output-volume mute-toggle
 
       # Media Keys (Mic)
-      bind=NONE,XF86AudioMicMute,spawn,wpctl set-mute @DEFAULT_SOURCE@ toggle && notify-send \"Toggling Microphone\"
+      bind=NONE,XF86AudioMicMute,spawn,swayosd-client --input-volume mute-toggle
       bind=SUPER+SHIFT,M,spawn,swayosd-client --output-volume mute-toggle
 
       # Media Keys (Playback)
