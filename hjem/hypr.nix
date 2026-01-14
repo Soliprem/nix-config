@@ -15,7 +15,6 @@ let
       ]
     ) 10
   );
-
 in
 {
   files.".config/hypr/hyprland.conf".text = /* hyprlang */ ''
@@ -44,7 +43,7 @@ in
             enable_persistent_workspaces = false
         }
         hyprtrails {
-            color = $primary
+          color = $primary
         }
     }
 
@@ -196,6 +195,8 @@ in
     windowrulev2 = float, title:^(Picture-in-Picture)$
     windowrulev2 = float, title:^(Open File|Select a File|Choose wallpaper|Open Folder|Save As|Library)(.*)$
     windowrulev2 = float, class:^(org.kde.polkit-kde-authentication-agent-1)$
+    windowrulev2 = float, class:^(protonvpn-app)$
+    windowrulev2 = float, class:^(eu.soliprem.thumbpick)$
 
     # Specific Placements
     windowrulev2 = move 1275 45, title:^(Picture-in-Picture)$
@@ -229,14 +230,19 @@ in
     # -----------------------------------------------------
     # System
     bind = , XF86PowerOff, exec, wlogout
+    bind = $mod SHIFT, E, exit
+    bind = Ctrl+Alt, Delete, exit
     bind = $mod SHIFT, Q, exec, hyprctl kill
     bind = $mod, Q, killactive
-    bind = $mod, F1, exec, gamemode  # Requires gamemode in system packages
+    bind = $mod, F1, exec, gamemode
     bind = $mod+Alt, l, exec, swaylock
     bind = , Print, exec, grimblast copy area
+    
     bind = $mod, P,exec, hyprshot -m output -c -r - | swappy -f -
-    bind = $mod+Shift,P,exec, hyprshot -m window -r - | swappy -f -
+    bind = $mod+Shift,P,exec, hyprshot -m output -m active -c -r - | swappy -f -
+    bind = $mod+Alt,P,exec, hyprshot -m window -r - | swappy -f -
     bind = $mod+Shift, S, exec, hyprshot -m region -r - | swappy -f -
+    
     bind = $mod+Alt, N, exec, dm-sunsetr
 
     
@@ -251,8 +257,9 @@ in
     bind = $mod, n, exec, dm-notes
     bind = $mod SHIFT, n, exec, $term -e notes
     bind = $mod+Ctrl, t, exec, $term -e tray-tui
-    bind = $mod+Ctrl, b, exec, overskride
-    bind = $mod+Ctrl, v, exec, pwvuctontrol
+    bind = $mod+Ctrl, w, exec, $term -e wiki-tui
+    bind = $mod+Shift, b, exec, overskride
+    bind = $mod+Ctrl, v, exec, pwvucontrol
 
     # Launchers / Menus
     bind = $mod, d, exec, fuzzel
@@ -306,18 +313,23 @@ in
     bind = $mod ALT, F, fullscreenstate, -1 2
 
     # Media & Hardware Keys
-    bindl = , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle && notify-send "Toggling Microphone"
-    bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-volume
+    bindl = , XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle
+    bindl = , XF86AudioMute, exec, swayosd-client --output-volume mute-toggle
     bindl = $mod SHIFT, m, exec, swayosd-client --output-volume mute-toggle
     bindl = , XF86AudioPlay, exec, playerctl play-pause
     bindl = , XF86AudioPrev, exec, playerctl previous
     bindl = , XF86AudioNext, exec, playerctl next
 
-    bindle = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
-    bindle = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-    bindle = , XF86MonBrightnessUp, exec, brightnessctl set '12.75+'
-    bindle = , XF86MonBrightnessDown, exec, brightnessctl set '12.75-'
+    bindle = , XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise
+    bindle = , XF86AudioLowerVolume, exec, swayosd-client --output-volume lower
+    bindle = , XF86MonBrightnessUp, exec, swayosd-client --brightness raise
+    bindle = , XF86MonBrightnessDown, exec, swayosd-client --brightness lower
     bindle = , Caps_Lock, exec, sleep 0.1 && swayosd-client --caps-lock
+
+    # Notification / Status Binds
+    bind = $mod SHIFT, C, exec, swaync-client -t
+    bind = $mod, T, exec, notify-time
+    bind = $mod, B, exec, notify-battery
 
     # Gestures
     gesture = 3, down, mod:SUPER, close
@@ -361,7 +373,6 @@ in
         timeout=1800
       }
     '';
-
     ".config/hypr/hyprlock.conf".text = ''
           background {
         blur_passes=3

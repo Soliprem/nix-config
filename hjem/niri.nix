@@ -47,7 +47,7 @@ _: {
       }
 
       environment {
-          DISPLAY ":0"
+         DISPLAY ":0"
       }
 
       spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
@@ -70,7 +70,8 @@ _: {
           // Uncomment to turn off all animations.
           // off
 
-          // Slow down all animations by this factor. Values below 1 speed them up instead.
+          // Slow down all animations by this factor.
+          // Values below 1 speed them up instead.
           // slowdown 3.0
       }
 
@@ -131,14 +132,25 @@ _: {
           Mod+B     { spawn "notify-battery"; }
           Mod+Alt+N { spawn "dm-sunsetr"; }
           Mod+O { spawn "dm-hub"; }
+          
+          Mod+N { spawn "dm-notes"; }
+          Mod+Shift+N { spawn "ghostty" "-e" "notes"; }
+          Mod+Control+V { spawn "pwvucontrol"; }
+          Mod+Shift+Alt+Period { spawn "fuzzel-emoji"; }
+          Mod+Shift+Semicolon { spawn "dm-expand"; }
 
           XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
           XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
           XF86AudioMute        allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
-          XF86AudioMicMute     allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+          XF86AudioMicMute     allow-when-locked=true { spawn "swayosd-client" "--input-volume" "mute-toggle"; }
           XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
           XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
           Caps_Lock { spawn "sleep" "0.1" "&&" "swayosd-client" "--caps-lock"; }
+          
+          XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
+          XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
+          XF86AudioNext allow-when-locked=true { spawn "playerctl" "next"; }
+          XF86PowerOff allow-when-locked=true { spawn "wlogout"; }
 
           Mod+Q { close-window; }
           Mod+Shift+Space { toggle-window-floating; }
@@ -275,6 +287,7 @@ _: {
           // Mod+Shift+Space { switch-layout "prev"; }
 
           Mod+P { screenshot; }
+          Mod+Shift+S { screenshot; }
           Mod+Shift+P { screenshot-screen; }
           Mod+Alt+P { screenshot-window; }
 
