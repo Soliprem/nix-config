@@ -16,11 +16,11 @@ _: {
 
       # Profile 3: Laptop Only (Fallback)
       profile {
-          output "eDP-1" enable mode 1920x1200@60 scale 1.2
+          output "eDP-1" enable mode 1920x1200@60 scale 1
       }
 
       profile {
-          output "eDP-1" enable mode 1920x1200@60 scale 1.2
+          output "eDP-1" enable mode 1920x1200@60 scale 1
           output "*" enable scale 1
       }
     '';
