@@ -718,11 +718,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1767990066,
-        "narHash": "sha256-lSR6ZH6tddyLMmKlUwN3ejgOo7TQPwMHmXtNy92ZU5M=",
+        "lastModified": 1768576205,
+        "narHash": "sha256-1O1FhUgy3IhyZ2W+sPKsp15pgoRY1kpXU2F582HqqVA=",
         "owner": "soliprem",
         "repo": "thumbpick",
-        "rev": "c9b503571b9b35cdacf9f6f26a7661ecc55e38d9",
+        "rev": "c523c50531de3e5c85d4aced147f52bde2ad1372",
         "type": "github"
       },
       "original": {
