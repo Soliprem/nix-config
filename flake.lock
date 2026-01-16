@@ -445,22 +445,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1765472234,
-        "narHash": "sha256-9VvC20PJPsleGMewwcWYKGzDIyjckEz8uWmT0vCDYK0=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "2fbfb1d73d239d2402a8fe03963e37aab15abe8b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nvf": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -715,14 +699,16 @@
       "inputs": {
         "fenix": "fenix",
         "naersk": "naersk",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1768580899,
-        "narHash": "sha256-Z5U+qdxhqf+FoOuhzozchlNMfqVaAkHAFxYX3lYOH80=",
+        "lastModified": 1768604135,
+        "narHash": "sha256-w16XjQuAeUp1s+Q4+LEnkJWAB4Z/cgGvoCzUxAjv72w=",
         "owner": "soliprem",
         "repo": "thumbpick",
-        "rev": "f50a0a7ab85ecf22a29cead9a0381a6c1b788cca",
+        "rev": "a3761018e06aebf599ecf94fc4f62ececeab83ff",
         "type": "github"
       },
       "original": {

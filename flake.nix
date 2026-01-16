@@ -51,7 +51,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    thumbpick.url = "github:soliprem/thumbpick";
+    thumbpick = {
+      url = "github:soliprem/thumbpick";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     dm-scripts = {
       url = "github:soliprem/dm-scripts";
       inputs.nixpkgs.follows = "nixpkgs";
