@@ -15,6 +15,7 @@
     "darkman.nix"
     "dmscripts.nix"
     "sunsetr.nix"
+    "thumbpick.nix"
   ];
 
   imports = map (file: configRoot + "/system/modules/${file}") [
