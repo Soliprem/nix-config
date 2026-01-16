@@ -69,7 +69,7 @@ let
                 cp "$wallpaper" ~/.config/nix-config/assets/bg
         else
         	cd "$HOME"/Pictures/wallpapers || return 1
-        	wallpaper="$(thumbpick ~/Pictures/wallpapers --vi-mode)"
+        	wallpaper="$(thumbpick ~/Pictures/wallpapers)"
         fi
 
         if [[ $wallpaper ]]; then
