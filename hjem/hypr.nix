@@ -183,8 +183,8 @@ in
         animation = fadeLayersIn, 1, 1.79, almostLinear
         animation = fadeLayersOut, 1, 1.39, almostLinear
         animation = workspaces, 1, 1.94, almostLinear, fade
-        animation = workspacesIn, 1, 1.21, almostLinear, fade
-        animation = workspacesOut, 1, 1.94, almostLinear, fade
+        animation = workspacesIn, 1, 1.21, almostLinear, slidevert
+        animation = workspacesOut, 1, 1.94, almostLinear, slidevert
     }
 
     # -----------------------------------------------------
@@ -334,8 +334,10 @@ in
     # Gestures
     gesture = 3, down, mod:SUPER, close
     gesture = 3, up, mod:SUPER, scale:1.5, fullscreen
-    gesture = 3, horizontal, workspace
-    gesture = 3, vertical, special, special
+    gesture = 3, vertical, workspace
+    gesture = 3, left, dispatcher, layoutmsg, move +col
+    gesture = 3, right, dispatcher, layoutmsg, move -col
+    gesture = 4, vertical, special, special
 
     # -----------------------------------------------------
     # GENERATED WORKSPACE BINDS
