@@ -5,6 +5,13 @@
 }:
 {
   environment.systemPackages = with pkgs; [
+    codex
+    meow
+    tuifeed
+    steam-tui
+    wiremix
+    rmpc
+    ostui
     bluetui
     tealdeer
     jq
