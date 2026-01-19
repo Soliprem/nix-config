@@ -62,14 +62,9 @@
     wl-clipboard
     aonsoku
     tauon
-    navidrome
-    supersonic
-    feishin
     spek
     nicotine-plus
     slskd
-    feishin
-    spicetify-cli
     openvpn
     spotify
     emacs
@@ -108,6 +103,7 @@
     chromium
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvf
     inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.subtui.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.ekphos.packages.${pkgs.stdenv.hostPlatform.system}.default
     libsForQt5.qt5ct
     kdePackages.qt6ct
@@ -120,6 +116,7 @@
     bibata-cursors
     atuin
     fastfetch
+    microfetch
     carapace
     starship
     zoxide
