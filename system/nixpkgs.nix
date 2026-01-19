@@ -36,6 +36,7 @@
         "cinny-4.2.3"
         "gradle-7.6.6"
         "cinny-unwrapped-4.2.3"
+        "nexusmods-app-unfree-0.21.1"
       ];
       allowUnfreePredicate = _: true;
     };
