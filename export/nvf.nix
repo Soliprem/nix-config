@@ -255,6 +255,7 @@
             date_format = "%Y-%m-%d-%a";
             time_format = "%H:%M";
           };
+          opts.legacy_commands = false;
         };
       };
       neorg = {
@@ -428,7 +429,7 @@
           {
             key = "<leader>ut";
             mode = "n";
-            action = '':Twilight<CR>'';
+            action = ":Twilight<CR>";
             silent = true;
             desc = "Toggle Twilight";
           }
@@ -443,7 +444,7 @@
           {
             key = "<leader>uz";
             mode = "n";
-            action = '':ZenMode<CR>'';
+            action = ":ZenMode<CR>";
             silent = true;
             desc = "Toggle ZenMode";
           }
@@ -563,14 +564,22 @@
       {
         key = "j";
         action = "gj";
-        mode = ["n" "x" "v"];
+        mode = [
+          "n"
+          "x"
+          "v"
+        ];
         silent = true;
         desc = "Toggle Undotree";
       }
       {
         key = "k";
         action = "gk";
-        mode = ["n" "x" "v"];
+        mode = [
+          "n"
+          "x"
+          "v"
+        ];
         silent = true;
         desc = "Toggle Undotree";
       }
@@ -590,4 +599,3 @@
     ];
   };
 }
-
