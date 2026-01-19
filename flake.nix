@@ -55,6 +55,11 @@
       url = "github:soliprem/thumbpick";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    subtui = {
+      url = "github:soliprem/subtui";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     dm-scripts = {
       url = "github:soliprem/dm-scripts";
       inputs.nixpkgs.follows = "nixpkgs";
