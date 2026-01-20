@@ -6,6 +6,23 @@
 }:
 let
   scripts = [
+    (pkgs.writers.writeNuBin "notify-battery"
+      {
+        makeWrapperArgs = [
+          "--prefix"
+          "PATH"
+          ":"
+          "${lib.makeBinPath [
+            pkgs.libnotify
+            pkgs.nushell
+          ]}"
+        ];
+      }
+      /* nu */ ''
+        let BATTERY_LEVEL = (open /sys/class/power_supply/BAT1/capacity | into int)
+        swayosd-client --custom-progress=($BATTERY_LEVEL / 100) --custom-progress-text=$"($BATTERY_LEVEL)%"
+      ''
+    )
     (pkgs.writers.writeNuBin "update-openrgb-color"
       {
         makeWrapperArgs = [
@@ -215,6 +232,12 @@ let
       name = "clipmenu";
       text = ''
         pkill fuzzel || cliphist list | fuzzel -dp "Clipboard History:" | cliphist decode | wl-copy
+      '';
+    })
+    (pkgs.writeShellApplication {
+      name = "notify-time";
+      text = ''
+        swayosd-client --custom-message=" - $(date +"%T - %d, %B %4Y") - " --custom-icon=clock
       '';
     })
     (pkgs.writeShellApplication {
