@@ -20,7 +20,7 @@ let
       }
       /* nu */ ''
         let BATTERY_LEVEL = (open /sys/class/power_supply/BAT1/capacity | into int)
-        swayosd-client --custom-progress=($BATTERY_LEVEL / 100) --custom-progress-text=$"($BATTERY_LEVEL)%"
+        swayosd-client --custom-progress=($BATTERY_LEVEL / 100) --custom-progress-text=$"($BATTERY_LEVEL)%" --custom-icon=battery
       ''
     )
     (pkgs.writers.writeNuBin "update-openrgb-color"
