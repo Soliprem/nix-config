@@ -614,15 +614,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1768816684,
-        "narHash": "sha256-5BXEHZWLYS4DmhZ/2A5O5tbluOjnP6uFCrsXq88Z1p8=",
-        "owner": "soliprem",
+        "lastModified": 1768902219,
+        "narHash": "sha256-fz4ejBBrAMzSeo6RkRa5x2Bflbh13+Wq3VaclIY3rM0=",
+        "owner": "mattiapun",
         "repo": "subtui",
-        "rev": "1d0c19c8f195d1b1c352fc16d8cd0e022b087679",
+        "rev": "81fbca2098f0f1a997901784d3e604932a01c973",
         "type": "github"
       },
       "original": {
-        "owner": "soliprem",
+        "owner": "mattiapun",
         "repo": "subtui",
         "type": "github"
       }
@@ -726,11 +726,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768667285,
-        "narHash": "sha256-YoaZa53N20BUAwUEGNqWndvpQCLsDuRfX4ZWqki7rmg=",
+        "lastModified": 1768909216,
+        "narHash": "sha256-aAV7TvsLV6nmVdooQtLeODLjuy+cvtd1ERzWYHDDBdE=",
         "owner": "soliprem",
         "repo": "thumbpick",
-        "rev": "3d1c890920affd69c4870adff6461e2583ee817e",
+        "rev": "2dd3a84dd2073f4c784573c287fa2e85d628281d",
         "type": "github"
       },
       "original": {
