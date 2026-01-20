@@ -63,6 +63,18 @@ let
         swww
       ];
       text = ''
+        THEME_MODE=$(gsettings get org.gnome.desktop.interface color-scheme)
+
+        # Clean up quotes (returns 'prefer-dark' or 'default')
+        THEME_MODE="''${THEME_MODE%\'}"
+        THEME_MODE="''${THEME_MODE#\'}"
+
+        # 2. Determine Matugen Mode
+        if [[ "$THEME_MODE" == "prefer-dark" ]]; then
+            MATUGEN_MODE="dark"
+        else
+            MATUGEN_MODE="light"
+        fi
         if [[ ''${1:-} ]]; then
         	wallpaper="$1"
                 cp "$wallpaper" ~/.config/bg
@@ -73,7 +85,7 @@ let
         fi
 
         if [[ $wallpaper ]]; then
-                matugen image "$wallpaper"
+                matugen image "$wallpaper" -m "$MATUGEN_MODE"
                 cp "$wallpaper" ~/.config/bg
                 cp "$wallpaper" ~/.config/nix-config/assets/bg
         else
