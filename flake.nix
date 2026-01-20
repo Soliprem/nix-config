@@ -56,7 +56,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     subtui = {
-      url = "github:soliprem/subtui";
+      url = "github:mattiapun/subtui";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
