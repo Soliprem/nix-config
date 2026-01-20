@@ -61,8 +61,10 @@ let
         libnotify
         matugen
         swww
+        glib
       ];
       text = ''
+        export XDG_DATA_DIRS="${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS"
         THEME_MODE=$(gsettings get org.gnome.desktop.interface color-scheme)
 
         # Clean up quotes (returns 'prefer-dark' or 'default')
