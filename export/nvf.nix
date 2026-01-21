@@ -255,7 +255,7 @@
             date_format = "%Y-%m-%d-%a";
             time_format = "%H:%M";
           };
-          opts.legacy_commands = false;
+          legacy_commands = false;
         };
       };
       neorg = {
