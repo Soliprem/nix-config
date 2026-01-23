@@ -1,5 +1,5 @@
 _: {
-  files.".config/.config/thumbpick/config.toml".text = ''
+  files.".config/thumbpick/config.toml".text = ''
     vi_mode = true
 
     # Default start directory
