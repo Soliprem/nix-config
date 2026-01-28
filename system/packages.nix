@@ -3,9 +3,13 @@
   pkgs,
   ...
 }:
+let
+  unstable-pkgs = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in 
 {
   environment.systemPackages = with pkgs; [
-    codex
+    unstable-pkgs.codex
+    linux-wallpaperengine
     meow
     tuifeed
     steam-tui
@@ -223,6 +227,7 @@
     blueman
     blueberry
     pamixer
+    jay
   ];
   programs = {
     nix-ld = {
