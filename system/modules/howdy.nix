@@ -1,9 +1,6 @@
-{ inputs, ... }:
-{
-  imports = [
-    inputs.nixpkgs-unstable.nixosModules.howdy
-  ];
+# TODO: enable on next nixos release
+_: {
   services.howdy = {
-      enable = true;
-    };
+    enable = true;
+  };
 }
