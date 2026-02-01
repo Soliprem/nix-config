@@ -173,13 +173,13 @@ _: {
           Mod+Ctrl+Home { move-column-to-first; }
           Mod+Ctrl+End  { move-column-to-last; }
 
-          Mod+Shift+Comma  { focus-monitor-previous; }
-          Mod+Shift+Period { focus-monitor-next; }
-          Mod+Shift+H     { focus-monitor-left; }
+          Mod+Comma  { focus-monitor-previous; }
+          Mod+Period { focus-monitor-next; }
           Mod+Shift+J     { focus-monitor-down; }
           Mod+Shift+K     { focus-monitor-up; }
-          Mod+Shift+L     { focus-monitor-right; }
 
+          Mod+Shift+Comma     { move-column-to-monitor-previous; }
+          Mod+Shift+Period     { move-column-to-monitor-next; }
           Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
           Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
           Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
@@ -279,8 +279,8 @@ _: {
 
           Mod+Tab { focus-workspace-previous; }
 
-          Mod+Comma  { consume-or-expel-window-left; }
-          Mod+Period  { consume-or-expel-window-right; }
+          Mod+Shift+h  { consume-or-expel-window-left; }
+          Mod+Shift+l  { consume-or-expel-window-right; }
           Mod+BracketLeft  { consume-or-expel-window-left; }
           Mod+BracketRight { consume-or-expel-window-right; }
 
