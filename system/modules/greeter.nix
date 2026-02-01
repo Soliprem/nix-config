@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.regreet = {
     enable = true;
     settings = {
@@ -7,13 +6,20 @@
         path = ../../assets/noise_void.png;
         fit = "Cover";
       };
+      GTK = {
+        application_prefer_dark_theme = true;
+      };
     };
     theme = {
-      name = "chicago95";
-      package = pkgs.chicago95;
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
     };
     font = {
-      name = "Fira Code";
+      name = "Inter";
+      size = 11;
+    };
+    cursorTheme = {
+      name = "Adwaita";
     };
   };
 }
