@@ -9,6 +9,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     unstable-pkgs.codex
+    grayjay
     linux-wallpaperengine
     meow
     tuifeed
@@ -43,9 +44,7 @@ in
     faugus-launcher
     super-productivity
     blanket
-    winboat
     wlogout
-    dissent
     gnome-feeds
     tray-tui
     wmenu
@@ -61,15 +60,12 @@ in
     gdb
     beyond-all-reason
     eza
-    brave
-    ladybird
     mediawriter
     wl-clipboard
     aonsoku
     tauon
     spek
     nicotine-plus
-    slskd
     openvpn
     spotify
     emacs
@@ -97,7 +93,6 @@ in
     anytype
     zed-editor
     kdePackages.qtmultimedia
-    kdePackages.plasmatube
     kdePackages.polkit-kde-agent-1
     libsForQt5.qt5.qtgraphicaleffects
     affine
@@ -108,7 +103,7 @@ in
     chromium
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvf
     inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.subtui.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # inputs.subtui.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.ekphos.packages.${pkgs.stdenv.hostPlatform.system}.default
     libsForQt5.qt5ct
     kdePackages.qt6ct
@@ -155,28 +150,24 @@ in
     foot
     # fluffychat
     bitwarden-desktop
+    # bitwarden-cli
+    # bitwarden-menu
     showtime
     keyutils
     iamb
     revolt-desktop
     swww
-    # bitwarden-cli
-    # bitwarden-menu
     muse-sounds-manager
     pwvucontrol
     heroic
     lutris
     dotacat
     inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
-    # inputs.diniamo.legacyPackages.${pkgs.stdenv.hostPlatform.system}.umu-launcher
-    # (inputs.umu.packages.${pkgs.stdenv.hostPlatform.system}.umu.override {version = "${inputs.umu.shortRev}";})
     umu-launcher
     teams-for-linux
     sunsetr
-    batsignal
     ripgrep
     android-tools
-    hyprshade
     loupe
     transmission_4-gtk
     cowsay
@@ -189,21 +180,17 @@ in
     freetube
     appimage-run
     obsidian
-    kdePackages.kdeconnect-kde
     beeper
     bat
     gamemode
     wtype
     udict
-    didyoumean
     fzf
     prismlauncher
-    protonup-qt
     protonplus
     telegram-desktop
     qpwgraph
     brightnessctl
-    # stremio
     fd
     killall
     zathura
@@ -225,8 +212,6 @@ in
     glib
     socat
     overskride
-    blueman
-    blueberry
     pamixer
     jay
   ];

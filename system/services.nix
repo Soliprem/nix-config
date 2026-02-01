@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -23,20 +22,6 @@
     ];
     openssh = {
       enable = true;
-    };
-    # xserver.enable = true;
-
-    # Enable the KDE Plasma Desktop Environment.
-    displayManager = {
-      sddm = {
-        enable = false;
-        wayland.enable = true;
-      };
-      cosmic-greeter.enable = false;
-    };
-    desktopManager = {
-      plasma6.enable = true;
-      cosmic.enable = true;
     };
 
     # Configure keymap in X11
