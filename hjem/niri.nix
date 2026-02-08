@@ -53,7 +53,7 @@ _: {
       spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
       spawn-at-startup "xwayland-satellite"
       spawn-at-startup "swww-daemon"
-      spawn-at-startup "batsignal"
+      spawn-at-startup "battery-monitor"
       spawn-at-startup "darkman" "run"
       spawn-at-startup "swaync"
       spawn-at-startup "nm-applet"

@@ -82,7 +82,7 @@ in
     # AUTOSTART
     # -----------------------------------------------------
     exec-once = iio-hyprland
-    exec-once = batsignal &
+    exec-once = battery-monitor &
     exec-once = swayosd-server
     exec-once = swww-daemon &
     exec-once = nm-applet &
