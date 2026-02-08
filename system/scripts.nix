@@ -6,6 +6,64 @@
 }:
 let
   scripts = [
+    (pkgs.writeShellApplication {
+      name = "battery-monitor";
+      runtimeInputs = with pkgs; [
+        libnotify
+        swayosd
+        coreutils
+        findutils
+        inotify-tools
+        systemd
+      ];
+      text = /*bash*/''
+        BAT_DIR="$(find /sys/class/power_supply -maxdepth 1 -type d -name 'BAT*' -print -quit)"
+        if [ -z "$BAT_DIR" ]; then
+            exit 0
+        fi
+        BAT_PATH="$BAT_DIR/capacity"
+        STATUS_PATH="$BAT_DIR/status"
+
+        last_notified_level=0
+
+        while true; do
+            capacity=$(cat "$BAT_PATH")
+            status=$(cat "$STATUS_PATH")
+
+            if [ "$status" = "Discharging" ]; then
+                if [ "$capacity" != "$last_notified_level" ]; then
+                    
+                    # 15% - Low Battery
+                    if [ "$capacity" -le 15 ] && [ "$capacity" -gt 5 ]; then
+                        if [ "$capacity" -eq 15 ] || [ "$last_notified_level" -gt 15 ]; then
+                             notify-battery
+                             swayosd-client --custom-text="Battery low ($capacity)"  --custom-icon=battery
+                        fi
+
+                    # 5% - Critical
+                    elif [ "$capacity" -le 5 ] && [ "$capacity" -gt 2 ]; then
+                        if [ "$capacity" -eq 5 ] || [ "$last_notified_level" -gt 5 ]; then
+                             notify-send -u critical "Battery Critical" "Level is at ''${capacity}%. Connect charger!"
+                             swayosd-client --custom-text="Battery Critical ($capacity)"  --custom-icon=battery
+                        fi
+
+                    # 2% - Sleep
+                    elif [ "$capacity" -le 2 ]; then
+                        notify-send -u critical "Battery Dying" "Suspending system now..."
+                        sleep 2
+                        systemctl suspend
+                    fi
+                    
+                    last_notified_level=$capacity
+                fi
+            else
+                last_notified_level=100
+            fi
+
+            inotifywait -qq -e modify "$BAT_PATH"
+        done
+      '';
+    })
     (pkgs.writers.writeNuBin "notify-battery"
       {
         makeWrapperArgs = [
@@ -15,11 +73,15 @@ let
           "${lib.makeBinPath [
             pkgs.libnotify
             pkgs.nushell
+            pkgs.swayosd
           ]}"
         ];
       }
       /* nu */ ''
-        let BATTERY_LEVEL = (open /sys/class/power_supply/BAT1/capacity | into int)
+        let bat_dirs = (ls /sys/class/power_supply | where type == "dir" and name =~ "BAT")
+        if ($bat_dirs | length) == 0 { exit 0 }
+        let bat_dir = ($bat_dirs | get 0 | get name)
+        let BATTERY_LEVEL = (open $"($bat_dir)/capacity" | into int)
         swayosd-client --custom-progress=($BATTERY_LEVEL / 100) --custom-progress-text=$"($BATTERY_LEVEL)%" --custom-icon=battery
       ''
     )
