@@ -9,6 +9,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     unstable-pkgs.codex
+    zotero
     grayjay
     linux-wallpaperengine
     meow
