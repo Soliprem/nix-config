@@ -17,7 +17,7 @@ let
         systemd
       ];
       text = /*bash*/''
-        BAT_DIR="$(find /sys/class/power_supply -maxdepth 1 -type d -name 'BAT*' -print -quit)"
+        BAT_DIR="$(find -L /sys/class/power_supply -maxdepth 1 -type d -name 'BAT*' -print -quit)"
         if [ -z "$BAT_DIR" ]; then
             exit 0
         fi
