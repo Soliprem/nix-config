@@ -9,6 +9,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     unstable-pkgs.codex
+    gowall
     zotero
     grayjay
     linux-wallpaperengine
