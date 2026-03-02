@@ -8,6 +8,10 @@ let
 in 
 {
   environment.systemPackages = with pkgs; [
+    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvf
+    inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.subtui.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.ekphos.packages.${pkgs.stdenv.hostPlatform.system}.default
     unstable-pkgs.codex
     gowall
     zotero
@@ -98,15 +102,11 @@ in
     kdePackages.polkit-kde-agent-1
     libsForQt5.qt5.qtgraphicaleffects
     affine
-    # gale
+    gale
     r2modman
     protonvpn-gui
     ffmpeg
     chromium
-    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvf
-    inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
-    # inputs.subtui.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.ekphos.packages.${pkgs.stdenv.hostPlatform.system}.default
     libsForQt5.qt5ct
     kdePackages.qt6ct
     gimp
