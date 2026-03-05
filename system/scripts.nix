@@ -11,24 +11,28 @@ let
       runtimeInputs = with pkgs; [
         libnotify
         swayosd
-        coreutils
         findutils
-        inotify-tools
         systemd
+        gnugrep
+        gawk
       ];
       text = /*bash*/''
         BAT_DIR="$(find -L /sys/class/power_supply -maxdepth 1 -type d -name 'BAT*' -print -quit)"
         if [ -z "$BAT_DIR" ]; then
             exit 0
         fi
-        BAT_PATH="$BAT_DIR/capacity"
-        STATUS_PATH="$BAT_DIR/status"
 
         last_notified_level=0
 
         while true; do
-            capacity=$(cat "$BAT_PATH")
-            status=$(cat "$STATUS_PATH")
+            props="$(udevadm info -q property -p "$BAT_DIR")"
+            capacity="$(printf '%s\n' "$props" | awk -F= '/^POWER_SUPPLY_CAPACITY=/{print $2; exit}')"
+            status="$(printf '%s\n' "$props" | awk -F= '/^POWER_SUPPLY_STATUS=/{print $2; exit}')"
+
+            if [ -z "$capacity" ] || [ -z "$status" ]; then
+                udevadm monitor --subsystem-match=power_supply --property | grep -m 1 "POWER_SUPPLY_CAPACITY=" >/dev/null
+                continue
+            fi
 
             if [ "$status" = "Discharging" ]; then
                 if [ "$capacity" != "$last_notified_level" ]; then
@@ -60,7 +64,7 @@ let
                 last_notified_level=100
             fi
 
-            inotifywait -qq -e modify "$BAT_PATH"
+            udevadm monitor --subsystem-match=power_supply --property | grep -m 1 "POWER_SUPPLY_CAPACITY=" >/dev/null
         done
       '';
     })
