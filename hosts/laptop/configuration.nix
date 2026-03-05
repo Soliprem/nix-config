@@ -14,12 +14,26 @@ _: {
     sensor.iio.enable = true;
   };
 
-  services.pipewire = {
-    wireplumber = {
-      extraConfig = {
-        "10-disable-camera" = {
-          "wireplumber.profiles" = {
-            main."monitor.libcamera" = "disabled";
+  services = {
+    tlp = {
+      enable = true;
+      settings = {
+        PLATFORM_PROFILE_ON_BAT = "low-power";
+        PLATFORM_PROFILE_ON_AC = "performance";
+        CPU_BOOST_ON_BAT = 0;
+        CPU_BOOST_ON_AC = 1;
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
+        CPU_SCALING_MAX_FREQ_ON_BAT = 3000000;
+      };
+    };
+    pipewire = {
+      wireplumber = {
+        extraConfig = {
+          "10-disable-camera" = {
+            "wireplumber.profiles" = {
+              main."monitor.libcamera" = "disabled";
+            };
           };
         };
       };
