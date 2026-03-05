@@ -6,7 +6,6 @@
   hardware.keyboard.qmk.enable = true;
   services = {
     resolved.enable = true;
-    cpupower-gui.enable = true;
     logind.settings.Login.HandlePowerKey = "ignore";
     tailscale.enable = true;
     pulseaudio.enable = false;
