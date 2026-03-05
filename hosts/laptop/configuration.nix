@@ -24,6 +24,7 @@ _: {
         CPU_BOOST_ON_AC = 1;
         CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
         CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
+        CPU_SCALING_MAX_FREQ_ON_AC = 4546000;
         CPU_SCALING_MAX_FREQ_ON_BAT = 3000000;
       };
     };
