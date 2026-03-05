@@ -14,7 +14,6 @@
     ];
     packages = [
       "com.stremio.Stremio"
-      "chat.commet.commetapp.flatpak"
     ];
   };
 }
