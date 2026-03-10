@@ -5,7 +5,7 @@
 }:
 let
   unstable-pkgs = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in 
+in
 {
   environment.systemPackages = with pkgs; [
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvf
@@ -13,6 +13,33 @@ in
     inputs.subtui.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.ekphos.packages.${pkgs.stdenv.hostPlatform.system}.default
     unstable-pkgs.codex
+    (pkgs.stdenv.mkDerivation {
+      pname = "sysboard";
+      version = "unstable";
+
+      src = inputs.sysboard;
+
+      nativeBuildInputs = with pkgs; [
+        pkg-config
+        wayland-protocols
+        wayland-scanner
+      ];
+
+      buildInputs = with pkgs; [
+        gtk4-layer-shell
+        gtkmm4
+        wayland
+      ];
+
+      makeFlags = [ "PREFIX=${placeholder "out"}" ];
+
+      preBuild = ''
+        substituteInPlace src/main.cpp --replace-fail "/usr" $out
+      '';
+      postInstall = ''
+        patchelf --add-needed libsysboard.so $out/bin/sysboard
+      '';
+    })
     gowall
     zotero
     grayjay
