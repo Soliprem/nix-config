@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, flakeInputs, ... }:
 {
   config.vim = {
     repl = {
@@ -316,7 +316,7 @@
     };
     assistant = {
       avante-nvim = {
-        enable = true;
+        enable = false;
         setupOpts = {
           provider = "ollama";
           providers = {
@@ -405,12 +405,7 @@
       R-nvim = {
         package = pkgs.vimUtils.buildVimPlugin {
           name = "R-nvim";
-          src = pkgs.fetchFromGitHub {
-            owner = "R-nvim";
-            repo = "R.nvim";
-            rev = "68a033246a1863c8028f7d7aae91d65fc06058c8";
-            hash = "sha256-GhgzmIylttMyaV/B2QjlRcdtHW/Epw8ghQtJbQEJZN0=";
-          };
+          src = flakeInputs.r-nvim;
           doCheck = false;
           setup = ''
             require('r').setup(),
