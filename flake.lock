@@ -469,6 +469,22 @@
         "type": "github"
       }
     },
+    "r-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772876266,
+        "narHash": "sha256-rHZB3w+icNNCxQa/PLphDdvrVE2zkBrOZnGSsV5x03k=",
+        "owner": "R-nvim",
+        "repo": "R.nvim",
+        "rev": "992a514d88d85e1a262057f4775fb64b5d75e602",
+        "type": "github"
+      },
+      "original": {
+        "owner": "R-nvim",
+        "repo": "R.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -480,8 +496,10 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nvf": "nvf",
+        "r-nvim": "r-nvim",
         "spicetify-nix": "spicetify-nix",
         "subtui": "subtui",
+        "sysboard": "sysboard",
         "thumbpick": "thumbpick",
         "zen-browser": "zen-browser"
       }
@@ -624,6 +642,22 @@
       "original": {
         "owner": "mattiapun",
         "repo": "subtui",
+        "type": "github"
+      }
+    },
+    "sysboard": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1763860761,
+        "narHash": "sha256-wSx1YyzZvcuCscSSQi+nrvvIh0iFjLDQgnBXN80KfFU=",
+        "owner": "system64fumo",
+        "repo": "sysboard",
+        "rev": "1a032fb4dd76f3f5496955d293eab2ea90f7fc15",
+        "type": "github"
+      },
+      "original": {
+        "owner": "system64fumo",
+        "repo": "sysboard",
         "type": "github"
       }
     },

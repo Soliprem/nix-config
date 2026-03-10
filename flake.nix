@@ -33,6 +33,7 @@
         nvf =
           (inputs.nvf.lib.neovimConfiguration {
             inherit pkgs;
+            extraSpecialArgs = { flakeInputs = inputs; };
             modules = [
               ./export/nvf.nix
             ];
@@ -40,6 +41,7 @@
         nvf-minimal =
           (inputs.nvf.lib.neovimConfiguration {
             inherit pkgs;
+            extraSpecialArgs = { flakeInputs = inputs; };
             modules = [
               ./export/nvf-minimal.nix
             ];
@@ -50,6 +52,15 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    r-nvim = {
+      url = "github:R-nvim/R.nvim";
+      flake = false;
+    };
+    sysboard = {
+      url = "github:system64fumo/sysboard";
+      flake = false;
+    };
 
     thumbpick = {
       url = "github:soliprem/thumbpick";
