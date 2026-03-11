@@ -40,6 +40,7 @@ in
         patchelf --add-needed libsysboard.so $out/bin/sysboard
       '';
     })
+    fluffychat
     gowall
     zotero
     grayjay
