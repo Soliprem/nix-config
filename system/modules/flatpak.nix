@@ -14,6 +14,7 @@
     ];
     packages = [
       "com.stremio.Stremio"
+      "in.cinny.Cinny"
     ];
   };
 }
