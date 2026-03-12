@@ -26,6 +26,7 @@
       "dm-dragdir"
       "dm-dragdrop"
       "dm-sunsetr"
+      "dm-notes"
     ];
   };
 }
