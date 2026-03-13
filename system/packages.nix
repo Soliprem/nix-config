@@ -80,7 +80,6 @@ in
     wlogout
     gnome-feeds
     tray-tui
-    wmenu
     darkly
     darkly-qt5
     scenefx
@@ -103,8 +102,6 @@ in
     spotify
     emacs
     bottles
-    phoronix-test-suite
-    furmark
     nwg-drawer
     swaynotificationcenter
     xwayland-satellite
@@ -112,14 +109,13 @@ in
     inkscape
     anki-bin
     kew
-    gapless
     spotdl
     audacity
-    cozy
+    # cozy
+    # gapless
     gcs
     code-cursor
     jujutsu
-    # lazyjj
     calibre
     qutebrowser
     maptool
@@ -130,7 +126,6 @@ in
     libsForQt5.qt5.qtgraphicaleffects
     affine
     gale
-    r2modman
     protonvpn-gui
     ffmpeg
     chromium
@@ -158,7 +153,6 @@ in
     networkmanagerapplet
     alsa-utils
     pipewire
-    via
     libgccjit
     linearicons-free
     musescore
@@ -173,14 +167,10 @@ in
     ddcui
     nix-output-monitor
     nexusmods-app-unfree
-    # limo
     mangohud
     ghostty
     foot
-    # fluffychat
     bitwarden-desktop
-    # bitwarden-cli
-    # bitwarden-menu
     showtime
     keyutils
     iamb
