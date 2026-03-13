@@ -65,7 +65,6 @@ in
     imv
     tofi
     openai-whisper
-    whisperx
     nushell
     darkman
     swayosd
