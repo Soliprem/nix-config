@@ -33,7 +33,9 @@
         nvf =
           (inputs.nvf.lib.neovimConfiguration {
             inherit pkgs;
-            extraSpecialArgs = { flakeInputs = inputs; };
+            extraSpecialArgs = {
+              flakeInputs = inputs;
+            };
             modules = [
               ./export/nvf.nix
             ];
@@ -41,7 +43,9 @@
         nvf-minimal =
           (inputs.nvf.lib.neovimConfiguration {
             inherit pkgs;
-            extraSpecialArgs = { flakeInputs = inputs; };
+            extraSpecialArgs = {
+              flakeInputs = inputs;
+            };
             modules = [
               ./export/nvf-minimal.nix
             ];
@@ -59,6 +63,10 @@
     };
     sysboard = {
       url = "github:system64fumo/sysboard";
+      flake = false;
+    };
+    commet = {
+      url = "https://github.com/commetchat/commet/releases/download/v0.4.1/commet-linux-portable-x64.tar.gz";
       flake = false;
     };
 
