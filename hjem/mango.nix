@@ -286,6 +286,12 @@
       mousebind=NONE,btn_left,toggleoverview,-1
       mousebind=NONE,btn_right,killclient,0
 
+      # Touchpad Gestures (3-finger)
+      gesturebind=NONE,up,3,viewtoleft_have_client
+      gesturebind=NONE,down,3,viewtoright_have_client
+      gesturebind=NONE,left,3,focusstack,prev
+      gesturebind=NONE,right,3,focusstack,next
+
       # --- Layout Specific Keymodes ---
 
       # Scroller ('default' mode because it's the default layout in tagrules)
@@ -293,12 +299,14 @@
       bind=SUPER,r,switch_proportion_preset
       bind=SUPER,h,focusstack,prev
       bind=SUPER,l,focusstack,next
-      bind=SUPER+SHIFT,h,exchange_stack_client,prev
-      bind=SUPER+SHIFT,l,exchange_stack_client,next
+      bind=SUPER+CTRL,h,exchange_stack_client,prev
+      bind=SUPER+CTRL,l,exchange_stack_client,next
       bind=SUPER,j,viewtoright
       bind=SUPER,k,viewtoleft
-      bind=SUPER+SHIFT,j,tagtoright
-      bind=SUPER+SHIFT,k,tagtoleft
+      bind=SUPER+SHIFT,j,scroller_stack,down
+      bind=SUPER+SHIFT,k,scroller_stack,up
+      bind=SUPER+SHIFT,h,scroller_stack,left
+      bind=SUPER+SHIFT,l,scroller_stack,right
 
       # Tile (Master/Stack)
       keymode=tile
