@@ -338,6 +338,7 @@ in
       ];
     };
     kdeconnect.enable = true;
+    television.enable = true;
     # river.enable = true;
     niri.enable = true;
     hyprland.enable = true;
