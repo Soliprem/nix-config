@@ -61,7 +61,14 @@
       enableFormat = true;
       enableTreesitter = true;
       enableExtraDiagnostics = true;
-      nim.enable = true;
+      nim.enable = false;
+      java.enable = false;
+      svelte.enable = false;
+      tailwind.enable = false;
+      vala.enable = false;
+      dart.enable = false;
+      elixir.enable = false;
+      haskell.enable = true;
       nix.enable = true;
       markdown.enable = true;
       html.enable = true;
@@ -71,16 +78,11 @@
         format.type = [ "styler" ];
       };
       sql.enable = true;
-      haskell.enable = true;
-      java.enable = false;
       ts = {
         enable = true;
         extraDiagnostics.enable = false;
       };
-      svelte.enable = false;
-      vala.enable = true;
       go.enable = true;
-      elixir.enable = false;
       zig.enable = true;
       ocaml.enable = true;
       nu.enable = true;
@@ -88,10 +90,8 @@
         enable = true;
         lsp.servers = [ "pyright" ];
       };
-      dart.enable = false;
       lua.enable = true;
       bash.enable = true;
-      tailwind.enable = false;
       typst.enable = true;
       julia.enable = true;
       clang = {
@@ -175,6 +175,7 @@
         rnoweb
         yaml
         markdown
+        markdown_inline
         r
         hyprlang
         toml
@@ -242,7 +243,7 @@
 
     notes = {
       obsidian = {
-        enable = true;
+        enable = false;
         setupOpts = {
           workspaces = [
             {
@@ -415,6 +416,49 @@
     };
 
     lazy.plugins = with pkgs.vimPlugins; {
+      "neowiki.nvim" = {
+        lazy = true;
+        event = "UIEnter";
+        package = pkgs.vimUtils.buildVimPlugin {
+          name = "neowiki-nvim";
+          pname = "neowiki.nvim";
+          src = flakeInputs.neowiki-nvim;
+          doCheck = false;
+        };
+        setupModule = "neowiki";
+        keys = [
+          {
+            key = "<leader>ww";
+            mode = "n";
+            action = ":lua require('neowiki').open_wiki()<cr>";
+            silent = true;
+            desc = "Open Wiki";
+          }
+          {
+            key = "<leader>wW";
+            mode = "n";
+            action = ":lua require('neowiki').open_wiki_floating()<cr>";
+            silent = true;
+            desc = "Open Floating Wiki";
+          }
+          {
+            key = "<leader>wT";
+            mode = "n";
+            action = ":lua require('neowiki').open_wiki_new_tab()<cr>";
+            silent = true;
+            desc = "Open Wiki in Tab";
+          }
+        ];
+        setupOpts = {
+          discover_nested_roots = true;
+          wiki_dirs = [
+            {
+              name = "notes";
+              path = "~/Documents/Nextcloud/Notes/markdown/";
+            }
+          ];
+        };
+      };
       ${twilight-nvim.pname} = {
         lazy = true;
         package = twilight-nvim;
@@ -446,8 +490,9 @@
         ];
       };
       ${eyeliner-nvim.pname} = {
+        lazy = true;
         package = eyeliner-nvim;
-        event = [ "BufEnter" ];
+        event = [ "UIEnter" ];
       };
       ${quarto-nvim.pname} = {
         lazy = true;
@@ -478,7 +523,10 @@
       };
       ${boole-nvim.pname} = {
         lazy = true;
-        event = [ "BufEnter" ];
+        event = [
+          "BufReadPost"
+          "BufNewFile"
+        ];
         package = boole-nvim;
         setupModule = "boole";
         setupOpts = {

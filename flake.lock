@@ -187,11 +187,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768135262,
-        "narHash": "sha256-PVvu7OqHBGWN16zSi6tEmPwwHQ4rLPU9Plvs8/1TUBY=",
+        "lastModified": 1769996383,
+        "narHash": "sha256-AnYjnFWgS49RlqX7LrC4uA+sCCDBj0Ry/WOJ5XWAsa0=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "80daad04eddbbf5a4d883996a73f3f542fa437ac",
+        "rev": "57928607ea566b5db3ad13af0e57e921e6b12381",
         "type": "github"
       },
       "original": {
@@ -303,11 +303,11 @@
     },
     "mnw": {
       "locked": {
-        "lastModified": 1769981889,
-        "narHash": "sha256-ndI7AxL/6auelkLHngdUGVImBiHkG8w2N2fOTKZKn4k=",
+        "lastModified": 1770419553,
+        "narHash": "sha256-b1XqsH7AtVf2dXmq2iyRr2NC1yG7skY7Z6N2MpWHlK4=",
         "owner": "Gerg-L",
         "repo": "mnw",
-        "rev": "332fed8f43b77149c582f1782683d6aeee1f07cf",
+        "rev": "2aaffa8030d0b262176146adbb6b0e6374ce2957",
         "type": "github"
       },
       "original": {
@@ -357,6 +357,22 @@
         "owner": "feel-co",
         "ref": "refs/tags/v2.6.0",
         "repo": "ndg",
+        "type": "github"
+      }
+    },
+    "neowiki-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773922452,
+        "narHash": "sha256-J6IKvnOuq1UYol3bdAbtaWqA5EWedBR/35ePQcS3fbQ=",
+        "owner": "echaya",
+        "repo": "neowiki.nvim",
+        "rev": "c6d6d414d912b98bc1d9bd3d843f94e545c1cd90",
+        "type": "github"
+      },
+      "original": {
+        "owner": "echaya",
+        "repo": "neowiki.nvim",
         "type": "github"
       }
     },
@@ -445,11 +461,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1769461804,
-        "narHash": "sha256-msG8SU5WsBUfVVa/9RPLaymvi5bI8edTavbIq3vRlhI=",
+        "lastModified": 1771008912,
+        "narHash": "sha256-gf2AmWVTs8lEq7z/3ZAsgnZDhWIckkb+ZnAo5RzSxJg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "bfc1b8a4574108ceef22f02bafcf6611380c100d",
+        "rev": "a82ccc39b39b621151d6732718e3e250109076fa",
         "type": "github"
       },
       "original": {
@@ -469,15 +485,16 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1770471765,
-        "narHash": "sha256-xyvGUrVfRORXnOseZ75H+F4zjQXGU/muvBYQgtNEnNU=",
+        "lastModified": 1774055150,
+        "narHash": "sha256-kTkl2qBwZcc3+yLnCXy6wQsuY/dXYs03sDzwfFPNzgw=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "d5824f2d8f4a94c44e1753a3a2a5d67bebddc6fb",
+        "rev": "d646b7729c54109055fd38178390c21183b3c145",
         "type": "github"
       },
       "original": {
         "owner": "notashelf",
+        "ref": "more-lazy-plugins",
         "repo": "nvf",
         "type": "github"
       }
@@ -506,6 +523,7 @@
         "ekphos": "ekphos",
         "hjem": "hjem",
         "mango": "mango",
+        "neowiki-nvim": "neowiki-nvim",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",

@@ -61,6 +61,10 @@
       url = "github:R-nvim/R.nvim";
       flake = false;
     };
+    neowiki-nvim = {
+      url = "github:echaya/neowiki.nvim";
+      flake = false;
+    };
     sysboard = {
       url = "github:system64fumo/sysboard";
       flake = false;
@@ -109,8 +113,8 @@
     };
 
     # nvf-soli.url = "github:soliprem/nvf-soli/";
-    nvf.url = "github:notashelf/nvf/";
-    # nvf.url = "path:/home/soliprem/.local/src/nvf-maint/";
+    nvf.url = "github:notashelf/nvf/more-lazy-plugins";
+    # nvf.url = "path:/home/soliprem/.local/src/nvf-admin/";
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
