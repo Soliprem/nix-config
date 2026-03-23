@@ -418,7 +418,8 @@
     lazy.plugins = with pkgs.vimPlugins; {
       "neowiki.nvim" = {
         lazy = true;
-        event = "UIEnter";
+        event = [ "UIEnter" ];
+        ft = [ "markdown" ];
         package = pkgs.vimUtils.buildVimPlugin {
           name = "neowiki-nvim";
           pname = "neowiki.nvim";
