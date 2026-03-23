@@ -8,10 +8,13 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvf
-    inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.subtui.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # Flake inputs and custom derivations
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.ekphos.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvf
+    inputs.subtui.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     unstable-pkgs.codex
     (pkgs.stdenv.mkDerivation {
       pname = "sysboard";
@@ -100,200 +103,192 @@ in
         platforms = platforms.linux;
       };
     })
-    fluffychat
-    nheko
-    gowall
-    zotero
-    grayjay
-    linux-wallpaperengine
-    meow
-    tuifeed
-    steam-tui
-    wiremix
-    rmpc
-    ostui
-    bluetui
-    tealdeer
-    jq
-    scarab
-    lumafly
-    distrobox
-    distrobox-tui
-    wiki-tui
-    tor-browser
-    lutgen-studio
-    nix-your-shell
-    imv
-    tofi
-    openai-whisper
-    nushell
-    darkman
-    swayosd
-    litemdview
-    servo
-    limo
-    kanshi
-    swaylock-effects
-    gretl
-    faugus-launcher
-    super-productivity
-    blanket
-    wlogout
-    gnome-feeds
-    tray-tui
-    darkly
-    darkly-qt5
-    scenefx
-    tree-sitter-grammars.tree-sitter-typst
-    typst
-    tinymist
-    wayneko
-    omnissa-horizon-client
-    newsflash
-    gdb
-    beyond-all-reason
-    eza
-    mediawriter
-    wl-clipboard
-    aonsoku
-    tauon
-    spek
-    nicotine-plus
-    openvpn
-    spotify
-    emacs
-    bottles
-    nwg-drawer
-    swaynotificationcenter
-    xwayland-satellite
-    comma
-    inkscape
-    anki-bin
-    kew
-    spotdl
-    audacity
-    # cozy
-    # gapless
-    gcs
-    code-cursor
-    jujutsu
-    calibre
-    qutebrowser
-    maptool
-    anytype
-    zed-editor
-    kdePackages.qtmultimedia
-    kdePackages.polkit-kde-agent-1
-    libsForQt5.qt5.qtgraphicaleffects
-    affine
-    gale
-    protonvpn-gui
-    ffmpeg
-    chromium
-    libsForQt5.qt5ct
-    kdePackages.qt6ct
-    gimp
-    highlight
-    helix
-    cartridges
-    fuzzel
-    adw-gtk3
-    bibata-cursors
+
+    # CLI, shells, and core tools
     atuin
-    fastfetch
-    microfetch
-    carapace
-    starship
-    zoxide
-    gammastep
-    iio-hyprland
-    matugen
-    git
-    wget
-    protontricks
-    networkmanagerapplet
-    alsa-utils
-    pipewire
-    libgccjit
-    linearicons-free
-    musescore
-    libnotify
-    youtube-music
-    youtube-tui
-    gtk-pipe-viewer
-    godot_4
-    obs-studio
-    lazygit
-    ddcutil
-    ddcui
-    nix-output-monitor
-    nexusmods-app-unfree
-    mangohud
-    ghostty
-    foot
-    bitwarden-desktop
-    showtime
-    keyutils
-    iamb
-    revolt-desktop
-    swww
-    muse-sounds-manager
-    pwvucontrol
-    heroic
-    lutris
-    dotacat
-    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
-    umu-launcher
-    teams-for-linux
-    sunsetr
-    ripgrep
-    android-tools
-    loupe
-    transmission_4-gtk
-    cowsay
-    fortune
-    starship
-    thunderbird
-    legcord
-    impression
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    freetube
-    appimage-run
-    obsidian
-    beeper
     bat
-    gamemode
-    wtype
-    udict
-    fzf
-    prismlauncher
-    protonplus
-    telegram-desktop
-    qpwgraph
-    brightnessctl
-    fd
-    killall
-    zathura
-    papers
-    yad
-    darktable
-    nextcloud-client
-    planify
-    mpv
     btop-rocm
+    carapace
+    comma
+    cowsay
+    eza
+    fastfetch
+    fd
+    fortune
+    fzf
+    git
+    gdb
+    highlight
+    jq
+    killall
+    lazygit
+    nix-output-monitor
+    nix-your-shell
+    nushell
+    openvpn
+    ripgrep
+    scarab
+    socat
+    starship
+    tealdeer
     termdown
     timer
+    tree-sitter-grammars.tree-sitter-typst
+    udict
+    wget
+    wiki-tui
+    youtube-tui
+    zoxide
+
+    # Editors, development, and authoring
+    code-cursor
+    emacs
+    helix
+    impression
+    jujutsu
+    libgccjit
+    litemdview
+    openai-whisper
+    typst
+    tinymist
+    zed-editor
+
+    # Wayland, theming, and desktop utilities
+    adw-gtk3
+    bibata-cursors
+    brightnessctl
     cliphist
-    hyprshot
-    swappy
-    element-desktop
-    nautilus
-    spotube
+    darkly
+    darkly-qt5
+    darkman
+    fuzzel
+    gammastep
+    ghostty
     glib
-    socat
+    hyprshot
+    iio-hyprland
+    kanshi
+    kdePackages.polkit-kde-agent-1
+    kdePackages.qt6ct
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5ct
+    linearicons-free
+    matugen
+    networkmanagerapplet
     overskride
+    swappy
+    swaylock-effects
+    swaynotificationcenter
+    swayosd
+    swww
+    tofi
+    tray-tui
+    wayneko
+    wl-clipboard
+    wlogout
+    wtype
+    xwayland-satellite
+
+    # Browsers, communication, and network clients
+    beeper
+    bitwarden-desktop
+    chromium
+    element-desktop
+    fluffychat
+    grayjay
+    gtk-pipe-viewer
+    iamb
+    legcord
+    nextcloud-client
+    omnissa-horizon-client
+    qutebrowser
+    teams-for-linux
+    telegram-desktop
+    thunderbird
+    tor-browser
+    transmission_4-gtk
+    youtube-music
+
+    # General desktop applications
+    anki-bin
+    appimage-run
+    blanket
+    bottles
+    calibre
+    darktable
+    foot
+    gale
+    gcs
+    godot_4
+    gowall
+    gretl
+    imv
+    inkscape
+    keyutils
+    loupe
+    lumafly
+    lutgen-studio
+    maptool
+    mediawriter
+    meow
+    nautilus
+    obsidian
+    papers
+    protonvpn-gui
+    super-productivity
+    yad
+    zathura
+    zotero
+
+    # Audio, video, and creative tools
+    alsa-utils
+    audacity
+    ffmpeg
+    gimp
+    kew
+    kdePackages.qtmultimedia
+    libnotify
+    mpv
+    muse-sounds-manager
+    musescore
     pamixer
-    jay
+    pipewire
+    pwvucontrol
+    qpwgraph
+    spek
+    spotdl
+    spotify
+    tauon
+    wiremix
+
+    # Gaming
+    beyond-all-reason
+    gamemode
+    heroic
+    linux-wallpaperengine
+    lutris
+    mangohud
+    prismlauncher
+    protonplus
+    protontricks
+    umu-launcher
+
+    # Miscellaneous apps and helpers
+    # cozy
+    # gapless
+    aonsoku
+    bluetui
+    ddcui
+    ddcutil
+    distrobox
+    distrobox-tui
+    dotacat
+    limo
+    nicotine-plus
+    obs-studio
+    ostui
+    sunsetr
+    tuifeed
   ];
   programs = {
     nix-ld = {
