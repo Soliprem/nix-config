@@ -485,16 +485,15 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1774055150,
-        "narHash": "sha256-kTkl2qBwZcc3+yLnCXy6wQsuY/dXYs03sDzwfFPNzgw=",
+        "lastModified": 1774345971,
+        "narHash": "sha256-6n4gmuEBwAXTeo0Aw5H0irX4Izkgm90JU5U1G47X9oo=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "d646b7729c54109055fd38178390c21183b3c145",
+        "rev": "536e16e343813df8edda5548fd72d40e3f5dbf8b",
         "type": "github"
       },
       "original": {
         "owner": "notashelf",
-        "ref": "more-lazy-plugins",
         "repo": "nvf",
         "type": "github"
       }
