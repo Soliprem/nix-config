@@ -160,7 +160,6 @@ in
     cliphist
     darkly
     darkly-qt5
-    darkman
     fuzzel
     gammastep
     ghostty

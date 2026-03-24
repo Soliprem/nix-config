@@ -12,7 +12,6 @@
     "mango.nix"
     "matugen.nix"
     "swaylock.nix"
-    "darkman.nix"
     "dmscripts.nix"
     "sunsetr.nix"
     "thumbpick.nix"

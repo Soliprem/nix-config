@@ -424,7 +424,6 @@
       xwayland-satellite &
       swww-daemon &
       battery-monitor &
-      darkman run &
       swaync &
       nm-applet &
       kanshi &

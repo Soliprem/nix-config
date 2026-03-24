@@ -88,7 +88,6 @@ in
     exec-once = nm-applet &
     exec-once = swaync &
     exec-once = protonvpn-app &
-    exec-once = darkman run &
     exec-once = kanshi &
     exec-once = wl-paste --type text --watch cliphist store &
     exec-once = wl-paste --type image --watch cliphist store &
