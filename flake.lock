@@ -485,11 +485,11 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1774345971,
-        "narHash": "sha256-6n4gmuEBwAXTeo0Aw5H0irX4Izkgm90JU5U1G47X9oo=",
+        "lastModified": 1774351089,
+        "narHash": "sha256-4zn+GKchKGc/wbPqny3L/zFSwaoMZZgNtg7ak5GIDCE=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "536e16e343813df8edda5548fd72d40e3f5dbf8b",
+        "rev": "1d3730f4cf4100bf06cdc89ac02060b67caee4d0",
         "type": "github"
       },
       "original": {
