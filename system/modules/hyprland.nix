@@ -428,7 +428,6 @@ in {
           "nm-applet &"
           "swaync &"
           "protonvpn-app &"
-          "darkman run &"
           "kanshi &"
         ];
       };
