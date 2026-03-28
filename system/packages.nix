@@ -191,6 +191,7 @@ in
     # Browsers, communication, and network clients
     beeper
     bitwarden-desktop
+    bitwarden-cli
     chromium
     element-desktop
     fluffychat

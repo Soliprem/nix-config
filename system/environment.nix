@@ -55,7 +55,15 @@ _: {
       _JAVA_AWT_WM_NONREPARENTING = "1"; # Fix for Java applications
     };
     shellAliases = {
-      # Verbosity and settings that you pretty much just always are going to want.
+      mount = "sudo mount";
+      umount = "sudo umount";
+      sv = "sudo sv";
+      pacman = "sudo pacman";
+      updatedb = "sudo updatedb";
+      su = "sudo su";
+      shutdown = "sudo shutdown";
+      poweroff = "sudo poweroff";
+      reboot = "sudo reboot";
       river = "XKB_DEFAULT_LAYOUT=eu river";
       rcow = "fortune | cowsay -r | lolcat";
       cp = "cp -iv";
@@ -63,12 +71,11 @@ _: {
       mv = "mv -iv";
       rm = "rm -vI";
       bc = "bc -ql";
-      rg = "cd .steam/steam/steamapps/compatdata/813780/pfx/drive_c/users/steamuser/Games/Age\ of\ Empires\ 2\ DE/76561199050658286/savegame";
+      rg = "cd .steam/steam/steamapps/compatdata/813780/pfx/drive_c/users/steamuser/Games/Age\\ of\\ Empires\\ 2\\ DE/76561199050658286/savegame";
       mkd = "mkdir -pv";
       yt = "yt-dlp --embed-metadata -i";
       yta = "yt -x -f bestaudio/best";
       ffmpeg = "ffmpeg -hide_banne";
-      # Colorize commands when possible.;
       ls = "exa --header --icons --group-directories-first";
       nvimtutor = "nvim -c Tutor";
       cat = "bat";
@@ -79,7 +86,6 @@ _: {
       diff = "diff --color=auto";
       ccat = "highlight --out-format=ansi";
       ip = "ip -color";
-      # These common commands are just too long! Abbreviate them.;
       ka = "killall";
       g = "git";
       trem = "transmission-remote";
@@ -88,22 +94,15 @@ _: {
       e = "nvim";
       v = "nvim";
       p = "pacman";
-      update = "sudo pacman -Sy && sudo powerpill -Su && yay -Su";
+      update = "nix flake update --flake ~/.config/nix-config/ && sudo nixos-rebuild switch --flake ~/.config/nix-config/.#nixos-pc && nix-store --optimise && nix-collect-garbage";
       xi = "sudo xbps-install";
       xr = "sudo xbps-remove -R";
       xq = "xbps-query";
       config = "/usr/bin/git --git-dir=/home/soliprem/.cfg/ --work-tree=/home/soliprem";
       z = "zathura";
-
       "cd.." = "cd ..";
       lf = "lfub";
-      # alias yay="paru"
       magit = "nvim -c MagitOnly";
-      #alias ref="shortcuts >/dev/null; source $HOME/.config/shell/shortcutrc ; source $HOME/.config/.config}/shell/zshnameddirrc"
-      #alias weath="less -S $XDG_DATA_HOME/share}/weatherreport"
-
-      # vim: filetype=sh
-
       cac = "cd $HOME/.cache && ls -a";
       cf = "cd $HOME/.config && ls -a";
       D = "cd $HOME/Downloads && ls -a";
@@ -134,6 +133,15 @@ _: {
       cfl = "$EDITOR $HOME/.config/lf/lfrc";
       cfL = "$EDITOR $HOME/.config/lf/scope";
       cfX = "$EDITOR $HOME/.config/sxiv/exec/key-handler";
+      sleep = "timer";
+      vim = "nvim";
+      vimdiff = "nvim -d";
+      startx = "startx $XINITRC";
+      nos = "nh os switch";
+      nd = "nix develop";
+      sl = "sll";
+      lg = "lazygit";
+      n = "cd ~/.config/nix-config && ls";
     };
   };
 }

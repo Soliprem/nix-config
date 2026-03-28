@@ -11,7 +11,7 @@ config, and not a configuration framework, so take things with a grain of salt.
   Darkman for automatic light/dark theming based on the time
 - **Modern shell**: Nushell with Starship, Zoxide, Atuin
 - **Dotfiles**: Managed with Hjem
-- **Secrets**: Encrypted with agenix (WIP)
+- **Secrets**: Encrypted with agenix
 
 ## Gallery
 <details><summary>Gallery</summary>
@@ -101,6 +101,18 @@ _(Hyprland has similar bindings when using that session)_
 ```bash
 nix build .#nvf          # Full config
 nix build .#nvf-minimal  # Minimal config
+```
+
+## Secrets
+
+Secrets are defined in `secrets/secrets.nix` and deployed through agenix. The
+shared system config imports the agenix NixOS module and decrypts secrets using
+the host SSH RSA key at `/etc/ssh/ssh_host_rsa_key`.
+
+Edit an existing secret with:
+
+```bash
+agenix -e secrets/bitwarden_sessionkey.age
 ```
 
 ## Credits

@@ -33,8 +33,7 @@ _: {
       source ~/.cache/atuin/init.nu
       source ~/.cache/nix_your_shell/nix-your-shell.nu
 
-
-      alias D = cd $'($env.HOME)Downloads'; ls -a
+      alias D = cd $'($env.HOME)/Downloads'; ls -a
       alias nos = nh os switch
       alias nd = nix develop
       alias sl = sll

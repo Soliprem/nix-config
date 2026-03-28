@@ -9,6 +9,7 @@
   ];
 
   hjem.users.soliprem.imports = [
+    ./fish.nix
     ./fastfetch.nix
     ./git.nix
     ./helix.nix
