@@ -34,6 +34,19 @@ _: {
       source ~/.cache/nix_your_shell/nix-your-shell.nu
 
       alias D = cd $'($env.HOME)/Downloads'; ls -a
+      def --env bw-session [] {
+        let result = (^bw-export-session | complete)
+        if $result.exit_code != 0 {
+          return
+        }
+
+        let session = ($result.stdout | str trim)
+        if ($session | is-empty) {
+          return
+        }
+
+        load-env { BW_SESSION: $session }
+      }
       alias nos = nh os switch
       alias nd = nix develop
       alias sl = sll

@@ -418,13 +418,13 @@ let
         case "$bw_status" in
           *'"status":"unlocked"'* | *'"status": "unlocked"'*)
             if [ -n "''${BW_SESSION:-}" ]; then
-              printf 'export BW_SESSION=%q\n' "$BW_SESSION"
+              printf '%s\n' "$BW_SESSION"
             fi
             ;;
           *'"status":"locked"'* | *'"status": "locked"'* | *'"status":"unauthenticated"'* | *'"status": "unauthenticated"'*)
             bw_session="$(bw unlock --passwordenv BW_PASSWORD --raw 2>/dev/null || true)"
             if [ -n "$bw_session" ]; then
-              printf 'export BW_SESSION=%q\n' "$bw_session"
+              printf '%s\n' "$bw_session"
             fi
             ;;
         esac
