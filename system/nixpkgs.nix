@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   nix.package = pkgs.lixPackageSets.stable.lix;
   nixpkgs = {
