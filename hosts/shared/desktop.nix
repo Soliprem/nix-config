@@ -8,6 +8,7 @@
     "qt.nix"
     "tofi.nix"
     "fuzzel.nix"
+    "bitwarden-menu.nix"
     "kanshi.nix"
     "mango.nix"
     "matugen.nix"
