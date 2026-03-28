@@ -41,4 +41,9 @@
       allowUnfreePredicate = _: true;
     };
   };
+  documentation = {
+    enable = true;
+    nixos.enable = false;
+    man.generateCaches = false;
+  };
 }
