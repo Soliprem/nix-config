@@ -181,7 +181,7 @@ let
         [key value];
         ["mdash" —]
         ["name" "Francesco Prem Solidoro"]
-        ["sign" "Kindest Regards,\nFrancesco Prem Solidoro"]
+        ["sign" "Kindest Regards,\n Francesco Prem Solidoro"]
         ]
         let chosen_key = $expansions.key | to text | fuzzel --dmenu
         wtype ($expansions | where key == $chosen_key | get value.0)

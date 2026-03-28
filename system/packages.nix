@@ -192,6 +192,7 @@ in
     beeper
     bitwarden-desktop
     bitwarden-cli
+    bitwarden-menu
     chromium
     element-desktop
     fluffychat
