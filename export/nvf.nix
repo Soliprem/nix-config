@@ -126,7 +126,7 @@
     statusline = {
       lualine = {
         enable = true;
-        theme = "tokyonight";
+        theme = "gruvbox";
       };
     };
 
@@ -137,8 +137,8 @@
 
     theme = {
       enable = true;
-      name = "tokyonight";
-      style = "night";
+      name = "gruvbox";
+      style = "dark";
       transparent = false;
     };
 
@@ -299,7 +299,7 @@
       colorizer.enable = true;
       modes-nvim.enable = false; # the theme looks terrible with catppuccin
       illuminate.enable = true;
-      # fastaction.enable = true;
+      fastaction.enable = false;
       breadcrumbs = {
         enable = true;
         navbuddy.enable = true;
