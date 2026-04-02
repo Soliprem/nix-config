@@ -286,12 +286,17 @@ in
     dotacat
     limo
     nicotine-plus
-    obs-studio
     ostui
     sunsetr
     tuifeed
   ];
   programs = {
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        input-overlay
+      ];
+    };
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
