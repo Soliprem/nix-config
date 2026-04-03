@@ -89,8 +89,7 @@ in
     exec-once = swaync &
     exec-once = protonvpn-app &
     exec-once = kanshi &
-    exec-once = wl-paste --type text --watch cliphist store &
-    exec-once = wl-paste --type image --watch cliphist store &
+    exec-once = stash watch &
     exec-once = sunsetr &
 
     # -----------------------------------------------------

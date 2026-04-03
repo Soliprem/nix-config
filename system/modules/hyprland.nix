@@ -315,7 +315,7 @@ in {
         bind =
           [
             ", XF86PowerOff, exec, wlogout"
-            "$mod, V, exec, pkill fuzzel || cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
+            "$mod, V, exec, clipmenu"
             "$mod,tab,focuscurrentorlast"
             "$mod+Ctrl, t, exec, $term -e tray-tui"
             "$mod+Ctrl, b, exec, overskride"
@@ -420,8 +420,7 @@ in {
         };
         exec-once = [
           "iio-hyprland"
-          "wl-paste --type text --watch cliphist store &"
-          "wl-paste --type image --watch cliphist store &"
+          "stash watch &"
           "batsignal &"
           "swayosd-server"
           "swww-daemon &"

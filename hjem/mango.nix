@@ -419,8 +419,7 @@
       exec-once=~/.config/mango/autostart.sh
     '';
     ".config/mango/autostart.sh".source = pkgs.writers.writeBash "autostart.sh" ''
-      wl-paste --type text --watch cliphist store &
-      wl-paste --type image --watch cliphist store &
+      stash watch &
       xwayland-satellite &
       swww-daemon &
       battery-monitor &

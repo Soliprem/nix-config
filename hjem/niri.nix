@@ -50,7 +50,7 @@ _: {
          DISPLAY ":0"
       }
 
-      spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+      spawn-at-startup "stash" "watch"
       spawn-at-startup "xwayland-satellite"
       spawn-at-startup "swww-daemon"
       spawn-at-startup "battery-monitor"
