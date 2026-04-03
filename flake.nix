@@ -74,6 +74,10 @@
       flake = false;
     };
 
+    stash = {
+      url = "github:notashelf/stash";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     thumbpick = {
       url = "github:soliprem/thumbpick";
       inputs.nixpkgs.follows = "nixpkgs";

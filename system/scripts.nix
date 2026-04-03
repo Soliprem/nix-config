@@ -358,7 +358,7 @@ let
     (pkgs.writeShellApplication {
       name = "clipmenu";
       text = ''
-        pkill fuzzel || cliphist list | fuzzel -dp "Clipboard History:" | cliphist decode | wl-copy
+        pkill fuzzel || stash list | fuzzel -dp "Clipboard History:" | stash decode | wl-copy
       '';
     })
     (pkgs.writeShellApplication {

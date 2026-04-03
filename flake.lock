@@ -36,6 +36,21 @@
         "url": "https://github.com/commetchat/commet/releases/download/v0.4.1/commet-linux-portable-x64.tar.gz"
       }
     },
+    "crane": {
+      "locked": {
+        "lastModified": 1766194365,
+        "narHash": "sha256-4AFsUZ0kl6MXSm4BaQgItD0VGlEKR3iq7gIaL7TjBvc=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "7d8ec2c71771937ab99790b45e6d9b93d15d9379",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -529,6 +544,7 @@
         "nvf": "nvf",
         "r-nvim": "r-nvim",
         "spicetify-nix": "spicetify-nix",
+        "stash": "stash",
         "subtui": "subtui",
         "sysboard": "sysboard",
         "thumbpick": "thumbpick",
@@ -653,6 +669,27 @@
       "original": {
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
+        "type": "github"
+      }
+    },
+    "stash": {
+      "inputs": {
+        "crane": "crane",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775243632,
+        "narHash": "sha256-aN31z1Pf0Aaz1r0PgtHFYBBM3QFDtnd7hiL7xGGpQLM=",
+        "owner": "notashelf",
+        "repo": "stash",
+        "rev": "f139bda7b296e66998cc3077026cf18abfc9709d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "notashelf",
+        "repo": "stash",
         "type": "github"
       }
     },

@@ -5,16 +5,18 @@
 }:
 let
   unstable-pkgs = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  sys = pkgs.stdenv.hostPlatform.system;
 in
 {
   environment.systemPackages = with pkgs; [
     # Flake inputs and custom derivations
-    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.ekphos.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvf
-    inputs.subtui.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.agenix.packages.${sys}.default
+    inputs.ekphos.packages.${sys}.default
+    inputs.self.packages.${sys}.nvf
+    inputs.subtui.packages.${sys}.default
+    inputs.thumbpick.packages.${sys}.default
+    inputs.zen-browser.packages.${sys}.default
+    inputs.stash.packages.${sys}.default
     unstable-pkgs.codex
     (pkgs.stdenv.mkDerivation {
       pname = "sysboard";
@@ -157,7 +159,6 @@ in
     adw-gtk3
     bibata-cursors
     brightnessctl
-    cliphist
     darkly
     darkly-qt5
     fuzzel
@@ -183,7 +184,6 @@ in
     tofi
     tray-tui
     wayneko
-    wl-clipboard
     wlogout
     wtype
     xwayland-satellite
