@@ -1,11 +1,10 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   nix.package = pkgs.lixPackageSets.stable.lix;
   nixpkgs = {
-    # You can add overlays here
     overlays = [
       (final: prev: {
-        inherit (prev.lixPackageSets.stable)
+        inherit
+          (prev.lixPackageSets.stable)
           nixpkgs-review
           nix-eval-jobs
           nix-fast-build
@@ -22,21 +21,9 @@
       #   });
       # })
     ];
-    # Configure your nixpkgs instance
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
-      # Workaround for https://github.com/nix-community/home-manager/issues/2942
       permittedInsecurePackages = [
-        "electron-35.7.5"
-        "libsoup-2.74.3"
-        "qtwebengine-5.15.19"
-        "olm-3.2.16"
-        "fluffychat-linux-1.26.1"
-        "cinny-4.2.3"
-        "gradle-7.6.6"
-        "cinny-unwrapped-4.2.3"
-        "nexusmods-app-unfree-0.21.1"
       ];
       allowUnfreePredicate = _: true;
     };
