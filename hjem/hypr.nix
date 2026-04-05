@@ -35,16 +35,6 @@ in
     # -----------------------------------------------------
     exec-once = hyprctl plugin load ${unstable-pkgs.hyprlandPlugins.hyprsplit}/lib/libhyprsplit.so
 
-    plugin {
-        split-monitor-workspaces {
-            count = 10
-            enable_persistent_workspaces = false
-        }
-        hyprtrails {
-          color = $primary
-        }
-    }
-
     # -----------------------------------------------------
     # MONITORS
     # -----------------------------------------------------
