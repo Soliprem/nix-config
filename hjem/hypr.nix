@@ -232,7 +232,7 @@ in
     bind = $mod SHIFT, Q, exec, hyprctl kill
     bind = $mod, Q, killactive
     bind = $mod, F1, exec, gamemode
-    bind = $mod+Alt, l, exec, swaylock
+    bind = $mod+Alt, l, exec, hyprlock
     bind = , Print, exec, grimblast copy area
     
     bind = $mod, P,exec, hyprshot -m output -c -r - | swappy -f -
