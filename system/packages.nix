@@ -176,6 +176,7 @@ in {
     overskride
     swappy
     swaylock-effects
+    hyprlock
     swaynotificationcenter
     swayosd
     swww
