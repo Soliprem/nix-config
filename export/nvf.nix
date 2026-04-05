@@ -556,7 +556,6 @@
       };
       ${harpoon2.pname} = {
         lazy = true;
-        cmd = "TypstPreview";
         package = harpoon2;
         keys = [
           {
