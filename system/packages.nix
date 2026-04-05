@@ -2,12 +2,10 @@
   inputs,
   pkgs,
   ...
-}:
-let
-  unstable-pkgs = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+}: let
   sys = pkgs.stdenv.hostPlatform.system;
-in
-{
+  unstable-pkgs = inputs.nixpkgs-unstable.legacyPackages.${sys};
+in {
   environment.systemPackages = with pkgs; [
     # Flake inputs and custom derivations
     inputs.agenix.packages.${sys}.default
@@ -36,7 +34,7 @@ in
         wayland
       ];
 
-      makeFlags = [ "PREFIX=${placeholder "out"}" ];
+      makeFlags = ["PREFIX=${placeholder "out"}"];
 
       preBuild = ''
         substituteInPlace src/main.cpp --replace-fail "/usr" $out
@@ -342,7 +340,11 @@ in
     television.enable = true;
     # river.enable = true;
     niri.enable = true;
-    hyprland.enable = true;
+    hyprland = {
+      enable = true;
+      package = unstable-pkgs.hyprland;
+      portalPackage = unstable-pkgs.xdg-desktop-portal-hyprland;
+    };
     mango.enable = true;
     nh = {
       enable = true;
@@ -356,7 +358,7 @@ in
         XKB_DEFAULT_LAYOUT = "eu";
         XKB_DEFAULT_OPTIONS = "caps:swapescape";
       };
-      args = [ "--force-grab-cursor" ];
+      args = ["--force-grab-cursor"];
     };
   };
 }

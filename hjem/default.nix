@@ -8,6 +8,8 @@
     inputs.hjem.nixosModules.default
   ];
 
+  hjem.specialArgs = { inherit inputs; };
+
   hjem.users.soliprem.imports = [
     ./fish.nix
     ./fastfetch.nix
