@@ -1,5 +1,7 @@
-{ pkgs, lib, ... }:
+{ inputs, pkgs, lib, ... }:
 let
+  sys = pkgs.stdenv.hostPlatform.system;
+  unstable-pkgs = inputs.nixpkgs-unstable.legacyPackages.${sys};
   workspaceBinds = builtins.concatLists (
     builtins.genList (
       x:
@@ -31,13 +33,9 @@ in
     # -----------------------------------------------------
     # PLUGINS (Loaded via Nix store paths)
     # -----------------------------------------------------
-    exec-once = hyprctl plugin load ${pkgs.hyprlandPlugins.hyprscrolling}/lib/libhyprscrolling.so
-    exec-once = hyprctl plugin load ${pkgs.hyprlandPlugins.hyprsplit}/lib/libhyprsplit.so
+    exec-once = hyprctl plugin load ${unstable-pkgs.hyprlandPlugins.hyprsplit}/lib/libhyprsplit.so
 
     plugin {
-        hyprscrolling {
-            focus_fit_method = 1
-        }
         split-monitor-workspaces {
             count = 10
             enable_persistent_workspaces = false
@@ -65,6 +63,7 @@ in
       output = desc:AOC Q27G3XMN 1APQ7JA005710
       mode = 2560x1440@180
       position = 0x0
+      bitdepth = 10
       supports_wide_color = 1
       supports_hdr = 1
       sdr_min_luminance = 0.005
@@ -104,6 +103,10 @@ in
         allow_tearing = false
     }
 
+    scrolling {
+        focus_fit_method = 1
+    }
+
     decoration {
         rounding = 20
         dim_inactive = false
@@ -139,10 +142,6 @@ in
         enable_swallow = true
         swallow_regex = ^(com.mitchellh.ghostty|kitty|foot)$
         swallow_exception_regex = ^(nvim|v|vi|wev|R|glxgears|julia)b.*$
-    }
-
-    debug {
-        full_cm_proto = 1
     }
 
     # -----------------------------------------------------
@@ -189,27 +188,27 @@ in
     # WINDOW RULES
     # -----------------------------------------------------
     # Floating Rules
-    windowrulev2 = float, title:^(Julia|flame|script-fu|org.gtk_rs.HelloWorld2)$
-    windowrulev2 = float, title:^(Picture-in-Picture)$
-    windowrulev2 = float, title:^(Open File|Select a File|Choose wallpaper|Open Folder|Save As|Library)(.*)$
-    windowrulev2 = float, class:^(org.kde.polkit-kde-authentication-agent-1)$
-    windowrulev2 = float, class:^(protonvpn-app)$
-    windowrulev2 = float, class:^(eu.soliprem.thumbpick)$
+    windowrule = match:title ^(Julia|flame|script-fu|org.gtk_rs.HelloWorld2)$, float on
+    windowrule = match:title ^(Picture-in-Picture)$, float on
+    windowrule = match:title ^(Open File|Select a File|Choose wallpaper|Open Folder|Save As|Library)(.*)$, float on
+    windowrule = match:class ^(org.kde.polkit-kde-authentication-agent-1)$, float on
+    windowrule = match:class ^(protonvpn-app)$, float on
+    windowrule = match:class ^(eu.soliprem.thumbpick)$, float on
 
     # Specific Placements
-    windowrulev2 = move 1275 45, title:^(Picture-in-Picture)$
-    windowrulev2 = move 700 250, title:^(flame|script-fu)$
+    windowrule = match:title ^(Picture-in-Picture)$, move 1275 45
+    windowrule = match:title ^(flame|script-fu)$, move 700 250
 
     # Workspace Specific
-    windowrulev2 = rounding 20, workspace:1
-    windowrulev2 = opacity 1 override 1 override, class:^(mpv|steam_app)(.*)$
-    windowrulev2 = opacity 1 override 1 override, title:^(.*.)(YouTube|Invidious)(.*)$
+    windowrule = match:workspace 1, rounding 20
+    windowrule = match:class ^(mpv|steam_app)(.*)$, opacity 1 override 1 override
+    windowrule = match:title ^(.*.)(YouTube|Invidious)(.*)$, opacity 1 override 1 override
 
     # Firefox/Zen Sharing Indicators (Move to special workspace to hide them)
-    windowrulev2 = workspace special, title:^(Firefox — Sharing Indicator|zen — Sharing Indicator)$
+    windowrule = match:title ^(Firefox — Sharing Indicator|zen — Sharing Indicator)$, workspace special
 
     # Fix Firefox file dialogs going full screen
-    windowrulev2 = fullscreenstate -1 2, class:^(firefox)$, title:^((?!Enter name of file to save to…|Save))
+    windowrule = match:class ^(firefox)$, match:title negative:^(Enter name of file to save to…|Save), fullscreen_state -1 2
 
     # -----------------------------------------------------
     # ENVIRONMENT VARIABLES
@@ -273,21 +272,20 @@ in
     bind = Alt, tab, focusurgentorlast
     bind = $mod, j, layoutmsg, cyclenext
     bind = $mod, k, layoutmsg, cycleprev
-    bind = $mod, space, layoutmsg, swapwithmaster
-
-    bind = $mod SHIFT,h,layoutmsg,movewindowto l
-    bind = $mod SHIFT,l,layoutmsg,movewindowto r
-    bind = $mod,r,layoutmsg,colresize +conf
-    bind = $mod+Shift,r,layoutmsg,colresize -conf
-    bind = $mod+Shift,space,layoutmsg,promote
-
-    bind = $mod,h,layoutmsg,focus left
-    bind = $mod,l,layoutmsg,focus right
-    bind = $mod,k,layoutmsg,focus up
-    bind = $mod,j,layoutmsg,focus down
+    bind = $mod, h, layoutmsg, focus l
+    bind = $mod, l, layoutmsg, focus r
+    bind = $mod SHIFT, h, layoutmsg, movewindow l
+    bind = $mod SHIFT, l, layoutmsg, movewindow r
+    bind = $mod CTRL, h, layoutmsg, swapcol l
+    bind = $mod CTRL, l, layoutmsg, swapcol r
+    bind = $mod, r, layoutmsg, colresize +conf
+    bind = $mod+Shift, r, layoutmsg, colresize -conf
     bind = $mod,equal,layoutmsg,colresize -0.02
     bind = $mod SHIFT,equal,layoutmsg,colresize +0.02
     bind = $mod,space,layoutmsg,promote
+    bind = $mod CTRL, space, layoutmsg, swapwithmaster
+    bind = $mod CTRL SHIFT, h, layoutmsg, addmaster
+    bind = $mod CTRL SHIFT, l, layoutmsg, removemaster
 
 
 
