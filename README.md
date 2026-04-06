@@ -5,13 +5,12 @@ config, and not a configuration framework, so take things with a grain of salt.
 
 ## Features
 
-- **Multi-host**: Laptop and desktop configs
-- **Wayland**: Mango (default), Hyprland, Niri compositors
-- **Dynamic theming**: Matugen for Material Design colors from wallpapers, and
-  Darkman for automatic light/dark theming based on the time
-- **Modern shell**: Nushell with Starship, Zoxide, Atuin
-- **Dotfiles**: Managed with Hjem
-- **Secrets**: Encrypted with agenix
+- Laptop and desktop configs
+- Mango, Hyprland, Niri compositors
+- Matugen for Material Design colors from wallpapers, and a utility script to flip polarity
+- Nushell with Starship, Zoxide, Atuin
+- Dotfiles managed with Hjem
+- Secrets encrypted with agenix
 
 ## Gallery
 <details><summary>Gallery</summary>
