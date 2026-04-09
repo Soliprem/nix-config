@@ -323,7 +323,7 @@
           providers = {
             openai = {
               endpoint = "https://api.openai.com/v1";
-              model = "gpt-4o"; # your desired model (or use gpt-4o, etc.)
+              model = "gemma4"; # your desired model (or use gpt-4o, etc.)
               timeout = 30000; # Timeout in milliseconds, increase this for reasoning models
               extra_request_body = {
                 temperature = 0;
@@ -344,7 +344,7 @@
             };
             ollama = {
               endpoint = "http://127.0.0.1:11434";
-              model = "gpt-oss:latest";
+              model = "gemma4:latest";
             };
           };
         };
