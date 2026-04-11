@@ -7,8 +7,8 @@ _: {
 
       starship init fish | source
 
-      if test -f ~/.cache/ags/user/generated/terminal/sequences.txt
-          cat ~/.cache/ags/user/generated/terminal/sequences.txt
+      if test -f ~/.cache/sequences.txt 
+          command cat ~/.cache/sequences.txt 
       end
 
       set -g fish_greeting
@@ -20,7 +20,7 @@ _: {
 
     ".config/fish/functions/gd.fish".text = /* fish */ ''
       function gd
-          cd (/bin/ls -d */ | fzf) || echo error
+          cd (command ls -d */ | fzf) || echo error
       end
     '';
 
