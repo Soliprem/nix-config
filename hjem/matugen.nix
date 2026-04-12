@@ -2,7 +2,6 @@
   files = {
     ".config/matugen/config.toml".source = pkgs.writers.writeTOML "config.toml" {
       config = {
-        default_type = "scheme-content";
         wallpaper = {
           command = "swww";
           arguments = ["img" "--transition-type" "random" "--transition-step" "4" "--transition-fps" "120"];

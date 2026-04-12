@@ -199,6 +199,73 @@ let
     )
 
     (pkgs.writeShellApplication {
+      name = "color-mode";
+      runtimeInputs = with pkgs; [
+        fuzzel
+        matugen
+        glib
+        gsettings-desktop-schemas
+      ];
+      text = ''
+        export XDG_DATA_DIRS="${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS"
+        state_file="''${XDG_STATE_HOME:-$HOME/.local/state}/nixrice/type"
+        default_type="scheme-expressive"
+        types="scheme-content
+        scheme-expressive
+        scheme-fidelity
+        scheme-fruit-salad
+        scheme-monochrome
+        scheme-neutral
+        scheme-rainbow
+        scheme-tonal-spot
+        scheme-vibrant"
+
+        mkdir -p "$(dirname "$state_file")"
+        current_type="$(cat "$state_file" 2>/dev/null || printf '%s\n' "$default_type")"
+
+        case "''${1:-pick}" in
+          pick)
+            type="$(printf '%s\n' "$types" | fuzzel --dmenu --prompt "Matugen type > " --placeholder "$current_type")"
+            [ -n "$type" ] || exit 0
+            ;;
+          current|get|print)
+            printf '%s\n' "$current_type"
+            exit 0
+            ;;
+          list)
+            printf '%s\n' "$types"
+            exit 0
+            ;;
+          toggle)
+            if [ "$current_type" = "scheme-expressive" ]; then
+              type="scheme-vibrant"
+            else
+              type="scheme-expressive"
+            fi
+            ;;
+          *)
+            type="$1"
+            ;;
+        esac
+
+        printf '%s\n' "$types" | grep -qxF "$type" || {
+          printf 'change-mode: unsupported type: %s\n' "$type" >&2
+          exit 1
+        }
+
+        printf '%s\n' "$type" > "$state_file"
+
+        if [ -r "$HOME/.config/bg" ]; then
+          theme_mode="$(gsettings get org.gnome.desktop.interface color-scheme)"
+          theme_mode="''${theme_mode%\'}"
+          theme_mode="''${theme_mode#\'}"
+          [ "$theme_mode" = "prefer-dark" ] && mode="dark" || mode="light"
+          matugen image "$HOME/.config/bg" -m "$mode" -t "$type"
+        fi
+      '';
+    })
+
+    (pkgs.writeShellApplication {
       name = "nixrice";
       runtimeInputs = with pkgs; [
         yad
@@ -209,18 +276,36 @@ let
       ];
       text = ''
         export XDG_DATA_DIRS="${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS"
+        NIXRICE_STATE_DIR="''${XDG_STATE_HOME:-$HOME/.local/state}/nixrice"
+        NIXRICE_TYPE_FILE="$NIXRICE_STATE_DIR/type"
+        DEFAULT_MATUGEN_TYPE="scheme-tonal-spot"
         THEME_MODE=$(gsettings get org.gnome.desktop.interface color-scheme)
 
         # Clean up quotes (returns 'prefer-dark' or 'default')
         THEME_MODE="''${THEME_MODE%\'}"
         THEME_MODE="''${THEME_MODE#\'}"
 
-        # 2. Determine Matugen Mode
         if [[ "$THEME_MODE" == "prefer-dark" ]]; then
             MATUGEN_MODE="dark"
         else
             MATUGEN_MODE="light"
         fi
+
+        mkdir -p "$NIXRICE_STATE_DIR"
+        if [ -r "$NIXRICE_TYPE_FILE" ]; then
+          MATUGEN_TYPE="$(tr -d '\n' < "$NIXRICE_TYPE_FILE")"
+        else
+          MATUGEN_TYPE="$DEFAULT_MATUGEN_TYPE"
+        fi
+
+        case "$MATUGEN_TYPE" in
+          scheme-content|scheme-expressive|scheme-fidelity|scheme-fruit-salad|scheme-monochrome|scheme-neutral|scheme-rainbow|scheme-tonal-spot|scheme-vibrant)
+            ;;
+          *)
+            MATUGEN_TYPE="$DEFAULT_MATUGEN_TYPE"
+            ;;
+        esac
+
         if [[ ''${1:-} ]]; then
         	wallpaper="$1"
                 cp "$wallpaper" ~/.config/bg
@@ -231,7 +316,7 @@ let
         fi
 
         if [[ $wallpaper ]]; then
-                matugen image "$wallpaper" -m "$MATUGEN_MODE"
+                matugen image "$wallpaper" -m "$MATUGEN_MODE" -t "$MATUGEN_TYPE"
                 cp "$wallpaper" ~/.config/bg
                 cp "$wallpaper" ~/.config/nix-config/assets/bg
         else
