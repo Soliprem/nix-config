@@ -85,6 +85,16 @@ nixrice  # Interactive picker
 nixrice /path/to/wallpaper.png
 ```
 
+Change the matugen scheme type that `nixrice` uses:
+
+```bash
+color-mode                # open a fuzzel picker and apply the selected type
+color-mode current        # print the current saved type
+color-mode list           # show supported scheme types
+color-mode scheme-neutral # set a specific type
+color-mode toggle         # quick toggle scheme-expressive <-> scheme-vibrant
+```
+
 ## Mango Shortcuts
 
 - `SUPER + Return` - Terminal
