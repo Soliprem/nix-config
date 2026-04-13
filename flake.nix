@@ -1,57 +1,54 @@
 {
   description = "Soli's Nixos Config";
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    }@inputs:
-    let
-      inherit (self) outputs;
-      pkgs = nixpkgs.legacyPackages.${"x86_64-linux"};
-      configRoot = ./.;
-    in
-    {
-      templates = import ./flake-templates;
-      nixosConfigurations = {
-        nixos-laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs configRoot; };
-          modules = [
-            ./hosts/laptop/configuration.nix
-          ];
-        };
-        nixos-pc = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs configRoot; };
-          modules = [
-            ./hosts/pc/configuration.nix
-          ];
-        };
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    pkgs = nixpkgs.legacyPackages.${"x86_64-linux"};
+    configRoot = ./.;
+  in {
+    templates = import ./flake-templates;
+    nixosConfigurations = {
+      nixos-laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs configRoot;};
+        modules = [
+          ./hosts/laptop/configuration.nix
+        ];
       };
-
-      packages.${pkgs.stdenv.hostPlatform.system} = {
-        nvf =
-          (inputs.nvf.lib.neovimConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = {
-              flakeInputs = inputs;
-            };
-            modules = [
-              ./export/nvf.nix
-            ];
-          }).neovim;
-        nvf-minimal =
-          (inputs.nvf.lib.neovimConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = {
-              flakeInputs = inputs;
-            };
-            modules = [
-              ./export/nvf-minimal.nix
-            ];
-          }).neovim;
+      nixos-pc = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs configRoot;};
+        modules = [
+          ./hosts/pc/configuration.nix
+        ];
       };
     };
+
+    packages.${pkgs.stdenv.hostPlatform.system} = {
+      nvf =
+        (inputs.nvf.lib.neovimConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            flakeInputs = inputs;
+          };
+          modules = [
+            ./export/nvf.nix
+          ];
+        }).neovim;
+      nvf-minimal =
+        (inputs.nvf.lib.neovimConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            flakeInputs = inputs;
+          };
+          modules = [
+            ./export/nvf-minimal.nix
+          ];
+        }).neovim;
+    };
+  };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
@@ -72,6 +69,11 @@
     commet = {
       url = "https://github.com/commetchat/commet/releases/download/v0.4.1/commet-linux-portable-x64.tar.gz";
       flake = false;
+    };
+
+    glide = {
+      url = "github:glide-browser/glide.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stash = {

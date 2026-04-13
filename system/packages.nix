@@ -15,6 +15,7 @@ in {
     inputs.thumbpick.packages.${sys}.default
     inputs.zen-browser.packages.${sys}.default
     inputs.stash.packages.${sys}.default
+    inputs.glide.packages.${sys}.default
     unstable-pkgs.codex
     (pkgs.stdenv.mkDerivation {
       pname = "sysboard";
