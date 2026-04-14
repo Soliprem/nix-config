@@ -24,7 +24,7 @@ in
     # VARIABLES & SOURCE
     # -----------------------------------------------------
     $mod     = SUPER
-    $browser = glide-browser
+    $browser = zen
     $term    = ghostty
     $editor  = nvim
 
