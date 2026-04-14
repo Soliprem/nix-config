@@ -15,6 +15,7 @@
     packages = [
       "com.stremio.Stremio"
       "in.cinny.Cinny"
+      "com.jeffser.Nocturne"
     ];
   };
 }
