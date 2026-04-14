@@ -118,7 +118,7 @@ _: {
           Mod+Control+T { spawn "ghostty" "-e" "tray-tui"; }
           Mod+Return { spawn "ghostty"; }
           Mod+Minus { spawn "wtype" "-k" "emdash"; }
-          Mod+W { spawn "glide"; }
+          Mod+W { spawn "zen"; }
           Mod+E { spawn "nautilus"; }
           Mod+Shift+B { spawn "overskride"; }
           Mod+D { spawn "fuzzel"; }
