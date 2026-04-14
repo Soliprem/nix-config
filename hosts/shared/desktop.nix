@@ -7,6 +7,7 @@
     "gtk.nix"
     "qt.nix"
     "tofi.nix"
+    "glide.nix"
     "fuzzel.nix"
     "bitwarden-menu.nix"
     "kanshi.nix"
