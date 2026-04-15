@@ -71,7 +71,7 @@ _: {
       mv = "mv -iv";
       rm = "rm -vI";
       bc = "bc -ql";
-      rg = "cd .steam/steam/steamapps/compatdata/813780/pfx/drive_c/users/steamuser/Games/Age\\ of\\ Empires\\ 2\\ DE/76561199050658286/savegame";
+      aoe2rg = "cd .steam/steam/steamapps/compatdata/813780/pfx/drive_c/users/steamuser/Games/Age\\ of\\ Empires\\ 2\\ DE/76561199050658286/savegame";
       mkd = "mkdir -pv";
       yt = "yt-dlp --embed-metadata -i";
       yta = "yt -x -f bestaudio/best";
