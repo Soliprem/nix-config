@@ -75,7 +75,7 @@ _: {
       mkd = "mkdir -pv";
       yt = "yt-dlp --embed-metadata -i";
       yta = "yt -x -f bestaudio/best";
-      ffmpeg = "ffmpeg -hide_banne";
+      ffmpeg = "ffmpeg -hide_banner";
       ls = "exa --header --icons --group-directories-first";
       nvimtutor = "nvim -c Tutor";
       cat = "bat";
