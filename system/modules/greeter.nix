@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       background = {
-        path = ../../assets/noise_void.png;
+        path = ../../assets/greeter-space-monochrome.jpg;
         fit = "Cover";
       };
       GTK = {
@@ -15,11 +15,13 @@
       package = pkgs.gnome-themes-extra;
     };
     font = {
-      name = "Inter";
+      package = pkgs.nerd-fonts.inconsolata;
+      name = "Inconsolata Nerd Font";
       size = 11;
     };
     cursorTheme = {
-      name = "Adwaita";
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
     };
   };
 }
