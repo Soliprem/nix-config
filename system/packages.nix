@@ -292,6 +292,10 @@ in {
     tuifeed
   ];
   programs = {
+    gnupg.agent = {
+      enable = true;
+      pinentryPackage = pkgs.pinentry-qt;
+    };
     obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
