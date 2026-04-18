@@ -106,6 +106,7 @@ in {
     })
 
     # CLI, shells, and core tools
+    gnupg
     atuin
     bat
     btop-rocm
