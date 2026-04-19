@@ -9,8 +9,6 @@ _: {
     # ../../system/modules/howdy.nix
   ];
 
-  soli.git.signingKey = "4FD6B0D51C9AB6BD";
-
   networking.hostName = "nixos-laptop";
   hardware = {
     sensor.iio.enable = true;

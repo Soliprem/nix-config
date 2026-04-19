@@ -1,8 +1,4 @@
-{
-  gitSigningKey,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   files = {
     ".gitconfig".text = lib.generators.toGitINI {
       commit = {
@@ -11,7 +7,7 @@
       user = {
         email = "franci.solidoro@gmail.com";
         name = "Soliprem";
-        signingKey = gitSigningKey;
+        signingKey = "4FD6B0D51C9AB6BD";
       };
       url = {
         "ssh://git@github.com/" = {
