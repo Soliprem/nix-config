@@ -1,5 +1,8 @@
-{ pkgs, flakeInputs, ... }:
 {
+  pkgs,
+  flakeInputs,
+  ...
+}: {
   config.vim = {
     repl = {
       conjure.enable = true;
@@ -75,7 +78,7 @@
       css.enable = true;
       r = {
         enable = true;
-        format.type = [ "styler" ];
+        format.type = ["styler"];
       };
       sql.enable = true;
       ts = {
@@ -88,7 +91,7 @@
       nu.enable = true;
       python = {
         enable = true;
-        lsp.servers = [ "pyright" ];
+        lsp.servers = ["pyright"];
       };
       lua.enable = true;
       bash.enable = true;
@@ -96,7 +99,7 @@
       julia.enable = true;
       clang = {
         enable = true;
-        lsp.servers = [ "clangd" ];
+        lsp.servers = ["clangd"];
       };
 
       rust = {
@@ -204,7 +207,10 @@
 
     dashboard = {
       dashboard-nvim.enable = false;
-      alpha.enable = true;
+      alpha = {
+        enable = true;
+        theme = "theta";
+      };
     };
 
     notify = {
@@ -263,14 +269,14 @@
         enable = true;
         setupOpts = {
           load = {
-            "core.defaults" = { };
-            "core.concealer" = { };
+            "core.defaults" = {};
+            "core.concealer" = {};
             "core.completion" = {
               config.engine = "nvim-cmp";
             };
-            "core.export" = { };
-            "core.summary" = { };
-            "core.text-objects" = { };
+            "core.export" = {};
+            "core.summary" = {};
+            "core.text-objects" = {};
             "core.dirman" = {
               config = {
                 workspaces = {
@@ -418,8 +424,8 @@
     lazy.plugins = with pkgs.vimPlugins; {
       "neowiki.nvim" = {
         lazy = true;
-        event = [ "UIEnter" ];
-        ft = [ "markdown" ];
+        event = ["UIEnter"];
+        ft = ["markdown"];
         package = pkgs.vimUtils.buildVimPlugin {
           name = "neowiki-nvim";
           pname = "neowiki.nvim";
@@ -428,6 +434,13 @@
         };
         setupModule = "neowiki";
         keys = [
+          {
+            key = "<leader>/";
+            mode = "n";
+            action = ":Cheatsheet<cr>";
+            silent = true;
+            desc = "Cheatsheet";
+          }
           {
             key = "<leader>ww";
             mode = "n";
@@ -464,7 +477,7 @@
         lazy = true;
         package = twilight-nvim;
         setupModule = "twilight-nvim";
-        cmd = [ "Twilight" ];
+        cmd = ["Twilight"];
         keys = [
           {
             key = "<leader>ut";
@@ -479,7 +492,7 @@
         lazy = true;
         package = zen-mode-nvim;
         setupModule = "zen-mode-nvim";
-        cmd = [ "ZenMode" ];
+        cmd = ["ZenMode"];
         keys = [
           {
             key = "<leader>uz";
@@ -493,7 +506,7 @@
       ${eyeliner-nvim.pname} = {
         lazy = true;
         package = eyeliner-nvim;
-        event = [ "UIEnter" ];
+        event = ["UIEnter"];
       };
       ${quarto-nvim.pname} = {
         lazy = true;
@@ -630,13 +643,17 @@
         key = "<leader>lc";
         mode = "n";
         lua = true;
-        action = /* lua */ ''
-          function()
-            require('conform').format({
-              lsp_format = "fallback"
-            })
-          end
-        '';
+        action =
+          /*
+          lua
+          */
+          ''
+            function()
+              require('conform').format({
+                lsp_format = "fallback"
+              })
+            end
+          '';
         desc = "format using Conform";
       }
     ];
