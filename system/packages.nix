@@ -164,9 +164,10 @@ in {
     fuzzel
     gammastep
     ghostty
+    unstable-pkgs.hyprshot
+    unstable-pkgs.iio-hyprland
+    unstable-pkgs.hyprlock
     glib
-    hyprshot
-    iio-hyprland
     kanshi
     kdePackages.polkit-kde-agent-1
     kdePackages.qt6ct
@@ -178,7 +179,6 @@ in {
     overskride
     swappy
     swaylock-effects
-    hyprlock
     swaynotificationcenter
     swayosd
     swww
