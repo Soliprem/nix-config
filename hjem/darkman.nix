@@ -2,7 +2,7 @@
 let
   switch-dark = pkgs.writeShellApplication {
     name = "switch-dark";
-    runtimeInputs = with pkgs; [ matugen glib gsettings-desktop-schemas swww ];
+    runtimeInputs = with pkgs; [ matugen glib gsettings-desktop-schemas awww ];
     text = ''
       export XDG_DATA_DIRS=${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS
       matugen image ~/.config/bg -m dark
@@ -12,7 +12,7 @@ let
 
   switch-light = pkgs.writeShellApplication {
     name = "switch-light";
-    runtimeInputs = with pkgs; [ matugen glib gsettings-desktop-schemas swww ];
+    runtimeInputs = with pkgs; [ matugen glib gsettings-desktop-schemas awww ];
     text = ''
       export XDG_DATA_DIRS=${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS
       matugen image ~/.config/bg -m light

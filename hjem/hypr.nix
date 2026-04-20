@@ -1,7 +1,5 @@
-{ inputs, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 let
-  sys = pkgs.stdenv.hostPlatform.system;
-  unstable-pkgs = inputs.nixpkgs-unstable.legacyPackages.${sys};
   workspaceBinds = builtins.concatLists (
     builtins.genList (
       x:
@@ -33,7 +31,7 @@ in
     # -----------------------------------------------------
     # PLUGINS (Loaded via Nix store paths)
     # -----------------------------------------------------
-    exec-once = hyprctl plugin load ${unstable-pkgs.hyprlandPlugins.hyprsplit}/lib/libhyprsplit.so
+    exec-once = hyprctl plugin load ${pkgs.hyprlandPlugins.hyprsplit}/lib/libhyprsplit.so
 
     # -----------------------------------------------------
     # MONITORS
@@ -77,7 +75,7 @@ in
     exec-once = iio-hyprland
     exec-once = battery-monitor &
     exec-once = swayosd-server
-    exec-once = swww-daemon &
+    exec-once = awww-daemon &
     exec-once = nm-applet &
     exec-once = swaync &
     exec-once = protonvpn-app &

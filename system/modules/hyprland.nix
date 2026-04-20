@@ -423,7 +423,7 @@ in {
           "stash watch &"
           "batsignal &"
           "swayosd-server"
-          "swww-daemon &"
+          "awww-daemon &"
           "nm-applet &"
           "swaync &"
           "protonvpn-app &"

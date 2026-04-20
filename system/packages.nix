@@ -4,7 +4,6 @@
   ...
 }: let
   sys = pkgs.stdenv.hostPlatform.system;
-  unstable-pkgs = inputs.nixpkgs-unstable.legacyPackages.${sys};
 in {
   environment.systemPackages = with pkgs; [
     # Flake inputs and custom derivations
@@ -16,7 +15,7 @@ in {
     inputs.zen-browser.packages.${sys}.default
     inputs.stash.packages.${sys}.default
     inputs.glide.packages.${sys}.default
-    unstable-pkgs.codex
+    codex
     (pkgs.stdenv.mkDerivation {
       pname = "sysboard";
       version = "unstable";
@@ -164,9 +163,10 @@ in {
     fuzzel
     gammastep
     ghostty
-    unstable-pkgs.hyprshot
-    unstable-pkgs.iio-hyprland
-    unstable-pkgs.hyprlock
+    hyprshot
+    hyprshutdown
+    iio-hyprland
+    hyprlock
     glib
     kanshi
     kdePackages.polkit-kde-agent-1
@@ -181,7 +181,7 @@ in {
     swaylock-effects
     swaynotificationcenter
     swayosd
-    swww
+    awww
     tofi
     tray-tui
     wayneko
@@ -209,7 +209,7 @@ in {
     thunderbird
     tor-browser
     transmission_4-gtk
-    youtube-music
+    pear-desktop
 
     # General desktop applications
     anki-bin
@@ -236,7 +236,7 @@ in {
     nautilus
     obsidian
     papers
-    protonvpn-gui
+    proton-vpn
     super-productivity
     yad
     zathura
@@ -259,7 +259,6 @@ in {
     qpwgraph
     spek
     spotdl
-    spotify
     tauon
     wiremix
 
@@ -272,7 +271,6 @@ in {
     mangohud
     prismlauncher
     protonplus
-    protontricks
     umu-launcher
 
     # Miscellaneous apps and helpers
@@ -326,18 +324,18 @@ in {
         expat
         glibc
         # X11 libraries
-        xorg.libX11
-        xorg.libXcomposite
-        xorg.libXdamage
-        xorg.libXext
-        xorg.libXfixes
-        xorg.libXrandr
-        xorg.libXrender
-        xorg.libXtst
-        xorg.libXScrnSaver
-        xorg.libxcb
-        xorg.libXi
-        xorg.libXcursor
+        libx11
+        libxcomposite
+        libxdamage
+        libxext
+        libxfixes
+        libxrandr
+        libxrender
+        libxtst
+        libxscrnsaver
+        libxcb
+        libxi
+        libxcursor
         # Additional libraries that might be needed
         libxkbcommon
         wayland
@@ -349,8 +347,8 @@ in {
     niri.enable = true;
     hyprland = {
       enable = true;
-      package = unstable-pkgs.hyprland;
-      portalPackage = unstable-pkgs.xdg-desktop-portal-hyprland;
+      package = pkgs.hyprland;
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
     mango.enable = true;
     nh = {
