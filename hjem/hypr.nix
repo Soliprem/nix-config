@@ -226,15 +226,15 @@ in
     bind = $mod, F1, exec, gamemode
     bind = $mod+Alt, l, exec, hyprlock
     bind = , Print, exec, grimblast copy area
-    
+
     bind = $mod, P,exec, hyprshot -m output -c -r - | swappy -f -
     bind = $mod+Shift,P,exec, hyprshot -m output -m active -c -r - | swappy -f -
     bind = $mod+Alt,P,exec, hyprshot -m window -r - | swappy -f -
     bind = $mod+Shift, S, exec, hyprshot -m region -r - | swappy -f -
-    
+
     bind = $mod+Alt, N, exec, dm-sunsetr
 
-    
+
     bindm=$mod, mouse:272, movewindow
     bindm=$mod, z, movewindow
     bindm=$mod, mouse:273, resizewindow
@@ -363,7 +363,7 @@ in
         timeout=1800
       }
     '';
-    ".config/hypr/hyprlock.conf".text = ''
+    ".config/hypr/hyprlock.conf".text = /* hyprlang */ ''
           background {
         blur_passes=3
         blur_size=8
