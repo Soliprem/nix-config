@@ -2,10 +2,10 @@
   files = {
     ".config/matugen/config.toml".source = pkgs.writers.writeTOML "config.toml" {
       config = {
+        prefer = "saturation";
         wallpaper = {
-          command = "awww";
-          arguments = ["img" "--transition-type" "random" "--transition-step" "4" "--transition-fps" "120"];
           set = true;
+          command = "awww img --transition-type random --transition-step 4 --transition-fps 120 {{ image }}";
         };
       };
       templates = {

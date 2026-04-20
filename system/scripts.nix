@@ -53,7 +53,7 @@ let
             ;;
         esac
 
-        matugen image ~/.config/bg -m "$next_mode"
+        matugen image ~/.config/bg -m "$next_mode" --source-color-index 0
         gsettings set org.gnome.desktop.interface color-scheme "$color_scheme"
       '';
     })
@@ -260,7 +260,7 @@ let
           theme_mode="''${theme_mode%\'}"
           theme_mode="''${theme_mode#\'}"
           [ "$theme_mode" = "prefer-dark" ] && mode="dark" || mode="light"
-          matugen image "$HOME/.config/bg" -m "$mode" -t "$type"
+          matugen image "$HOME/.config/bg" -m "$mode" -t "$type" --source-color-index 0
         fi
       '';
     })
@@ -316,7 +316,7 @@ let
         fi
 
         if [[ $wallpaper ]]; then
-                matugen image "$wallpaper" -m "$MATUGEN_MODE" -t "$MATUGEN_TYPE"
+                matugen image "$wallpaper" -m "$MATUGEN_MODE" -t "$MATUGEN_TYPE" --source-color-index 0
                 cp "$wallpaper" ~/.config/bg
                 cp "$wallpaper" ~/.config/nix-config/assets/bg
         else
