@@ -51,6 +51,7 @@
       trouble.enable = true;
       lspSignature.enable = false; # doesn't work with blink
       nvim-docs-view.enable = false; # lags *horribly* whenever l is pressed
+      presets.tailwindcss-language-server.enable = true;
     };
 
     debugger = {
@@ -67,7 +68,6 @@
       nim.enable = false;
       java.enable = false;
       svelte.enable = false;
-      tailwind.enable = false;
       vala.enable = false;
       dart.enable = false;
       elixir.enable = false;
@@ -81,7 +81,7 @@
         format.type = ["styler"];
       };
       sql.enable = true;
-      ts = {
+      typescript = {
         enable = true;
         extraDiagnostics.enable = false;
       };
@@ -302,6 +302,7 @@
     ui = {
       borders.enable = true;
       noice.enable = true;
+      ui2.enable = true;
       colorizer.enable = true;
       modes-nvim.enable = false; # the theme looks terrible with catppuccin
       illuminate.enable = true;
