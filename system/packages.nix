@@ -162,6 +162,7 @@ in {
     nautilus
     obsidian
     papers
+    proton-vpn-cli
     proton-vpn
     yad
     zathura
