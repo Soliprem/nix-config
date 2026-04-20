@@ -43,67 +43,6 @@ in {
         patchelf --add-needed libsysboard.so $out/bin/sysboard
       '';
     })
-    (pkgs.stdenvNoCC.mkDerivation rec {
-      pname = "commet";
-      version = "0.4.1";
-
-      src = inputs.commet;
-
-      nativeBuildInputs = with pkgs; [
-        autoPatchelfHook
-        copyDesktopItems
-        makeWrapper
-        wrapGAppsHook3
-      ];
-
-      buildInputs = with pkgs; [
-        gtk3
-        keybinder3
-        mpv-unwrapped
-        stdenv.cc.cc.lib
-        webkitgtk_4_1
-      ];
-
-      dontWrapGApps = true;
-
-      desktopItems = [
-        (makeDesktopItem {
-          name = "commet";
-          exec = "commet";
-          icon = "commet";
-          desktopName = "Commet";
-          genericName = "Matrix client";
-          categories = [
-            "Network"
-            "InstantMessaging"
-            "Chat"
-          ];
-        })
-      ];
-
-      installPhase = ''
-        runHook preInstall
-
-        mkdir -p $out/bin $out/libexec/commet $out/share/icons/hicolor/512x512/apps
-        cp -r ${src}/. $out/libexec/commet
-        makeWrapper $out/libexec/commet/commet $out/bin/commet \
-          --prefix LD_LIBRARY_PATH : $out/libexec/commet/lib
-        install -Dm0644 \
-          ${src}/data/flutter_assets/assets/images/app_icon/app_icon_filled.png \
-          $out/share/icons/hicolor/512x512/apps/commet.png
-
-        runHook postInstall
-      '';
-
-      meta = with pkgs.lib; {
-        description = "Feature-rich Matrix client";
-        homepage = "https://commet.chat/";
-        mainProgram = "commet";
-        license = licenses.agpl3Plus;
-        platforms = platforms.linux;
-      };
-    })
-
     # CLI, shells, and core tools
     gnupg
     atuin
@@ -148,7 +87,6 @@ in {
     impression
     jujutsu
     libgccjit
-    litemdview
     openai-whisper
     typst
     tinymist
@@ -196,48 +134,35 @@ in {
     bitwarden-menu
     chromium
     element-desktop
-    fluffychat
-    grayjay
-    gtk-pipe-viewer
-    iamb
     legcord
     nextcloud-client
     omnissa-horizon-client
     qutebrowser
-    teams-for-linux
     telegram-desktop
     thunderbird
-    tor-browser
     transmission_4-gtk
-    pear-desktop
 
     # General desktop applications
     anki-bin
     appimage-run
     blanket
-    bottles
-    calibre
     darktable
     foot
     gale
     gcs
     godot_4
     gowall
-    gretl
     imv
-    inkscape
     keyutils
     loupe
     lumafly
     lutgen-studio
-    maptool
     mediawriter
     meow
     nautilus
     obsidian
     papers
     proton-vpn
-    super-productivity
     yad
     zathura
     zotero
@@ -274,9 +199,6 @@ in {
     umu-launcher
 
     # Miscellaneous apps and helpers
-    # cozy
-    # gapless
-    aonsoku
     bluetui
     ddcui
     ddcutil
