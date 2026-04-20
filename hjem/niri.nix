@@ -52,7 +52,7 @@ _: {
 
       spawn-at-startup "stash" "watch"
       spawn-at-startup "xwayland-satellite"
-      spawn-at-startup "swww-daemon"
+      spawn-at-startup "awww-daemon"
       spawn-at-startup "battery-monitor"
       spawn-at-startup "swaync"
       spawn-at-startup "nm-applet"

@@ -13,7 +13,7 @@ let
         matugen
         glib
         gsettings-desktop-schemas
-        swww
+        awww
       ];
       text = /* bash */ ''
         export XDG_DATA_DIRS=${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS
@@ -148,7 +148,7 @@ let
           ":"
           "${lib.makeBinPath [
             inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
-            pkgs.swww
+            pkgs.awww
           ]}"
         ];
       }
@@ -271,7 +271,7 @@ let
         yad
         libnotify
         matugen
-        swww
+        awww
         glib
       ];
       text = ''

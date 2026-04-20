@@ -31,6 +31,6 @@
   documentation = {
     enable = true;
     nixos.enable = false;
-    man.generateCaches = false;
+    man.cache.enable = false;
   };
 }

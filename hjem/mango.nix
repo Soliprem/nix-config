@@ -421,7 +421,7 @@
     ".config/mango/autostart.sh".source = pkgs.writers.writeBash "autostart.sh" ''
       stash watch &
       xwayland-satellite &
-      swww-daemon &
+      awww-daemon &
       battery-monitor &
       swaync &
       nm-applet &
