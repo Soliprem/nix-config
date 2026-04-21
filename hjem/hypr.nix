@@ -105,6 +105,7 @@ in
         dim_strength = 0.1
         
         blur {
+            # First setting to disable if compositor stutters persist.
             enabled = true
         }
     }
@@ -123,8 +124,7 @@ in
     }
 
     misc {
-        vrr = 1
-        vfr = 0
+        vrr = 3
         disable_hyprland_logo = true
         force_default_wallpaper = 0
         focus_on_activate = true
@@ -212,7 +212,6 @@ in
     env = INPUT_METHOD, fcitx
     env = HYPRCURSOR_THEME,Hypr-Bibata-Modern-Ice
     env = HYPRCURSOR_SIZE,24
-    env = WLR_NO_HARDWARE_CURSORS, 1
 
     # -----------------------------------------------------
     # BINDINGS
