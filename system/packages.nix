@@ -166,6 +166,7 @@ in {
     proton-vpn
     yad
     zathura
+    sioyek
     zotero
 
     # Audio, video, and creative tools
