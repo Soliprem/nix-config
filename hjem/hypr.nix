@@ -51,7 +51,7 @@ in
       bitdepth = 10
       supports_wide_color = 1
       sdrbrightness = 1.3
-      cm = edid
+      cm = dcip3
       supports_hdr = 1
       sdr_min_luminance = 0.005
       sdr_max_luminance = 450
