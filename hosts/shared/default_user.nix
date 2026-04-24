@@ -7,6 +7,7 @@
       "networkmanager"
       "wheel"
       "podman"
+      "plugdev"
     ];
     shell = pkgs.dash;
   };
