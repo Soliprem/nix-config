@@ -196,12 +196,14 @@ in {
     linux-wallpaperengine
     lutris
     mangohud
+    goverlay
     prismlauncher
     protonplus
     umu-launcher
 
     # Miscellaneous apps and helpers
     bluetui
+    via
     ddcui
     ddcutil
     distrobox
