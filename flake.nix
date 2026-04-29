@@ -65,6 +65,11 @@
       url = "github:system64fumo/sysboard";
       flake = false;
     };
+    commet = {
+      url = "https://github.com/commetchat/commet/releases/download/v0.4.1/commet-linux-portable-x64.tar.gz";
+      flake = false;
+    };
+
     glide = {
       url = "github:glide-browser/glide.nix";
       inputs.nixpkgs.follows = "nixpkgs";
