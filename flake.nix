@@ -7,7 +7,13 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    pkgs = nixpkgs.legacyPackages.${"x86_64-linux"};
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    nvfPkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfreePredicate = pkg:
+        builtins.elem (pkgs.lib.getName pkg) ["eyeliner.nvim"];
+    };
     configRoot = ./.;
   in {
     templates = import ./flake-templates;
@@ -29,7 +35,7 @@
     packages.${pkgs.stdenv.hostPlatform.system} = {
       nvf =
         (inputs.nvf.lib.neovimConfiguration {
-          inherit pkgs;
+          pkgs = nvfPkgs;
           extraSpecialArgs = {
             flakeInputs = inputs;
           };
@@ -39,7 +45,7 @@
         }).neovim;
       nvf-minimal =
         (inputs.nvf.lib.neovimConfiguration {
-          inherit pkgs;
+          pkgs = nvfPkgs;
           extraSpecialArgs = {
             flakeInputs = inputs;
           };
