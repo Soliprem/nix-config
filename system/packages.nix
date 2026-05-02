@@ -194,7 +194,6 @@ in {
     gamemode
     heroic
     linux-wallpaperengine
-    lutris
     mangohud
     goverlay
     prismlauncher
@@ -224,6 +223,7 @@ in {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
         input-overlay
+        obs-livesplit-one
       ];
     };
     nix-ld = {
