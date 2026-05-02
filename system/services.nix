@@ -1,11 +1,8 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   hardware.keyboard.qmk.enable = true;
   services = {
     resolved.enable = true;
+    howdy.enable = true;
     logind.settings.Login.HandlePowerKey = "ignore";
     tailscale.enable = true;
     pulseaudio.enable = false;
@@ -39,7 +36,7 @@
   security = {
     pam.services.soliprem.enableGnomeKeyring = true;
     pam.services.sddm.enableGnomeKeyring = true;
-    pki.certificateFiles = [ ../assets/almawifi.cer];
+    pki.certificateFiles = [../assets/almawifi.cer];
     polkit.enable = true;
   };
   # xdg.portal.wlr.enable = true;
@@ -58,10 +55,10 @@
   systemd = {
     services.swayosd-libinput-backend = {
       description = "SwayOSD LibInput backend for listening to certain keys like CapsLock, ScrollLock, VolumeUp, etc.";
-      documentation = [ "https://github.com/ErikReider/SwayOSD" ];
-      wantedBy = [ "graphical.target" ];
-      partOf = [ "graphical.target" ];
-      after = [ "graphical.target" ];
+      documentation = ["https://github.com/ErikReider/SwayOSD"];
+      wantedBy = ["graphical.target"];
+      partOf = ["graphical.target"];
+      after = ["graphical.target"];
 
       serviceConfig = {
         Type = "dbus";
@@ -72,9 +69,9 @@
     };
     user.services.polkit-kde-authentication-agent-1 = {
       description = "polkit-kde-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
+      wantedBy = ["graphical-session.target"];
+      wants = ["graphical-session.target"];
+      after = ["graphical-session.target"];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1 ";
