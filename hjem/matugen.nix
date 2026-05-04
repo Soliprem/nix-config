@@ -33,6 +33,10 @@
           input_path = ./templates/quickshell-colors.json;
           output_path = "~/.cache/quickshell/colors.json";
         };
+        wlogout = {
+          input_path = ./templates/wlogout-colors.css;
+          output_path = "~/.config/wlogout/colors.css";
+        };
         ghostty = {
           input_path = ./templates/ghostty;
           output_path = "~/.config/ghostty/themes/matugen";
