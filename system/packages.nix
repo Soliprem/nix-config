@@ -117,14 +117,14 @@ in {
     overskride
     swappy
     swaylock-effects
-    swaynotificationcenter
+    quickshell
     swayosd
     awww
     tofi
     tray-tui
     wayneko
-    wlogout
     wtype
+    wlogout
     xwayland-satellite
 
     # Browsers, communication, and network clients

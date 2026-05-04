@@ -13,6 +13,7 @@
     "kanshi.nix"
     "mango.nix"
     "matugen.nix"
+    "quickshell.nix"
     "swaylock.nix"
     "dmscripts.nix"
     "sunsetr.nix"

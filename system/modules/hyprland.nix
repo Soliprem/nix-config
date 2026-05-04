@@ -163,7 +163,12 @@ in {
 
         # Window and layer rules
         layerrule = [
-          # "noanim, selection"
+          "blur on, match:namespace quickshell-sidebar"
+          "ignore_alpha 0.2, match:namespace quickshell-sidebar"
+          "blur on, match:namespace quantum-notification-popups"
+          "ignore_alpha 0.01, match:namespace quantum-notification-popups"
+          "blur on, match:namespace logout_dialog"
+          "ignore_alpha 0.01, match:namespace logout_dialog"
         ];
 
         windowrule = [
@@ -320,8 +325,8 @@ in {
             "$mod+Ctrl, t, exec, $term -e tray-tui"
             "$mod+Ctrl, b, exec, overskride"
             "$mod+Ctrl, v, exec, pwvuctontrol"
-            "$mod,c,exec, swaync-client -t"
-            "$mod+Shift,c,exec, swaync-client -d"
+            "$mod,c,exec, quickshell ipc call sidebar toggle"
+            "$mod+Shift,c,exec, quickshell ipc call notifications toggleDnd"
             "$mod, mouse_up, workspace, +1"
             "$mod, mouse_down, workspace, -1"
             "$mod, F1, exec, ${lib.getExe gamemode}"
@@ -425,7 +430,7 @@ in {
           "swayosd-server"
           "awww-daemon &"
           "nm-applet &"
-          "swaync &"
+          "quickshell --no-duplicate &"
           "protonvpn-app &"
           "kanshi &"
         ];

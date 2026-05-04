@@ -1,0 +1,8 @@
+{
+  "rawBg": "{{colors.surface.default.hex}}",
+  "fg": "{{colors.on_surface.default.hex}}",
+  "warm": "{{colors.error.default.hex}}",
+  "fresh": "{{colors.tertiary.default.hex}}",
+  "accent": "{{colors.primary.default.hex}}",
+  "second": "{{colors.secondary.default.hex}}"
+}
