@@ -41,7 +41,12 @@ Rectangle {
                 radius: 20
                 color: "#2affffff"
                 clip: true
+                layer.enabled: true
+                layer.samples: 8
+                layer.smooth: true
 
+                readonly property int renderScale: 4
+                readonly property int renderSize: Math.round(width * renderScale)
                 property bool showingA: true
                 property string artUrl: root.activePlayer?.trackArtUrl ?? ""
 
@@ -62,13 +67,17 @@ Rectangle {
                 Item {
                     id: artMask
 
-                    anchors.fill: parent
+                    width: artContainer.renderSize
+                    height: artContainer.renderSize
                     layer.enabled: true
+                    layer.samples: 8
+                    layer.smooth: true
+                    layer.mipmap: true
                     visible: false
 
                     Rectangle {
                         anchors.fill: parent
-                        radius: artContainer.radius
+                        radius: artContainer.radius * artContainer.renderScale
                         color: "white"
                         antialiasing: true
                     }
@@ -77,10 +86,15 @@ Rectangle {
                 Image {
                     id: imgA
 
-                    anchors.fill: parent
+                    width: artContainer.renderSize
+                    height: artContainer.renderSize
+                    sourceSize.width: artContainer.renderSize
+                    sourceSize.height: artContainer.renderSize
                     fillMode: Image.PreserveAspectCrop
                     asynchronous: true
                     smooth: true
+                    mipmap: true
+                    antialiasing: true
                     visible: false
 
                     onStatusChanged: {
@@ -94,9 +108,10 @@ Rectangle {
                     source: imgA
                     maskEnabled: true
                     maskSource: artMask
-                    maskThresholdMin: 0.5
+                    maskThresholdMin: 0.35
                     maskThresholdMax: 1.0
-                    maskSpreadAtMin: 0.02
+                    maskSpreadAtMin: 0.08
+                    maskSpreadAtMax: 0.04
                     opacity: artContainer.showingA ? 1.0 : 0.0
                     visible: imgA.status === Image.Ready
                     Behavior on opacity { NumberAnimation { duration: 400; easing.type: Easing.OutCubic } }
@@ -105,10 +120,15 @@ Rectangle {
                 Image {
                     id: imgB
 
-                    anchors.fill: parent
+                    width: artContainer.renderSize
+                    height: artContainer.renderSize
+                    sourceSize.width: artContainer.renderSize
+                    sourceSize.height: artContainer.renderSize
                     fillMode: Image.PreserveAspectCrop
                     asynchronous: true
                     smooth: true
+                    mipmap: true
+                    antialiasing: true
                     visible: false
 
                     onStatusChanged: {
@@ -122,9 +142,10 @@ Rectangle {
                     source: imgB
                     maskEnabled: true
                     maskSource: artMask
-                    maskThresholdMin: 0.5
+                    maskThresholdMin: 0.35
                     maskThresholdMax: 1.0
-                    maskSpreadAtMin: 0.02
+                    maskSpreadAtMin: 0.08
+                    maskSpreadAtMax: 0.04
                     opacity: artContainer.showingA ? 0.0 : 1.0
                     visible: imgB.status === Image.Ready
                     Behavior on opacity { NumberAnimation { duration: 400; easing.type: Easing.OutCubic } }
@@ -137,6 +158,17 @@ Rectangle {
                     opacity: 0.7
                     font.pixelSize: 32
                     visible: imgA.status !== Image.Ready && imgB.status !== Image.Ready
+                }
+
+                Rectangle {
+                    anchors.fill: parent
+                    radius: artContainer.radius
+                    color: "transparent"
+                    antialiasing: true
+                    border {
+                        width: 1
+                        color: "#33ffffff"
+                    }
                 }
             }
 
