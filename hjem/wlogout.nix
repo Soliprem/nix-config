@@ -114,11 +114,11 @@ _: {
           background-image: image(url("${../assets/wlogout/hibernate-hover.png}"));
       }
 
-      #sleep {
+      #suspend {
           background-image: image(url("${../assets/wlogout/sleep.png}"));
       }
 
-      #sleep:hover {
+      #suspend:hover {
           background-image: image(url("${../assets/wlogout/sleep-hover.png}"));
       }
     '';
