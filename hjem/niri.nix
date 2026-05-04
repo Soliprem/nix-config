@@ -75,10 +75,10 @@ _: {
       }
 
       blur {
-          passes 3
+          passes 2
           offset 3.0
-          noise 0.02
-          saturation 1.3
+          noise 0.0117
+          saturation 1.0
       }
 
       window-rule {
