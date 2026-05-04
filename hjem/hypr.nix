@@ -24,10 +24,9 @@
   src = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
 in {
   files = {
-    ".config/hypr/stubs".source = "${src.hyprland}/share/hypr/stubs";
-    ".config/hypr/hyprland".source = ./hyprland;
+    ".config/nix-config/hjem/hyprland/stubs".source = "${src.hyprland}/share/hypr/stubs";
 
-    ".config/hypr/.luarc.json" = {
+    ".config/nix-config/hjem/hyprland/.luarc.json" = {
       generator = lib.generators.toJSON {};
 
       value = {
@@ -37,6 +36,9 @@ in {
         "workspace.library" = ["./stubs"];
       };
     };
+
+    ".config/hypr/hyprland".source = ./hyprland;
+
     ".config/hypr/hyprland.conf".text =
       /*
       lua
