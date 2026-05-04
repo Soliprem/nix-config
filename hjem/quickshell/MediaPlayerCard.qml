@@ -40,6 +40,7 @@ Rectangle {
                 height: 85
                 radius: 20
                 color: "#2affffff"
+                clip: true
 
                 property bool showingA: true
                 property string artUrl: root.activePlayer?.trackArtUrl ?? ""
@@ -93,6 +94,8 @@ Rectangle {
                     source: imgA
                     maskEnabled: true
                     maskSource: artMask
+                    maskThresholdMin: 0.5
+                    maskThresholdMax: 1.0
                     maskSpreadAtMin: 0.02
                     opacity: artContainer.showingA ? 1.0 : 0.0
                     visible: imgA.status === Image.Ready
@@ -119,6 +122,8 @@ Rectangle {
                     source: imgB
                     maskEnabled: true
                     maskSource: artMask
+                    maskThresholdMin: 0.5
+                    maskThresholdMax: 1.0
                     maskSpreadAtMin: 0.02
                     opacity: artContainer.showingA ? 0.0 : 1.0
                     visible: imgB.status === Image.Ready
