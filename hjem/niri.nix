@@ -54,7 +54,7 @@ _: {
       spawn-at-startup "xwayland-satellite"
       spawn-at-startup "awww-daemon"
       spawn-at-startup "battery-monitor"
-      spawn-at-startup "swaync"
+      spawn-at-startup "quickshell" "--no-duplicate"
       spawn-at-startup "nm-applet"
       spawn-at-startup "kanshi"
       spawn-at-startup "protonvpn-app"
@@ -72,6 +72,13 @@ _: {
           // Slow down all animations by this factor.
           // Values below 1 speed them up instead.
           // slowdown 3.0
+      }
+
+      blur {
+          passes 3
+          offset 3.0
+          noise 0.02
+          saturation 1.3
       }
 
       window-rule {
@@ -110,6 +117,30 @@ _: {
           clip-to-geometry true
       }
 
+      layer-rule {
+          match namespace="^quickshell-sidebar$"
+          background-effect {
+              blur true
+              xray false
+          }
+      }
+
+      layer-rule {
+          match namespace="^quantum-notification-popups$"
+          background-effect {
+              blur true
+              xray false
+          }
+      }
+
+      layer-rule {
+          match namespace="^logout_dialog$"
+          background-effect {
+              blur true
+              xray false
+          }
+      }
+
       binds {
           // NOTE: using keynames as found in wev
 
@@ -124,7 +155,7 @@ _: {
           Mod+D { spawn "fuzzel"; }
           Mod+Shift+D { spawn "fuzzel-run"; }
           Super+Alt+L allow-when-locked=true { spawn "swaylock"; }
-          Super+Shift+C { spawn "swaync-client" "-t"; }
+          Super+Shift+C { spawn "quickshell" "ipc" "call" "sidebar" "toggle"; }
           Super+V {spawn "clipmenu"; }
           Mod+T     { spawn "notify-time"; }
           Mod+Control+W     { spawn "ghostty" "-e" "wiki-tui"; }

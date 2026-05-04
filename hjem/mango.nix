@@ -137,6 +137,11 @@
       tagrule=id:8,layout_name:scroller
       tagrule=id:9,layout_name:scroller
 
+      # Layer Rules
+      layerrule=noblur:0,layer_name:^quickshell-sidebar$
+      layerrule=noblur:0,layer_name:^quantum-notification-popups$
+      layerrule=noblur:0,layer_name:^logout_dialog$
+
       # Monitor Config
       # monitorrule=name, mfact, nmaster, layout, top_gap, bottom_gap, x, y, width, height, refresh
       monitorrule=HDMI-A-1, 0.55, 1, scroller, 0, 1, 2560, 0, 1920, 1080, 120
@@ -175,7 +180,7 @@
       # Application/Script Binds
       bind=NONE,XF86PowerOff,spawn,wlogout
       bind=SUPER,V,spawn, clipmenu
-      bind=SUPER+SHIFT,c,spawn,swaync-client -t
+      bind=SUPER+SHIFT,c,spawn,quickshell ipc call sidebar toggle
       bind=SUPER,E,spawn,nautilus --new-window
       bind=SUPER,t,spawn,notify-time
       bind=SUPER+SHIFT,v,spawn,notify-volume
@@ -423,7 +428,7 @@
       xwayland-satellite &
       awww-daemon &
       battery-monitor &
-      swaync &
+      quickshell --no-duplicate &
       nm-applet &
       kanshi &
       protonvpn-app &

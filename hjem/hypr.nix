@@ -77,7 +77,7 @@ in
     exec-once = swayosd-server
     exec-once = awww-daemon &
     exec-once = nm-applet &
-    exec-once = swaync &
+    exec-once = quickshell --no-duplicate &
     exec-once = protonvpn-app &
     exec-once = kanshi &
     exec-once = stash watch &
@@ -202,6 +202,14 @@ in
     # Fix Firefox file dialogs going full screen
     windowrule = match:class ^(firefox)$, match:title negative:^(Enter name of file to save to…|Save), fullscreen_state -1 2
 
+    # Layer Rules
+    layerrule = blur on, match:namespace quickshell-sidebar
+    layerrule = ignore_alpha 0.2, match:namespace quickshell-sidebar
+    layerrule = blur on, match:namespace quantum-notification-popups
+    layerrule = ignore_alpha 0.01, match:namespace quantum-notification-popups
+    layerrule = blur on, match:namespace logout_dialog
+    layerrule = ignore_alpha 0.01, match:namespace logout_dialog
+
     # -----------------------------------------------------
     # ENVIRONMENT VARIABLES
     # -----------------------------------------------------
@@ -314,7 +322,7 @@ in
     bindle = , Caps_Lock, exec, sleep 0.1 && swayosd-client --caps-lock
 
     # Notification / Status Binds
-    bind = $mod SHIFT, C, exec, swaync-client -t
+    bind = $mod SHIFT, C, exec, quickshell ipc call sidebar toggle
     bind = $mod, T, exec, notify-time
     bind = $mod, B, exec, notify-battery
 

@@ -29,6 +29,10 @@
           input_path = ./templates/pywalfox-colors.json;
           output_path = "~/.cache/wal/colors.json";
         };
+        quickshell = {
+          input_path = ./templates/quickshell-colors.json;
+          output_path = "~/.cache/quickshell/colors.json";
+        };
         ghostty = {
           input_path = ./templates/ghostty;
           output_path = "~/.config/ghostty/themes/matugen";
