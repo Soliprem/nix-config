@@ -145,6 +145,7 @@ ShellRoot {
                 themeAccent: root.themeAccent
                 themeSecond: root.themeSecond
                 themeFg:     root.themeFg
+                themeBg:     root.themeBg
                 themeRawBg:  root.themeRawBg
                 themeFresh:  root.themeFresh
                 themeWarm:   root.themeWarm
@@ -173,6 +174,7 @@ ShellRoot {
         themeAccent: root.themeAccent
         themeSecond: root.themeSecond
         themeFg:     root.themeFg
+        themeBg:     root.themeBg
         themeRawBg:  root.themeRawBg
 
         onDismissNotification: (notification) => notificationDaemon.dismissNotification(notification)
