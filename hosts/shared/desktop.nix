@@ -4,6 +4,7 @@
     "hypr.nix"
     "niri.nix"
     "ghostty.nix"
+    "foot.nix"
     "gtk.nix"
     "qt.nix"
     "tofi.nix"

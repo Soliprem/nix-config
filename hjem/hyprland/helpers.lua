@@ -2,7 +2,7 @@ local M = {}
 
 M.mod = "SUPER"
 M.browser = "zen"
-M.term = "ghostty"
+M.term = "foot"
 M.editor = "nvim"
 
 M.workspaces_per_monitor = 10
