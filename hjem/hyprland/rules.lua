@@ -13,7 +13,6 @@ window_rule({ class = "^(eu.soliprem.thumbpick)$" }, { float = true })
 window_rule({ title = "^(Picture-in-Picture)$" }, { move = { 1275, 45 } })
 window_rule({ title = "^(flame|script-fu)$" }, { move = { 700, 250 } })
 
-window_rule({ workspace = 1 }, { rounding = 20 })
 window_rule({ class = "^(mpv|steam_app)(.*)$" }, { opacity = "1 override 1 override" })
 window_rule({ title = "^(.*.)(YouTube|Invidious)(.*)$" }, { opacity = "1 override 1 override" })
 

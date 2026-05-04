@@ -1,4 +1,4 @@
 local mod = "SUPER"
 local browser = "zen"
-local term = "ghostty"
+local term = "foot"
 local editor = "nvim"
