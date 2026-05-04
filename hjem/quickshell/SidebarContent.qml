@@ -7,6 +7,7 @@ Item {
     property color themeAccent
     property color themeSecond
     property color themeFg
+    property color themeBg
     property color themeRawBg
     property color themeFresh
     property color themeWarm
@@ -81,6 +82,7 @@ Item {
             themeAccent: root.themeAccent
             themeSecond: root.themeSecond
             themeFg: root.themeFg
+            themeBg: root.themeBg
             themeRawBg: root.themeRawBg
 
             onDismissNotification: (notification) => root.requestDismissNotification(notification)

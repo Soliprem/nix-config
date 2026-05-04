@@ -10,6 +10,7 @@ Rectangle {
     property color themeAccent
     property color themeSecond
     property color themeFg
+    property color themeBg
     property color themeRawBg
 
     readonly property int notificationCount: notificationModel ? notificationModel.values.length : 0
@@ -101,6 +102,7 @@ Rectangle {
                 themeAccent: root.themeAccent
                 themeSecond: root.themeSecond
                 themeFg: root.themeFg
+                themeBg: root.themeBg
                 themeRawBg: root.themeRawBg
 
                 onDismissRequested: (notification) => root.dismissNotification(notification)

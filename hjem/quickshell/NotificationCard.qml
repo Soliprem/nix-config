@@ -12,6 +12,7 @@ Rectangle {
     property color themeAccent
     property color themeSecond
     property color themeFg
+    property color themeBg
     property color themeRawBg
 
     signal dismissRequested(var notification)
@@ -83,8 +84,8 @@ Rectangle {
     implicitHeight: content.implicitHeight + 24
     radius: 14
     color: critical
-        ? Qt.rgba(themeAccent.r, themeAccent.g, themeAccent.b, popupMode ? 0.22 : 0.15)
-        : Qt.rgba(1, 1, 1, popupMode ? 0.22 : 0.06)
+        ? popupMode ? themeBg : Qt.rgba(themeAccent.r, themeAccent.g, themeAccent.b, 0.15)
+        : popupMode ? themeBg : Qt.rgba(1, 1, 1, 0.06)
     border {
         width: critical ? 2 : 1
         color: critical
