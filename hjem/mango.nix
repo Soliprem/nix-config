@@ -8,11 +8,11 @@
       blur_layer=1
       blur_optimized=0
       blur_params_num_passes = 2
-      blur_params_radius = 5
-      blur_params_noise = 0.02
-      blur_params_brightness = 0.9
-      blur_params_contrast = 0.9
-      blur_params_saturation = 1.2
+      blur_params_radius = 8
+      blur_params_noise = 0.0117
+      blur_params_brightness = 0.8172
+      blur_params_contrast = 0.8916
+      blur_params_saturation = 1.0
 
       shadows = 0
       layer_shadows = 0
