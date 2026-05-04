@@ -69,6 +69,7 @@
       java.enable = false;
       svelte.enable = false;
       vala.enable = false;
+      qml.enable = true;
       dart.enable = false;
       elixir.enable = false;
       haskell.enable = true;
