@@ -49,6 +49,25 @@ Rectangle {
             root.dismissRequested(notification)
     }
 
+    function preferredAction() {
+        if (!notification || notification.actions.length === 0)
+            return null
+
+        for (let i = 0; i < notification.actions.length; i++) {
+            const action = notification.actions[i]
+            if (action.identifier === "default")
+                return action
+        }
+
+        return notification.actions[0]
+    }
+
+    function activateNotification() {
+        const action = preferredAction()
+        if (action)
+            invokeAction(action)
+    }
+
     function sendReply() {
         if (!notification || replyInput.text.trim() === "")
             return
@@ -78,6 +97,20 @@ Rectangle {
     RetainableLock {
         object: root.notification
         locked: root.visible
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+
+        onClicked: (mouse) => {
+            if (mouse.button === Qt.RightButton)
+                root.dismissRequested(root.notification)
+            else if (mouse.button === Qt.LeftButton)
+                root.activateNotification()
+        }
     }
 
     ColumnLayout {
@@ -149,33 +182,6 @@ Rectangle {
                     }
                 }
             }
-
-            Rectangle {
-                Layout.preferredWidth: 26
-                Layout.preferredHeight: 26
-                radius: 8
-                color: closeMouse.containsMouse
-                    ? Qt.rgba(1, 1, 1, 0.13)
-                    : Qt.rgba(1, 1, 1, 0.06)
-
-                Behavior on color { ColorAnimation { duration: 140 } }
-
-                Text {
-                    anchors.centerIn: parent
-                    text: "×"
-                    color: root.themeFg
-                    opacity: 0.8
-                    font.pixelSize: 16
-                }
-
-                MouseArea {
-                    id: closeMouse
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: root.dismissRequested(root.notification)
-                }
-            }
         }
 
         Text {
@@ -202,51 +208,6 @@ Rectangle {
             fillMode: Image.PreserveAspectCrop
             smooth: true
             asynchronous: true
-        }
-
-        RowLayout {
-            Layout.fillWidth: true
-            visible: root.notification && root.notification.actions.length > 0
-            spacing: 8
-
-            Repeater {
-                model: root.notification ? root.notification.actions : []
-
-                delegate: Rectangle {
-                    required property NotificationAction modelData
-
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 28
-                    radius: 8
-                    color: actionMouse.containsMouse
-                        ? Qt.rgba(root.themeAccent.r, root.themeAccent.g, root.themeAccent.b, 0.22)
-                        : Qt.rgba(root.themeAccent.r, root.themeAccent.g, root.themeAccent.b, 0.12)
-
-                    Behavior on color { ColorAnimation { duration: 140 } }
-
-                    Text {
-                        anchors.centerIn: parent
-                        width: parent.width - 12
-                        text: parent.modelData.text || "Activate"
-                        color: root.themeAccent
-                        elide: Text.ElideRight
-                        horizontalAlignment: Text.AlignHCenter
-                        font {
-                            family: "JetBrainsMono Nerd Font"
-                            pixelSize: 10
-                            weight: Font.Bold
-                        }
-                    }
-
-                    MouseArea {
-                        id: actionMouse
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        cursorShape: Qt.PointingHandCursor
-                        onClicked: root.invokeAction(parent.modelData)
-                    }
-                }
-            }
         }
 
         RowLayout {

@@ -119,7 +119,7 @@ ShellRoot {
         id: sidebarWindow
         WlrLayershell.namespace: "quickshell-sidebar"
         WlrLayershell.layer:         WlrLayer.Overlay
-        WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand
+        WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
         // exclusiveZone: 0
         anchors { top: true; bottom: true; right: true }
         margins { top: 10; bottom: 10; right: 10 }
