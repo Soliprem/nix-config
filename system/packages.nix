@@ -273,8 +273,8 @@ in {
     niri.enable = true;
     hyprland = {
       enable = true;
-      package = pkgs.hyprland;
-      portalPackage = pkgs.xdg-desktop-portal-hyprland;
+      package = inputs.hyprland.packages.${sys}.hyprland;
+      portalPackage = inputs.hyprland.packages.${sys}.xdg-desktop-portal-hyprland;
     };
     mango.enable = true;
     nh = {

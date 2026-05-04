@@ -22,8 +22,8 @@
           output_path = "~/.config/gtk-4.0/colors.css";
         };
         hyprland = {
-          input_path = ./templates/hyprland-colors.conf;
-          output_path = "~/.config/hypr/colors.conf";
+          input_path = ./templates/hyprland-colors.lua;
+          output_path = "~/.config/hypr/colors.lua";
         };
         pywalfox = {
           input_path = ./templates/pywalfox-colors.json;
