@@ -19,6 +19,8 @@ hl.config({
 
     blur = {
       enabled = true,
+      passes = 2,
+      popups = true,
     },
   },
 
@@ -48,4 +50,3 @@ hl.config({
     swallow_exception_regex = "^(nvim|v|vi|wev|R|glxgears|julia)\\b.*$",
   },
 })
-
