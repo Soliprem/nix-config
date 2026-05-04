@@ -15,6 +15,7 @@
     "matugen.nix"
     "quickshell.nix"
     "swaylock.nix"
+    "wlogout.nix"
     "dmscripts.nix"
     "sunsetr.nix"
     "thumbpick.nix"
