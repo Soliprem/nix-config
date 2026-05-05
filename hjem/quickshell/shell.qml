@@ -103,13 +103,14 @@ ShellRoot {
         id: buttonModel
         ListElement { icon: "󰍜"; color_role: "second"; action: "cmd";           binary: "fuzzel"; args: "" }
         ListElement { icon: "󱙓"; color_role: "second"; action: "cmd";           binary: "nixrice"; args: "" }
-        ListElement { icon: "󰂯"; color_role: "second"; action: "cmd";           binary: "ghostty"; args: "-e bluetui" }
-        ListElement { icon: "󰖩"; color_role: "accent"; action: "cmd";           binary: "ghostty";           args: "-e nmtui" }
+        ListElement { icon: "󰂯"; color_role: "second"; action: "cmd";           binary: "foot"; args: "bluetui" }
+        ListElement { icon: "󰖩"; color_role: "accent"; action: "cmd";           binary: "foot";           args: "nmtui" }
         ListElement { icon: "󰏘"; color_role: "accent"; action: "cmd";           binary: "color-mode";         args: "" }
         ListElement { icon: "󰂚"; color_role: "second"; action: "dnd";           binary: "";                   args: "" }
         ListElement { icon: "󰤆"; color_role: "second"; action: "cmd";           binary: "wlogout";            args: "" }
-        ListElement { icon: "󰄨"; color_role: "second"; action: "cmd";           binary: "ghostty";           args: "-e btop" }
-        ListElement { icon: "󰕾"; color_role: "accent"; action: "cmd";           binary: "ghostty";     args: "-e wiremix" }
+        ListElement { icon: "󰄨"; color_role: "second"; action: "cmd";           binary: "foot";           args: "btop" }
+        ListElement { icon: "󰕾"; color_role: "accent"; action: "cmd";           binary: "foot";     args: "wiremix" }
+        ListElement { icon: "󰔎"; color_role: "accent"; action: "cmd";           binary: "toggle-polarity";     args: "" }
 
     }
 
