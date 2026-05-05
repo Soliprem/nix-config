@@ -117,7 +117,7 @@ in {
     overskride
     swappy
     swaylock-effects
-    quickshell
+    inputs.quickshell.packages.${sys}.default
     swayosd
     awww
     tofi

@@ -138,8 +138,6 @@
       tagrule=id:9,layout_name:scroller
 
       # Layer Rules
-      layerrule=noblur:0,layer_name:^quickshell-sidebar$
-      layerrule=noblur:0,layer_name:^quantum-notification-popups$
       layerrule=noblur:0,layer_name:^logout_dialog$
 
       # Monitor Config

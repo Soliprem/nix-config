@@ -118,22 +118,6 @@ _: {
       }
 
       layer-rule {
-          match namespace="^quickshell-sidebar$"
-          background-effect {
-              blur true
-              xray true
-          }
-      }
-
-      layer-rule {
-          match namespace="^quantum-notification-popups$"
-          background-effect {
-              blur true
-              xray false
-          }
-      }
-
-      layer-rule {
           match namespace="^logout_dialog$"
           background-effect {
               blur true
