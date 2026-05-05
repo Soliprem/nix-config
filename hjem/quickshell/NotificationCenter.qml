@@ -14,6 +14,8 @@ Rectangle {
     property color themeRawBg
 
     readonly property int notificationCount: notificationModel ? notificationModel.values.length : 0
+    readonly property var orderedNotifications:
+        notificationModel ? [...notificationModel.values].reverse() : []
 
     signal dismissNotification(var notification)
     signal clearRequested()
@@ -87,7 +89,7 @@ Rectangle {
             Layout.fillHeight: true
             clip: true
             spacing: 10
-            model: root.notificationModel
+            model: root.orderedNotifications
             cacheBuffer: 0
             reuseItems: true
             boundsBehavior: Flickable.StopAtBounds
