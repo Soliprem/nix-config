@@ -6,6 +6,7 @@ _: {
       */
       ''
         shell=fish
+        include=~/.config/foot/themes/matugen.ini
         title=foot
         font=Inconsolata Nerd Font:size=14
         letter-spacing=1
