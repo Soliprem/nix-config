@@ -6,13 +6,9 @@
       # Window effect
       blur=1
       blur_layer=1
-      blur_optimized=0
+      blur_optimized=1
       blur_params_num_passes = 2
       blur_params_radius = 8
-      blur_params_noise = 0.0117
-      blur_params_brightness = 0.8172
-      blur_params_contrast = 0.8916
-      blur_params_saturation = 1.0
 
       shadows = 0
       layer_shadows = 0
@@ -23,7 +19,7 @@
       shadows_position_y = 0
       shadowscolor= 0x000000ff
 
-      border_radius=6
+      border_radius=15
       no_radius_when_single=0
       focused_opacity=1.0
       unfocused_opacity=1.0
@@ -109,8 +105,8 @@
       mouse_natural_scrolling=0
 
       # Appearance
-      gappih=5
-      gappiv=5
+      gappih=10
+      gappiv=10
       gappoh=10
       gappov=10
       scratchpad_width_ratio=0.8
@@ -151,14 +147,14 @@
       # Common mode - bindings available in all modes
       keymode = common
       bind=SUPER+CTRL,R,reload_config
-      bind=SUPER+CTRL,t,spawn,ghostty -e tray-tui
-      bind=SUPER+CTRL,w,spawn,ghostty -e wiki-tui
+      bind=SUPER+CTRL,t,spawn,foot tray-tui
+      bind=SUPER+CTRL,w,spawn,foot wiki-tui
       bind=SUPER,g,toggleoverview
       bind=SUPER,s,toggleglobal
       bind=SUPER+SHIFT,o,toggleoverlay
 
       # Terminal, Launcher, Browser
-      bind=SUPER,Return,spawn,ghostty
+      bind=SUPER,Return,spawn,foot
       bind=SUPER,w,spawn,zen
       bind=SUPER,d,spawn,fuzzel
       bind=SUPER+SHIFT,d,spawn,fuzzel-run
@@ -178,7 +174,7 @@
       # Application/Script Binds
       bind=NONE,XF86PowerOff,spawn,wlogout
       bind=SUPER,V,spawn, clipmenu
-      bind=SUPER+SHIFT,c,spawn,quickshell ipc call sidebar toggle
+      bind=SUPER,x,spawn,quickshell ipc call sidebar toggle
       bind=SUPER,E,spawn,nautilus --new-window
       bind=SUPER,t,spawn,notify-time
       bind=SUPER+SHIFT,v,spawn,notify-volume
@@ -186,7 +182,7 @@
       bind=NONE,Print,spawn,grimblast copy area
       bind=SUPER+SHIFT+ALT,period,spawn,fuzzel-emoji
       bind=SUPER,n,spawn,dm-notes
-      bind=SUPER+SHIFT,n,spawn,ghostty -e notes
+      bind=SUPER+SHIFT,n,spawn,foot notes
       bind=SUPER,o,spawn,dm-hub
       bind=SUPER+SHIFT,semicolon,spawn,dm-expand
       bind=SUPER,minus,spawn,wtype -k emdash
@@ -300,12 +296,12 @@
       # Scroller ('default' mode because it's the default layout in tagrules)
       keymode=default
       bind=SUPER,r,switch_proportion_preset
-      bind=SUPER,h,focusstack,prev
-      bind=SUPER,l,focusstack,next
+      bind=SUPER,h,focusdir,left
+      bind=SUPER,l,focusdir,right
       bind=SUPER+CTRL,h,exchange_stack_client,prev
       bind=SUPER+CTRL,l,exchange_stack_client,next
-      bind=SUPER,j,viewtoright
-      bind=SUPER,k,viewtoleft
+      bind=SUPER,j,focusdir, down
+      bind=SUPER,k,focusdir, up
       bind=SUPER+SHIFT,j,scroller_stack,down
       bind=SUPER+SHIFT,k,scroller_stack,up
       bind=SUPER+SHIFT,h,scroller_stack,left
