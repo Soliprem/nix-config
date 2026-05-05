@@ -9,19 +9,13 @@ pipelines in any machine are configured correctly (or at least identically
 wrong), meaning there's a lot less "random" bugs that come from small
 inconsistencies, and that the system is generally more robust.
 
-## Features
+## Things
 
-- Laptop and desktop configs
-- Mango, Hyprland, Niri compositors
-- Matugen for Material Design colors from wallpapers, and a utility script to
-  flip polarity
-- Nushell/Fish with Starship, Zoxide, Atuin
-- Dotfiles managed with Hjem
-- Secrets encrypted with agenix
-- Standalone Neovim builds with nvf
-- Ollama, with ROCm on the desktop config
-- Flatpak, Steam, Spicetify, Open WebUI, printing, VPN, and a ReGreet greeter
-- Rust and Julia flake templates
+- Modular NixOS flake for my laptop and desktop
+- Wayland desktop stack with Mango, Hyprland, Niri, Quickshell, and matugen
+  theming
+- Hjem-managed dotfiles and agenix-managed secrets
+- Standalone nvf Neovim builds and small Rust/Julia flake templates
 
 ## Gallery
 
