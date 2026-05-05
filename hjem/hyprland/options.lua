@@ -10,6 +10,9 @@ hl.config({
 
   scrolling = {
     focus_fit_method = 1,
+    fullscreen_on_one_column = false,
+    wrap_focus = false,
+    wrap_swapcol = false,
   },
 
   decoration = {
