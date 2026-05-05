@@ -117,7 +117,7 @@ exec("XF86MonBrightnessDown", "swayosd-client --brightness lower", { locked = tr
 exec("Caps_Lock", "sleep 0.1 && swayosd-client --caps-lock", { locked = true, repeating = true })
 
 -- Notification / Status Binds
-exec(mod .. " + SHIFT + C", "quickshell ipc call sidebar toggle")
+exec(mod .. " + X", "quickshell ipc call sidebar toggle")
 exec(mod .. " + T", "notify-time")
 exec(mod .. " + B", "notify-battery")
 

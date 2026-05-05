@@ -139,7 +139,7 @@ _: {
           Mod+D { spawn "fuzzel"; }
           Mod+Shift+D { spawn "fuzzel-run"; }
           Super+Alt+L allow-when-locked=true { spawn "swaylock"; }
-          Super+Shift+C { spawn "quickshell" "ipc" "call" "sidebar" "toggle"; }
+          Super+X { spawn "quickshell" "ipc" "call" "sidebar" "toggle"; }
           Super+V {spawn "clipmenu"; }
           Mod+T     { spawn "notify-time"; }
           Mod+Control+W     { spawn "foot" "wiki-tui"; }
