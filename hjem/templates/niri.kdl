@@ -4,6 +4,7 @@ layout {
         // These will merge with the 'width' and 'off' settings in your main config
         active-color "{{colors.primary.default.hex}}"
         inactive-color "{{colors.surface.default.hex}}"
+        width 1
         
         // Remove gradients if you want pure flat colors from the template
         // active-gradient off 
