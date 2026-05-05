@@ -30,7 +30,7 @@ _: {
       }
 
       layout {
-          gaps 16
+          gaps 11
           center-focused-column "never"
           preset-column-widths {
               proportion 0.33333
@@ -113,7 +113,7 @@ _: {
       // Example: enable rounded corners for all windows.
       // (This example rule is commented out with a "/-" in front.)
       window-rule {
-          geometry-corner-radius 12
+          geometry-corner-radius 15
           clip-to-geometry true
       }
 
