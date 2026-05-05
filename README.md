@@ -112,8 +112,8 @@ nixrice  # Interactive picker
 nixrice /path/to/wallpaper.png
 ```
 
-`nixrice` copies the wallpaper to `~/.config/bg` and `assets/bg`, then runs
-matugen using the current light/dark preference.
+`nixrice` writes the selected wallpaper path to `~/.cache/bgpath`, runs matugen
+using the current light/dark preference, and refreshes `assets/bg`.
 
 Change the matugen scheme type that `nixrice` uses:
 
