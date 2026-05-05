@@ -1,6 +1,6 @@
 _: {
   files = {
-    ".config/foot/config.ini".text =
+    ".config/foot/foot.ini".text =
       /*
       ini
       */
