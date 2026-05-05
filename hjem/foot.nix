@@ -30,10 +30,12 @@ _: {
         [colors-dark]
         alpha=0.64
         cursor=111012 e7e0e5
+        blur=true
 
         [colors-light]
         alpha=0.64
         cursor=111012 e7e0e5
+        blur=true
 
         [key-bindings]
         scrollback-up-page=Page_Up
