@@ -14,6 +14,11 @@ PanelWindow {
     property color themeBg
     property color themeRawBg
 
+    BackgroundEffect.blurRegion: Region {
+        item: root.contentItem
+        radius: 15
+    }
+
     signal dismissNotification(var notification)
     signal hidePopup(var notification)
 

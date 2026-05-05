@@ -127,6 +127,11 @@ ShellRoot {
         visible: false
         color: "transparent"
 
+        BackgroundEffect.blurRegion: Region {
+            item: sidebarWindow.contentItem
+            radius: 15
+        }
+
         readonly property MprisPlayer activePlayer:
             Mpris.players.values.length > 0 ? Mpris.players.values[0] : null
         readonly property bool hasPlayer: activePlayer !== null
