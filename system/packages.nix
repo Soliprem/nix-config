@@ -140,6 +140,7 @@ in {
     omnissa-horizon-client
     qutebrowser
     telegram-desktop
+    super-productivity
     thunderbird
     transmission_4-gtk
 
