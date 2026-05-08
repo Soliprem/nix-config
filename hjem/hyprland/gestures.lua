@@ -1,4 +1,3 @@
--- Gestures
 hl.gesture({ fingers = 3, direction = "down", mods = "SUPER", action = "close" })
 hl.gesture({ fingers = 3, direction = "up", mods = "SUPER", scale = 1.5, action = "fullscreen" })
 hl.gesture({ fingers = 3, direction = "vertical", action = "workspace" })

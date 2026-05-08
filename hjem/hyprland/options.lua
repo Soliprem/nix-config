@@ -52,4 +52,7 @@ hl.config({
     swallow_regex = "^(com.mitchellh.ghostty|kitty|foot)$",
     swallow_exception_regex = "^(nvim|v|vi|wev|R|glxgears|julia)\\b.*$",
   },
+  render = {
+    cm_auto_hdr = 2,
+  },
 })
