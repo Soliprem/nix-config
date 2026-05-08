@@ -130,6 +130,7 @@ in {
     # Browsers, communication, and network clients
     beeper
     bitwarden-desktop
+    rnote
     bitwarden-cli
     bitwarden-menu
     chromium

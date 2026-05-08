@@ -989,6 +989,22 @@
         "type": "github"
       }
     },
+    "remarkable-bridge": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777840961,
+        "narHash": "sha256-r6qvYhx0/BvOOEKytH2QZTq4akyjYqsXvODMRjf0oos=",
+        "owner": "blwtxc",
+        "repo": "remarkable-bridge",
+        "rev": "8d3bfcc7a3edca169307a4bac8d798403dcd7baa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "blwtxc",
+        "repo": "remarkable-bridge",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -1005,6 +1021,7 @@
         "nvf": "nvf",
         "quickshell": "quickshell",
         "r-nvim": "r-nvim",
+        "remarkable-bridge": "remarkable-bridge",
         "spicetify-nix": "spicetify-nix",
         "stash": "stash",
         "subtui": "subtui",
