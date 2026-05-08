@@ -38,6 +38,10 @@ hl.config({
       clickfinger_behavior = true,
       scroll_factor = 0.5,
     },
+
+    tablet = {
+      output = "current",
+    },
   },
 
   misc = {

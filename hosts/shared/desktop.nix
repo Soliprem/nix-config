@@ -29,6 +29,7 @@
     "printing.nix"
     "spicetify.nix"
     "dmscripts.nix"
+    "remarkable-bridge.nix"
   ];
 
   virtualisation = {
