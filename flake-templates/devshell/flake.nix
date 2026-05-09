@@ -1,5 +1,5 @@
 {
-  description = "devFlake for Julia";
+  description = "Simple Devshell";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -13,11 +13,9 @@
       default = pkgs.mkShell {
         buildInputs = with pkgs; [
           fish
-          (julia.withPackages ["Plots"])
         ];
         shellHook = ''
-          export SHELL=${pkgs.nushell}/bin/nu
-          export JULIA_PROJECT="."
+          export SHELL=${pkgs.fish}/bin/fish
           exec fish
         '';
       };
