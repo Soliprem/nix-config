@@ -1,4 +1,14 @@
 {
+    devshell = {
+      path = ./julia;
+      description = "Simple Flake with a Devshell";
+      welcomeText = ''
+        # Devshell Flake template
+
+        ## TO-DO
+        - Just change the packages and jump in
+      '';
+    };
     rust = {
       path = ./rust;
       description = "Opinionated Rust flake";

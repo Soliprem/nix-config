@@ -27,12 +27,12 @@
     devShell.${system} = pkgs.mkShell {
       buildInputs = with pkgs; [
         rustToolchain
-        nushell
+        fish
       ];
 
       nativeBuildInputs = [pkgs.pkg-config];
       shellHook = ''
-        exec nu
+        exec fish
       '';
     };
 

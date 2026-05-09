@@ -12,13 +12,13 @@
     devShells.${system} = {
       default = pkgs.mkShell {
         buildInputs = with pkgs; [
-          nushell
+          fish
           (julia.withPackages ["Plots"])
         ];
         shellHook = ''
           export SHELL=${pkgs.nushell}/bin/nu
           export JULIA_PROJECT="."
-          exec nu
+          exec fish
         '';
       };
     };
