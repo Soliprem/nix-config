@@ -39,7 +39,7 @@ in {
 
     ".config/hypr/hyprland".source = ./hyprland;
 
-    ".config/hypr/hyprland.conf".text =
+    ".config/hypr/hyprland.lua".text =
       /*
       lua
       */
