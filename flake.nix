@@ -89,6 +89,10 @@
       url = "github:notashelf/stash";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    eh = {
+      url = "github:notashelf/eh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     thumbpick = {
       url = "github:soliprem/thumbpick";
       inputs.nixpkgs.follows = "nixpkgs";

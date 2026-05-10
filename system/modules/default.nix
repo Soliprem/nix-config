@@ -4,5 +4,6 @@ _: {
     ./greeter.nix
     ./vpn.nix
     ./keyd.nix
+    ./eh.nix
   ];
 }
