@@ -142,6 +142,7 @@ let
         swayosd-client --custom-progress=($BATTERY_LEVEL / 100) --custom-progress-text=$"($BATTERY_LEVEL)%" --custom-icon=battery
       ''
     )
+    # FIXME: change this to use matugen
     (pkgs.writers.writeNuBin "update-openrgb-color"
       {
         makeWrapperArgs = [
