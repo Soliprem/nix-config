@@ -3,8 +3,133 @@ local H = require("helpers")
 local mod = H.mod
 local term = H.term
 local browser = H.browser
-local exec = H.exec
-local bind = H.bind
+
+local keybinds = {
+  CTRL = {
+    ALT = {
+      Delete = { action = hl.dsp.exit(), },
+    },
+  },
+
+  ALT = {
+    Tab = { action = hl.dsp.focus({ urgent_or_last = true }), },
+  },
+
+  SUPER = {
+    SHIFT = {
+      E = { action = hl.dsp.exit(), },
+      h = { action = hl.dsp.layout("consume_or_expel prev"), },
+      l = { action = hl.dsp.layout("consume_or_expel next"), },
+      r = { action = hl.dsp.layout("colresize -conf"), },
+      equal = { action = hl.dsp.layout("colresize +0.02"), },
+      Comma = { action = hl.dsp.window.move({ monitor = "-1" }), },
+      Period = { action = hl.dsp.window.move({ monitor = "+1" }), },
+      space = { action = hl.dsp.window.float({ action = "toggle" }), },
+      f = { action = hl.dsp.window.fullscreen({ mode = "fullscreen" }), },
+    },
+    CTRL = {
+      h = { action = hl.dsp.layout("swapcol l"), },
+      l = { action = hl.dsp.layout("swapcol r"), },
+      space = { action = hl.dsp.layout("swapwithmaster"), },
+      Comma = { action = hl.dsp.workspace.move({ monitor = "-1" }), },
+      Period = { action = hl.dsp.workspace.move({ monitor = "+1" }), },
+      SHIFT = {
+        h = { action = hl.dsp.layout("addmaster"), },
+        l = { action = hl.dsp.layout("removemaster"), },
+      },
+    },
+    ALT = {
+      s = { action = hl.dsp.window.move({ workspace = "special" }), },
+      p = { action = hl.dsp.window.pin(), },
+      F = { action = hl.dsp.window.fullscreen_state({ internal = -1, client = 2 }), },
+    },
+    Q = { action = hl.dsp.window.close(), },
+    ["mouse:272"] = { action = hl.dsp.window.drag(), opts = { mouse = true }, },
+    z = { action = hl.dsp.window.drag(), opts = { mouse = true }, },
+    ["mouse:273"] = { action = hl.dsp.window.resize(), opts = { mouse = true }, },
+    Tab = { action = hl.dsp.focus({ last = true }), },
+    j = { action = hl.dsp.layout("focus d"), },
+    k = { action = hl.dsp.layout("focus u"), },
+    h = { action = hl.dsp.layout("focus l"), },
+    l = { action = hl.dsp.layout("focus r"), },
+    r = { action = hl.dsp.layout("colresize +conf"), },
+    equal = { action = hl.dsp.layout("colresize -0.02"), },
+    space = { action = hl.dsp.layout("promote"), },
+    Comma = { action = hl.dsp.focus({ monitor = "-1" }), },
+    Period = { action = hl.dsp.focus({ monitor = "+1" }), },
+    s = { action = hl.dsp.workspace.toggle_special(""), },
+    f = { action = hl.dsp.window.fullscreen({ mode = "maximized" }), },
+  },
+}
+
+local execs = {
+  XF86PowerOff = { action = "wlogout", },
+  Print = { action = "grimblast copy area", },
+  XF86AudioMicMute = { action = "swayosd-client --input-volume mute-toggle", opts = { locked = true }, },
+  XF86AudioMute = { action = "swayosd-client --output-volume mute-toggle", opts = { locked = true }, },
+  XF86AudioPlay = { action = "playerctl play-pause", opts = { locked = true }, },
+  XF86AudioPrev = { action = "playerctl previous", opts = { locked = true }, },
+  XF86AudioNext = { action = "playerctl next", opts = { locked = true }, },
+  XF86AudioRaiseVolume = { action = "swayosd-client --output-volume raise", opts = { locked = true, repeating = true }, },
+  XF86AudioLowerVolume = { action = "swayosd-client --output-volume lower", opts = { locked = true, repeating = true }, },
+  XF86MonBrightnessUp = { action = "swayosd-client --brightness raise", opts = { locked = true, repeating = true }, },
+  XF86MonBrightnessDown = { action = "swayosd-client --brightness lower", opts = { locked = true, repeating = true }, },
+  Caps_Lock = { action = "sleep 0.1 && swayosd-client --caps-lock", opts = { locked = true, repeating = true }, },
+  SUPER = {
+    SHIFT = {
+      Q = { action = "hyprctl kill", },
+      P = { action = "hyprshot -m output -m active -c -r - | swappy -f -", },
+      S = { action = "hyprshot -m region -r - | swappy -f -", },
+      n = { action = term .. " -e notes", },
+      b = { action = "overskride", },
+      d = { action = "fuzzel-run", },
+      semicolon = { action = "dm-expand", },
+      m = { action = "swayosd-client --output-volume mute-toggle", opts = { locked = true }, },
+      ALT = {
+        Period = { action = "fuzzel-emoji", },
+      },
+    },
+    ALT = {
+      l = { action = "hyprlock", },
+      P = { action = "hyprshot -m window -r - | swappy -f -", },
+      N = { action = "dm-sunsetr", },
+    },
+    CTRL = {
+      t = { action = term .. " -e tray-tui", },
+      w = { action = term .. " -e wiki-tui", },
+      v = { action = "pwvucontrol", },
+    },
+    P = { action = "hyprshot -m output -c -r - | swappy -f -", },
+    F1 = { action = "gamemode", },
+    Return = { action = term, },
+    w = { action = browser, },
+    E = { action = "nautilus --new-window", },
+    n = { action = "dm-notes", },
+    d = { action = "fuzzel", },
+    V = { action = "clipmenu", },
+    o = { action = "dm-hub", },
+    minus = { action = "wtype -k emdash", },
+    X = { action = "quickshell ipc call sidebar toggle", },
+    T = { action = "notify-time", },
+    B = { action = "notify-battery", },
+  },
+}
+
+local function key_table_parser(key_table, path, method)
+  path = path or {}
+  for key, value in pairs(key_table) do
+    local new_path = { table.unpack(path) }
+    table.insert(new_path, key)
+    if value.action then
+      method(table.concat(new_path, "+"), value.action, value.opts)
+    else
+      key_table_parser(value, new_path, method)
+    end
+  end
+end
+
+key_table_parser(keybinds, {}, H.bind)
+key_table_parser(execs, {}, H.exec)
 
 for i = 1, 10 do
   local key = i % 10
@@ -21,103 +146,3 @@ for i = 1, 10 do
     H.move_to_split_workspace(i, true)
   end)
 end
-
--- System
-exec("XF86PowerOff", "wlogout")
-bind(mod .. " + SHIFT + E", hl.dsp.exit())
-bind("CTRL + ALT + Delete", hl.dsp.exit())
-exec(mod .. " + SHIFT + Q", "hyprctl kill")
-bind(mod .. " + Q", hl.dsp.window.close())
-exec(mod .. " + F1", "gamemode")
-exec(mod .. " + ALT + l", "hyprlock")
-exec("Print", "grimblast copy area")
-
-exec(mod .. " + P", "hyprshot -m output -c -r - | swappy -f -")
-exec(mod .. " + SHIFT + P", "hyprshot -m output -m active -c -r - | swappy -f -")
-exec(mod .. " + ALT + P", "hyprshot -m window -r - | swappy -f -")
-exec(mod .. " + SHIFT + S", "hyprshot -m region -r - | swappy -f -")
-
-exec(mod .. " + ALT + N", "dm-sunsetr")
-
-bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-bind(mod .. " + z", hl.dsp.window.drag(), { mouse = true })
-bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
-
--- Applications
-exec(mod .. " + Return", term)
-exec(mod .. " + w", browser)
-exec(mod .. " + E", "nautilus --new-window")
-exec(mod .. " + n", "dm-notes")
-exec(mod .. " + SHIFT + n", term .. " -e notes")
-exec(mod .. " + CTRL + t", term .. " -e tray-tui")
-exec(mod .. " + CTRL + w", term .. " -e wiki-tui")
-exec(mod .. " + SHIFT + b", "overskride")
-exec(mod .. " + CTRL + v", "pwvucontrol")
-
--- Launchers / Menus
-exec(mod .. " + d", "fuzzel")
-exec(mod .. " + SHIFT + d", "fuzzel-run")
-exec(mod .. " + V", "clipmenu")
-exec(mod .. " + SHIFT + ALT + Period", "fuzzel-emoji")
-exec(mod .. " + o", "dm-hub")
-exec(mod .. " + SHIFT + semicolon", "dm-expand")
-exec(mod .. " + minus", "wtype -k emdash")
-
--- Navigation
-bind(mod .. " + Tab", hl.dsp.focus({ last = true }))
-bind("ALT + Tab", hl.dsp.focus({ urgent_or_last = true }))
-bind(mod .. " + j", hl.dsp.layout("focus d"))
-bind(mod .. " + k", hl.dsp.layout("focus u"))
-bind(mod .. " + h", hl.dsp.layout("focus l"))
-bind(mod .. " + l", hl.dsp.layout("focus r"))
-bind(mod .. " + SHIFT + h", hl.dsp.layout("consume_or_expel prev"))
-bind(mod .. " + SHIFT + l", hl.dsp.layout("consume_or_expel next"))
-bind(mod .. " + CTRL + h", hl.dsp.layout("swapcol l"))
-bind(mod .. " + CTRL + l", hl.dsp.layout("swapcol r"))
-bind(mod .. " + r", hl.dsp.layout("colresize +conf"))
-bind(mod .. " + SHIFT + r", hl.dsp.layout("colresize -conf"))
-bind(mod .. " + equal", hl.dsp.layout("colresize -0.02"))
-bind(mod .. " + SHIFT + equal", hl.dsp.layout("colresize +0.02"))
-bind(mod .. " + space", hl.dsp.layout("promote"))
-bind(mod .. " + CTRL + space", hl.dsp.layout("swapwithmaster"))
-bind(mod .. " + CTRL + SHIFT + h", hl.dsp.layout("addmaster"))
-bind(mod .. " + CTRL + SHIFT + l", hl.dsp.layout("removemaster"))
-
--- Monitor Focus
-bind(mod .. " + Comma", hl.dsp.focus({ monitor = "-1" }))
-bind(mod .. " + Period", hl.dsp.focus({ monitor = "+1" }))
-bind(mod .. " + SHIFT + Comma", hl.dsp.window.move({ monitor = "-1" }))
-bind(mod .. " + SHIFT + Period", hl.dsp.window.move({ monitor = "+1" }))
-bind(mod .. " + CTRL + Comma", hl.dsp.workspace.move({ monitor = "-1" }))
-bind(mod .. " + CTRL + Period", hl.dsp.workspace.move({ monitor = "+1" }))
-
--- Special Workspaces
-bind(mod .. " + s", hl.dsp.workspace.toggle_special(""))
-bind(mod .. " + ALT + s", hl.dsp.window.move({ workspace = "special" }))
-bind(mod .. " + ALT + p", hl.dsp.window.pin())
-
--- Window State
-bind(mod .. " + SHIFT + space", hl.dsp.window.float({ action = "toggle" }))
-bind(mod .. " + f", hl.dsp.window.fullscreen({ mode = "maximized" }))
-bind(mod .. " + SHIFT + f", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
-bind(mod .. " + ALT + F", hl.dsp.window.fullscreen_state({ internal = -1, client = 2 }))
-
--- Media & Hardware Keys
-exec("XF86AudioMicMute", "swayosd-client --input-volume mute-toggle", { locked = true })
-exec("XF86AudioMute", "swayosd-client --output-volume mute-toggle", { locked = true })
-exec(mod .. " + SHIFT + m", "swayosd-client --output-volume mute-toggle", { locked = true })
-exec("XF86AudioPlay", "playerctl play-pause", { locked = true })
-exec("XF86AudioPrev", "playerctl previous", { locked = true })
-exec("XF86AudioNext", "playerctl next", { locked = true })
-
-exec("XF86AudioRaiseVolume", "swayosd-client --output-volume raise", { locked = true, repeating = true })
-exec("XF86AudioLowerVolume", "swayosd-client --output-volume lower", { locked = true, repeating = true })
-exec("XF86MonBrightnessUp", "swayosd-client --brightness raise", { locked = true, repeating = true })
-exec("XF86MonBrightnessDown", "swayosd-client --brightness lower", { locked = true, repeating = true })
-exec("Caps_Lock", "sleep 0.1 && swayosd-client --caps-lock", { locked = true, repeating = true })
-
--- Notification / Status Binds
-exec(mod .. " + X", "quickshell ipc call sidebar toggle")
-exec(mod .. " + T", "notify-time")
-exec(mod .. " + B", "notify-battery")
-
