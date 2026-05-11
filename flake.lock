@@ -56,19 +56,6 @@
         "type": "github"
       }
     },
-    "commet": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1772620970,
-        "narHash": "sha256-CI+6Ozy3hVTah5FxKsxkvFiehDnRPc9kz7bzDT5qKJ8=",
-        "type": "tarball",
-        "url": "https://github.com/commetchat/commet/releases/download/v0.4.1/commet-linux-portable-x64.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/commetchat/commet/releases/download/v0.4.1/commet-linux-portable-x64.tar.gz"
-      }
-    },
     "crane": {
       "locked": {
         "lastModified": 1776635034,
@@ -1028,7 +1015,6 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
-        "commet": "commet",
         "dm-scripts": "dm-scripts",
         "eh": "eh",
         "ekphos": "ekphos",
