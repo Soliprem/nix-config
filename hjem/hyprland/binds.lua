@@ -128,21 +128,21 @@ local function key_table_parser(key_table, path, method)
   end
 end
 
-key_table_parser(keybinds, {}, H.bind)
+key_table_parser(keybinds, {}, hl.bind)
 key_table_parser(execs, {}, H.exec)
 
 for i = 1, 10 do
   local key = i % 10
 
-  H.bind(mod .. " + " .. key, function()
+  hl.bind(mod .. " + " .. key, function()
     H.focus_split_workspace(i)
   end)
 
-  H.bind(mod .. " + SHIFT + " .. key, function()
+  hl.bind(mod .. " + SHIFT + " .. key, function()
     H.move_to_split_workspace(i, false)
   end)
 
-  H.bind(mod .. " + ALT + SHIFT + " .. key, function()
+  hl.bind(mod .. " + ALT + SHIFT + " .. key, function()
     H.move_to_split_workspace(i, true)
   end)
 end
