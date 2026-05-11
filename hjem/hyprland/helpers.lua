@@ -13,10 +13,6 @@ function M.split_workspace(n)
   return monitor_id * M.workspaces_per_monitor + n
 end
 
-function M.bind(keys, dispatcher, flags)
-  hl.bind(keys, dispatcher, flags)
-end
-
 function M.exec(keys, cmd, flags)
   hl.bind(keys, hl.dsp.exec_cmd(cmd), flags)
 end
