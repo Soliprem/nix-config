@@ -5,7 +5,7 @@ local term = H.term
 local browser = H.browser
 
 
-local keybinds = {
+local common_keybinds = {
   CTRL = {
     ALT = {
       Delete = { action = hl.dsp.exit(), },
@@ -150,7 +150,7 @@ local monocle_binds = {
   },
 }
 
-H.key_table_parser(keybinds, {}, hl.bind, { submap_universal = true })
+H.key_table_parser(common_keybinds, {}, hl.bind, { submap_universal = true })
 H.key_table_parser(execs, {}, H.exec, { submap_universal = true })
 
 hl.define_submap("layout_scrolling", function()
