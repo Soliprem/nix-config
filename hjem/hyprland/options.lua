@@ -1,9 +1,10 @@
+H = require("helpers")
 hl.config({
   general = {
     gaps_in = 4,
     gaps_out = 11,
     border_size = 1,
-    layout = "scrolling",
+    layout = H.default_layout,
     resize_on_border = true,
     allow_tearing = false,
   },

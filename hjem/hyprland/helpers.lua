@@ -4,6 +4,7 @@ M.mod = "SUPER"
 M.browser = "zen"
 M.term = "foot"
 M.editor = "nvim"
+M.default_layout = "scrolling"
 
 M.workspaces_per_monitor = 10
 
@@ -28,15 +29,14 @@ function M.move_to_split_workspace(n, follow)
   }))
 end
 
-function M.sync_layout_submap()
-  local ws = hl.get_active_workspace()
-  local layout = ws and ws.tiled_layout or "scrolling"
-  hl.dispatch(hl.dsp.submap("layout_" .. layout))
+function M.reset_layout()
+  hl.config({ general = { layout = M.default_layout } })
+  hl.dispatch(hl.dsp.submap("reset"))
 end
 
 function M.set_layout(layout)
   hl.config({ general = { layout = layout } })
-  hl.dispatch(hl.dsp.submap("layout_" .. layout))
+  hl.dispatch(hl.dsp.submap(layout))
 end
 
 function M.key_table_parser(key_table, path, method, default_opts)
