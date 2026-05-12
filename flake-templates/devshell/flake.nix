@@ -12,11 +12,10 @@
     devShells.${system} = {
       default = pkgs.mkShell {
         buildInputs = with pkgs; [
-          fish
+          hello
         ];
         shellHook = ''
-          export SHELL=${pkgs.fish}/bin/fish
-          exec fish
+          hello
         '';
       };
     };

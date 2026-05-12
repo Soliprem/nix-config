@@ -27,12 +27,11 @@
     devShell.${system} = pkgs.mkShell {
       buildInputs = with pkgs; [
         rustToolchain
-        fish
       ];
 
       nativeBuildInputs = [pkgs.pkg-config];
       shellHook = ''
-        exec fish
+        cargo -V
       '';
     };
 
@@ -41,7 +40,7 @@
         cargo = rustToolchain;
         rustc = rustToolchain;
       }).buildPackage {
-        pname = "rpg_quiz";
+        pname = "simple-project";
         version = "0.1.0";
         src = ./.;
       };
