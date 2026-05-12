@@ -5,6 +5,7 @@ _: {
           set fish_greeting
       end
 
+      command nix-your-shell fish | source
       starship init fish | source
 
       if test -f ~/.cache/sequences.txt 
