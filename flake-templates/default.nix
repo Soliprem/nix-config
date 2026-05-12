@@ -1,6 +1,6 @@
 {
     devshell = {
-      path = ./julia;
+      path = ./devshell;
       description = "Simple Flake with a Devshell";
       welcomeText = ''
         # Devshell Flake template
