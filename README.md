@@ -21,9 +21,9 @@ inconsistencies, and that the system is generally more robust.
 
 <details><summary>Gallery</summary>
 
-![Screenshot](assets/screenshots/screenshot-mango.png)
-![Screenshot](assets/screenshots/screenshot-mango2.png)
-![Screenshot](assets/screenshots/screenshot-mango3.png)
+![Screenshot](assets/screenshots/screenshot-niri.png)
+![Screenshot](assets/screenshots/screenshot-niri2.png)
+![Screenshot](assets/screenshots/screenshot-niri3.png)
 
 </details>
 
