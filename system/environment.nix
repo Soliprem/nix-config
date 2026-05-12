@@ -138,7 +138,6 @@ _: {
       vimdiff = "nvim -d";
       startx = "startx $XINITRC";
       nos = "nh os switch";
-      nd = "nix develop";
       sl = "sll";
       lg = "lazygit";
       n = "cd ~/.config/nix-config && ls";
