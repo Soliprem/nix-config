@@ -47,7 +47,6 @@ in {
         local config_home = os.getenv("XDG_CONFIG_HOME") or (os.getenv("HOME") .. "/.config")
         package.path = config_home .. "/hypr/hyprland/?.lua;" .. package.path
 
-        require("vars")
         require("helpers")
         require("env")
         require("monitors")

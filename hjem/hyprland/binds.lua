@@ -31,7 +31,7 @@ local common_keybinds = {
     ALT = {
       T = { action = function() H.set_layout("master") end },
       M = { action = function() H.set_layout("monocle") end },
-      X = { action = function() H.set_layout("scrolling") end },
+      X = { action = function() H.reset_layout() end },
       s = { action = hl.dsp.window.move({ workspace = "special" }), },
       p = { action = hl.dsp.window.pin(), },
       F = { action = hl.dsp.window.fullscreen_state({ internal = -1, client = 2 }), },
@@ -134,6 +134,8 @@ local master_binds = {
     },
     j = { action = hl.dsp.layout("cyclenext") },
     k = { action = hl.dsp.layout("cycleprev") },
+    l = { action = hl.dsp.layout("mfact +0.01") },
+    h = { action = hl.dsp.layout("mfact -0.01") },
     equal = { action = hl.dsp.layout("mfact -0.05") },
     space = { action = hl.dsp.layout("swapwithmaster") },
   },
@@ -152,20 +154,15 @@ local monocle_binds = {
 
 H.key_table_parser(common_keybinds, {}, hl.bind, { submap_universal = true })
 H.key_table_parser(execs, {}, H.exec, { submap_universal = true })
+H.key_table_parser(scrolling_binds, {}, hl.bind)
 
-hl.define_submap("layout_scrolling", function()
-  H.key_table_parser(scrolling_binds, {}, hl.bind)
-end)
-
-hl.define_submap("layout_master", function()
+hl.define_submap("master", function()
   H.key_table_parser(master_binds, {}, hl.bind)
 end)
 
-hl.define_submap("layout_monocle", function()
+hl.define_submap("monocle", function()
   H.key_table_parser(monocle_binds, {}, hl.bind)
 end)
-
-H.sync_layout_submap()
 
 for i = 1, 10 do
   local key = i % 10
