@@ -222,9 +222,9 @@
       project-nvim.enable = false;
     };
 
+    mini.files.enable = true;
     utility = {
       undotree.enable = true;
-      oil-nvim.enable = true;
       ccc.enable = false;
       vim-wakatime.enable = true;
       icon-picker.enable = true;
@@ -607,10 +607,10 @@
       }
       {
         key = "-";
-        action = ":Oil<CR>";
+        action = ":lua MiniFiles.open()<CR>";
         mode = "n";
         silent = true;
-        desc = "enable Oil";
+        desc = "enable MiniFiles";
       }
       {
         key = "<F5>";
