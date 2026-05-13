@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   config.vim = {
     repl = {
       conjure.enable = false;
@@ -67,7 +66,7 @@
       css.enable = false;
       r = {
         enable = false;
-        format.type = [ "styler" ];
+        format.type = ["styler"];
       };
       sql.enable = true;
       haskell.enable = false;
@@ -85,7 +84,7 @@
       nu.enable = false;
       python = {
         enable = true;
-        lsp.servers = [ "pyright" ];
+        lsp.servers = ["pyright"];
       };
       dart.enable = false;
       lua.enable = true;
@@ -95,7 +94,7 @@
       julia.enable = false;
       clang = {
         enable = true;
-        lsp.servers = [ "clangd" ];
+        lsp.servers = ["clangd"];
       };
 
       rust = {
@@ -211,9 +210,19 @@
       project-nvim.enable = false;
     };
 
+    mini.files = {
+      enable = true;
+      setupOpts = {
+        mappings = {
+          go_out = "<BS>";
+          go_in = "<CR>";
+        };
+        windows.preview = true;
+      };
+    };
+
     utility = {
       undotree.enable = true;
-      oil-nvim.enable = true;
       ccc.enable = false;
       vim-wakatime.enable = true;
       icon-picker.enable = true;
@@ -258,14 +267,14 @@
         enable = false;
         setupOpts = {
           load = {
-            "core.defaults" = { };
-            "core.concealer" = { };
+            "core.defaults" = {};
+            "core.concealer" = {};
             "core.completion" = {
               config.engine = "nvim-cmp";
             };
-            "core.export" = { };
-            "core.summary" = { };
-            "core.text-objects" = { };
+            "core.export" = {};
+            "core.summary" = {};
+            "core.text-objects" = {};
             "core.dirman" = {
               config = {
                 workspaces = {
@@ -375,7 +384,7 @@
         lazy = true;
         package = twilight-nvim;
         setupModule = "twilight-nvim";
-        cmd = [ "Twilight" ];
+        cmd = ["Twilight"];
         keys = [
           {
             key = "<leader>ut";
@@ -390,7 +399,7 @@
         lazy = true;
         package = zen-mode-nvim;
         setupModule = "zen-mode-nvim";
-        cmd = [ "ZenMode" ];
+        cmd = ["ZenMode"];
         keys = [
           {
             key = "<leader>uz";
@@ -403,7 +412,7 @@
       };
       ${eyeliner-nvim.pname} = {
         package = eyeliner-nvim;
-        event = [ "BufEnter" ];
+        event = ["BufEnter"];
       };
       ${lazygit-nvim.pname} = {
         lazy = true;
@@ -436,7 +445,7 @@
       };
       ${boole-nvim.pname} = {
         lazy = true;
-        event = [ "BufEnter" ];
+        event = ["BufEnter"];
         package = boole-nvim;
         setupModule = "boole";
         setupOpts = {
@@ -502,10 +511,10 @@
       }
       {
         key = "-";
-        action = ":Oil<CR>";
+        action = ":lua MiniFiles.open()<CR>";
         mode = "n";
         silent = true;
-        desc = "enable Oil";
+        desc = "enable MiniFiles";
       }
       {
         key = "<F5>";
@@ -517,4 +526,3 @@
     ];
   };
 }
-
