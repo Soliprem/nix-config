@@ -121,15 +121,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1778594455,
-        "narHash": "sha256-mQNLe1z2gqGYZGOMta2gHnWt1/mre00wwaAtkLivLPM=",
-        "owner": "soliprem",
+        "lastModified": 1778668408,
+        "narHash": "sha256-++WTL3m42t6J1WNR+IIwmDKAEyw/7T+GfzOwcr/srpg=",
+        "owner": "notashelf",
         "repo": "eh",
-        "rev": "d5f277a7419b544be0f244dbeccc4cc2e1b224f3",
+        "rev": "c6c9530a37ec6122eb5da561e3db97b4df2dfba5",
         "type": "github"
       },
       "original": {
-        "owner": "soliprem",
+        "owner": "notashelf",
         "repo": "eh",
         "type": "github"
       }
