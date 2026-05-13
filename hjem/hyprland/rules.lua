@@ -29,6 +29,7 @@ window_rule(
 )
 
 hl.layer_rule({ match = { namespace = "logout_dialog" }, blur = true, ignore_alpha = 0.01 })
+hl.layer_rule({ match = { namespace = "launcher" }, blur = true, ignore_alpha = 0.01 })
 -- TODO: https://github.com/hyprwm/Hyprland/pull/13211 will remove the need for these
 hl.layer_rule({ match = { namespace = "quickshell-sidebar" }, blur = true, ignore_alpha = 0.2 })
 hl.layer_rule({ match = { namespace = "quantum-notification-popups" }, blur = true, ignore_alpha = 0.01 })
