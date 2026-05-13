@@ -31,7 +31,7 @@ local common_keybinds = {
     ALT = {
       T = { action = function() H.set_layout("master") end },
       M = { action = function() H.set_layout("monocle") end },
-      X = { action = function() H.reset_layout() end },
+      X = { action = function() H.set_layout("scrolling") end },
       s = { action = hl.dsp.window.move({ workspace = "special" }), },
       p = { action = hl.dsp.window.pin(), },
       F = { action = hl.dsp.window.fullscreen_state({ internal = -1, client = 2 }), },
