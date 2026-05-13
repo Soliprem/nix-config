@@ -6,6 +6,7 @@ _: {
       end
 
       command nix-your-shell fish | source
+      atuin init fish | source
       starship init fish | source
 
       if test -f ~/.cache/sequences.txt 
