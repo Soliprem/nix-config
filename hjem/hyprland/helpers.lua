@@ -29,14 +29,14 @@ function M.move_to_split_workspace(n, follow)
   }))
 end
 
-function M.reset_layout()
-  hl.config({ general = { layout = M.default_layout } })
-  hl.dispatch(hl.dsp.submap("reset"))
-end
-
 function M.set_layout(layout)
-  hl.config({ general = { layout = layout } })
-  hl.dispatch(hl.dsp.submap(layout))
+  if layout == M.default_layout then
+    hl.config({ general = { layout = M.default_layout } })
+    hl.dispatch(hl.dsp.submap("reset"))
+  else
+    hl.config({ general = { layout = layout } })
+    hl.dispatch(hl.dsp.submap(layout))
+  end
 end
 
 function M.key_table_parser(key_table, path, method, default_opts)
