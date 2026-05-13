@@ -222,7 +222,16 @@
       project-nvim.enable = false;
     };
 
-    mini.files.enable = true;
+    mini.files = {
+      enable = true;
+      setupOpts = {
+        mappings = {
+          go_out = "<BS>";
+          go_in = "<CR>";
+        };
+        windows.preview = true;
+      };
+    };
     utility = {
       undotree.enable = true;
       ccc.enable = false;
