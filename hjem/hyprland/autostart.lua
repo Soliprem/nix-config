@@ -15,7 +15,3 @@ hl.on("hyprland.start", function()
     hl.exec_cmd(cmd)
   end
 end)
-
-hl.on("config.reloaded", function()
-  hl.dispatch(hl.dsp.submap("reset"))
-end)
