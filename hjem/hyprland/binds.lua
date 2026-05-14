@@ -96,43 +96,45 @@ local layout_binds = {
   scrolling = {
     SUPER = {
       SHIFT = {
-        h = { action = hl.dsp.layout("consume_or_expel prev") },
-        l = { action = hl.dsp.layout("consume_or_expel next") },
-        r = { action = hl.dsp.layout("colresize -conf") },
-        equal = { action = hl.dsp.layout("colresize +0.02") },
+        h = { action = hl.dsp.layout("consume_or_expel prev"), opts = { repeating = true }, },
+        l = { action = hl.dsp.layout("consume_or_expel next"), opts = { repeating = true }, },
+        r = { action = hl.dsp.layout("colresize -conf"), },
+        j = { action = hl.dsp.window.move({direction = "d"}), opts = { repeating = true }, },
+        k = { action = hl.dsp.window.move({direction = "u"}), opts = { repeating = true }, },
+        equal = { action = hl.dsp.layout("colresize +0.02"), opts = { repeating = true }, },
       },
       CTRL = {
-        h = { action = hl.dsp.layout("swapcol l") },
-        l = { action = hl.dsp.layout("swapcol r") },
+        h = { action = hl.dsp.layout("swapcol l"), opts = { repeating = true }, },
+        l = { action = hl.dsp.layout("swapcol r"), opts = { repeating = true }, },
       },
-      h = { action = hl.dsp.layout("focus l") },
-      l = { action = hl.dsp.layout("focus r") },
-      j = { action = hl.dsp.layout("focus d") },
-      k = { action = hl.dsp.layout("focus u") },
+      h = { action = hl.dsp.layout("focus l"), opts = { repeating = true }, },
+      l = { action = hl.dsp.layout("focus r"), opts = { repeating = true }, },
+      j = { action = hl.dsp.layout("focus d"), opts = { repeating = true }, },
+      k = { action = hl.dsp.layout("focus u"), opts = { repeating = true }, },
       r = { action = hl.dsp.layout("colresize +conf") },
-      equal = { action = hl.dsp.layout("colresize -0.02") },
-      space = { action = hl.dsp.layout("promote") },
+      equal = { action = hl.dsp.layout("colresize -0.02"), opts = { repeating = true }, },
+      space = { action = hl.dsp.layout("promote"), opts = { repeating = true }, },
     },
   },
 
   master = {
     SUPER = {
       SHIFT = {
-        j = { action = hl.dsp.layout("swapnext") },
-        k = { action = hl.dsp.layout("swapprev") },
-        equal = { action = hl.dsp.layout("mfact +0.05") },
+        j = { action = hl.dsp.layout("swapnext"), opts = { repeating = true }, },
+        k = { action = hl.dsp.layout("swapprev"), opts = { repeating = true }, },
+        equal = { action = hl.dsp.layout("mfact +0.05"), opts = { repeating = true }, },
         h = { action = hl.dsp.layout("addmaster") },
         l = { action = hl.dsp.layout("removemaster") },
       },
       CTRL = {
-        l = { action = hl.dsp.layout("mfact +0.01") },
-        h = { action = hl.dsp.layout("mfact -0.01") },
+        l = { action = hl.dsp.layout("mfact +0.01"), opts = { repeating = true }, },
+        h = { action = hl.dsp.layout("mfact -0.01"), opts = { repeating = true }, },
       },
-      j = { action = hl.dsp.layout("cyclenext") },
-      k = { action = hl.dsp.layout("cycleprev") },
+      j = { action = hl.dsp.layout("cyclenext"), opts = { repeating = true }, },
+      k = { action = hl.dsp.layout("cycleprev"), opts = { repeating = true }, },
       l = { action = hl.dsp.layout("focusmaster previous") },
       h = { action = hl.dsp.layout("focusmaster previous") },
-      equal = { action = hl.dsp.layout("mfact -0.05") },
+      equal = { action = hl.dsp.layout("mfact -0.05"), opts = { repeating = true }, },
       space = { action = hl.dsp.layout("swapwithmaster") },
     },
   },
@@ -140,11 +142,11 @@ local layout_binds = {
   monocle = {
     SUPER = {
       SHIFT = {
-        j = { action = hl.dsp.window.swap({ next = true }) },
-        k = { action = hl.dsp.window.swap({ prev = true }) },
+        j = { action = hl.dsp.window.swap({ next = true }), opts = { repeating = true }, },
+        k = { action = hl.dsp.window.swap({ prev = true }), opts = { repeating = true }, },
       },
-      j = { action = hl.dsp.layout("cyclenext") },
-      k = { action = hl.dsp.layout("cycleprev") },
+      j = { action = hl.dsp.layout("cyclenext"), opts = { repeating = true }, },
+      k = { action = hl.dsp.layout("cycleprev"), opts = { repeating = true }, },
     },
   }
 }
