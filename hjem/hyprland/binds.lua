@@ -101,72 +101,68 @@ local execs = {
   },
 }
 
-local scrolling_binds = {
-  SUPER = {
-    SHIFT = {
-      h = { action = hl.dsp.layout("consume_or_expel prev") },
-      l = { action = hl.dsp.layout("consume_or_expel next") },
-      r = { action = hl.dsp.layout("colresize -conf") },
-      equal = { action = hl.dsp.layout("colresize +0.02") },
+local layout_binds = {
+  scrolling = {
+    SUPER = {
+      SHIFT = {
+        h = { action = hl.dsp.layout("consume_or_expel prev") },
+        l = { action = hl.dsp.layout("consume_or_expel next") },
+        r = { action = hl.dsp.layout("colresize -conf") },
+        equal = { action = hl.dsp.layout("colresize +0.02") },
+      },
+      CTRL = {
+        h = { action = hl.dsp.layout("swapcol l") },
+        l = { action = hl.dsp.layout("swapcol r") },
+      },
+      h = { action = hl.dsp.layout("focus l") },
+      l = { action = hl.dsp.layout("focus r") },
+      j = { action = hl.dsp.layout("focus d") },
+      k = { action = hl.dsp.layout("focus u") },
+      r = { action = hl.dsp.layout("colresize +conf") },
+      equal = { action = hl.dsp.layout("colresize -0.02") },
+      space = { action = hl.dsp.layout("promote") },
     },
-    CTRL = {
-      h = { action = hl.dsp.layout("swapcol l") },
-      l = { action = hl.dsp.layout("swapcol r") },
-    },
-    h = { action = hl.dsp.layout("focus l") },
-    l = { action = hl.dsp.layout("focus r") },
-    j = { action = hl.dsp.layout("focus d") },
-    k = { action = hl.dsp.layout("focus u") },
-    r = { action = hl.dsp.layout("colresize +conf") },
-    equal = { action = hl.dsp.layout("colresize -0.02") },
-    space = { action = hl.dsp.layout("promote") },
   },
-}
 
-local master_binds = {
-  SUPER = {
-    SHIFT = {
-      j = { action = hl.dsp.layout("swapnext") },
-      k = { action = hl.dsp.layout("swapprev") },
-      equal = { action = hl.dsp.layout("mfact +0.05") },
-      h = { action = hl.dsp.layout("addmaster") },
-      l = { action = hl.dsp.layout("removemaster") },
+  master = {
+    SUPER = {
+      SHIFT = {
+        j = { action = hl.dsp.layout("swapnext") },
+        k = { action = hl.dsp.layout("swapprev") },
+        equal = { action = hl.dsp.layout("mfact +0.05") },
+        h = { action = hl.dsp.layout("addmaster") },
+        l = { action = hl.dsp.layout("removemaster") },
+      },
+      CTRL = {
+        l = { action = hl.dsp.layout("mfact +0.01") },
+        h = { action = hl.dsp.layout("mfact -0.01") },
+      },
+      j = { action = hl.dsp.layout("cyclenext") },
+      k = { action = hl.dsp.layout("cycleprev") },
+      l = { action = hl.dsp.layout("focusmaster previous") },
+      h = { action = hl.dsp.layout("focusmaster previous") },
+      equal = { action = hl.dsp.layout("mfact -0.05") },
+      space = { action = hl.dsp.layout("swapwithmaster") },
     },
-    CTRL = {
-      l = { action = hl.dsp.layout("mfact +0.01") },
-      h = { action = hl.dsp.layout("mfact -0.01") },
-    },
-    j = { action = hl.dsp.layout("cyclenext") },
-    k = { action = hl.dsp.layout("cycleprev") },
-    l = { action = hl.dsp.layout("focusmaster previous") },
-    h = { action = hl.dsp.layout("focusmaster previous") },
-    equal = { action = hl.dsp.layout("mfact -0.05") },
-    space = { action = hl.dsp.layout("swapwithmaster") },
   },
-}
 
-local monocle_binds = {
-  SUPER = {
-    SHIFT = {
-      j = { action = hl.dsp.window.swap({ next = true }) },
-      k = { action = hl.dsp.window.swap({ prev = true }) },
+  monocle = {
+    SUPER = {
+      SHIFT = {
+        j = { action = hl.dsp.window.swap({ next = true }) },
+        k = { action = hl.dsp.window.swap({ prev = true }) },
+      },
+      j = { action = hl.dsp.layout("cyclenext") },
+      k = { action = hl.dsp.layout("cycleprev") },
     },
-    j = { action = hl.dsp.layout("cyclenext") },
-    k = { action = hl.dsp.layout("cycleprev") },
-  },
+  }
 }
 
 H.key_table_parser(common_keybinds, {}, hl.bind, { submap_universal = true })
 H.key_table_parser(execs, {}, H.exec, { submap_universal = true })
-H.key_table_parser(scrolling_binds, {}, hl.bind)
-
-hl.define_submap("master", function()
-  H.key_table_parser(master_binds, {}, hl.bind)
-end)
-
-hl.define_submap("monocle", function()
-  H.key_table_parser(monocle_binds, {}, hl.bind)
-end)
+H.layout_table_submapper(layout_binds, "master")
+H.layout_table_submapper(layout_binds, "monocle")
+H.layout_table_submapper(layout_binds, "scrolling")
 
 for i = 1, 10 do
   local key = i % 10
