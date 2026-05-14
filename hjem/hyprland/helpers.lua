@@ -14,10 +14,6 @@ function M.split_workspace(n)
   return monitor_id * M.workspaces_per_monitor + n
 end
 
-function M.exec(keys, cmd, flags)
-  hl.bind(keys, hl.dsp.exec_cmd(cmd), flags)
-end
-
 function M.focus_split_workspace(n)
   hl.dispatch(hl.dsp.focus({ workspace = M.split_workspace(n) }))
 end
@@ -40,7 +36,7 @@ function M.set_layout(layout)
   hl.exec_cmd('notify-send "Switched to ' .. layout .. ' layout"')
 end
 
-function M.key_table_parser(key_table, path, method, default_opts)
+function M.key_table_parser(key_table, path, default_opts)
   path = path or {}
   for key, value in pairs(key_table) do
     local new_path = { table.unpack(path) }
@@ -52,19 +48,19 @@ function M.key_table_parser(key_table, path, method, default_opts)
         for k, v in pairs(default_opts or {}) do opts[k] = v end
         for k, v in pairs(value.opts) do opts[k] = v end
       end
-      method(table.concat(new_path, "+"), value.action, opts)
+      hl.bind(table.concat(new_path, "+"), value.action, opts)
     else
-      M.key_table_parser(value, new_path, method, default_opts)
+      M.key_table_parser(value, new_path, default_opts)
     end
   end
 end
 
 function M.layout_table_submapper(layout_table, layout)
   if layout == M.default_layout then
-    M.key_table_parser(layout_table[layout], {}, hl.bind)
+    M.key_table_parser(layout_table[layout], {})
   else
     hl.define_submap(layout, function()
-      M.key_table_parser(layout_table[layout], {}, hl.bind)
+      M.key_table_parser(layout_table[layout], {})
     end)
   end
 end
