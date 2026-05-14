@@ -57,8 +57,6 @@ in {
         require("binds")
         require("gestures")
         require("colors")
-        
-        hl.dispatch(hl.dsp.submap("reset"))
       '';
     ".config/hypr/hypridle.conf".text =
       /*
