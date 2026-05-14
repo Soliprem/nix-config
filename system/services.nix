@@ -6,6 +6,15 @@
   hardware.keyboard.qmk.enable = true;
   services = {
     resolved.enable = true;
+    kmscon = {
+      enable = true;
+      fonts = [
+        {
+          name = "Inconsolata Nerd Font";
+          package = pkgs.nerd-fonts.inconsolata;
+        }
+      ];
+    };
     logind.settings.Login.HandlePowerKey = "ignore";
     tailscale.enable = true;
     pulseaudio.enable = false;
@@ -39,7 +48,7 @@
   security = {
     pam.services.soliprem.enableGnomeKeyring = true;
     pam.services.sddm.enableGnomeKeyring = true;
-    pki.certificateFiles = [ ../assets/almawifi.cer];
+    pki.certificateFiles = [ ../assets/almawifi.cer ];
     polkit.enable = true;
   };
   # xdg.portal.wlr.enable = true;
