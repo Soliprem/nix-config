@@ -1,3 +1,4 @@
+local H = require("helpers")
 hl.on("hyprland.start", function()
   for _, cmd in ipairs({
     "iio-hyprland",
@@ -15,4 +16,6 @@ hl.on("hyprland.start", function()
   end
 end)
 
-
+hl.on("config.reloaded", function()
+  hl.dispatch(hl.dsp.submap("reset"))
+end)

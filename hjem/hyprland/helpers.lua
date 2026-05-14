@@ -37,6 +37,7 @@ function M.set_layout(layout)
     hl.config({ general = { layout = layout } })
     hl.dispatch(hl.dsp.submap(layout))
   end
+  hl.exec_cmd('notify-send "Switched to ' .. layout .. ' layout"')
 end
 
 function M.key_table_parser(key_table, path, method, default_opts)
@@ -57,6 +58,5 @@ function M.key_table_parser(key_table, path, method, default_opts)
     end
   end
 end
-
 
 return M
