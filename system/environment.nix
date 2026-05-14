@@ -63,7 +63,6 @@ _: {
       su = "sudo su";
       shutdown = "sudo shutdown";
       poweroff = "sudo poweroff";
-      reboot = "sudo reboot";
       river = "XKB_DEFAULT_LAYOUT=eu river";
       rcow = "fortune | cowsay -r | lolcat";
       cp = "cp -iv";
