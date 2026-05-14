@@ -59,4 +59,14 @@ function M.key_table_parser(key_table, path, method, default_opts)
   end
 end
 
+function M.layout_table_submapper(layout_table, layout)
+  if layout == M.default_layout then
+    M.key_table_parser(layout_table[layout], {}, hl.bind)
+  else
+    hl.define_submap(layout, function()
+      M.key_table_parser(layout_table[layout], {}, hl.bind)
+    end)
+  end
+end
+
 return M
