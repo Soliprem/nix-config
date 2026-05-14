@@ -32,7 +32,7 @@ local common_keybinds = {
       T = { action = function() H.set_layout("master") end },
       M = { action = function() H.set_layout("monocle") end },
       X = { action = function() H.set_layout("scrolling") end },
-      s = { action = hl.dsp.window.move({ workspace = "special" }), },
+      s = { action = hl.dsp.window.move({ workspace = "special", follow = false }), },
       p = { action = hl.dsp.window.pin(), },
       F = { action = hl.dsp.window.fullscreen_state({ internal = -1, client = 2 }), },
     },
