@@ -97,7 +97,6 @@ in {
     bibata-cursors
     brightnessctl
     darkly
-    darkly-qt5
     fuzzel
     gammastep
     ghostty
