@@ -13,7 +13,6 @@
   };
 
   boot = {
-    initrd.kernelModules = [ "amdgpu" ];
     kernelParams = [ "acpi_backlight=video" ];
     kernelPackages = pkgs.linuxPackages_latest;
   };
