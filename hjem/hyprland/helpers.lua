@@ -8,6 +8,46 @@ M.default_layout = "scrolling"
 
 M.workspaces_per_monitor = 10
 
+function M.merge_orphaned_windows()
+  local clients = hl.get_windows and hl.get_windows() or {}
+
+  for _, client in ipairs(clients) do
+    if client.workspace and client.workspace.id > 0 and client.monitor ~= nil then
+      local ws_id = client.workspace.id
+      local mon_id = client.monitor.id
+
+      local expected_min = mon_id * M.workspaces_per_monitor + 1
+      local expected_max = (mon_id + 1) * M.workspaces_per_monitor
+
+      if ws_id < expected_min or ws_id > expected_max then
+        local relative_ws = ((ws_id - 1) % M.workspaces_per_monitor) + 1
+        local target_ws = mon_id * M.workspaces_per_monitor + relative_ws
+
+        hl.dispatch(hl.dsp.window.move({
+          window = client,
+          workspace = target_ws,
+        }))
+      end
+    end
+  end
+end
+
+function M.init_split_workspaces(target_monitor)
+  local monitors = target_monitor and { target_monitor } or (hl.get_monitors and hl.get_monitors() or {})
+  if #monitors == 0 then return end
+
+  local active_mon = hl.get_active_monitor()
+
+  for _, mon in ipairs(monitors) do
+    hl.dispatch(hl.dsp.focus({ monitor = mon.name }))
+    hl.dispatch(hl.dsp.focus({ workspace = M.split_workspace(1) }))
+  end
+
+  if active_mon then
+    hl.dispatch(hl.dsp.focus({ monitor = active_mon.name }))
+  end
+end
+
 function M.split_workspace(n)
   local mon = hl.get_active_monitor()
   local monitor_id = mon and mon.id or 0
