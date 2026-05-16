@@ -8,7 +8,6 @@ in {
   environment.systemPackages = with pkgs; [
     # Flake inputs and custom derivations
     inputs.agenix.packages.${sys}.default
-    inputs.ekphos.packages.${sys}.default
     inputs.self.packages.${sys}.nvf
     inputs.subtui.packages.${sys}.default
     inputs.thumbpick.packages.${sys}.default
