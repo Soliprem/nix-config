@@ -4,7 +4,7 @@ M.mod = "SUPER"
 M.browser = "zen"
 M.term = "foot"
 M.editor = "nvim"
-M.default_layout = "scrolling"
+M.default_layout = "master"
 
 M.workspaces_per_monitor = 10
 
