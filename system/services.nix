@@ -18,10 +18,6 @@
     logind.settings.Login.HandlePowerKey = "ignore";
     tailscale.enable = true;
     pulseaudio.enable = false;
-    hardware.openrgb = {
-      enable = true;
-      package = pkgs.openrgb-with-all-plugins;
-    };
     udev.packages = with pkgs; [
       swayosd
       via

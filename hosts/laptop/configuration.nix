@@ -1,11 +1,14 @@
 # Laptop config
-_: {
+{ configRoot, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     ../shared
     ../shared/desktop.nix
-    ../../system/modules/ollama.nix
-    ../../system/modules/iio-niri.nix
+  ]
+  ++ map (file: configRoot + "/system/modules/${file}" + ".nix") [
+    "iio-niri"
+    "ollama"
   ];
 
   networking.hostName = "nixos-laptop";
