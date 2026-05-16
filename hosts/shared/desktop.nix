@@ -1,35 +1,35 @@
 { configRoot, ... }:
 {
-  hjem.users.soliprem.imports = map (file: configRoot + "/hjem/${file}") [
-    "hypr.nix"
-    "niri.nix"
-    "ghostty.nix"
-    "foot.nix"
-    "gtk.nix"
-    "qt.nix"
-    "tofi.nix"
-    "glide.nix"
-    "fuzzel.nix"
-    "bitwarden-menu.nix"
-    "kanshi.nix"
-    "mango.nix"
-    "matugen.nix"
-    "quickshell.nix"
-    "swaylock.nix"
-    "wlogout.nix"
-    "dmscripts.nix"
-    "sunsetr.nix"
-    "thumbpick.nix"
+  hjem.users.soliprem.imports = map (file: configRoot + "/hjem/${file}" + ".nix") [
+    "hypr"
+    "niri"
+    "ghostty"
+    "foot"
+    "gtk"
+    "qt"
+    "tofi"
+    "glide"
+    "fuzzel"
+    "bitwarden-menu"
+    "kanshi"
+    "mango"
+    "matugen"
+    "quickshell"
+    "swaylock"
+    "wlogout"
+    "dmscripts"
+    "sunsetr"
+    "thumbpick"
   ];
 
-  imports = map (file: configRoot + "/system/modules/${file}") [
-    "flatpak.nix"
-    "steam.nix"
-    "open-webui.nix"
-    "printing.nix"
-    "spicetify.nix"
-    "dmscripts.nix"
-    "remarkable-bridge.nix"
+  imports = map (file: configRoot + "/system/modules/${file}" + ".nix") [
+    "flatpak"
+    "steam"
+    "open-webui"
+    "printing"
+    "spicetify"
+    "dmscripts"
+    "remarkable-bridge"
   ];
 
   virtualisation = {

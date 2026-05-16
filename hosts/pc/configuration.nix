@@ -1,10 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, configRoot, ... }:
 {
   imports = [
     ./hardware-configuration.nix
     ../shared
     ../shared/desktop.nix
-    ../../system/modules/ollamaRocm.nix
+  ]
+  ++ map (file: configRoot + "/system/modules/${file}" + ".nix") [
+    "ollamaRocm"
+    "openrgb"
   ];
 
   networking = {
