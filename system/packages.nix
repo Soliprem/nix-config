@@ -155,7 +155,6 @@ in {
     audacity
     ffmpeg
     gimp
-    kew
     kdePackages.qtmultimedia
     libnotify
     mpv
@@ -181,6 +180,7 @@ in {
 
     # Miscellaneous apps and helpers
     bluetui
+    wifitui
     via
     dotacat
     nicotine-plus
