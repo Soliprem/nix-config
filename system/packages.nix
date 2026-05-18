@@ -9,11 +9,9 @@ in {
     # Flake inputs and custom derivations
     inputs.agenix.packages.${sys}.default
     inputs.self.packages.${sys}.nvf
-    inputs.subtui.packages.${sys}.default
     inputs.thumbpick.packages.${sys}.default
     inputs.zen-browser.packages.${sys}.default
     inputs.stash.packages.${sys}.default
-    inputs.glide.packages.${sys}.default
     codex
     (pkgs.stdenv.mkDerivation {
       pname = "sysboard";
@@ -42,6 +40,7 @@ in {
         patchelf --add-needed libsysboard.so $out/bin/sysboard
       '';
     })
+
     # CLI, shells, and core tools
     gnupg
     atuin
@@ -57,35 +56,24 @@ in {
     fzf
     git
     gdb
-    highlight
-    jq
     killall
     lazygit
-    nix-output-monitor
     nix-your-shell
     nushell
-    openvpn
     ripgrep
     scarab
-    socat
     starship
     tealdeer
     termdown
     timer
-    tree-sitter-grammars.tree-sitter-typst
     udict
     wget
     wiki-tui
-    youtube-tui
     zoxide
 
     # Editors, development, and authoring
-    code-cursor
-    emacs
-    helix
     impression
     jujutsu
-    libgccjit
     openai-whisper
     typst
     tinymist
@@ -129,13 +117,9 @@ in {
     beeper
     bitwarden-desktop
     rnote
-    bitwarden-cli
-    bitwarden-menu
     chromium
-    element-desktop
     legcord
     nextcloud-client
-    omnissa-horizon-client
     qutebrowser
     telegram-desktop
     super-productivity
@@ -145,12 +129,9 @@ in {
     # General desktop applications
     anki-bin
     appimage-run
-    blanket
     darktable
     foot
     gale
-    gcs
-    godot_4
     gowall
     imv
     keyutils
@@ -180,7 +161,6 @@ in {
     mpv
     muse-sounds-manager
     musescore
-    pamixer
     pipewire
     pwvucontrol
     qpwgraph
@@ -193,7 +173,6 @@ in {
     beyond-all-reason
     gamemode
     heroic
-    linux-wallpaperengine
     mangohud
     goverlay
     prismlauncher
@@ -203,16 +182,9 @@ in {
     # Miscellaneous apps and helpers
     bluetui
     via
-    ddcui
-    ddcutil
-    distrobox
-    distrobox-tui
     dotacat
-    limo
     nicotine-plus
-    ostui
     sunsetr
-    tuifeed
   ];
   programs = {
     direnv.enable = true;
@@ -269,7 +241,6 @@ in {
       ];
     };
     kdeconnect.enable = true;
-    television.enable = true;
     # river.enable = true;
     niri.enable = true;
     hyprland = {
@@ -283,14 +254,6 @@ in {
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/soliprem/.config/nix-config";
-    };
-    gamescope = {
-      enable = true;
-      env = {
-        XKB_DEFAULT_LAYOUT = "eu";
-        XKB_DEFAULT_OPTIONS = "caps:swapescape";
-      };
-      args = ["--force-grab-cursor"];
     };
   };
 }
