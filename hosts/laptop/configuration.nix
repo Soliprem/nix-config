@@ -1,10 +1,11 @@
 # Laptop config
-{ configRoot, ... }:
+{ configRoot, inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
     ../shared
     ../shared/desktop.nix
+    inputs.watt.nixosModules.default
   ]
   ++ map (file: configRoot + "/system/modules/${file}" + ".nix") [
     "iio-niri"
@@ -17,19 +18,7 @@
   };
 
   services = {
-    tlp = {
-      enable = true;
-      settings = {
-        PLATFORM_PROFILE_ON_BAT = "low-power";
-        PLATFORM_PROFILE_ON_AC = "performance";
-        CPU_BOOST_ON_BAT = 0;
-        CPU_BOOST_ON_AC = 1;
-        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-        CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
-        CPU_SCALING_MAX_FREQ_ON_AC = 4546000;
-        CPU_SCALING_MAX_FREQ_ON_BAT = 3000000;
-      };
-    };
+    watt.enable = true;
     pipewire = {
       wireplumber = {
         extraConfig = {
