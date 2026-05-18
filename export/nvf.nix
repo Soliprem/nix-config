@@ -51,7 +51,7 @@
       trouble.enable = true;
       lspSignature.enable = false; # doesn't work with blink
       nvim-docs-view.enable = false; # lags *horribly* whenever l is pressed
-      presets.tailwindcss-language-server.enable = true;
+      presets.tailwindcss-language-server.enable = false;
     };
 
     debugger = {
@@ -69,27 +69,27 @@
       java.enable = false;
       svelte.enable = false;
       vala.enable = false;
-      qml.enable = true;
+      qml.enable = false;
       dart.enable = false;
       elixir.enable = false;
-      haskell.enable = true;
+      haskell.enable = false;
       nix.enable = true;
       markdown.enable = true;
-      html.enable = true;
+      html.enable = false;
       css.enable = true;
       r = {
         enable = true;
         format.type = ["styler"];
       };
-      sql.enable = true;
+      sql.enable = false;
       typescript = {
         enable = true;
         extraDiagnostics.enable = false;
       };
-      go.enable = true;
-      zig.enable = true;
-      ocaml.enable = true;
-      nu.enable = true;
+      go.enable = false;
+      zig.enable = false;
+      ocaml.enable = false;
+      nu.enable = false;
       python = {
         enable = true;
         lsp.servers = ["pyright"];
@@ -97,7 +97,7 @@
       lua.enable = true;
       bash.enable = true;
       typst.enable = true;
-      julia.enable = true;
+      julia.enable = false;
       clang = {
         enable = true;
         lsp.servers = ["clangd"];
@@ -111,7 +111,7 @@
 
     visuals = {
       nvim-web-devicons.enable = true;
-      cellular-automaton.enable = true;
+      cellular-automaton.enable = false;
       fidget-nvim.enable = true;
       highlight-undo.enable = true;
 
@@ -303,7 +303,7 @@
 
     terminal = {
       toggleterm = {
-        enable = true;
+        enable = false;
         lazygit.enable = true;
       };
     };
