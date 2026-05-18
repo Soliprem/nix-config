@@ -84,6 +84,10 @@
       url = "github:notashelf/stash";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    watt = {
+      url = "github:notashelf/watt";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     eh = {
       url = "github:notashelf/eh";
       inputs.nixpkgs.follows = "nixpkgs";

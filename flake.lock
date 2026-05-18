@@ -994,6 +994,7 @@
         "subtui": "subtui",
         "sysboard": "sysboard",
         "thumbpick": "thumbpick",
+        "watt": "watt",
         "zen-browser": "zen-browser"
       }
     },
@@ -1224,6 +1225,26 @@
       "original": {
         "owner": "soliprem",
         "repo": "thumbpick",
+        "type": "github"
+      }
+    },
+    "watt": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778682881,
+        "narHash": "sha256-kI2R6BHG+LwJLuPFEZFZuoy9qgVP6dSuzPuytuS1tvw=",
+        "owner": "notashelf",
+        "repo": "watt",
+        "rev": "ca3b1aa2d903a01e066057d55e7dc39e00f9ceeb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "notashelf",
+        "repo": "watt",
         "type": "github"
       }
     },
