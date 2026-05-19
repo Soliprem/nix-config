@@ -1,30 +1,10 @@
 {
   pkgs,
-  inputs,
   lib,
   ...
-}: let
-  workspaceBinds = builtins.concatLists (
-    builtins.genList (
-      x: let
-        ws = toString (x + 1);
-        key =
-          if x == 9
-          then "0"
-          else toString (x + 1);
-      in [
-        "bind = $mod, ${key}, split:workspace, ${ws}"
-        "bind = $mod+SHIFT, ${key}, split:movetoworkspacesilent, ${ws}"
-        "bind = $mod+Alt, ${key}, focusworkspaceoncurrentmonitor, ${ws}"
-        "bind = $mod+Alt+SHIFT, ${key}, split:movetoworkspace, ${ws}"
-      ]
-    )
-    10
-  );
-  src = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
-in {
+}: {
   files = {
-    ".config/nix-config/hjem/hyprland/stubs".source = "${src.hyprland}/share/hypr/stubs";
+    ".config/nix-config/hjem/hyprland/stubs".source = "${pkgs.hyprland}/share/hypr/stubs";
 
     ".config/nix-config/hjem/hyprland/.luarc.json" = {
       generator = lib.generators.toJSON {};

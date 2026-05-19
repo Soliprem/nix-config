@@ -103,7 +103,7 @@ in {
     overskride
     swappy
     swaylock-effects
-    inputs.quickshell.packages.${sys}.default
+    quickshell
     swayosd
     awww
     tofi
@@ -243,11 +243,7 @@ in {
     kdeconnect.enable = true;
     # river.enable = true;
     niri.enable = true;
-    hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${sys}.hyprland;
-      portalPackage = inputs.hyprland.packages.${sys}.xdg-desktop-portal-hyprland;
-    };
+    hyprland.enable = true;
     mango.enable = true;
     nh = {
       enable = true;
