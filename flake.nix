@@ -75,10 +75,6 @@
       url = "github:blwtxc/remarkable-bridge";
       flake = false;
     };
-    glide = {
-      url = "github:glide-browser/glide.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     stash = {
       url = "github:notashelf/stash";
@@ -94,10 +90,6 @@
     };
     thumbpick = {
       url = "github:soliprem/thumbpick";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    subtui = {
-      url = "github:mattiapun/subtui";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
