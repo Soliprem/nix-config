@@ -290,27 +290,6 @@
         "type": "github"
       }
     },
-    "glide": {
-      "inputs": {
-        "home-manager": "home-manager_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1778680843,
-        "narHash": "sha256-VZ8DaTSfPUAZjhjsLcbnzFAbC51YpnoFniPvmg8HArk=",
-        "owner": "glide-browser",
-        "repo": "glide.nix",
-        "rev": "f9a4d5b5fa646cdd35a601d8510c5e1394d81be5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "glide-browser",
-        "repo": "glide.nix",
-        "type": "github"
-      }
-    },
     "hjem": {
       "inputs": {
         "nix-darwin": "nix-darwin",
@@ -345,27 +324,6 @@
         "owner": "nix-community",
         "repo": "home-manager",
         "rev": "abfad3d2958c9e6300a883bd443512c55dfeb1be",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "home-manager_2": {
-      "inputs": {
-        "nixpkgs": [
-          "glide",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1770818644,
-        "narHash": "sha256-DYS4jIRpRoKOzJjnR/QqEd/MlT4OZZpt8CrBLv+cjsE=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "0acbd1180697de56724821184ad2c3e6e7202cd7",
         "type": "github"
       },
       "original": {
@@ -978,7 +936,6 @@
         "agenix": "agenix",
         "dm-scripts": "dm-scripts",
         "eh": "eh",
-        "glide": "glide",
         "hjem": "hjem",
         "hyprland": "hyprland",
         "mango": "mango",
@@ -991,7 +948,6 @@
         "remarkable-bridge": "remarkable-bridge",
         "spicetify-nix": "spicetify-nix",
         "stash": "stash",
-        "subtui": "subtui",
         "sysboard": "sysboard",
         "thumbpick": "thumbpick",
         "watt": "watt",
@@ -1092,26 +1048,6 @@
       "original": {
         "owner": "notashelf",
         "repo": "stash",
-        "type": "github"
-      }
-    },
-    "subtui": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1778699370,
-        "narHash": "sha256-BujR2VXTz3wlj8HFwxLFfkVTC+PRChnZtN8yoLRhv9c=",
-        "owner": "mattiapun",
-        "repo": "subtui",
-        "rev": "29066c199fbcd7b948b59205a82763a3d4deb3e7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mattiapun",
-        "repo": "subtui",
         "type": "github"
       }
     },
