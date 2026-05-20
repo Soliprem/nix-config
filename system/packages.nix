@@ -47,7 +47,7 @@ in {
     bat
     btop-rocm
     carapace
-    comma
+    # comma
     cowsay
     eza
     fastfetch
