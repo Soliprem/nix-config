@@ -88,11 +88,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779309927,
-        "narHash": "sha256-J5XK00KbgZ4O3Pq7Lb26bRY2Ko9yFsVM5tQVLnWdY7c=",
+        "lastModified": 1779413020,
+        "narHash": "sha256-NmHQCjNHSP52KP2bfSb0bQ4Ej8kFqLOmTOX47ukKjGE=",
         "owner": "soliprem",
         "repo": "eh",
-        "rev": "6df6063b7187568041df0d55722a2e144eac1a10",
+        "rev": "18fd85b2c9c9dae8036f7422c498c2e5c31b550e",
         "type": "github"
       },
       "original": {
