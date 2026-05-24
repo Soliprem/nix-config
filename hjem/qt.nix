@@ -14,8 +14,8 @@ _: {
       style=Fusion
 
       [Fonts]
-      fixed="Inconsolata Nerd Font Mono,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
-      general="Inconsolata Nerd Font,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
+      fixed="IosevkaTermSlab Nerd Font Mono,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
+      general="IosevkaTermSlab Nerd Font Propo,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
 
       [Interface]
       activate_item_on_single_click=1

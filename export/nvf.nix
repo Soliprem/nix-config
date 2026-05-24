@@ -130,7 +130,6 @@
     statusline = {
       lualine = {
         enable = true;
-        theme = "gruvbox";
       };
     };
 
@@ -141,7 +140,7 @@
 
     theme = {
       enable = true;
-      name = "gruvbox";
+      name = "gruber-darker";
       style = "dark";
       transparent = false;
     };
