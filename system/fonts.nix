@@ -17,7 +17,7 @@ in {
         # fonts that should be in each font family
         # if applicable
         common = [
-          "Inconsolata Nerd Font"
+          "IosevkaTermSlab Nerd Font Propo"
           "Symbols Nerd Font"
           "Noto Color Emoji"
         ];
@@ -27,6 +27,7 @@ in {
           sansSerif = ["Lexend"];
           emoji = ["Noto Color Emoji"];
           monospace = [
+            "IosevkaTermSlab Nerd Font Mono"
             "Source Code Pro Medium"
             "Source Han Mono"
           ];
@@ -54,6 +55,7 @@ in {
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
       nerd-fonts.cousine
+      nerd-fonts.iosevka-term-slab
       # desktop fonts
       corefonts # MS fonts
       courier-prime

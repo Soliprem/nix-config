@@ -10,8 +10,8 @@
       enable = true;
       fonts = [
         {
-          name = "Inconsolata Nerd Font";
-          package = pkgs.nerd-fonts.inconsolata;
+          name = "IosevkaTermSlab Nerd Font Mono";
+          package = pkgs.nerd-fonts.iosevka-term-slab;
         }
       ];
     };

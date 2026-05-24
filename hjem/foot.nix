@@ -8,7 +8,7 @@ _: {
         shell=fish
         include=~/.config/foot/themes/matugen.ini
         title=foot
-        font=Inconsolata Nerd Font:size=14
+        font=IosevkaTermSlab Nerd Font Mono:size=14
         letter-spacing=1
         dpi-aware=no
 
