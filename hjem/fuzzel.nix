@@ -1,7 +1,7 @@
-_: {
+{fontProfiles, ...}: {
   files = {
     ".config/fuzzel/fuzzel.ini".text = ''
-      font=Inconsolata Nerd Font:size=17
+      font=${fontProfiles.ui}:size=17
       lines=15
       width=60
       dpi-aware=no

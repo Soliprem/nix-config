@@ -24,7 +24,6 @@ Rectangle {
         text: root.label
         color: root.themeAccent
         font {
-            family: "JetBrainsMono Nerd Font"
             pixelSize: 10
             weight: Font.Bold
         }

@@ -147,7 +147,6 @@ Rectangle {
                     color: root.critical ? root.themeAccent : root.themeSecond
                     visible: root.imageSource === ""
                     font {
-                        family: "JetBrainsMono Nerd Font"
                         pixelSize: 15
                         bold: root.critical
                     }
@@ -165,7 +164,6 @@ Rectangle {
                     opacity: 0.78
                     elide: Text.ElideRight
                     font {
-                        family: "JetBrainsMono Nerd Font"
                         pixelSize: 10
                         weight: Font.Medium
                     }
@@ -177,7 +175,6 @@ Rectangle {
                     color: root.themeFg
                     elide: Text.ElideRight
                     font {
-                        family: "JetBrainsMono Nerd Font"
                         pixelSize: 13
                         weight: Font.Bold
                     }
@@ -196,7 +193,6 @@ Rectangle {
             color: root.themeFg
             opacity: 0.74
             font {
-                family: "JetBrainsMono Nerd Font"
                 pixelSize: 11
             }
         }
@@ -238,7 +234,6 @@ Rectangle {
                     selectedTextColor: root.themeRawBg
                     selectionColor: root.themeAccent
                     font {
-                        family: "JetBrainsMono Nerd Font"
                         pixelSize: 11
                     }
 
@@ -269,7 +264,6 @@ Rectangle {
                     text: "Send"
                     color: root.themeAccent
                     font {
-                        family: "JetBrainsMono Nerd Font"
                         pixelSize: 10
                         weight: Font.Bold
                     }

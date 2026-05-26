@@ -1,4 +1,4 @@
-_: {
+{fontProfiles, ...}: {
   files = {
     ".config/tofi/config".text = ''
       include = matugen
@@ -6,7 +6,7 @@ _: {
       width = 100%
       height = 24
       horizontal = true
-      font = monospace
+      font = ${fontProfiles.mono}
       font-size = 11
       prompt-text = ""
       padding-top = 2

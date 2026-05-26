@@ -1,10 +1,10 @@
-_: {
+{fontProfiles, ...}: {
   files = {
     ".config/gtk-3.0/settings.ini".text = ''
       [Settings]
       gtk-cursor-theme-name=Bibata-Modern-Ice
       gtk-cursor-theme-size=24
-      gtk-font-name=IosevkaTermSlab Nerd Font Propo 12
+      gtk-font-name=${fontProfiles.ui} 12
       gtk-icon-theme-name=breeze-dark
       gtk-theme-name=adw-gtk3
     '';
@@ -15,7 +15,7 @@ _: {
       [Settings]
       gtk-cursor-theme-name=Bibata-Modern-Ice
       gtk-cursor-theme-size=24
-      gtk-font-name=IosevkaTermSlab Nerd Font Propo 12
+      gtk-font-name=${fontProfiles.ui} 12
       gtk-icon-theme-name=breeze-dark
       gtk-theme-name=adw-gtk3
     '';

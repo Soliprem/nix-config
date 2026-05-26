@@ -1,4 +1,5 @@
 {
+  fontProfiles,
   pkgs,
   lib,
   ...
@@ -107,7 +108,7 @@
         label {
           monitor=
           font_color=rgba(f1f2f8ff)
-          font_family=Noto Sans
+          font_family=${fontProfiles.ui}
           font_size=25
           halign=center
           position=0, 160
@@ -120,7 +121,7 @@
         label {
           monitor=
           font_color=rgba(f1f2f8ff)
-          font_family=Noto Sans
+          font_family=${fontProfiles.ui}
           font_size=25
           halign=center
           position=0, 80
@@ -133,7 +134,7 @@
         label {
           monitor=
           font_color=rgba(f1f2f8ff)
-          font_family=Noto Sans
+          font_family=${fontProfiles.ui}
           font_size=40
           halign=center
           position=0, 4

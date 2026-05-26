@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   ...
 }:
@@ -10,7 +11,7 @@
       enable = true;
       fonts = [
         {
-          name = "IosevkaTermSlab Nerd Font Mono";
+          name = builtins.head config.fonts.fontconfig.defaultFonts.monospace;
           package = pkgs.nerd-fonts.iosevka-term-slab;
         }
       ];

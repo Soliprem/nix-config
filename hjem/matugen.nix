@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{fontProfiles, pkgs, ...}: let
+  midnightDiscordTemplate =
+    pkgs.writeText "midnight-discord.css"
+    (builtins.replaceStrings
+      ["@uiFont@"]
+      [fontProfiles.ui]
+      (builtins.readFile ./templates/midnight-discord.css));
+in {
   files = {
     ".config/matugen/config.toml".source = pkgs.writers.writeTOML "config.toml" {
       config = {
@@ -42,7 +49,7 @@
           output_path = "~/.config/ghostty/themes/matugen";
         };
         midnight-discord = {
-          input_path = ./templates/midnight-discord.css;
+          input_path = midnightDiscordTemplate;
           output_path = "~/.config/legcord/themes/midnight-BD/src.css";
         };
         fuzzel = {
