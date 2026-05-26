@@ -68,7 +68,6 @@ Item {
                 : Qt.rgba(root.themeFg.r, root.themeFg.g, root.themeFg.b, 0.55)
             scale: mouse.pressed ? 0.88 : (mouse.containsMouse ? 1.10 : 1.0)
             font {
-                family: "JetBrainsMono Nerd Font"
                 pixelSize: 21
             }
 

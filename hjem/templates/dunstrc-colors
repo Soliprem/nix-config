@@ -20,7 +20,7 @@ horizontal_padding = 8
 text_icon_padding = 0
 frame_width = 1
 sort = yes
-font = FiraCode 12
+font = IosevkaTermSlab Nerd Font Propo 12
 line_height = 0
 markup = full
 format = "<b>%s</b>\n%b"
@@ -71,5 +71,4 @@ timeout = 0
 background = "{{colors.surface.default.hex}}"
 foreground = "{{colors.on_surface.default.hex}}"
 highlight = "{{colors.error.default.hex}}"
-
 

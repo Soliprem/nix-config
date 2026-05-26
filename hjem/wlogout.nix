@@ -1,4 +1,4 @@
-_: {
+{fontProfiles, ...}: {
   files = {
     ".config/wlogout/layout".text = ''
       {
@@ -43,7 +43,7 @@ _: {
       @import './colors.css';
 
       window {
-          font-family: Fira Code Medium;
+          font-family: ${fontProfiles.ui};
           font-size: 16pt;
           color: @foreground;
           background-color: rgba(24, 27, 32, 0.2);

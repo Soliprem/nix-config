@@ -1,10 +1,16 @@
-_: {
+{fontProfiles, ...}: let
+  qtFont = family: size: "\"${family},${toString size},-1,5,400,0,0,0,0,0,0,0,0,0,0,1\"";
+in {
   files = {
     ".config/qt5ct/qt5ct.conf".text = ''
       [Appearance]
       color_scheme_path=~/.config/qt5ct/colors/matugen.conf
       custom_palette=true
       style=Fusion
+
+      [Fonts]
+      fixed=${qtFont fontProfiles.mono 12}
+      general=${qtFont fontProfiles.ui 12}
     '';
     ".config/qt6ct/qt6ct.conf".text = ''
       [Appearance]
@@ -14,8 +20,8 @@ _: {
       style=Fusion
 
       [Fonts]
-      fixed="IosevkaTermSlab Nerd Font Mono,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
-      general="IosevkaTermSlab Nerd Font Propo,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
+      fixed=${qtFont fontProfiles.mono 12}
+      general=${qtFont fontProfiles.ui 12}
 
       [Interface]
       activate_item_on_single_click=1

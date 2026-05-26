@@ -1,4 +1,4 @@
-_: {
+{fontProfiles, ...}: {
   files = {
     ".config/foot/foot.ini".text =
       /*
@@ -8,7 +8,7 @@ _: {
         shell=fish
         include=~/.config/foot/themes/matugen.ini
         title=foot
-        font=IosevkaTermSlab Nerd Font Mono:size=14
+        font=${fontProfiles.mono}:size=14
         letter-spacing=1
         dpi-aware=no
 

@@ -5,6 +5,14 @@
   ...
 }: let
   inherit (lib.attrsets) mapAttrs;
+  fontProfiles = rec {
+    serif = "IosevkaTermSlab Nerd Font Propo";
+    ui = serif;
+    sans = "Iosevka Nerd Font Propo";
+    mono = "IosevkaTermSlab Nerd Font Mono";
+    symbols = "Symbols Nerd Font";
+    emoji = "Noto Color Emoji";
+  };
 in {
   fonts = {
     enableDefaultPackages = false;
@@ -17,20 +25,15 @@ in {
         # fonts that should be in each font family
         # if applicable
         common = [
-          "IosevkaTermSlab Nerd Font Propo"
-          "Symbols Nerd Font"
-          "Noto Color Emoji"
+          fontProfiles.symbols
+          fontProfiles.emoji
         ];
       in
         mapAttrs (_: fonts: fonts ++ common) {
-          serif = ["Noto Serif"];
-          sansSerif = ["Lexend"];
-          emoji = ["Noto Color Emoji"];
-          monospace = [
-            "IosevkaTermSlab Nerd Font Mono"
-            "Source Code Pro Medium"
-            "Source Han Mono"
-          ];
+          serif = [fontProfiles.serif];
+          sansSerif = [fontProfiles.sans];
+          emoji = [fontProfiles.emoji];
+          monospace = [fontProfiles.mono];
         };
     };
 
@@ -47,29 +50,18 @@ in {
       gyre-fonts
       liberation_ttf # for PDFs, Roman
       unifont
-      roboto
 
       # programming fonts
       sarasa-gothic
-      nerd-fonts.inconsolata
-      nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
-      nerd-fonts.cousine
+      nerd-fonts.iosevka
       nerd-fonts.iosevka-term-slab
       # desktop fonts
       corefonts # MS fonts
       courier-prime
       vista-fonts
-      b612 # high legibility
       material-icons # used in widgets and such
       material-design-icons
-      work-sans
-      comic-neue
-      source-sans
-      inter
-      lato
-      lexend
-      dejavu_fonts
       noto-fonts
       noto-fonts-cjk-sans
 

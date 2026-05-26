@@ -20,7 +20,6 @@ ColumnLayout {
         horizontalAlignment: Text.AlignLeft
         color: root.themeAccent
         font {
-            family: "JetBrainsMono Nerd Font"
             pixelSize: 72
             weight: Font.ExtraLight
         }
@@ -44,7 +43,6 @@ ColumnLayout {
             text: Qt.formatDate(new Date(), "dddd, d MMMM").toUpperCase()
             color: root.themeSecond
             font {
-                family: "JetBrainsMono Nerd Font"
                 pixelSize: 11
                 weight: Font.Medium
                 letterSpacing: 0.2
@@ -55,7 +53,6 @@ ColumnLayout {
             text: root.batteryIcon + " " + root.batteryPercent
             color: root.themeAccent
             font {
-                family: "JetBrainsMono Nerd Font"
                 pixelSize: 11
                 weight: Font.Bold
             }

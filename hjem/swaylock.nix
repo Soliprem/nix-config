@@ -1,10 +1,10 @@
-_: {
+{fontProfiles, ...}: {
   files = {
     ".config/swaylock/config".text = ''
       daemonize
       ignore-empty-password
       screenshot
-      font=Rubik
+      font=${fontProfiles.ui}
       font-size=23
 
       clock

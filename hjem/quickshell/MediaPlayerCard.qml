@@ -183,7 +183,6 @@ Rectangle {
                     color: root.themeFg
                     elide: Text.ElideRight
                     font {
-                        family: "JetBrainsMono Nerd Font"
                         pixelSize: 17
                         weight: Font.Medium
                         letterSpacing: 0.2
@@ -197,7 +196,6 @@ Rectangle {
                     opacity: 0.65
                     elide: Text.ElideRight
                     font {
-                        family: "JetBrainsMono Nerd Font"
                         pixelSize: 12
                         letterSpacing: 0.3
                     }

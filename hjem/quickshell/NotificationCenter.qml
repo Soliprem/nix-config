@@ -42,7 +42,6 @@ Rectangle {
                 text: "Notifications"
                 color: root.themeFg
                 font {
-                    family: "JetBrainsMono Nerd Font"
                     pixelSize: 13
                     weight: Font.Bold
                 }
@@ -60,7 +59,6 @@ Rectangle {
                     text: root.notificationCount
                     color: root.themeAccent
                     font {
-                        family: "JetBrainsMono Nerd Font"
                         pixelSize: 10
                         weight: Font.Bold
                     }
