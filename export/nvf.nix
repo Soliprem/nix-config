@@ -309,7 +309,7 @@
 
     ui = {
       borders.enable = true;
-      noice.enable = false;
+      noice.enable = true;
       ui2.enable = true;
       colorizer.enable = true;
       modes-nvim.enable = false; # the theme looks terrible with catppuccin
