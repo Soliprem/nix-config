@@ -602,11 +602,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780137031,
-        "narHash": "sha256-ddu3FvrtF+yfNzg9o6jyIwCbDgMvnpKcWEVY2Rzjp9c=",
+        "lastModified": 1780150463,
+        "narHash": "sha256-uYK+FGkGFy8ydnDmqJmc4pp3N99HGIJsz7nr2S+jKEA=",
         "owner": "feel-co",
         "repo": "spam",
-        "rev": "0120526af68ef1ca776f1f0176f2ef69768c75e4",
+        "rev": "1a7fb57e3fce73b60ce0447e8ab36c554d691e9c",
         "type": "github"
       },
       "original": {
