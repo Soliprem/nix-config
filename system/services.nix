@@ -7,6 +7,10 @@
   hardware.keyboard.qmk.enable = true;
   services = {
     resolved.enable = true;
+    earlyoom = {
+      enable = true;
+      enableNotifications = true;
+    };
     kmscon = {
       enable = true;
       fonts = [
