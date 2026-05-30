@@ -88,16 +88,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1779413020,
+        "lastModified": 1779984401,
         "narHash": "sha256-NmHQCjNHSP52KP2bfSb0bQ4Ej8kFqLOmTOX47ukKjGE=",
-        "owner": "soliprem",
+        "owner": "notashelf",
         "repo": "eh",
-        "rev": "18fd85b2c9c9dae8036f7422c498c2e5c31b550e",
+        "rev": "b0f0ea0c45c0fdf00441374c94f9d5aa0fd1aeb0",
         "type": "github"
       },
       "original": {
-        "owner": "soliprem",
-        "ref": "comma",
+        "owner": "notashelf",
         "repo": "eh",
         "type": "github"
       }
@@ -217,6 +216,27 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "fp": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "spam",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1769996383,
+        "narHash": "sha256-AnYjnFWgS49RlqX7LrC4uA+sCCDBj0Ry/WOJ5XWAsa0=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "57928607ea566b5db3ad13af0e57e921e6b12381",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
         "type": "github"
       }
     },
@@ -510,6 +530,7 @@
         "nvf": "nvf",
         "r-nvim": "r-nvim",
         "remarkable-bridge": "remarkable-bridge",
+        "spam": "spam",
         "spicetify-nix": "spicetify-nix",
         "stash": "stash",
         "sysboard": "sysboard",
@@ -570,6 +591,27 @@
       "original": {
         "owner": "wlrfx",
         "repo": "scenefx",
+        "type": "github"
+      }
+    },
+    "spam": {
+      "inputs": {
+        "fp": "fp",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780137031,
+        "narHash": "sha256-ddu3FvrtF+yfNzg9o6jyIwCbDgMvnpKcWEVY2Rzjp9c=",
+        "owner": "feel-co",
+        "repo": "spam",
+        "rev": "0120526af68ef1ca776f1f0176f2ef69768c75e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "feel-co",
+        "repo": "spam",
         "type": "github"
       }
     },
