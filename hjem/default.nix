@@ -12,13 +12,12 @@
     mono = builtins.head fontDefaults.monospace;
     emoji = builtins.head fontDefaults.emoji;
   };
-in
-{
+in {
   imports = [
     inputs.hjem.nixosModules.default
   ];
 
-  hjem.specialArgs = { inherit inputs fontProfiles; };
+  hjem.specialArgs = {inherit inputs fontProfiles;};
 
   hjem.users.soliprem.imports = [
     ./fish.nix

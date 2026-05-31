@@ -1,22 +1,26 @@
-{ pkgs, configRoot, ... }:
 {
-  imports = [
-    ./hardware-configuration.nix
-    ../shared
-    ../shared/desktop.nix
-  ]
-  ++ map (file: configRoot + "/system/modules/${file}" + ".nix") [
-    "ollamaRocm"
-    "openrgb"
-  ];
+  pkgs,
+  configRoot,
+  ...
+}: {
+  imports =
+    [
+      ./hardware-configuration.nix
+      ../shared
+      ../shared/desktop.nix
+    ]
+    ++ map (file: configRoot + "/system/modules/${file}" + ".nix") [
+      "ollamaRocm"
+      "openrgb"
+    ];
 
   networking = {
     hostName = "nixos-pc";
-    firewall.trustedInterfaces = [ "tailscale0" ];
+    firewall.trustedInterfaces = ["tailscale0"];
   };
 
   boot = {
-    kernelParams = [ "acpi_backlight=video" ];
+    kernelParams = ["acpi_backlight=video"];
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
