@@ -161,7 +161,6 @@ in {
     sunsetr
   ];
   programs = {
-    direnv.enable = true;
     gnupg.agent = {
       enable = true;
       pinentryPackage = pkgs.pinentry-qt;
