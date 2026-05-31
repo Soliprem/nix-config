@@ -1,9 +1,9 @@
-_:{
+_: {
   services.keyd = {
     enable = true;
     keyboards = {
       default = {
-        ids = [ "*" ];
+        ids = ["*"];
         settings = {
           global.overload_tap_timeout = 200;
           main = {

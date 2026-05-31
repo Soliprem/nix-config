@@ -17,6 +17,7 @@
     configRoot = ./.;
   in {
     templates = import ./flake-templates;
+    formatter.${system} = pkgs.alejandra;
     nixosConfigurations = {
       nixos-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs configRoot;};

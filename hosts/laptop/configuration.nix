@@ -1,16 +1,20 @@
 # Laptop config
-{ configRoot, inputs, ... }:
 {
-  imports = [
-    ./hardware-configuration.nix
-    ../shared
-    ../shared/desktop.nix
-    inputs.watt.nixosModules.default
-  ]
-  ++ map (file: configRoot + "/system/modules/${file}" + ".nix") [
-    "iio-niri"
-    "ollama"
-  ];
+  configRoot,
+  inputs,
+  ...
+}: {
+  imports =
+    [
+      ./hardware-configuration.nix
+      ../shared
+      ../shared/desktop.nix
+      inputs.watt.nixosModules.default
+    ]
+    ++ map (file: configRoot + "/system/modules/${file}" + ".nix") [
+      "iio-niri"
+      "ollama"
+    ];
 
   networking.hostName = "nixos-laptop";
   hardware = {

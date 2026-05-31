@@ -3,10 +3,8 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   scripts = [
-
     (pkgs.writeShellApplication {
       name = "toggle-polarity";
       runtimeInputs = with pkgs; [
@@ -16,48 +14,52 @@ let
         gsettings-desktop-schemas
         awww
       ];
-      text = /* bash */ ''
-        export XDG_DATA_DIRS=${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS
-        mode="''${1:-toggle}"
+      text =
+        /*
+        bash
+        */
+        ''
+          export XDG_DATA_DIRS=${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS
+          mode="''${1:-toggle}"
 
-        case "$mode" in
-          dark)
-            next_mode="dark"
-            color_scheme="prefer-dark"
-            ;;
-          light)
-            next_mode="light"
-            color_scheme="prefer-light"
-            ;;
-          toggle)
-            current_scheme="$(gsettings get org.gnome.desktop.interface color-scheme)"
-            current_scheme="''${current_scheme#\'}"
-            current_scheme="''${current_scheme%\'}"
-
-            if [ "$current_scheme" = "prefer-dark" ]; then
-              next_mode="light"
-              color_scheme="prefer-light"
-            elif [ "$current_scheme" = "prefer-light" ]; then
+          case "$mode" in
+            dark)
               next_mode="dark"
               color_scheme="prefer-dark"
-            else
-            printf '%s\n' \
-              "toggle-polarity: refusing to toggle because org.gnome.desktop.interface color-scheme is '$current_scheme'." \
-              "Run 'toggle-polarity dark' or 'toggle-polarity light' once to establish an explicit state." \
-              >&2
-            exit 1
-            fi
-            ;;
-          *)
-            printf 'usage: %s [dark|light|toggle]\n' "$0" >&2
-            exit 1
-            ;;
-        esac
+              ;;
+            light)
+              next_mode="light"
+              color_scheme="prefer-light"
+              ;;
+            toggle)
+              current_scheme="$(gsettings get org.gnome.desktop.interface color-scheme)"
+              current_scheme="''${current_scheme#\'}"
+              current_scheme="''${current_scheme%\'}"
 
-        read -r wallpaper < "$HOME/.cache/bgpath"
-        matugen image "$wallpaper" -m "$next_mode" --source-color-index 0
-        gsettings set org.gnome.desktop.interface color-scheme "$color_scheme"
-      '';
+              if [ "$current_scheme" = "prefer-dark" ]; then
+                next_mode="light"
+                color_scheme="prefer-light"
+              elif [ "$current_scheme" = "prefer-light" ]; then
+                next_mode="dark"
+                color_scheme="prefer-dark"
+              else
+              printf '%s\n' \
+                "toggle-polarity: refusing to toggle because org.gnome.desktop.interface color-scheme is '$current_scheme'." \
+                "Run 'toggle-polarity dark' or 'toggle-polarity light' once to establish an explicit state." \
+                >&2
+              exit 1
+              fi
+              ;;
+            *)
+              printf 'usage: %s [dark|light|toggle]\n' "$0" >&2
+              exit 1
+              ;;
+          esac
+
+          read -r wallpaper < "$HOME/.cache/bgpath"
+          matugen image "$wallpaper" -m "$next_mode" --source-color-index 0
+          gsettings set org.gnome.desktop.interface color-scheme "$color_scheme"
+        '';
     })
     (pkgs.writeShellApplication {
       name = "battery-monitor";
@@ -69,59 +71,64 @@ let
         gnugrep
         gawk
       ];
-      text = /* bash */ ''
-        BAT_DIR="$(find -L /sys/class/power_supply -maxdepth 1 -type d -name 'BAT*' -print -quit)"
-        if [ -z "$BAT_DIR" ]; then
-            exit 0
-        fi
+      text =
+        /*
+        bash
+        */
+        ''
+          BAT_DIR="$(find -L /sys/class/power_supply -maxdepth 1 -type d -name 'BAT*' -print -quit)"
+          if [ -z "$BAT_DIR" ]; then
+              exit 0
+          fi
 
-        last_notified_level=0
+          last_notified_level=0
 
-        while true; do
-            props="$(udevadm info -q property -p "$BAT_DIR")"
-            capacity="$(printf '%s\n' "$props" | awk -F= '/^POWER_SUPPLY_CAPACITY=/{print $2; exit}')"
-            status="$(printf '%s\n' "$props" | awk -F= '/^POWER_SUPPLY_STATUS=/{print $2; exit}')"
+          while true; do
+              props="$(udevadm info -q property -p "$BAT_DIR")"
+              capacity="$(printf '%s\n' "$props" | awk -F= '/^POWER_SUPPLY_CAPACITY=/{print $2; exit}')"
+              status="$(printf '%s\n' "$props" | awk -F= '/^POWER_SUPPLY_STATUS=/{print $2; exit}')"
 
-            if [ -z "$capacity" ] || [ -z "$status" ]; then
-                udevadm monitor --subsystem-match=power_supply --property | grep -m 1 "POWER_SUPPLY_CAPACITY=" >/dev/null
-                continue
-            fi
+              if [ -z "$capacity" ] || [ -z "$status" ]; then
+                  udevadm monitor --subsystem-match=power_supply --property | grep -m 1 "POWER_SUPPLY_CAPACITY=" >/dev/null
+                  continue
+              fi
 
-            if [ "$status" = "Discharging" ]; then
-                if [ "$capacity" != "$last_notified_level" ]; then
-                    
-                    # 15% - Low Battery
-                    if [ "$capacity" -le 15 ] && [ "$capacity" -gt 5 ]; then
-                        if [ "$capacity" -eq 15 ] || [ "$last_notified_level" -gt 15 ]; then
-                             notify-battery
-                             swayosd-client --custom-text="Battery low ($capacity)"  --custom-icon=battery
-                        fi
+              if [ "$status" = "Discharging" ]; then
+                  if [ "$capacity" != "$last_notified_level" ]; then
 
-                    # 5% - Critical
-                    elif [ "$capacity" -le 5 ] && [ "$capacity" -gt 2 ]; then
-                        if [ "$capacity" -eq 5 ] || [ "$last_notified_level" -gt 5 ]; then
-                             notify-send -u critical "Battery Critical" "Level is at ''${capacity}%. Connect charger!"
-                             swayosd-client --custom-text="Battery Critical ($capacity)"  --custom-icon=battery
-                        fi
+                      # 15% - Low Battery
+                      if [ "$capacity" -le 15 ] && [ "$capacity" -gt 5 ]; then
+                          if [ "$capacity" -eq 15 ] || [ "$last_notified_level" -gt 15 ]; then
+                               notify-battery
+                               swayosd-client --custom-text="Battery low ($capacity)"  --custom-icon=battery
+                          fi
 
-                    # 2% - Sleep
-                    elif [ "$capacity" -le 2 ]; then
-                        notify-send -u critical "Battery Dying" "Suspending system now..."
-                        sleep 2
-                        systemctl suspend
-                    fi
-                    
-                    last_notified_level=$capacity
-                fi
-            else
-                last_notified_level=100
-            fi
+                      # 5% - Critical
+                      elif [ "$capacity" -le 5 ] && [ "$capacity" -gt 2 ]; then
+                          if [ "$capacity" -eq 5 ] || [ "$last_notified_level" -gt 5 ]; then
+                               notify-send -u critical "Battery Critical" "Level is at ''${capacity}%. Connect charger!"
+                               swayosd-client --custom-text="Battery Critical ($capacity)"  --custom-icon=battery
+                          fi
 
-            udevadm monitor --subsystem-match=power_supply --property | grep -m 1 "POWER_SUPPLY_CAPACITY=" >/dev/null
-        done
-      '';
+                      # 2% - Sleep
+                      elif [ "$capacity" -le 2 ]; then
+                          notify-send -u critical "Battery Dying" "Suspending system now..."
+                          sleep 2
+                          systemctl suspend
+                      fi
+
+                      last_notified_level=$capacity
+                  fi
+              else
+                  last_notified_level=100
+              fi
+
+              udevadm monitor --subsystem-match=power_supply --property | grep -m 1 "POWER_SUPPLY_CAPACITY=" >/dev/null
+          done
+        '';
     })
-    (pkgs.writers.writeNuBin "notify-battery"
+    (
+      pkgs.writers.writeNuBin "notify-battery"
       {
         makeWrapperArgs = [
           "--prefix"
@@ -134,7 +141,10 @@ let
           ]}"
         ];
       }
-      /* nu */ ''
+      /*
+      nu
+      */
+      ''
         let bat_dirs = (ls /sys/class/power_supply | where name =~ "BAT")
         if ($bat_dirs | length) == 0 { exit 0 }
         let bat_dir = ($bat_dirs | get 0 | get name)
@@ -143,7 +153,8 @@ let
       ''
     )
     # FIXME: change this to use matugen
-    (pkgs.writers.writeNuBin "update-openrgb-color"
+    (
+      pkgs.writers.writeNuBin "update-openrgb-color"
       {
         makeWrapperArgs = [
           "--prefix"
@@ -155,31 +166,42 @@ let
           ]}"
         ];
       }
-      /* nu */ ''
+      /*
+      nu
+      */
+      ''
         let accent_color = (caelestia scheme get | lines | get 6 | parse "{foo}: {bar}" | get bar | get 0 | ansi strip)
         echo $accent_color
         openrgb --color $accent_color
       ''
     )
 
-    (pkgs.writers.writeNuBin "clear-trash"
+    (
+      pkgs.writers.writeNuBin "clear-trash"
       {
       }
-      /* nu */ ''
+      /*
+      nu
+      */
+      ''
         rm -rp ~/.local/share/Trash/*
       ''
     )
 
-    (pkgs.writers.writeNuBin "dm-expand"
+    (
+      pkgs.writers.writeNuBin "dm-expand"
       {
         makeWrapperArgs = [
           "--prefix"
           "PATH"
           ":"
-          "${lib.makeBinPath [ pkgs.fuzzel ]}"
+          "${lib.makeBinPath [pkgs.fuzzel]}"
         ];
       }
-      /* nu */ ''
+      /*
+      nu
+      */
+      ''
         let expansions = [
         [key value];
         ["mdash" —]
@@ -336,7 +358,7 @@ let
       desktopName = "NixRice";
       exec = "nixrice";
       icon = "tools-wizard";
-      categories = [ "Utility" ];
+      categories = ["Utility"];
     })
 
     (pkgs.writeShellApplication {
@@ -532,7 +554,6 @@ let
       '';
     })
   ];
-in
-{
+in {
   environment.systemPackages = scripts;
 }

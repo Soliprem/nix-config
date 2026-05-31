@@ -2,9 +2,8 @@
   configRoot,
   inputs,
   ...
-}:
-{
-  imports = [ inputs.agenix.nixosModules.default ];
+}: {
+  imports = [inputs.agenix.nixosModules.default];
 
   age.secrets.bitwarden_clientid = {
     file = configRoot + /secrets/bitwarden_clientid.age;

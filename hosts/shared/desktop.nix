@@ -1,5 +1,4 @@
-{ configRoot, ... }:
-{
+{configRoot, ...}: {
   hjem.users.soliprem.imports = map (file: configRoot + "/hjem/${file}" + ".nix") [
     "hypr"
     "niri"

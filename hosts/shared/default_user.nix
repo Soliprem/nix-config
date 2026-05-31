@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   users.users.soliprem = {
     isNormalUser = true;
     description = "Francesco Prem Solidoro";

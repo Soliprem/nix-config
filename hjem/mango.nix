@@ -189,7 +189,7 @@
       bind=SUPER+SHIFT,B,spawn,overskride
       bind=SUPER+CTRL,v,spawn,pwvucontrol
       bind=SUPER+ALT,n,spawn,dm-sunsetr
-      
+
       bind=SUPER,f,togglemaximizescreen
       bind=SUPER+SHIFT,f,togglefullscreen
       bind=SUPER+ALT,f,togglefakefullscreen
@@ -428,6 +428,6 @@
       protonvpn-app &
       swayosd-server &
       sunsetr &
-      '';
+    '';
   };
 }

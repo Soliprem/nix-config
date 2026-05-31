@@ -1,4 +1,8 @@
-{fontProfiles, pkgs, ...}: let
+{
+  fontProfiles,
+  pkgs,
+  ...
+}: let
   midnightDiscordTemplate =
     pkgs.writeText "midnight-discord.css"
     (builtins.replaceStrings

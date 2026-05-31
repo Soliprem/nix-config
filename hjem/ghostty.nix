@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   files = {
     ".config/ghostty/config".text = ''
       command = ${pkgs.fish}/bin/fish
