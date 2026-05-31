@@ -232,6 +232,7 @@
       };
     };
     utility = {
+      direnv.enable = true;
       undotree.enable = true;
       ccc.enable = false;
       vim-wakatime.enable = true;
