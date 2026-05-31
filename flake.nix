@@ -81,6 +81,10 @@
       url = "github:notashelf/stash";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    cade = {
+      url = "github:manic-systems/cade";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     watt = {
       url = "github:notashelf/watt";
       inputs.nixpkgs.follows = "nixpkgs";

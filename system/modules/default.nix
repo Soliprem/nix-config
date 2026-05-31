@@ -4,5 +4,6 @@ _: {
     ./greeter.nix
     ./keyd.nix
     ./eh.nix
+    ./cade.nix
   ];
 }
