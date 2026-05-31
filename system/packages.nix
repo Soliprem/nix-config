@@ -14,6 +14,7 @@ in {
     inputs.stash.packages.${sys}.default
     inputs.spam.packages.${sys}.default
     codex
+    t3code
 
     # CLI, shells, and core tools
     gnupg
