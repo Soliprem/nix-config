@@ -221,17 +221,8 @@
       project-nvim.enable = false;
     };
 
-    mini.files = {
-      enable = true;
-      setupOpts = {
-        mappings = {
-          go_out = "<BS>";
-          go_in = "<CR>";
-        };
-        windows.preview = true;
-      };
-    };
     utility = {
+      oil-nvim.enable = true;
       direnv.enable = true;
       undotree.enable = true;
       ccc.enable = false;
@@ -615,10 +606,10 @@
       }
       {
         key = "-";
-        action = ":lua MiniFiles.open()<CR>";
+        action = ":Oil<CR>";
         mode = "n";
         silent = true;
-        desc = "enable MiniFiles";
+        desc = "Open Oil";
       }
       {
         key = "<F5>";
