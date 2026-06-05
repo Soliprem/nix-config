@@ -109,16 +109,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1780232618,
+        "lastModified": 1780661735,
         "narHash": "sha256-H93S76cRj2jVgBKXTvUvezS1fsP6MkUSgUoqhqR0MNI=",
-        "owner": "soliprem",
+        "owner": "notashelf",
         "repo": "eh",
-        "rev": "a59c2a1cb262aefe859af50e465152f4d9d35c6f",
+        "rev": "e56da8714bad939848ba45a9ea7a5805eba3d173",
         "type": "github"
       },
       "original": {
-        "owner": "soliprem",
-        "ref": "update-all",
+        "owner": "notashelf",
         "repo": "eh",
         "type": "github"
       }

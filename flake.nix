@@ -94,7 +94,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     eh = {
-      url = "github:soliprem/eh/update-all";
+      url = "github:notashelf/eh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     thumbpick = {
