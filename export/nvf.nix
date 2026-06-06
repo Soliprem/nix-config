@@ -409,19 +409,21 @@
       #     '';
       #   };
       # };
-      R-nvim = {
-        package = pkgs.vimUtils.buildVimPlugin {
-          name = "R-nvim";
-          src = flakeInputs.r-nvim;
-          doCheck = false;
-          setup = ''
-            require('r').setup(),
-          '';
-        };
-      };
     };
 
     lazy.plugins = with pkgs.vimPlugins; {
+      "R-nvim" = {
+        lazy = true;
+        event = ["UIEnter"];
+        ft = ["markdown"];
+        package = pkgs.vimUtils.buildVimPlugin {
+          name = "R-nvim";
+          pname = "R-nvim";
+          src = flakeInputs.r-nvim;
+          doCheck = false;
+        };
+        setupModule = "r";
+      };
       "neowiki.nvim" = {
         lazy = true;
         event = ["UIEnter"];
