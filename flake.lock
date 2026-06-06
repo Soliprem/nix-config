@@ -240,27 +240,6 @@
         "type": "github"
       }
     },
-    "fp": {
-      "inputs": {
-        "nixpkgs-lib": [
-          "spam",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1769996383,
-        "narHash": "sha256-AnYjnFWgS49RlqX7LrC4uA+sCCDBj0Ry/WOJ5XWAsa0=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "57928607ea566b5db3ad13af0e57e921e6b12381",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "hjem": {
       "inputs": {
         "nix-darwin": "nix-darwin",
@@ -552,7 +531,6 @@
         "nvf": "nvf",
         "r-nvim": "r-nvim",
         "remarkable-bridge": "remarkable-bridge",
-        "spam": "spam",
         "spicetify-nix": "spicetify-nix",
         "stash": "stash",
         "sysboard": "sysboard",
@@ -613,27 +591,6 @@
       "original": {
         "owner": "wlrfx",
         "repo": "scenefx",
-        "type": "github"
-      }
-    },
-    "spam": {
-      "inputs": {
-        "fp": "fp",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1780688264,
-        "narHash": "sha256-v6N9y4yxOtOYcq46u1ws+qNVSxxtJoNkXCXtjn8i2zY=",
-        "owner": "feel-co",
-        "repo": "spam",
-        "rev": "44a09eea24dd6c7710d6d57a577069e050445494",
-        "type": "github"
-      },
-      "original": {
-        "owner": "feel-co",
-        "repo": "spam",
         "type": "github"
       }
     },

@@ -12,7 +12,6 @@ in {
     inputs.thumbpick.packages.${sys}.default
     inputs.zen-browser.packages.${sys}.default
     inputs.stash.packages.${sys}.default
-    inputs.spam.packages.${sys}.default
     codex
     t3code
     ladybird

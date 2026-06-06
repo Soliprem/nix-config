@@ -89,10 +89,6 @@
       url = "github:notashelf/watt";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    spam = {
-      url = "github:feel-co/spam";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     eh = {
       url = "github:notashelf/eh";
       inputs.nixpkgs.follows = "nixpkgs";
