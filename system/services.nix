@@ -12,12 +12,7 @@
     };
     kmscon = {
       enable = true;
-      fonts = [
-        {
-          name = builtins.head config.fonts.fontconfig.defaultFonts.monospace;
-          package = pkgs.nerd-fonts.iosevka-term-slab;
-        }
-      ];
+      config.fonts-name = builtins.head config.fonts.fontconfig.defaultFonts.monospace;
     };
     logind.settings.Login.HandlePowerKey = "ignore";
     tailscale.enable = true;

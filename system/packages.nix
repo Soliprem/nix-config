@@ -15,6 +15,7 @@ in {
     inputs.spam.packages.${sys}.default
     codex
     t3code
+    ladybird
 
     # CLI, shells, and core tools
     gnupg
