@@ -15,10 +15,7 @@
       "openrgb"
     ];
 
-  networking = {
-    hostName = "nixos-pc";
-    firewall.trustedInterfaces = ["tailscale0"];
-  };
+  networking.hostName = "nixos-pc";
 
   boot = {
     kernelParams = ["acpi_backlight=video"];

@@ -15,7 +15,14 @@
       config.fonts-name = builtins.head config.fonts.fontconfig.defaultFonts.monospace;
     };
     logind.settings.Login.HandlePowerKey = "ignore";
-    tailscale.enable = true;
+    tailscale = {
+      enable = true;
+      interfaceName = "userspace-networking";
+      extraDaemonFlags = [
+        "--socks5-server=localhost:1055"
+        "--outbound-http-proxy-listen=localhost:1055"
+      ];
+    };
     pulseaudio.enable = false;
     udev.packages = with pkgs; [
       swayosd
