@@ -43,6 +43,7 @@
       lspkind.enable = false;
       lightbulb.enable = false;
       lspsaga.enable = false;
+      inlayHints.enable = true;
       servers = {
         nil.settings.nil.nix.autoArchive = true;
         nixd.settings.nixd.nixpkgs.expr = "import (builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs { }";
