@@ -11,6 +11,7 @@
     ]
     ++ map (file: configRoot + "/system/modules/${file}" + ".nix") [
       "ollamaRocm"
+      "vane"
       "openrgb"
     ];
 
