@@ -10,8 +10,4 @@
     };
     # rocmOverrideGfx = "12.0.1";
   };
-  systemd.services.ollama = {
-    after = [ "systemd-modules-load.service" ];
-    wants = [ "systemd-modules-load.service" ];
-  };
 }
