@@ -43,7 +43,10 @@
       lspkind.enable = false;
       lightbulb.enable = false;
       lspsaga.enable = false;
-      servers.nil.settings.nil.nix.autoArchive = true;
+      servers = {
+        nil.settings.nil.nix.autoArchive = true;
+        nixd.settings.nixd.nixpkgs.expr = "import (builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs { }";
+      };
       otter-nvim = {
         enable = true;
         setupOpts.buffers.write_to_disk = true;
@@ -51,7 +54,6 @@
       trouble.enable = true;
       lspSignature.enable = false; # doesn't work with blink
       nvim-docs-view.enable = false; # lags *horribly* whenever l is pressed
-      presets.tailwindcss-language-server.enable = false;
     };
 
     debugger = {
@@ -73,7 +75,10 @@
       dart.enable = false;
       elixir.enable = false;
       haskell.enable = false;
-      nix.enable = true;
+      nix = {
+        enable = true;
+        lsp.servers = ["nixd"];
+      };
       markdown.enable = true;
       html.enable = false;
       css.enable = true;
