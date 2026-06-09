@@ -77,7 +77,7 @@
       haskell.enable = false;
       nix = {
         enable = true;
-        lsp.servers = ["nixd"];
+        lsp.servers = ["nil" "nixd"];
       };
       markdown.enable = true;
       html.enable = false;
@@ -312,7 +312,7 @@
       illuminate.enable = true;
       fastaction.enable = false;
       breadcrumbs = {
-        enable = true;
+        enable = false;
         navbuddy.enable = true;
       };
       smartcolumn = {
@@ -616,6 +616,13 @@
         mode = "n";
         silent = true;
         desc = "Open Oil";
+      }
+      {
+        key = "<leader>tc";
+        mode = "n";
+        action = ":TSContext toggle<CR>";
+        silent = true;
+        desc = "Toggle Treesitter Context";
       }
       {
         key = "<F5>";
