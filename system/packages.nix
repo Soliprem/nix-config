@@ -218,7 +218,7 @@ in {
     # river.enable = true;
     niri.enable = true;
     hyprland.enable = true;
-    mango.enable = true;
+    mangowc.enable = true;
     nh = {
       enable = true;
       clean.enable = true;

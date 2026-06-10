@@ -1,6 +1,5 @@
-{inputs, ...}: {
+_: {
   imports = [
-    inputs.mango.nixosModules.mango
     ./scripts.nix
     ./modules
     ./nixpkgs.nix
