@@ -2,7 +2,9 @@
   pkgs,
   flakeInputs,
   ...
-}: {
+}: let
+  configRoot = ./..;
+in {
   config.vim = {
     repl = {
       conjure.enable = true;
@@ -45,8 +47,15 @@
       lspsaga.enable = false;
       inlayHints.enable = true;
       servers = {
-        nil.settings.nil.nix.autoArchive = true;
-        nixd.settings.nixd.nixpkgs.expr = "import (builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs { }";
+        nil.settings.nil = {
+          nix.autoArchive = true;
+          formatting.command = "alejandra";
+        };
+        nixd.settings.nixd = {
+          nixpkgs.expr = "import (builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs { }";
+          formatting.command = ["alejandra"];
+          options.nixos.expr = ''(builtins.getFlake ${configRoot}).nixosConfigurations.nixos-pc.options'';
+        };
       };
       otter-nvim = {
         enable = true;
@@ -78,7 +87,7 @@
       haskell.enable = false;
       nix = {
         enable = true;
-        lsp.servers = ["nil" "nixd"];
+        lsp.servers = ["nixd"];
       };
       markdown.enable = true;
       html.enable = false;
