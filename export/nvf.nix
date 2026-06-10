@@ -49,12 +49,14 @@ in {
       servers = {
         nil.settings.nil = {
           nix.autoArchive = true;
-          formatting.command = "alejandra";
+          formatting.command = ["alejandra"];
         };
         nixd.settings.nixd = {
           nixpkgs.expr = "import (builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs { }";
-          formatting.command = ["alejandra"];
-          options.nixos.expr = ''(builtins.getFlake ${configRoot}).nixosConfigurations.nixos-pc.options'';
+          formatting.command = "alejandra";
+          options = {
+            nixos.expr = ''(builtins.getFlake ${configRoot}).nixosConfigurations.nixos-pc.options'';
+          };
         };
       };
       otter-nvim = {
@@ -87,7 +89,7 @@ in {
       haskell.enable = false;
       nix = {
         enable = true;
-        lsp.servers = ["nixd"];
+        lsp.servers = ["nixd" "nil"];
       };
       markdown.enable = true;
       html.enable = false;
