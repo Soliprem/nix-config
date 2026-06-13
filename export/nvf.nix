@@ -114,7 +114,7 @@ in {
       lua.enable = true;
       bash.enable = true;
       typst.enable = true;
-      julia.enable = false;
+      julia.enable = true;
       clang = {
         enable = true;
         lsp.servers = ["clangd"];
@@ -240,6 +240,7 @@ in {
 
     utility = {
       oil-nvim.enable = true;
+      csvview.enable = true;
       undotree.enable = true;
       ccc.enable = false;
       vim-wakatime.enable = true;
