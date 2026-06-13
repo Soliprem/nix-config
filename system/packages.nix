@@ -18,6 +18,8 @@ in {
 
     # CLI, shells, and core tools
     gnupg
+    xleak
+    drawy
     atuin
     bat
     btop-rocm
