@@ -72,7 +72,6 @@
       no_border_when_single=0
       axis_bind_apply_timeout=100
       focus_on_activate=1
-      inhibit_regardless_of_visibility=0
       sloppyfocus=0
       warpcursor=1
       focus_cross_monitor=0
@@ -86,7 +85,17 @@
       repeat_rate=25
       repeat_delay=600
       numlockon=0
-      xkb_rules_layout=eu
+      xkb_rules_layout=eu,it
+      xkb_rules_options=grp:alt_space_toggle
+
+      # Environment
+      env=GTK_IM_MODULE,fcitx
+      env=QT_IM_MODULE,fcitx
+      env=QT_IM_MODULES,wayland;fcitx
+      env=SDL_IM_MODULE,fcitx
+      env=XMODIFIERS,@im=fcitx
+      env=GLFW_IM_MODULE,ibus
+      env=INPUT_METHOD,fcitx
 
       # Trackpad
       # need relogin to make it apply
@@ -123,24 +132,41 @@
       overlaycolor=0x14a57cff
 
       # Layout Rules
-      tagrule=id:1,layout_name:scroller
-      tagrule=id:2,layout_name:scroller
-      tagrule=id:3,layout_name:scroller
-      tagrule=id:4,layout_name:scroller
-      tagrule=id:5,layout_name:scroller
-      tagrule=id:6,layout_name:scroller
-      tagrule=id:7,layout_name:scroller
-      tagrule=id:8,layout_name:scroller
-      tagrule=id:9,layout_name:scroller
+      tagrule=id:1,layout_name:tile
+      tagrule=id:2,layout_name:tile
+      tagrule=id:3,layout_name:tile
+      tagrule=id:4,layout_name:tile
+      tagrule=id:5,layout_name:tile
+      tagrule=id:6,layout_name:tile
+      tagrule=id:7,layout_name:tile
+      tagrule=id:8,layout_name:tile
+      tagrule=id:9,layout_name:tile
+
+      # Window Rules
+      windowrule=isfloating:1,title:^(Julia|flame|script-fu|org.gtk_rs.HelloWorld2)$
+      windowrule=isfloating:1,title:^(Picture-in-Picture)$
+      windowrule=isfloating:1,title:^(Open File|Select a File|Choose wallpaper|Open Folder|Save As|Library)(.*)$
+      windowrule=isfloating:1,appid:^(org.kde.polkit-kde-authentication-agent-1)$
+      windowrule=isfloating:1,appid:^(protonvpn-app)$
+      windowrule=isfloating:1,appid:^(eu.soliprem.thumbpick)$
+      windowrule=offsetx:100,offsety:-100,width:640,height:360,title:^(Picture-in-Picture)$
+      windowrule=offsetx:0,offsety:0,width:900,height:700,title:^(flame|script-fu)$
+      windowrule=isterm:1,appid:^(foot|kitty|com.mitchellh.ghostty)$
+      windowrule=noswallow:1,title:^(nvim|v|vi|wev|R|glxgears|julia)(.*)$
+      windowrule=force_tearing:1,appid:^(mpv|steam_app)(.*)$
+      windowrule=force_tearing:1,title:^(.*)(YouTube|Invidious)(.*)$
 
       # Layer Rules
       layerrule=noblur:0,layer_name:^logout_dialog$
+      layerrule=noblur:0,layer_name:^launcher$
+      layerrule=noblur:0,layer_name:^quickshell-sidebar$
+      layerrule=noblur:0,layer_name:^quantum-notification-popups$
 
       # Monitor Config
-      # monitorrule=name, mfact, nmaster, layout, top_gap, bottom_gap, x, y, width, height, refresh
-      monitorrule=HDMI-A-1, 0.55, 1, scroller, 0, 1, 2560, 0, 1920, 1080, 120
-      monitorrule=PNP(AOC) Q27G3XMN 1APQ7JA005710, 0.55, 1, scroller, 0, 1, 0, 0, 2560, 1440, 180.002
-      monitorrule=eDP-1, 0.55, 1, scroller, 0, 1, 0, 0, 1920, 1200, 60
+      monitorrule=name:^HDMI-A-1$,width:1920,height:1080,refresh:120,x:2560,y:0
+      monitorrule=model:Q27G3XMN,serial:1APQ7JA005710,width:2560,height:1440,refresh:180.002,x:0,y:0
+      monitorrule=name:^eDP-1$,width:1920,height:1200,refresh:60,x:0,y:0,scale:1
+      monitorrule=make:Seiko Epson Corporation,model:EPSON PJ,serial:0x01010101,scale:1.5
 
       # --- Keymodes and Bindings ---
 
@@ -150,8 +176,13 @@
       bind=SUPER+CTRL,t,spawn,foot tray-tui
       bind=SUPER+CTRL,w,spawn,foot wiki-tui
       bind=SUPER,g,toggleoverview
-      bind=SUPER,s,toggleglobal
+      bind=SUPER,s,toggle_scratchpad
+      bind=SUPER+ALT,s,minimized
+      bind=SUPER+CTRL,s,toggleglobal
       bind=SUPER+SHIFT,o,toggleoverlay
+      bind=SUPER,i,minimized
+      bind=SUPER+SHIFT,i,restore_minimized
+      bind=ALT,Tab,focuslast
 
       # Terminal, Launcher, Browser
       bind=SUPER,Return,spawn,foot
@@ -161,6 +192,7 @@
 
       # Window Management
       bind=SUPER,Q,killclient
+      bind=SUPER+SHIFT,Q,killclient
       bind=SUPER+SHIFT,E,quit
       bind=CTRL+ALT,Delete,quit
       bind=SUPER+SHIFT,space,togglefloating
@@ -170,6 +202,8 @@
       bind=SUPER,period,focusmon,right
       bind=SUPER+SHIFT,comma,tagmon,left,0
       bind=SUPER+SHIFT,period,tagmon,right,0
+      bind=SUPER+CTRL,comma,tagmon,left,1
+      bind=SUPER+CTRL,period,tagmon,right,1
 
       # Application/Script Binds
       bind=NONE,XF86PowerOff,spawn,wlogout
@@ -189,6 +223,7 @@
       bind=SUPER+SHIFT,B,spawn,overskride
       bind=SUPER+CTRL,v,spawn,pwvucontrol
       bind=SUPER+ALT,n,spawn,dm-sunsetr
+      bind=SUPER,F1,spawn,gamemode
 
       bind=SUPER,f,togglemaximizescreen
       bind=SUPER+SHIFT,f,togglefullscreen
@@ -254,13 +289,13 @@
 
       # Layout Switching (Automatically switches keymode too)
       bind=SUPER+SHIFT,T,setlayout,tile
-      bind=SUPER+SHIFT,T,setkeymode,tile
+      bind=SUPER+SHIFT,T,setkeymode,default
       bind=SUPER+SHIFT,M,setlayout,monocle
       bind=SUPER+SHIFT,M,setkeymode,monocle
       bind=SUPER+SHIFT,G,setlayout,grid
       bind=SUPER+SHIFT,G,setkeymode,grid
       bind=SUPER+SHIFT,X,setlayout,scroller
-      bind=SUPER+SHIFT,X,setkeymode,default
+      bind=SUPER+SHIFT,X,setkeymode,scroller
       bind=SUPER+CTRL+SHIFT,D,setlayout,deck
       bind=SUPER+CTRL+SHIFT,D,setkeymode,deck
       bind=SUPER+SHIFT,C,setlayout,center_tile
@@ -275,6 +310,12 @@
       bind=SUPER+CTRL,X,setkeymode,vertical_scroller
       bind=SUPER+CTRL,D,setlayout,vertical_deck
       bind=SUPER+CTRL,D,setkeymode,vertical_deck
+      bind=SUPER+ALT,T,setlayout,tile
+      bind=SUPER+ALT,T,setkeymode,default
+      bind=SUPER+ALT,M,setlayout,monocle
+      bind=SUPER+ALT,M,setkeymode,monocle
+      bind=SUPER+ALT,X,setlayout,scroller
+      bind=SUPER+ALT,X,setkeymode,scroller
 
       # Cycle through keymodes
       bind=SUPER+CTRL+SHIFT,S,setkeymode,cycle
@@ -282,8 +323,6 @@
       ## Mouse Bindings
       mousebind=SUPER,btn_left,moveresize,curmove
       mousebind=SUPER,btn_right,moveresize,curresize
-      mousebind=NONE,btn_left,toggleoverview,-1
-      mousebind=NONE,btn_right,killclient,0
 
       # Touchpad Gestures (3-finger)
       gesturebind=NONE,up,3,viewtoleft_have_client
@@ -293,8 +332,20 @@
 
       # --- Layout Specific Keymodes ---
 
-      # Scroller ('default' mode because it's the default layout in tagrules)
+      # Tile (Master/Stack, default mode because it is the default layout in tagrules)
       keymode=default
+      bind=SUPER,k,focusstack,prev
+      bind=SUPER,j,focusstack,next
+      bind=SUPER+SHIFT,k,exchange_stack_client,prev
+      bind=SUPER+SHIFT,j,exchange_stack_client,next
+      bind=SUPER,equal,setmfact,-0.05
+      bind=SUPER+SHIFT,equal,setmfact,+0.05
+      bind=SUPER,space,zoom
+      bind=SUPER+SHIFT,h,incnmaster,+1
+      bind=SUPER+SHIFT,l,incnmaster,-1
+
+      # Scroller
+      keymode=scroller
       bind=SUPER,r,switch_proportion_preset
       bind=SUPER,h,focusdir,left
       bind=SUPER,l,focusdir,right
