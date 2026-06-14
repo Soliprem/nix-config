@@ -48,7 +48,6 @@ in {
       inlayHints.enable = true;
       servers = {
         nil.settings.nil = {
-          nix.autoArchive = true;
           formatting.command = ["alejandra"];
         };
         nixd.settings.nixd = {
