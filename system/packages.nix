@@ -72,7 +72,7 @@ in {
     kanshi
     kdePackages.polkit-kde-agent-1
     kdePackages.qt6ct
-    libsForQt5.qt5.qtgraphicaleffects
+    qt5.qtgraphicaleffects
     libsForQt5.qt5ct
     linearicons-free
     matugen
