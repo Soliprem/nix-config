@@ -346,7 +346,7 @@
         if [[ $wallpaper ]]; then
                 printf '%s\n' "$wallpaper" > "$HOME/.cache/bgpath"
                 matugen image "$wallpaper" -m "$MATUGEN_MODE" -t "$MATUGEN_TYPE" --source-color-index 0
-                cp "$wallpaper" ~/.config/nix-config/assets/bg
+                cp "$wallpaper" ~/.local/src/nix-config/assets/bg
         else
         	echo "no wallpaper selected"
         fi

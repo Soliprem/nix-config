@@ -93,7 +93,6 @@ _: {
       e = "nvim";
       v = "nvim";
       p = "cd ~/Projects/";
-      update = "nix flake update --flake ~/.config/nix-config/ && sudo nixos-rebuild switch --flake ~/.config/nix-config/.#nixos-pc && nix-store --optimise && nix-collect-garbage";
       xi = "sudo xbps-install";
       xr = "sudo xbps-remove -R";
       xq = "xbps-query";
@@ -139,7 +138,7 @@ _: {
       nos = "nh os switch";
       sl = "sll";
       lg = "lazygit";
-      n = "cd ~/.config/nix-config && ls";
+      n = "cd ~/.local/src/nix-config && ls";
     };
   };
 }
