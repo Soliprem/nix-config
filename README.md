@@ -31,8 +31,8 @@ inconsistencies, and that the system is generally more robust.
 
 ```bash
 # Clone
-git clone https://github.com/soliprem/nixos-config ~/.config/nix-config
-cd ~/.config/nix-config
+git clone https://github.com/soliprem/nixos-config ~/.local/src/nix-config
+cd ~/.local/src/nix-config
 ```
 
 Before going forward, you should **modify the username**. It appears in a few

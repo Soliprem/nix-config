@@ -82,7 +82,7 @@ _: {
         alias magit = nvim -c MagitOnly
         alias mn = cd /mnt; ls -a
         alias mv = mv -iv
-        alias n = cd ~/.config/nix-config; ls
+        alias n = cd ~/.local/src/nix-config; ls
         alias nn = cd ~/.config/nvim/; ls
         alias nnn = nnn -e
         alias nvimtutor = nvim -c Tutor

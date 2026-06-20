@@ -5,7 +5,7 @@
   ...
 }: {
   files = {
-    ".config/nix-config/hjem/hyprland/stubs".source = "${pkgs.hyprland}/share/hypr/stubs";
+    ".local/src/nix-config/hjem/hyprland/stubs".source = "${pkgs.hyprland}/share/hypr/stubs";
 
     ".config/nix-config/hjem/hyprland/.luarc.json" = {
       generator = lib.generators.toJSON {};
