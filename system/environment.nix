@@ -92,7 +92,7 @@ _: {
       sdn = "shutdown -h now";
       e = "nvim";
       v = "nvim";
-      p = "pacman";
+      p = "cd ~/Projects/";
       update = "nix flake update --flake ~/.config/nix-config/ && sudo nixos-rebuild switch --flake ~/.config/nix-config/.#nixos-pc && nix-store --optimise && nix-collect-garbage";
       xi = "sudo xbps-install";
       xr = "sudo xbps-remove -R";
