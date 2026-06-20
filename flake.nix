@@ -97,6 +97,10 @@
       url = "github:soliprem/thumbpick";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    tuicr = {
+      url = "github:agavra/tuicr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     dm-scripts = {
       url = "github:soliprem/dm-scripts";
