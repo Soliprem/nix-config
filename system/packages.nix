@@ -93,6 +93,8 @@ in {
 
     # Browsers, communication, and network clients
     beeper
+    cinny
+    gomuks-web
     bitwarden-desktop
     rnote
     chromium
@@ -121,6 +123,7 @@ in {
     nautilus
     obsidian
     papers
+    stremio-linux-shell
     proton-vpn-cli
     proton-vpn
     yad
