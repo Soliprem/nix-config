@@ -16,6 +16,9 @@ hl.monitor({
   supports_hdr = 1,
   sdr_min_luminance = 0.005,
   sdr_max_luminance = 450,
+  min_luminance = 0.051,
+  max_luminance = 1156,
+  max_avg_luminance = 600
 })
 
 hl.monitor({

@@ -479,6 +479,7 @@
       protonvpn-app &
       swayosd-server &
       sunsetr &
+      gomuks-web &
     '';
   };
 }
