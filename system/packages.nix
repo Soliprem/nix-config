@@ -4,6 +4,24 @@
   ...
 }: let
   sys = pkgs.stdenv.hostPlatform.system;
+  stremioFixed = pkgs.stremio-linux-shell.overrideAttrs (old: {
+    nativeBuildInputs = (old.nativeBuildInputs or []) ++ [
+      pkgs.makeWrapper
+    ];
+
+    postFixup = (old.postFixup or "") + ''
+      mv $out/bin/stremio $out/bin/stremio-unwrapped
+
+      makeWrapper ${pkgs.strace}/bin/strace $out/bin/stremio \
+        --add-flags "-f" \
+        --add-flags "-qq" \
+        --add-flags "-o" \
+        --add-flags "/dev/null" \
+        --add-flags "-e" \
+        --add-flags "trace=none" \
+        --add-flags "$out/bin/stremio-unwrapped"
+    '';
+  });
 in {
   environment.systemPackages = with pkgs; [
     # Flake inputs and custom derivations
@@ -13,6 +31,7 @@ in {
     inputs.zen-browser.packages.${sys}.default
     inputs.stash.packages.${sys}.default
     inputs.tuicr.packages.${sys}.default
+    inputs.beer.packages.${sys}.default
     codex
     t3code
     ladybird
@@ -123,7 +142,7 @@ in {
     nautilus
     obsidian
     papers
-    stremio-linux-shell
+    stremioFixed
     proton-vpn-cli
     proton-vpn
     yad
