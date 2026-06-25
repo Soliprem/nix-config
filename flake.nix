@@ -93,10 +93,6 @@
       url = "github:notashelf/eh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    beer = {
-      url = "https://git.frzn.dev/notashelf/beer";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     thumbpick = {
       url = "github:soliprem/thumbpick";
       inputs.nixpkgs.follows = "nixpkgs";
