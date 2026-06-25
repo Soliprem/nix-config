@@ -31,7 +31,6 @@ in {
     inputs.zen-browser.packages.${sys}.default
     inputs.stash.packages.${sys}.default
     inputs.tuicr.packages.${sys}.default
-    inputs.beer.packages.${sys}.default
     codex
     t3code
     ladybird
@@ -189,7 +188,7 @@ in {
   programs = {
     gnupg.agent = {
       enable = true;
-      pinentryPackage = pkgs.pinentry-qt;
+      pinentryPackage = pkgs.pinentry-curses;
     };
     obs-studio = {
       enable = true;
