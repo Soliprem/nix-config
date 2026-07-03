@@ -40,6 +40,20 @@
     audio.enable = true;
     pulse.enable = true;
     wireplumber.enable = true;
+    extraConfig.pipewire."99-allowed-rates" = {
+      "context.properties" = {
+        "default.clock.allowed-rates" = [
+          44100
+          48000
+          88200
+          96000
+          176400
+          192000
+          352800
+          384000
+        ];
+      };
+    };
   };
 
   programs.fish.enable = true;

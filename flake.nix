@@ -77,6 +77,10 @@
       flake = false;
     };
 
+    ferrosonic = {
+      url = "github:jaidaken/ferrosonic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stash = {
       url = "github:notashelf/stash";
       inputs.nixpkgs.follows = "nixpkgs";
