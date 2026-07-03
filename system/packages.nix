@@ -31,9 +31,12 @@ in {
     inputs.zen-browser.packages.${sys}.default
     inputs.stash.packages.${sys}.default
     inputs.tuicr.packages.${sys}.default
+    inputs.ferrosonic.packages.${sys}.default
+    cava
     codex
     t3code
     ladybird
+    waypipe
 
     # CLI, shells, and core tools
     gnupg
@@ -69,6 +72,7 @@ in {
 
     # Editors, development, and authoring
     impression
+    zoom-us
     jujutsu
     openai-whisper
     typst
@@ -142,6 +146,7 @@ in {
     obsidian
     papers
     stremioFixed
+    losange
     proton-vpn-cli
     proton-vpn
     yad
@@ -165,6 +170,7 @@ in {
     spek
     spotdl
     tauon
+    strawberry
     wiremix
 
     # Gaming
