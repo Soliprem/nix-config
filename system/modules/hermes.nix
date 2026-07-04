@@ -33,6 +33,13 @@
         memory_enabled = true;
         user_profile_enabled = true;
       };
+
+      mcp_servers = {
+        thunderbird-mail = {
+          command = "node";
+          args = ["/home/soliprem/.local/src/thunderbird-mcp/mcp-bridge.cjs"];
+        };
+      };
     };
   };
 }
