@@ -126,6 +126,7 @@ in {
     telegram-desktop
     super-productivity
     thunderbird
+    himalaya
     transmission_4-gtk
 
     # General desktop applications
@@ -248,7 +249,10 @@ in {
     # river.enable = true;
     niri.enable = true;
     hyprland.enable = true;
-    mangowc.enable = true;
+    mangowc = {
+      enable = true;
+      package = pkgs.mango;
+    };
     nh = {
       enable = true;
       clean.enable = true;
