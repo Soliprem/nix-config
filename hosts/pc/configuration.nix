@@ -13,6 +13,7 @@
       "ollamaRocm"
       "vane"
       "openrgb"
+      "hermes"
     ];
 
   networking.hostName = "nixos-pc";
@@ -26,6 +27,7 @@
     "gamemode"
     "audio"
     "video"
+    "hermes"
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

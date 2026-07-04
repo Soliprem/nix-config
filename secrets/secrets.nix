@@ -8,4 +8,5 @@ in {
   "bitwarden_clientid.age".publicKeys = users ++ systems;
   "bitwarden_clientsecret.age".publicKeys = users ++ systems;
   "bitwarden_password.age".publicKeys = users ++ systems;
+  "hermes_env.age".publicKeys = users ++ systems;
 }

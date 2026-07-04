@@ -76,7 +76,10 @@
       url = "github:blwtxc/remarkable-bridge";
       flake = false;
     };
-
+    hermes-agent = {
+      url = "github:NousResearch/hermes-agent";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ferrosonic = {
       url = "github:jaidaken/ferrosonic";
       inputs.nixpkgs.follows = "nixpkgs";
