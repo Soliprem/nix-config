@@ -22,7 +22,7 @@
 
   age.secrets.hermes_env = {
     file = configRoot + /secrets/hermes_env.age;
-    owner = "hermes";
+    owner = "soliprem";
     group = "hermes";
   };
 }
