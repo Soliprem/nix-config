@@ -15,9 +15,6 @@
     createUser = false;
     addToSystemPackages = true;
 
-    # Keep the sealed Nix build practical: Telegram/Discord/Slack gateway deps,
-    # plus Hindsight memory. Matrix is deliberately omitted because its client
-    # stack, especially encryption, is heavier.
     extraDependencyGroups = ["hindsight" "messaging"];
     extraPackages = with pkgs; [
       curl
@@ -33,6 +30,19 @@
       model = {
         provider = "openai-codex";
         default = "gpt-5.5";
+        context_length = 131072;
+      };
+
+      delegation = {
+        model = "ornith:9b";
+        base_url = "http://127.0.0.1:11434/v1";
+        api_key = "ollama";
+        api_mode = "chat_completions";
+
+        max_concurrent_children = 1;
+        max_spawn_depth = 1;
+        orchestrator_enabled = false;
+        max_iterations = 25;
       };
 
       terminal = {
@@ -56,19 +66,21 @@
           };
         };
       };
+      agent.tool_use_enforcement = true;
     };
   };
 
   users.groups.hermes = {};
 
-  systemd.services.hermes-agent.environment.TMPDIR = "/run/hermes-agent";
-  systemd.services.hermes-agent.serviceConfig = {
-    RuntimeDirectory = "hermes-agent";
-    RuntimeDirectoryMode = "0770";
+  systemd.services.hermes-agent = {
+    environment.TMPDIR = "/run/hermes-agent";
+    serviceConfig = {
+      RuntimeDirectory = "hermes-agent";
+      RuntimeDirectoryMode = "0770";
+      # The Thunderbird MCP extension writes its discovery file to the user's real
+      # /tmp/thunderbird-mcp/connection.json. A private /tmp for the gateway makes
+      # /reload-mcp report no connected MCP servers even when Thunderbird is running.
+      PrivateTmp = lib.mkForce false;
+    };
   };
-
-  # The Thunderbird MCP extension writes its discovery file to the user's real
-  # /tmp/thunderbird-mcp/connection.json. A private /tmp for the gateway makes
-  # /reload-mcp report no connected MCP servers even when Thunderbird is running.
-  systemd.services.hermes-agent.serviceConfig.PrivateTmp = lib.mkForce false;
 }
