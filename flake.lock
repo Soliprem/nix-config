@@ -23,6 +23,26 @@
         "type": "github"
       }
     },
+    "beer": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782514077,
+        "narHash": "sha256-DAWJM1wSN0cd+aenK4Jj/M+Dap0h6SGKrL9ZzPA9reo=",
+        "ref": "refs/heads/main",
+        "rev": "cadefd387baa4a4ab6a2f07175b0f21f913ed333",
+        "revCount": 95,
+        "type": "git",
+        "url": "https://git.notashelf.dev/notashelf/beer.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.notashelf.dev/notashelf/beer.git"
+      }
+    },
     "cade": {
       "inputs": {
         "nixpkgs": [
@@ -345,11 +365,11 @@
         "uv2nix": "uv2nix_2"
       },
       "locked": {
-        "lastModified": 1783181248,
-        "narHash": "sha256-N001KziiEGSJ/ZaDuiieaDFE6FHlrhdL49UfeJq21w0=",
+        "lastModified": 1783284166,
+        "narHash": "sha256-KYHbi4gB2MrsGEj/+1dIo7xnIJpc9Yl6BrjWjU0+V+s=",
         "owner": "NousResearch",
         "repo": "hermes-agent",
-        "rev": "7203898ce47c9ab90e64866d6cff0e6e9ad8d1cc",
+        "rev": "55e3ee1ab8859316a6e66b5ba2f634479bfcf0d8",
         "type": "github"
       },
       "original": {
@@ -514,11 +534,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1782959384,
-        "narHash": "sha256-xnJJk+ct+D2+wdRxj1wk36w5zV9RVESwRqcklPdt3fM=",
+        "lastModified": 1783224372,
+        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "65179426c83bb3f6bc14898b42ea1c6f01d374b0",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
         "type": "github"
       },
       "original": {
@@ -679,11 +699,11 @@
     "r-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1783017027,
-        "narHash": "sha256-jEtfAc1ZTg7whxLI5HjEVxl7u3vaHwCXvCg6Vbw/g6k=",
+        "lastModified": 1783264911,
+        "narHash": "sha256-FywUL3mV2+kfu+rO6uUFyUv80EflbdgSkYuSnW965UE=",
         "owner": "R-nvim",
         "repo": "R.nvim",
-        "rev": "ddd5ccc24e3d9db26cfe790454faac2a76ccecb3",
+        "rev": "c56ebe0f8445e251673981c40ac2d74659ecd6ed",
         "type": "github"
       },
       "original": {
@@ -711,6 +731,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "beer": "beer",
         "cade": "cade",
         "dm-scripts": "dm-scripts",
         "eh": "eh",
