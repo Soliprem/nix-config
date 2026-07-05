@@ -84,6 +84,10 @@
       url = "github:jaidaken/ferrosonic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    beer = {
+      url = "git+https://git.notashelf.dev/notashelf/beer.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stash = {
       url = "github:notashelf/stash";
       inputs.nixpkgs.follows = "nixpkgs";
