@@ -32,6 +32,7 @@ in {
     inputs.stash.packages.${sys}.default
     inputs.tuicr.packages.${sys}.default
     inputs.ferrosonic.packages.${sys}.default
+    inputs.beer.packages.${sys}.default
     cava
     codex
     t3code
