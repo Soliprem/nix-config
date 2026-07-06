@@ -29,8 +29,19 @@
     settings = {
       model = {
         provider = "openai-codex";
-        default = "gpt-5.5";
-        context_length = 131072;
+        default = "gpt-5.4-mini";
+      };
+
+      model_aliases = {
+        mini = {
+          provider = "openai-codex";
+          model = "gpt-5.4-mini";
+        };
+
+        smart = {
+          provider = "openai-codex";
+          model = "gpt-5.5";
+        };
       };
 
       delegation = {
