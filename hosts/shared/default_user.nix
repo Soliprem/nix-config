@@ -8,11 +8,12 @@
       "podman"
       "plugdev"
     ];
-    shell = pkgs.dash;
+    shell = "${pkgs.busybox}/bin/ash";
   };
 
   environment.shells = with pkgs; [
     nushell
-    dash
+    busybox
+    fish
   ];
 }
