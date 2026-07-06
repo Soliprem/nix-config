@@ -161,6 +161,7 @@
       layerrule=noblur:0,layer_name:^launcher$
       layerrule=noblur:0,layer_name:^quickshell-sidebar$
       layerrule=noblur:0,layer_name:^quantum-notification-popups$
+      layerrule=layer_name:selection,noblur:1,noanim:1
 
       # Monitor Config
       monitorrule=name:^HDMI-A-1$,width:1920,height:1080,refresh:120,x:2560,y:0
