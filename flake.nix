@@ -139,6 +139,10 @@
 
     # nvf-soli.url = "github:soliprem/nvf-soli/";
     nvf.url = "github:soliprem/nvf/bin-path";
+    mango = {
+      url = "github:soliprem/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # nvf.url = "path:/home/soliprem/.local/src/nvf-admin/";
     hjem = {
       url = "github:feel-co/hjem";
