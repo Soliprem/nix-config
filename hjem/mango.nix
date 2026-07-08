@@ -96,6 +96,7 @@
       env=XMODIFIERS,@im=fcitx
       env=GLFW_IM_MODULE,ibus
       env=INPUT_METHOD,fcitx
+      env=WLR_RENDERER,vulkan
 
       # Trackpad
       # need relogin to make it apply
@@ -165,7 +166,7 @@
 
       # Monitor Config
       monitorrule=name:^HDMI-A-1$,width:1920,height:1080,refresh:120,x:2560,y:0
-      monitorrule=model:Q27G3XMN,serial:1APQ7JA005710,width:2560,height:1440,refresh:180.002,x:0,y:0
+      monitorrule=model:Q27G3XMN,serial:1APQ7JA005710,width:2560,height:1440,refresh:180.002,x:0,y:0,hdr:1
       monitorrule=name:^eDP-1$,width:1920,height:1200,refresh:60,x:0,y:0,scale:1
       monitorrule=make:Seiko Epson Corporation,model:EPSON PJ,serial:0x01010101,scale:1.5
 

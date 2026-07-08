@@ -5,24 +5,29 @@
 }: let
   sys = pkgs.stdenv.hostPlatform.system;
   stremioFixed = pkgs.stremio-linux-shell.overrideAttrs (old: {
-    nativeBuildInputs = (old.nativeBuildInputs or []) ++ [
-      pkgs.makeWrapper
-    ];
+    nativeBuildInputs =
+      (old.nativeBuildInputs or [])
+      ++ [
+        pkgs.makeWrapper
+      ];
 
-    postFixup = (old.postFixup or "") + ''
-      mv $out/bin/stremio $out/bin/stremio-unwrapped
+    postFixup =
+      (old.postFixup or "")
+      + ''
+        mv $out/bin/stremio $out/bin/stremio-unwrapped
 
-      makeWrapper ${pkgs.strace}/bin/strace $out/bin/stremio \
-        --add-flags "-f" \
-        --add-flags "-qq" \
-        --add-flags "-o" \
-        --add-flags "/dev/null" \
-        --add-flags "-e" \
-        --add-flags "trace=none" \
-        --add-flags "$out/bin/stremio-unwrapped"
-    '';
+        makeWrapper ${pkgs.strace}/bin/strace $out/bin/stremio \
+          --add-flags "-f" \
+          --add-flags "-qq" \
+          --add-flags "-o" \
+          --add-flags "/dev/null" \
+          --add-flags "-e" \
+          --add-flags "trace=none" \
+          --add-flags "$out/bin/stremio-unwrapped"
+      '';
   });
 in {
+  imports = [inputs.mango.nixosModules.mango];
   environment.systemPackages = with pkgs; [
     # Flake inputs and custom derivations
     inputs.agenix.packages.${sys}.default
@@ -55,6 +60,7 @@ in {
     fortune
     fzf
     git
+    pijul
     gdb
     killall
     lazygit
@@ -250,9 +256,8 @@ in {
     # river.enable = true;
     niri.enable = true;
     hyprland.enable = true;
-    mangowc = {
+    mango = {
       enable = true;
-      package = pkgs.mango;
     };
     nh = {
       enable = true;
