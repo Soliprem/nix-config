@@ -33,6 +33,7 @@ in {
     inputs.agenix.packages.${sys}.default
     inputs.self.packages.${sys}.nvf
     inputs.thumbpick.packages.${sys}.default
+    inputs.roam-graph.packages.${sys}.default
     inputs.zen-browser.packages.${sys}.default
     inputs.stash.packages.${sys}.default
     inputs.tuicr.packages.${sys}.default
@@ -41,6 +42,8 @@ in {
     cava
     codex
     t3code
+    zk
+    graphviz
     ladybird
     waypipe
 
