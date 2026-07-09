@@ -28,6 +28,7 @@ in {
       scrolloff = 1;
     };
     preventJunkFiles = true;
+    extraPackages = [pkgs.zk];
     searchCase = "smart";
     viAlias = true;
     vimAlias = true;
@@ -491,6 +492,142 @@ in {
             }
           ];
         };
+      };
+      ${zk-nvim.pname} = {
+        lazy = true;
+        package = zk-nvim;
+        setupModule = "zk";
+        setupOpts = {
+          picker = "telescope";
+          lsp = {
+            config = {
+              name = "zk";
+              cmd = [
+                "zk"
+                "lsp"
+              ];
+              filetypes = ["markdown"];
+            };
+            auto_attach.enabled = true;
+          };
+          tags.multi_select_strategy = "AND";
+        };
+        cmd = [
+          "ZkBacklinks"
+          "ZkBuffers"
+          "ZkCd"
+          "ZkIndex"
+          "ZkInsertLink"
+          "ZkInsertLinkAtSelection"
+          "ZkLinks"
+          "ZkMatch"
+          "ZkNew"
+          "ZkNewFromContentSelection"
+          "ZkNewFromTitleSelection"
+          "ZkNotes"
+          "ZkTags"
+        ];
+        ft = ["markdown"];
+        keys = [
+          {
+            key = "<leader>zi";
+            mode = "n";
+            action = ":ZkIndex<cr>";
+            silent = true;
+            desc = "Zk index notebook";
+          }
+          {
+            key = "<leader>zn";
+            mode = "n";
+            action = ":ZkNew<cr>";
+            silent = true;
+            desc = "Zk new note";
+          }
+          {
+            key = "<leader>znt";
+            mode = "x";
+            action = ":'<,'>ZkNewFromTitleSelection<cr>";
+            silent = true;
+            desc = "Zk new from title";
+          }
+          {
+            key = "<leader>znc";
+            mode = "x";
+            action = ":'<,'>ZkNewFromContentSelection<cr>";
+            silent = true;
+            desc = "Zk new from content";
+          }
+          {
+            key = "<leader>zc";
+            mode = "n";
+            action = ":ZkCd<cr>";
+            silent = true;
+            desc = "Zk cd notebook";
+          }
+          {
+            key = "<leader>z/";
+            mode = "n";
+            action = ":ZkNotes<cr>";
+            silent = true;
+            desc = "Zk notes";
+          }
+          {
+            key = "<leader>zb";
+            mode = "n";
+            action = ":ZkBuffers<cr>";
+            silent = true;
+            desc = "Zk note buffers";
+          }
+          {
+            key = "<leader>zlb";
+            mode = "n";
+            action = ":ZkBacklinks<cr>";
+            silent = true;
+            desc = "Zk backlinks";
+          }
+          {
+            key = "<leader>zll";
+            mode = "n";
+            action = ":ZkLinks<cr>";
+            silent = true;
+            desc = "Zk links";
+          }
+          {
+            key = "<leader>zli";
+            mode = "n";
+            action = ":ZkInsertLink<cr>";
+            silent = true;
+            desc = "Zk insert link";
+          }
+          {
+            key = "<leader>zli";
+            mode = "x";
+            action = ":'<,'>ZkInsertLinkAtSelection<cr>";
+            silent = true;
+            desc = "Zk link selection";
+          }
+          {
+            key = "<leader>zt";
+            mode = "n";
+            action = ":ZkTags<cr>";
+            silent = true;
+            desc = "Zk tags";
+          }
+          {
+            key = "<leader>zf";
+            mode = "n";
+            action = ":ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<cr>";
+            silent = false;
+            desc = "Zk search notes";
+          }
+          {
+            key = "<leader>zf";
+            mode = "x";
+            action = ":'<,'>ZkMatch<cr>";
+            silent = true;
+            desc = "Zk match selection";
+          }
+        ];
       };
       ${twilight-nvim.pname} = {
         lazy = true;

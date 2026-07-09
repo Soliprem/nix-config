@@ -108,6 +108,10 @@
       url = "github:soliprem/thumbpick";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    roam-graph = {
+      url = "github:soliprem/roam-graph-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     tuicr = {
       url = "github:agavra/tuicr";
       inputs.nixpkgs.follows = "nixpkgs";
