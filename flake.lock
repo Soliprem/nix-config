@@ -881,11 +881,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783608522,
-        "narHash": "sha256-ESqscbVrXy9bL9fk9WttcH0fYeUbXWYMEI+0tAf9Tco=",
+        "lastModified": 1783677258,
+        "narHash": "sha256-0bkWVlJiYK+9/VivKxGET5keWoleky8b00GDd4Qfv28=",
         "owner": "soliprem",
         "repo": "roam-graph-rs",
-        "rev": "f3f0b9d9a8ffff3a7de143168cd39e1071deff79",
+        "rev": "c72b51108ce8a0c94d01e2fe528fdde3d6f90cd3",
         "type": "github"
       },
       "original": {
