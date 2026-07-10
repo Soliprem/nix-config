@@ -22,6 +22,10 @@
       nodejs_22
       perl
       python3
+      thunderbird-cli
+      thunderbird-cli-bridge
+      thunderbird-cli-mcp
+      thunderbird-mcp
     ];
 
     environmentFiles = [config.age.secrets.hermes_env.path];
@@ -40,7 +44,7 @@
 
         smart = {
           provider = "openai-codex";
-          model = "gpt-5.6-sol";
+          model = "gpt-5.6-terra";
         };
       };
 
@@ -70,11 +74,13 @@
 
       mcp_servers = {
         thunderbird-mail = {
-          command = "${pkgs.nodejs_22}/bin/node";
-          args = ["${configRoot}/assets/hermes/thunderbird-mcp/mcp-bridge.cjs"];
+          command = "thunderbird-mcp";
           env = {
             THUNDERBIRD_MCP_CONNECTION_FILE = "/tmp/thunderbird-mcp/connection.json";
           };
+        };
+        thunderbird-mail-vitalio = {
+          command = "tb-mcp";
         };
       };
       agent.tool_use_enforcement = true;
