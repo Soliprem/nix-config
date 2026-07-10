@@ -1,7 +1,6 @@
 {
   config,
   inputs,
-  configRoot,
   lib,
   pkgs,
   ...
@@ -22,9 +21,6 @@
       nodejs_22
       perl
       python3
-      thunderbird-cli
-      thunderbird-cli-bridge
-      thunderbird-cli-mcp
       thunderbird-mcp
     ];
 
@@ -78,9 +74,6 @@
           env = {
             THUNDERBIRD_MCP_CONNECTION_FILE = "/tmp/thunderbird-mcp/connection.json";
           };
-        };
-        thunderbird-mail-vitalio = {
-          command = "tb-mcp";
         };
       };
       agent.tool_use_enforcement = true;
