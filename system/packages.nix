@@ -125,7 +125,7 @@ in {
 
     # Browsers, communication, and network clients
     beeper
-    cinny
+    cinny-desktop
     gomuks-web
     bitwarden-desktop
     rnote
