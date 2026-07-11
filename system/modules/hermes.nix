@@ -29,26 +29,29 @@
     settings = {
       model = {
         provider = "openai-codex";
-        default = "gpt-5.6-luna";
+        default = "gpt-5.6-terra";
       };
 
       model_aliases = {
-        mini = {
+        luna = {
           provider = "openai-codex";
           model = "gpt-5.6-luna";
         };
 
-        smart = {
+        terra = {
           provider = "openai-codex";
           model = "gpt-5.6-terra";
+        };
+
+        sol = {
+          provider = "openai-codex";
+          model = "gpt-5.6-sol";
         };
       };
 
       delegation = {
-        model = "ornith:9b";
-        base_url = "http://127.0.0.1:11434/v1";
-        api_key = "ollama";
-        api_mode = "chat_completions";
+        provider = "openai-codex";
+        model = "gpt-5.6-luna";
 
         max_concurrent_children = 1;
         max_spawn_depth = 1;
