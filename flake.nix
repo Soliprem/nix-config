@@ -9,10 +9,10 @@
     inherit (self) outputs;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    nvfPkgs = import nixpkgs {
+    nvfPkgs = import inputs.nvf.inputs.nixpkgs {
       inherit system;
       config.allowUnfreePredicate = pkg:
-        builtins.elem (pkgs.lib.getName pkg) ["eyeliner.nvim"];
+        builtins.elem (inputs.nvf.inputs.nixpkgs.lib.getName pkg) ["eyeliner.nvim"];
     };
     configRoot = ./.;
   in {
@@ -88,16 +88,8 @@
       url = "git+https://git.notashelf.dev/notashelf/beer.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stash = {
-      url = "github:notashelf/stash";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     cade = {
       url = "github:manic-systems/cade";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    watt = {
-      url = "github:notashelf/watt";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     eh = {

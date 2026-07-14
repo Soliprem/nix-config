@@ -10,7 +10,6 @@
       ./hardware-configuration.nix
       ../shared
       ../shared/desktop.nix
-      inputs.watt.nixosModules.default
     ]
     ++ map (file: configRoot + "/system/modules/${file}" + ".nix") [
       "iio-niri"

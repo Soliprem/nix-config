@@ -35,11 +35,11 @@ in {
     inputs.thumbpick.packages.${sys}.default
     inputs.roam-graph.packages.${sys}.default
     inputs.zen-browser.packages.${sys}.default
-    inputs.stash.packages.${sys}.default
     inputs.tuicr.packages.${sys}.default
     inputs.ferrosonic.packages.${sys}.default
     inputs.beer.packages.${sys}.default
     cava
+    stash-clipboard
     codex
     t3code
     zk
