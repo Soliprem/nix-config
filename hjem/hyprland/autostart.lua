@@ -7,9 +7,10 @@ hl.on("hyprland.start", function()
     "awww-daemon",
     "nm-applet",
     "quickshell --no-duplicate",
+    "bitwarden",
     "protonvpn-app",
     "kanshi",
-    "stash watch",
+    "stash watch --persist",
     "sunsetr",
     "gomuks-web",
   }) do
