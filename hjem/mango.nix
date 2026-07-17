@@ -471,7 +471,7 @@
       exec-once=~/.config/mango/autostart.sh
     '';
     ".config/mango/autostart.sh".source = pkgs.writers.writeBash "autostart.sh" ''
-      stash watch &
+      stash watch --persist &
       xwayland-satellite &
       awww-daemon &
       battery-monitor &

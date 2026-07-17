@@ -7,7 +7,14 @@ window_rule({ title = "^(Julia|flame|script-fu|org.gtk_rs.HelloWorld2)$" }, { fl
 window_rule({ title = "^(Picture-in-Picture)$" }, { float = true })
 window_rule({ title = "^(Open File|Select a File|Choose wallpaper|Open Folder|Save As|Library)(.*)$" }, { float = true })
 window_rule({ class = "^(org.kde.polkit-kde-authentication-agent-1)$" }, { float = true })
-window_rule({ class = "^(protonvpn-app)$" }, { float = true })
+window_rule(
+  { class = "^(Bitwarden|bitwarden|com[.]bitwarden[.]desktop)$" },
+  { workspace = "special:bitwarden silent" }
+)
+window_rule(
+  { class = "^(proton[.]vpn[.]app[.]gtk)$" },
+  { float = true, workspace = "special:protonvpn silent" }
+)
 window_rule({ class = "^(eu.soliprem.thumbpick)$" }, { float = true })
 
 window_rule({ title = "^(Picture-in-Picture)$" }, { move = { 1275, 45 } })

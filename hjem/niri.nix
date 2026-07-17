@@ -54,7 +54,7 @@ _: {
            DISPLAY ":0"
         }
 
-        spawn-at-startup "stash" "watch"
+        spawn-at-startup "stash" "watch" "--persist"
         spawn-at-startup "xwayland-satellite"
         spawn-at-startup "awww-daemon"
         spawn-at-startup "battery-monitor"
