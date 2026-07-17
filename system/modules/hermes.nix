@@ -3,9 +3,16 @@
   inputs,
   lib,
   pkgs,
+  configRoot,
   ...
 }: {
   imports = [inputs.hermes-agent.nixosModules.default];
+
+  age.secrets.hermes_env = {
+    file = configRoot + /secrets/hermes_env.age;
+    owner = "soliprem";
+    group = "hermes";
+  };
 
   services.hermes-agent = {
     enable = true;

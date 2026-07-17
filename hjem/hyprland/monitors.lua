@@ -6,6 +6,14 @@ hl.monitor({
 })
 
 hl.monitor({
+  output = "desc:LG Electronics LG ULTRAFINE 507NTTQH5945",
+  cm = "edid",
+  mode = "3840x2160@60",
+  position = "1920x0",
+  scale = 2,
+})
+
+hl.monitor({
   output = "desc:AOC Q27G3XMN 1APQ7JA005710",
   mode = "2560x1440@180",
   position = "0x0",
