@@ -10,7 +10,7 @@ hl.on("hyprland.start", function()
     "bitwarden",
     "protonvpn-app",
     "kanshi",
-    "stash watch --persist",
+    "stash watch",
     "sunsetr",
     "gomuks-web",
   }) do
