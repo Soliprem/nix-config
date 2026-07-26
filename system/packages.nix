@@ -30,6 +30,12 @@ in {
   imports = [inputs.mango.nixosModules.mango];
   environment.systemPackages = with pkgs; [
     # Flake inputs and custom derivations
+    (runCommand "stash-symlinks" {} ''
+      mkdir -p $out/bin
+      for bin in stash-copy stash-paste wl-copy wl-paste; do
+        ln -s ${lib.getExe stash-clipboard} $out/bin/$bin
+      done
+    '')
     inputs.agenix.packages.${sys}.default
     inputs.self.packages.${sys}.nvf
     inputs.thumbpick.packages.${sys}.default
