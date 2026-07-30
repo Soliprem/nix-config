@@ -897,6 +897,7 @@
         "r-nvim": "r-nvim",
         "remarkable-bridge": "remarkable-bridge",
         "roam-graph": "roam-graph",
+        "sable-nightly": "sable-nightly",
         "spicetify-nix": "spicetify-nix",
         "sysboard": "sysboard",
         "thumbpick": "thumbpick",
@@ -1020,6 +1021,23 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "sable-nightly": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1785386427,
+        "narHash": "sha256-yfP/F7Qm3aJJVQidrRiXhaXqLV99MHh883cOxw+Ft2o=",
+        "owner": "SableClient",
+        "repo": "Sable",
+        "rev": "d0caffc1a90b08f858f693a4d12c77494a28f652",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SableClient",
+        "ref": "nightly",
+        "repo": "Sable",
         "type": "github"
       }
     },

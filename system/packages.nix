@@ -26,6 +26,101 @@
           --add-flags "$out/bin/stremio-unwrapped"
       '';
   });
+  sableSrc = inputs.sable-nightly;
+  sableVersion = (builtins.fromJSON (builtins.readFile "${sableSrc}/package.json")).version;
+  sableFrontend = pkgs.stdenvNoCC.mkDerivation {
+    pname = "sable-frontend";
+    version = sableVersion;
+    src = sableSrc;
+
+    pnpmDeps = pkgs.fetchPnpmDeps {
+      pname = "sable";
+      version = sableVersion;
+      src = sableSrc;
+      pnpm = pkgs.pnpm_10;
+      fetcherVersion = 3;
+      hash = "sha256-SXlupybTjM+76dCUtiAyR0GqZz139Pp4IqT7/PawjUA=";
+    };
+
+    pnpmInstallFlags = ["--ignore-scripts"];
+    nativeBuildInputs = [
+      pkgs.nodejs_24
+      pkgs.pnpm_10
+      (pkgs.pnpmConfigHook.override {pnpm = pkgs.pnpm_10;})
+    ];
+
+    buildPhase = "pnpm build";
+    installPhase = "cp -r dist $out";
+  };
+  sable-desktop = pkgs.rustPlatform.buildRustPackage {
+    pname = "sable";
+    version = "${sableVersion}-nightly";
+    src = sableSrc;
+
+    cargoRoot = "src-tauri";
+    cargoHash = "sha256-kIcV3egp8VA/ZN3gtxAWQr+gIMnfU+BFzX39eY07zF4=";
+
+    postPatch = ''
+      ${pkgs.lib.getExe pkgs.jq} \
+        '.build.frontendDist = "${sableFrontend}" | del(.build.beforeBuildCommand) | .bundle.createUpdaterArtifacts = false' src-tauri/tauri.conf.json \
+        | ${pkgs.lib.getExe' pkgs.moreutils "sponge"} src-tauri/tauri.conf.json
+    '';
+
+    nativeBuildInputs = [
+      pkgs.cargo-tauri.hook
+      pkgs.dpkg
+      pkgs.pkg-config
+      pkgs.wrapGAppsHook3
+    ];
+
+    buildInputs = [
+      pkgs.dbus
+      pkgs.glib-networking
+      pkgs.libayatana-appindicator
+      pkgs.openssl
+      pkgs.webkitgtk_4_1
+    ];
+
+    buildFeatures = [
+      "wry"
+      "custom-protocol"
+    ];
+    buildNoDefaultFeatures = true;
+    doCheck = false;
+
+    preFixup = ''
+      gappsWrapperArgs+=(
+        --prefix PATH : ${
+        pkgs.lib.makeBinPath [
+          pkgs.desktop-file-utils
+          pkgs.xdg-utils
+        ]
+      }
+        --prefix GST_PLUGIN_SYSTEM_PATH_1_0 : ${
+        pkgs.lib.makeSearchPath "lib/gstreamer-1.0" [
+          pkgs.gst_all_1.gst-plugins-base
+          pkgs.gst_all_1.gst-plugins-good
+        ]
+      }
+      )
+    '';
+
+    installPhase = ''
+      runHook preInstall
+      dpkg-deb -x src-tauri/target/${pkgs.stdenv.hostPlatform.rust.cargoShortTarget}/release/bundle/deb/*.deb $out
+      mv $out/usr/* $out/
+      rmdir $out/usr
+      runHook postInstall
+    '';
+
+    meta = {
+      description = "Matrix client based on Cinny";
+      homepage = "https://github.com/SableClient/Sable";
+      license = pkgs.lib.licenses.agpl3Plus;
+      mainProgram = "sable";
+      platforms = ["x86_64-linux"];
+    };
+  };
 in {
   imports = [inputs.mango.nixosModules.mango];
   environment.systemPackages = with pkgs; [
@@ -132,6 +227,7 @@ in {
     # Browsers, communication, and network clients
     beeper
     cinny-desktop
+    sable-desktop
     gomuks-web
     bitwarden-desktop
     rnote

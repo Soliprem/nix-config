@@ -59,6 +59,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    sable-nightly = {
+      url = "github:SableClient/Sable/nightly";
+      flake = false;
+    };
 
     r-nvim = {
       url = "github:R-nvim/R.nvim";
