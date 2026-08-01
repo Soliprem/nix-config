@@ -383,7 +383,7 @@
       runtimeInputs = with pkgs; [
         grim
         slurp
-        swappy
+        satty
       ];
       text = ''
                 if [[ ''${1:-} ]]; then
@@ -395,10 +395,10 @@
 
                 case $mode in
                     "region")
-                        grim -g "$(slurp)" - | swappy -f -
+                        grim -g "$(slurp)" - | satty -f -
                         ;;
                     "all")
-                        grim - | swappy -f -
+                        grim - | satty -f -
                         ;;
                     *)
                         echo >&2 "unsupported command \"$mode\""
@@ -542,9 +542,9 @@
       '';
     })
     (pkgs.writeShellApplication {
-      name = "swappy-clip";
+      name = "satty-clip";
       text = ''
-        wl-paste | swappy -f -
+        wl-paste | satty -f -
       '';
     })
     (pkgs.writeShellApplication {

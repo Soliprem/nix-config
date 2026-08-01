@@ -33,8 +33,8 @@ local common_keybinds = {
   SUPER = {
     SHIFT = {
       Q = { action = exec("hyprctl kill"), },
-      P = { action = exec("hyprshot -m output -m active -c -r - | swappy -f -"), },
-      S = { action = exec("hyprshot -m region -r - | swappy -f -"), },
+      P = { action = exec("hyprshot -m output -m active -c -r - | satty -f -"), },
+      S = { action = exec("hyprshot -m region -r - | wl-copy"), },
       v = { action = hl.dsp.workspace.toggle_special("protonvpn"), },
       n = { action = exec(term .. " -e notes"), },
       b = { action = exec("overskride"), },
@@ -66,7 +66,7 @@ local common_keybinds = {
       -- p = { action = hl.dsp.window.pin(), },
       F = { action = hl.dsp.window.fullscreen_state({ internal = -1, client = 2 }), },
       l = { action = exec("hyprlock"), },
-      P = { action = exec("hyprshot -m window -r - | swappy -f -"), },
+      P = { action = exec("hyprshot -m window -r - | satty -f -"), },
       N = { action = exec("dm-sunsetr"), },
     },
     Q = { action = hl.dsp.window.close(), },
@@ -78,7 +78,7 @@ local common_keybinds = {
     Period = { action = hl.dsp.focus({ monitor = "+1" }), },
     s = { action = hl.dsp.workspace.toggle_special(""), },
     f = { action = hl.dsp.window.fullscreen({ mode = "maximized" }), },
-    P = { action = exec("hyprshot -m output -c -r - | swappy -f -"), },
+    P = { action = exec("hyprshot -m output -c -r - | satty -f -"), },
     F1 = { action = exec("gamemode"), },
     Return = { action = exec(term), },
     w = { action = exec(browser), },
