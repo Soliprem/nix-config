@@ -212,7 +212,7 @@ in {
     matugen
     networkmanagerapplet
     overskride
-    swappy
+    satty
     swaylock-effects
     quickshell
     swayosd
