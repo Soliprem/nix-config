@@ -2,6 +2,7 @@ let
   soliprem = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQpO6feXcBptGjtcVPii+jjxumAdpMyYc633abLKlq93FSIWmsP9pZC30NG2XrcTgM6eFOgeWM/aIFN2kAd9Ec8yVdJ2wQHtSB2rrqStfg6edh3BEASuwO08VJGHu9peX850MEtd7A4uL+yrtAsMCJdk63MVctS9ePhNzDZL288j559rLrG/qSRlEyiF2bjtJJL+nZKX94P3aIwtV7Q9fK00gaooipl5We+B/VLfv+pCH/V8PcuqFxlgRzNonJWiA6l3yWtnkjKB/cvRc0FlJwj2T/SbGg33+l6AeT7k9jn3DQi//puyWTO5JuyTISywjMekWBOtSUrXUyoNxynCb3laVblcSj4646X+ywpBWXoaomtLBDZsG40Q04ja+jkFItSo8lrvHbY1rHLWsFUVonbi7EcsBMETmAmzlmlkUmui4jFV8dOE4h8xqml7CAxWT5DLvIgsNs5cOXdLCQr5/4DGBYi1Idk0wU+R3CAoPI46pvyOo47fQBh3twx/l8NS0= soliprem@arch-pc";
   laptop = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDSc+ofSlx2xQnIBCL68uIiLihZ/nB0NBienU1pcnL7tE76HH0697Zm5uV1TtwRkSxZhNo5AUHfxRNrh+CFoSnodFhg7OZ0d46TdLl9IyptjcpF/nPvPp6OwRonCLxw7WRfwe+5q7jGQJCqxaHPUX71Ng/qkk9HZ6LqTV7/PDjXhZ1zZR+GfCWW59H/emMZgUeTwBbwMD8aqWwautlYKOwURBXRxsViVP0epZGV4tIDDFlaM4eBOpsoashsX61bHAwXGV3HqcRGFVtXhsMks2cb8EvoRxxZp0IPbkbGh2Hokt1yy3KXk1zHo2eqzjo/7vwAih5dzf6cwaDMieQlYh+6y0Cm3KTlZX6eXb/2OW8PhQ1TkmVQAhUUxFm1JaNEhX/E2DWkoyCw2wjHk+J5RrLIkaOMi6eXMgTkff33ovB0JlDVFzSyt2e+YUX8ZXh7y3xu1cP5NVlTz935wnLPrlDG58ryxcNhQb3dtU3+Wj/toIOkWyygbY1HuzMZkUTNgMMU1K31SoFfijOtbYiIAiiwxynsYmsocidcrx7I+/HdgmWLaTkUgGONGa+ETuyvIfpuMSzfRfi/mIraiYRO0sCPX0YVVY+xOAjVLb6XwEZwNbuD1w9p8UPJmlg7Q1NdCtrWKx5QLVA/FfdZWRJEm0NNgKJcn/TnQpdqr0V3lt+3LQ== root@nixos-laptop";
   pc = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCchkITtPfJ3HSTL+BvGL721ZCO+POI3EMjpV2+1ixTwrCBo24lw6xlA7FGMZlByHpJeZ9KeaFtKMQkMZpm+DFR7uI5/r6qnizOADXDnufQ8OpRYEI6HjvgoRJnnFNFGjL10P1yjj+9aQ2fLhSZVMxvIfaFWEAhjBUfKQKEomR4FkfENiwlI+c7zj5aNnWs2t/UBtuWTjAO5tOkXCc8yVWnjgnJzxCHYuwGqDBka/isobxHEFKignoB9ub5wdztzpP5aQJX/nPLddA+IJffhKBN0JYGXDYQsG5ql3uxhJOgtq1zCxZp3q7wFifx74m3RoSxNR0rPTSDRLf1z/48XTlNvYz5Azv8MwkmwO5gooEwreaxca+N4uj9kz47trWUd266iSdVGF/dserFL3qv3QNR7Od0a4no774po1sHQzqvehLym/OhzDi76w5RvxsjWBi/L/LJd7E7n7lHwcbbofVUbXXLgU8Ftkqe73B7JHdN9rPSUhB0DLqZZS3gWLSOb710y6YcsWHllPoVCtGIVJc9bPshSovVd1gdVzjT+TEIQJLp2yevPVVzISacyrHNjU/U2UxqcIz8RATB9FryUnn9ex1yCd4HZmlM5tIIiruafvN1F/bmNIujSUB5HDUUWFMK8FxZ7kZpEhZo06O13Byj4ucM7iDPLh1jzq+tAOxwRw== root@nixos";
+  server = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIiItmdrSil8mpkC73aE5jZ7Tn4+yz7SXiKvxW0XMt5y root@debian-4gb-fsn1-1";
   users = [soliprem];
   systems = [laptop pc];
 in {
@@ -9,4 +10,7 @@ in {
   "bitwarden_clientsecret.age".publicKeys = users ++ systems;
   "bitwarden_password.age".publicKeys = users ++ systems;
   "hermes_env.age".publicKeys = users ++ systems;
+  "server_caddy_env.age".publicKeys = users ++ [server];
+  "server_storage_box_credentials.age".publicKeys = users ++ [server];
+  "server_wakapi_config.age".publicKeys = users ++ [server];
 }
