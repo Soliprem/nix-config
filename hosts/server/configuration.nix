@@ -1,10 +1,15 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./networking.nix
     ./storage.nix
     ./firewall.nix
     ./docker-compat.nix
+    ./secrets.nix
     ./native-compat.nix
   ];
 
@@ -17,11 +22,12 @@
     "nix-command"
     "flakes"
   ];
-
   environment.systemPackages = with pkgs; [
     cifs-utils
     git
     tmux
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvf-minimal
   ];
 
   services.fstrim.enable = true;

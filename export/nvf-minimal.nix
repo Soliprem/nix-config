@@ -43,6 +43,7 @@
         enable = true;
         setupOpts.buffers.write_to_disk = true;
       };
+      presets.tailwindcss-language-server.enable = false;
       trouble.enable = true;
       lspSignature.enable = false; # doesn't work with blink
       nvim-docs-view.enable = false; # lags *horribly* whenever l is pressed
@@ -71,7 +72,7 @@
       sql.enable = true;
       haskell.enable = false;
       java.enable = false;
-      ts = {
+      typescript = {
         enable = true;
         extraDiagnostics.enable = false;
       };
@@ -89,7 +90,6 @@
       dart.enable = false;
       lua.enable = true;
       bash.enable = true;
-      tailwind.enable = false;
       typst.enable = false;
       julia.enable = false;
       clang = {

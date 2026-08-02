@@ -1,11 +1,17 @@
 {
+  inputs,
   lib,
   pkgs,
   ...
-}: {
+}: let
+  system = pkgs.stdenv.hostPlatform.system;
+  foundryPackage = inputs.self.packages.${system}.foundry-vtt;
+  wakapiPackage = inputs.nixpkgs.legacyPackages.${system}.wakapi;
+in {
   services.caddy = {
     enable = true;
-    configFile = "/etc/caddy/Caddyfile";
+    configFile = ./assets/Caddyfile;
+    environmentFile = "/run/agenix/caddy_env";
   };
 
   services.redis.servers."" = {
@@ -39,18 +45,17 @@
     ];
   };
 
-  # The complete config contains credentials and stays root-only outside the
-  # store. Wakapi 2.17.3 migrated the quiesced database and started once, but
-  # its migration was not restart-safe for this data. Keep the audited 2.17.0
-  # static binary outside the store until an independently tested upgrade:
-  # SHA-256 a2ada063fb86daa2222f5d161d43e671c4960b83007a997cba244ab3a78d406a.
+  # Keep the complete production config encrypted because it contains the
+  # password salt and mail credentials. The package comes from the pinned
+  # unstable input until Wakapi 2.17.4 reaches the stable server input.
   services.wakapi = {
     enable = true;
+    package = wakapiPackage;
     stateDir = "/var/lib/wakapi";
   };
   systemd.services.wakapi = {
     script = lib.mkForce ''
-      exec /opt/compat-bin/wakapi -config "$CREDENTIALS_DIRECTORY/config.yml"
+      exec ${lib.getExe wakapiPackage} -config "$CREDENTIALS_DIRECTORY/config.yml"
     '';
     serviceConfig.LoadCredential = "config.yml:/etc/wakapi/config.yml";
   };
@@ -70,8 +75,8 @@
       User = "foundry";
       Group = "foundry";
       StateDirectory = "foundry";
-      WorkingDirectory = "/opt/foundry";
-      ExecStart = "${pkgs.nodejs_24}/bin/node /opt/foundry/main.js --dataPath=/var/lib/foundry";
+      WorkingDirectory = foundryPackage;
+      ExecStart = "${pkgs.nodejs_24}/bin/node ${foundryPackage}/main.js --dataPath=/var/lib/foundry";
       Restart = "on-failure";
       NoNewPrivileges = true;
       PrivateTmp = true;
@@ -91,31 +96,27 @@
     };
   };
 
-  # NixOS 26.05 has no iocaine service module, and its package predates the
-  # live 3.5.0 config. Preserve the audited static binary at this path:
-  # SHA-256 1379c58057f192e85d50c0bb441bb6e0a4ed355bb2559e3ef645f67c6a107a62.
-  environment.etc."iocaine/config.kdl".text = ''
-    http-server default {
-      bind "127.0.0.1:42069"
-      use handler-from=default
-    }
+  # Iocaine has no NixOS module, but the application itself comes directly
+  # from pinned nixpkgs. Its corpus remains mutable host data so large source
+  # texts do not bloat this configuration repository.
+  environment.etc."iocaine/config.toml".text = ''
+    [server]
+    bind = "127.0.0.1:42069"
 
-    prometheus-server "main" {
-      bind "127.0.0.1:42042"
-      persist-path "/var/lib/iocaine/main.metrics.json"
-      persist-interval "10min"
-    }
+    [server.request-handler]
+    language = "roto"
 
-    declare-handler default {
-      sources {
-        training-corpus "/var/lib/iocaine/corpus/1984.txt" \
-                        "/var/lib/iocaine/corpus/brave-new-world.txt"
-        wordlists "/var/lib/iocaine/corpus/words.txt"
-      }
-      ai-robots-txt-path "/var/lib/iocaine/corpus/ai.robots.txt-robots.json"
-    }
+    [sources]
+    markov = [
+      "/var/lib/iocaine/corpus/1984.txt",
+      "/var/lib/iocaine/corpus/brave-new-world.txt",
+    ]
+    words = "/var/lib/iocaine/corpus/words.txt"
 
-    declare-handler default language=roto
+    [metrics]
+    enable = true
+    bind = "127.0.0.1:42042"
+    persist-path = "/var/lib/iocaine/main.metrics.json"
   '';
   systemd.services.iocaine = {
     description = "iocaine, the deadliest poison known to AI";
@@ -127,7 +128,8 @@
       StateDirectory = "iocaine";
       WorkingDirectory = "/var/lib/iocaine";
       RuntimeDirectory = "iocaine";
-      ExecStart = "/opt/compat-bin/iocaine --config-path /etc/iocaine/config.kdl start";
+      ExecStart = "${lib.getExe pkgs.iocaine} --config-file /etc/iocaine/config.toml start";
+      ExecReload = "${lib.getExe pkgs.iocaine} --config-file /etc/iocaine/config.toml reload";
       Restart = "on-failure";
       UMask = "0077";
       LimitNOFILE = 524288;

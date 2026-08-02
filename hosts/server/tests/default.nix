@@ -1,5 +1,10 @@
 {
+  configRoot,
+  inputs,
+}: {
   name = "nixos-server-vm";
+
+  node.specialArgs = {inherit inputs configRoot;};
 
   nodes.server = {
     lib,
@@ -31,6 +36,8 @@
         respond /health "ok" 200
       }
     '');
+    services.caddy.environmentFile = lib.mkForce null;
+    age.secrets = lib.mkForce {};
     systemd.services.docker = {
       unitConfig.RequiresMountsFor = lib.mkForce "";
       serviceConfig.ExecStartPre = lib.mkForce [];

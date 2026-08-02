@@ -73,12 +73,14 @@
             ./export/nvf-minimal.nix
           ];
         }).neovim;
+      foundry-vtt = stablePkgs.callPackage ./packages/foundry-vtt.nix {};
       nixos-server-kexec =
         self.nixosConfigurations.nixos-server-kexec.config.system.build.kexecBundle;
     };
 
-    checks.${system}.nixos-server-vm =
-      stablePkgs.testers.runNixOSTest (import ./hosts/server/tests);
+    checks.${system}.nixos-server-vm = stablePkgs.testers.runNixOSTest (import ./hosts/server/tests {
+      inherit inputs configRoot;
+    });
   };
 
   inputs = {
