@@ -32,6 +32,7 @@
     pname = "sable-frontend";
     version = sableVersion;
     src = sableSrc;
+    NODE_OPTIONS = "--max-old-space-size=4096";
 
     pnpmDeps = pkgs.fetchPnpmDeps {
       pname = "sable";
@@ -44,6 +45,7 @@
 
     pnpmInstallFlags = ["--ignore-scripts"];
     nativeBuildInputs = [
+      pkgs.git
       pkgs.nodejs_24
       pkgs.pnpm_10
       (pkgs.pnpmConfigHook.override {pnpm = pkgs.pnpm_10;})
