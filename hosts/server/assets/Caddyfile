@@ -1,11 +1,3 @@
-(iocaine) {
-	@read method GET HEAD
-	reverse_proxy @read 127.0.0.1:42069 {
-		@fallback status 421
-		handle_response @fallback
-	}
-}
-
 soliprem.eu {
 	root * /var/www/soliprem
 	file_server
@@ -23,7 +15,6 @@ soliprem.eu {
 }
 
 silksong-journal.soliprem.eu {
-	import iocaine
 	encode zstd gzip
 	handle /api/* {
 		reverse_proxy 127.0.0.1:3100
@@ -36,13 +27,10 @@ silksong-journal.soliprem.eu {
 }
 
 matrix.soliprem.eu, matrix.soliprem.eu:8448 {
-	import iocaine
 	reverse_proxy 127.0.0.1:6167
 }
 
 livekit.soliprem.eu {
-	import iocaine
-
 	@lk-jwt-service path /sfu/get* /healthz* /get_token* /sfu_webhook*
 	route @lk-jwt-service {
 		reverse_proxy 127.0.0.1:8081
@@ -52,17 +40,14 @@ livekit.soliprem.eu {
 }
 
 immich.soliprem.eu {
-	import iocaine
 	reverse_proxy localhost:2283
 }
 
 files.soliprem.eu {
-	import iocaine
 	reverse_proxy localhost:8182
 }
 
 send.soliprem.eu {
-	import iocaine
 	@protected {
 		path / /upload /api/upload* /api/send*
 	}
@@ -73,7 +58,6 @@ send.soliprem.eu {
 }
 
 al.soliprem.eu {
-	import iocaine
 	@frontend {
 		not path /media* /admin* /static* /accounts*
 	}
@@ -91,37 +75,30 @@ nextcloud.soliprem.eu nc.soliprem.eu {
 }
 
 nc2.soliprem.eu {
-	import iocaine
 	reverse_proxy localhost:11000
 }
 
 vw.soliprem.eu {
-	import iocaine
 	reverse_proxy localhost:11001
 }
 
 nv.soliprem.eu {
-	import iocaine
 	reverse_proxy localhost:4533
 }
 
 memos.soliprem.eu {
-	import iocaine
 	reverse_proxy localhost:5230
 }
 
 foundry.soliprem.eu {
-	import iocaine
 	reverse_proxy localhost:30000
 }
 
 picsur.soliprem.eu {
-	import iocaine
 	reverse_proxy localhost:31416
 }
 
 waka.soliprem.eu {
-	import iocaine
 	reverse_proxy localhost:3000
 }
 
@@ -134,7 +111,6 @@ hoarder.soliprem.eu {
 }
 
 mail.soliprem.eu autodiscover.soliprem.eu autoconfig.soliprem.eu {
-	import iocaine
 	log {
 		output file /var/log/caddy/mail.soliprem.eu.log {
 			roll_disabled
