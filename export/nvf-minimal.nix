@@ -40,7 +40,7 @@
       lspsaga.enable = false;
       servers.nil.settings.nil.nix.autoArchive = true;
       otter-nvim = {
-        enable = true;
+        enable = false;
         setupOpts.buffers.write_to_disk = true;
       };
       presets.tailwindcss-language-server.enable = false;
@@ -51,15 +51,15 @@
 
     debugger = {
       nvim-dap = {
-        enable = true;
-        ui.enable = true;
+        enable = false;
+        ui.enable = false;
       };
     };
 
     languages = {
-      enableFormat = true;
+      enableFormat = false;
       enableTreesitter = true;
-      enableExtraDiagnostics = true;
+      enableExtraDiagnostics = false;
       nim.enable = false;
       nix.enable = true;
       markdown.enable = true;
@@ -69,37 +69,37 @@
         enable = false;
         format.type = ["styler"];
       };
-      sql.enable = true;
+      sql.enable = false;
       haskell.enable = false;
       java.enable = false;
       typescript = {
-        enable = true;
+        enable = false;
         extraDiagnostics.enable = false;
       };
       svelte.enable = false;
       vala.enable = false;
-      go.enable = true;
+      go.enable = false;
       elixir.enable = false;
       zig.enable = false;
       ocaml.enable = false;
       nu.enable = false;
       python = {
-        enable = true;
+        enable = false;
         lsp.servers = ["pyright"];
       };
       dart.enable = false;
-      lua.enable = true;
+      lua.enable = false;
       bash.enable = true;
       typst.enable = false;
       julia.enable = false;
       clang = {
-        enable = true;
+        enable = false;
         lsp.servers = ["clangd"];
       };
 
       rust = {
-        enable = true;
-        extensions.crates-nvim.enable = true;
+        enable = false;
+        extensions.crates-nvim.enable = false;
       };
     };
 
@@ -433,14 +433,6 @@
             mode = "n";
           }
         ];
-      };
-      ${typst-preview-nvim.pname} = {
-        lazy = true;
-        cmd = "TypstPreview";
-        package = typst-preview-nvim;
-        setupOpts = {
-          open_cmd = "zen %s";
-        };
       };
       ${boole-nvim.pname} = {
         lazy = true;
