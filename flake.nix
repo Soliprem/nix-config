@@ -4,11 +4,13 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-stable,
     ...
   } @ inputs: let
     inherit (self) outputs;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    stablePkgs = nixpkgs-stable.legacyPackages.${system};
     nvfPkgs = import inputs.nvf.inputs.nixpkgs {
       inherit system;
       config.allowUnfreePredicate = pkg:
@@ -29,6 +31,23 @@
         specialArgs = {inherit inputs outputs configRoot;};
         modules = [
           ./hosts/pc/configuration.nix
+        ];
+      };
+      nixos-server = nixpkgs-stable.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs outputs configRoot;};
+        modules = [
+          ./hosts/server/configuration.nix
+        ];
+      };
+      nixos-server-kexec = nixpkgs-stable.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs outputs configRoot;
+          targetSystem = self.nixosConfigurations.nixos-server.config.system.build.toplevel;
+        };
+        modules = [
+          ./hosts/server/kexec.nix
         ];
       };
     };
@@ -54,11 +73,17 @@
             ./export/nvf-minimal.nix
           ];
         }).neovim;
+      nixos-server-kexec =
+        self.nixosConfigurations.nixos-server-kexec.config.system.build.kexecBundle;
     };
+
+    checks.${system}.nixos-server-vm =
+      stablePkgs.testers.runNixOSTest (import ./hosts/server/tests);
   };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-26.05";
     sable-nightly = {
       url = "github:SableClient/Sable/nightly";
       flake = false;
