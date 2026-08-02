@@ -32,8 +32,21 @@
     };
 
     services.caddy.configFile = lib.mkForce (pkgs.writeText "Caddyfile-vm" ''
+      (iocaine) {
+        @read method GET HEAD
+        reverse_proxy @read 127.0.0.1:42069 {
+          @fallback status 421
+          handle_response @fallback
+        }
+      }
+
       :8080 {
-        respond /health "ok" 200
+        import iocaine
+        reverse_proxy 127.0.0.1:8081
+      }
+
+      :8081 {
+        respond "upstream" 200
       }
     '');
     services.caddy.environmentFile = lib.mkForce null;
@@ -51,9 +64,23 @@
     services.wakapi.enable = lib.mkForce false;
     systemd.services = {
       foundry.enable = lib.mkForce false;
-      iocaine.enable = lib.mkForce false;
       silksong-collab.enable = lib.mkForce false;
     };
+    environment.etc."iocaine/config.kdl".text = lib.mkForce ''
+      http-server default {
+        bind "127.0.0.1:42069"
+        use handler-from=default
+      }
+
+      declare-handler default {
+        sources {
+          training-corpus "${pkgs.writeText "iocaine-test-corpus" "Machines can think. Humans can think too."}"
+          wordlists "${pkgs.writeText "iocaine-test-words" "machine\nhuman\nthink\n"}"
+        }
+      }
+
+      declare-handler default language=roto
+    '';
 
     # Test-only consumer proving that a missing required mount prevents writes
     # to an empty local directory.
@@ -111,8 +138,13 @@
     server.succeed("curl --fail --silent http://127.0.0.1:4533/ping")
 
     server.wait_for_unit("caddy.service")
+    server.wait_for_unit("iocaine.service")
+    server.wait_for_open_port(42069)
     server.wait_for_open_port(8080)
-    server.succeed("curl --fail --silent http://127.0.0.1:8080/health | grep -qx ok")
+    server.succeed("curl --fail --silent --user-agent 'Mozilla/5.0' http://127.0.0.1:8080/ | grep -qx upstream")
+    server.succeed("test $(curl --silent --output /tmp/iocaine-bot --write-out '%{http_code}' --user-agent 'GPTBot/1.0' http://127.0.0.1:8080/) = 200")
+    server.succeed("test -s /tmp/iocaine-bot")
+    server.succeed("! grep -qx upstream /tmp/iocaine-bot")
 
     server.wait_for_unit("docker.service")
     server.succeed("docker info --format '{{.DockerRootDir}}' | grep -qx /var/lib/docker")

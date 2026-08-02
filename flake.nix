@@ -74,6 +74,7 @@
           ];
         }).neovim;
       foundry-vtt = stablePkgs.callPackage ./packages/foundry-vtt.nix {};
+      iocaine = stablePkgs.callPackage ./packages/iocaine.nix {};
       nixos-server-kexec =
         self.nixosConfigurations.nixos-server-kexec.config.system.build.kexecBundle;
     };

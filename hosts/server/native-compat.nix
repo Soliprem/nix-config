@@ -6,6 +6,7 @@
 }: let
   system = pkgs.stdenv.hostPlatform.system;
   foundryPackage = inputs.self.packages.${system}.foundry-vtt;
+  iocainePackage = inputs.self.packages.${system}.iocaine;
   wakapiPackage = inputs.nixpkgs.legacyPackages.${system}.wakapi;
 in {
   services.caddy = {
@@ -96,27 +97,31 @@ in {
     };
   };
 
-  # Iocaine has no NixOS module, but the application itself comes directly
-  # from pinned nixpkgs. Its corpus remains mutable host data so large source
-  # texts do not bloat this configuration repository.
-  environment.etc."iocaine/config.toml".text = ''
-    [server]
-    bind = "127.0.0.1:42069"
+  # The 2.5 package in the pinned nixpkgs inputs uses an incompatible handler
+  # model and accepts ordinary browsers. Keep the proven 3.5 policy and KDL
+  # interface until nixpkgs carries a drop-in-compatible release.
+  environment.etc."iocaine/config.kdl".text = ''
+    http-server default {
+      bind "127.0.0.1:42069"
+      use handler-from=default
+    }
 
-    [server.request-handler]
-    language = "roto"
+    prometheus-server "main" {
+      bind "127.0.0.1:42042"
+      persist-path "/var/lib/iocaine/main.metrics.json"
+      persist-interval "10min"
+    }
 
-    [sources]
-    markov = [
-      "/var/lib/iocaine/corpus/1984.txt",
-      "/var/lib/iocaine/corpus/brave-new-world.txt",
-    ]
-    words = "/var/lib/iocaine/corpus/words.txt"
+    declare-handler default {
+      sources {
+        training-corpus "/var/lib/iocaine/corpus/1984.txt" \
+                        "/var/lib/iocaine/corpus/brave-new-world.txt"
+        wordlists "/var/lib/iocaine/corpus/words.txt"
+      }
+      ai-robots-txt-path "/var/lib/iocaine/corpus/ai.robots.txt-robots.json"
+    }
 
-    [metrics]
-    enable = true
-    bind = "127.0.0.1:42042"
-    persist-path = "/var/lib/iocaine/main.metrics.json"
+    declare-handler default language=roto
   '';
   systemd.services.iocaine = {
     description = "iocaine, the deadliest poison known to AI";
@@ -128,8 +133,7 @@ in {
       StateDirectory = "iocaine";
       WorkingDirectory = "/var/lib/iocaine";
       RuntimeDirectory = "iocaine";
-      ExecStart = "${lib.getExe pkgs.iocaine} --config-file /etc/iocaine/config.toml start";
-      ExecReload = "${lib.getExe pkgs.iocaine} --config-file /etc/iocaine/config.toml reload";
+      ExecStart = "${lib.getExe iocainePackage} --config-path /etc/iocaine/config.kdl start";
       Restart = "on-failure";
       UMask = "0077";
       LimitNOFILE = 524288;
@@ -156,6 +160,10 @@ in {
       CapabilityBoundingSet = "CAP_NET_ADMIN";
       AmbientCapabilities = "CAP_NET_ADMIN";
     };
+  };
+  systemd.services.caddy = {
+    after = ["iocaine.service"];
+    wants = ["iocaine.service"];
   };
 
   # Audited static compatibility binary, restored outside the store:
