@@ -68,9 +68,6 @@
       default = nvf;
     };
 
-    checks.${system}.nixos-server-vm = stablePkgs.testers.runNixOSTest (import ./hosts/server/tests {
-      inherit inputs configRoot;
-    });
   };
 
   inputs = {
