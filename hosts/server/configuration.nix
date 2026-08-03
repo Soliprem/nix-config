@@ -13,6 +13,7 @@
     ./native-compat.nix
     ./services/livekit.nix
     ./services/vaultwarden.nix
+    ./services/memos.nix
   ];
 
   networking.hostName = "debian-4gb-fsn1-1";
