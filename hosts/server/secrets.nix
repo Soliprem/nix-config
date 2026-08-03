@@ -26,5 +26,13 @@
       file = configRoot + /secrets/server_livekit_keys.age;
       mode = "0400";
     };
+    karakeep_env = {
+      file = configRoot + /secrets/server_karakeep_env.age;
+      mode = "0400";
+    };
+    meilisearch_master_key = {
+      file = configRoot + /secrets/server_meilisearch_master_key.age;
+      mode = "0400";
+    };
   };
 }
