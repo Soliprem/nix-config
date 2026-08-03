@@ -14,6 +14,7 @@
     ./services/livekit.nix
     ./services/vaultwarden.nix
     ./services/memos.nix
+    ./services/send.nix
   ];
 
   networking.hostName = "debian-4gb-fsn1-1";
