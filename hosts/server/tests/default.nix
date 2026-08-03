@@ -61,7 +61,17 @@
       PermitRootLogin = lib.mkForce "prohibit-password";
     };
 
-    services.wakapi.enable = lib.mkForce false;
+    # Stateful production applications are dogfooded on the VPS. This VM stays
+    # focused on boot, SSH, storage failure behavior, networking, and Docker.
+    services = {
+      karakeep.enable = lib.mkForce false;
+      livekit.enable = lib.mkForce false;
+      memos.enable = lib.mkForce false;
+      meilisearch.enable = lib.mkForce false;
+      send.enable = lib.mkForce false;
+      vaultwarden.enable = lib.mkForce false;
+      wakapi.enable = lib.mkForce false;
+    };
     systemd.services = {
       foundry.enable = lib.mkForce false;
       silksong-collab.enable = lib.mkForce false;
