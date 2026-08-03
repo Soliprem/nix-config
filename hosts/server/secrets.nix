@@ -22,5 +22,9 @@
       mode = "0600";
       symlink = false;
     };
+    livekit_keys = {
+      file = configRoot + /secrets/server_livekit_keys.age;
+      mode = "0400";
+    };
   };
 }
