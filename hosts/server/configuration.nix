@@ -15,6 +15,7 @@
     ./services/vaultwarden.nix
     ./services/memos.nix
     ./services/send.nix
+    ./services/karakeep.nix
   ];
 
   networking.hostName = "debian-4gb-fsn1-1";
