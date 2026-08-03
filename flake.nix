@@ -42,7 +42,7 @@
       };
     };
 
-    packages.${pkgs.stdenv.hostPlatform.system} = {
+    packages.${pkgs.stdenv.hostPlatform.system} = rec {
       nvf =
         (inputs.nvf.lib.neovimConfiguration {
           pkgs = nvfPkgs;
@@ -65,6 +65,7 @@
         }).neovim;
       foundry-vtt = stablePkgs.callPackage ./packages/foundry-vtt.nix {};
       iocaine = stablePkgs.callPackage ./packages/iocaine.nix {};
+      default = nvf;
     };
 
     checks.${system}.nixos-server-vm = stablePkgs.testers.runNixOSTest (import ./hosts/server/tests {
