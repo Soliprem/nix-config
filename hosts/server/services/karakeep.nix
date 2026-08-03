@@ -28,7 +28,10 @@ in {
   services.meilisearch.masterKeyFile = config.age.secrets.meilisearch_master_key.path;
 
   systemd.services = {
-    karakeep-init.unitConfig.ConditionPathExists = "/var/lib/karakeep/db.db";
+    karakeep-init = {
+      unitConfig.ConditionPathExists = "/var/lib/karakeep/db.db";
+      serviceConfig.StateDirectoryMode = "0700";
+    };
     karakeep-workers = {
       wants = ["meilisearch.service" "karakeep-browser.service"];
       after = ["meilisearch.service" "karakeep-browser.service"];
