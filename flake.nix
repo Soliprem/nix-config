@@ -42,6 +42,22 @@
       };
     };
 
+    deploy.nodes.nixos-server = {
+      hostname = "49.12.104.79";
+      sshUser = "root";
+      remoteBuild = true;
+      autoRollback = true;
+      magicRollback = true;
+      activationTimeout = 600;
+      confirmTimeout = 60;
+      profiles.system = {
+        user = "root";
+        path = inputs.deploy-rs.lib.${system}.activate.nixos self.nixosConfigurations.nixos-server;
+      };
+    };
+
+    checks = builtins.mapAttrs (_: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
+
     packages.${pkgs.stdenv.hostPlatform.system} = rec {
       nvf =
         (inputs.nvf.lib.neovimConfiguration {
@@ -67,12 +83,15 @@
       iocaine = stablePkgs.callPackage ./packages/iocaine.nix {};
       default = nvf;
     };
-
   };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-26.05";
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sable-nightly = {
       url = "github:SableClient/Sable/nightly";
       flake = false;

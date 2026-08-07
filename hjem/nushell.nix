@@ -52,6 +52,7 @@ _: {
           load-env { BW_SESSION: $session }
         }
         alias nos = nh os switch
+        alias snos = deploy $'($env.HOME)/.local/src/nix-config#nixos-server'
         alias nd = nix develop
         alias sl = sll
         alias fg = job unfreeze
