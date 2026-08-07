@@ -136,6 +136,7 @@ _: {
       vimdiff = "nvim -d";
       startx = "startx $XINITRC";
       nos = "nh os switch";
+      snos = "deploy $HOME/.local/src/nix-config#nixos-server";
       sl = "sll";
       lg = "lazygit";
       n = "cd ~/.local/src/nix-config && ls";

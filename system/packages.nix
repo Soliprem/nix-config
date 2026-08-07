@@ -133,6 +133,7 @@ in {
       done
     '')
     inputs.agenix.packages.${sys}.default
+    inputs.deploy-rs.packages.${sys}.default
     inputs.self.packages.${sys}.nvf
     inputs.thumbpick.packages.${sys}.default
     inputs.roam-graph.packages.${sys}.default
