@@ -124,7 +124,6 @@
     };
   };
 in {
-  imports = [inputs.mango.nixosModules.mango];
   environment.systemPackages = with pkgs; [
     # Flake inputs and custom derivations
     (runCommand "stash-symlinks" {} ''
