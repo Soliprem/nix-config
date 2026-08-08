@@ -40,7 +40,7 @@
       src = sableSrc;
       pnpm = pkgs.pnpm_10;
       fetcherVersion = 3;
-      hash = "sha256-SXlupybTjM+76dCUtiAyR0GqZz139Pp4IqT7/PawjUA=";
+      hash = "sha256-1siT4fB6ty2azmWXe5L40EFUdk0th59qIdARUB0cVOc=";
     };
 
     pnpmInstallFlags = ["--ignore-scripts"];
@@ -60,7 +60,7 @@
     src = sableSrc;
 
     cargoRoot = "src-tauri";
-    cargoHash = "sha256-kIcV3egp8VA/ZN3gtxAWQr+gIMnfU+BFzX39eY07zF4=";
+    cargoHash = "sha256-GO1hm/4SNqU4OQW5UeZzLZS2J4TMVu1O9SkUGBJ3S8o=";
 
     postPatch = ''
       ${pkgs.lib.getExe pkgs.jq} \
