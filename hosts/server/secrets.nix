@@ -16,12 +16,6 @@
       mode = "0600";
       symlink = false;
     };
-    wakapi_config = {
-      file = configRoot + /secrets/server_wakapi_config.age;
-      path = "/etc/wakapi/config.yml";
-      mode = "0600";
-      symlink = false;
-    };
     livekit_keys = {
       file = configRoot + /secrets/server_livekit_keys.age;
       mode = "0400";

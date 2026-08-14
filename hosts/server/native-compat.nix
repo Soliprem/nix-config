@@ -45,15 +45,9 @@ in {
     ];
   };
 
-  # Keep the complete production config encrypted because it contains the
-  # password salt and mail credentials.
   services.wakapi = {
     enable = true;
-    stateDir = "/var/lib/wakapi";
-  };
-  systemd.services.wakapi.serviceConfig = {
-    ExecStart = lib.mkForce "${lib.getExe pkgs.wakapi} -config \${CREDENTIALS_DIRECTORY}/config.yml";
-    LoadCredential = "config.yml:/etc/wakapi/config.yml";
+    settings.db.name = "/var/lib/wakapi/wakapi.db";
   };
 
   users.groups.foundry = {};
