@@ -1,20 +1,25 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: let
+  storagePaths = [
+    "ncdata"
+    "ncbackups"
+    "nextcloud-data"
+    "immich/files"
+    "music"
+  ];
+  nonEmptyStoragePaths = builtins.filter (path: path != "nextcloud-data") storagePaths;
+in {
   virtualisation.docker = {
     enable = true;
     daemon.settings = {
-      # The existing Docker 29.5 data root uses the classic overlay2 graph driver.
-      # Docker 29.6 defaults to the containerd snapshotter/overlayfs, which
-      # would make the existing images and containers appear detached.
+      # Keep the classic image store until the remaining stacks are rebuilt.
       "features"."containerd-snapshotter" = false;
       "fixed-cidr-v6" = "fd00:dead:beef:c0::/80";
       "ip6tables" = true;
       "ipv6" = true;
-      "log-driver" = "json-file";
-      "log-opts" = {
-        "max-file" = "3";
-        "max-size" = "10m";
-      };
-      "storage-driver" = "overlay2";
     };
   };
 
@@ -29,28 +34,10 @@
       "${pkgs.util-linux}/bin/mountpoint -q /mnt/storage-box"
       (pkgs.writeShellScript "verify-docker-storage-box" ''
         set -eu
-        # Check the exact leaf paths consumed by the retained bind mounts, plus
-        # the native music consumer. Checking only a parent could let Docker
-        # create a missing leaf on the remote share.
-        for path in \
-          ncdata \
-          ncbackups \
-          nextcloud-data \
-          immich/files \
-          matrix-media \
-          send/uploads \
-          music; do
+        for path in ${lib.escapeShellArgs storagePaths}; do
           test -d "/mnt/storage-box/$path"
         done
-        # nextcloud-data is an intentionally empty secondary AIO bind. All
-        # other audited application-data leaves are currently non-empty.
-        for path in \
-          ncdata \
-          ncbackups \
-          immich/files \
-          matrix-media \
-          send/uploads \
-          music; do
+        for path in ${lib.escapeShellArgs nonEmptyStoragePaths}; do
           ${pkgs.findutils}/bin/find "/mnt/storage-box/$path" \
             -mindepth 1 -maxdepth 1 -print -quit \
             | ${pkgs.gnugrep}/bin/grep -q .

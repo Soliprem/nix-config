@@ -11,6 +11,7 @@
     ./docker-compat.nix
     ./secrets.nix
     ./native-compat.nix
+    ./services/continuwuity.nix
     ./services/livekit.nix
     ./services/vaultwarden.nix
     ./services/memos.nix

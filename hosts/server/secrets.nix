@@ -26,6 +26,10 @@
       file = configRoot + /secrets/server_livekit_keys.age;
       mode = "0400";
     };
+    continuwuity_registration_token = {
+      file = configRoot + /secrets/server_continuwuity_registration_token.age;
+      mode = "0400";
+    };
     karakeep_env = {
       file = configRoot + /secrets/server_karakeep_env.age;
       mode = "0400";

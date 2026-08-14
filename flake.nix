@@ -4,13 +4,14 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-stable,
     ...
   } @ inputs: let
     inherit (self) outputs;
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-    stablePkgs = nixpkgs-stable.legacyPackages.${system};
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
     nvfPkgs = import inputs.nvf.inputs.nixpkgs {
       inherit system;
       config.allowUnfreePredicate = pkg:
@@ -33,7 +34,7 @@
           ./hosts/pc/configuration.nix
         ];
       };
-      nixos-server = nixpkgs-stable.lib.nixosSystem {
+      nixos-server = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs outputs configRoot;};
         modules = [
@@ -45,7 +46,6 @@
     deploy.nodes.nixos-server = {
       hostname = "49.12.104.79";
       sshUser = "root";
-      remoteBuild = true;
       autoRollback = true;
       magicRollback = true;
       activationTimeout = 600;
@@ -79,15 +79,14 @@
             ./export/nvf-minimal.nix
           ];
         }).neovim;
-      foundry-vtt = stablePkgs.callPackage ./packages/foundry-vtt.nix {};
-      iocaine = stablePkgs.callPackage ./packages/iocaine.nix {};
+      foundry-vtt = pkgs.callPackage ./packages/foundry-vtt.nix {};
+      iocaine = pkgs.callPackage ./packages/iocaine.nix {};
       default = nvf;
     };
   };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-26.05";
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";

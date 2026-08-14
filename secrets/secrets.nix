@@ -14,6 +14,7 @@ in {
   "server_storage_box_credentials.age".publicKeys = users ++ [server];
   "server_wakapi_config.age".publicKeys = users ++ [server];
   "server_livekit_keys.age".publicKeys = users ++ [server];
+  "server_continuwuity_registration_token.age".publicKeys = users ++ [server];
   "server_karakeep_env.age".publicKeys = users ++ [server];
   "server_meilisearch_master_key.age".publicKeys = users ++ [server];
 }

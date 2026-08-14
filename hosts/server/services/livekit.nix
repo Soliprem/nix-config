@@ -1,14 +1,6 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: let
-  system = pkgs.stdenv.hostPlatform.system;
-in {
+{config, ...}: {
   services.livekit = {
     enable = true;
-    package = inputs.nixpkgs.legacyPackages.${system}.livekit;
     keyFile = config.age.secrets.livekit_keys.path;
     settings = {
       port = 7880;
@@ -33,5 +25,17 @@ in {
         domain = "livekit.soliprem.eu";
       };
     };
+  };
+
+  services.lk-jwt-service = {
+    enable = true;
+    livekitUrl = "wss://livekit.soliprem.eu";
+    keyFile = config.age.secrets.livekit_keys.path;
+    port = 8081;
+  };
+
+  systemd.services.lk-jwt-service.environment = {
+    LIVEKIT_FULL_ACCESS_HOMESERVERS = "soliprem.eu";
+    LIVEKIT_SANITY_CHECK_INTERVAL_SECONDS = "60";
   };
 }

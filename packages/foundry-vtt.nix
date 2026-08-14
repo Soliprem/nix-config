@@ -12,7 +12,7 @@ in
 
     src = requireFile {
       name = "foundryvtt-14.365.zip";
-      sha256 = "sha256-b5vCm7PiCr94qqIYIZLnIzoAjC98Ra3nDmCC2iC+vI8=";
+      sha256 = "sha256-T6T0RxDwAe2ZMx9a9JHOHebcH1TDKd4EeX/jvmmOyRY=";
       message = ''
         Foundry VTT is licensed software and must be supplied manually.
         Add the v14.365 Linux/Node.js archive with:
