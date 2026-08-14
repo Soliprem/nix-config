@@ -147,7 +147,7 @@ in {
     t3code
     zk
     graphviz
-    ladybird
+    emacs
     waypipe
 
     # CLI, shells, and core tools
