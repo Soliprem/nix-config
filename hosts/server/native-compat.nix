@@ -7,7 +7,6 @@
   system = pkgs.stdenv.hostPlatform.system;
   foundryPackage = inputs.self.packages.${system}.foundry-vtt;
   iocainePackage = inputs.self.packages.${system}.iocaine;
-  wakapiPackage = inputs.nixpkgs.legacyPackages.${system}.wakapi;
 in {
   services.caddy = {
     enable = true;
@@ -47,18 +46,14 @@ in {
   };
 
   # Keep the complete production config encrypted because it contains the
-  # password salt and mail credentials. The package comes from the pinned
-  # unstable input until Wakapi 2.17.4 reaches the stable server input.
+  # password salt and mail credentials.
   services.wakapi = {
     enable = true;
-    package = wakapiPackage;
     stateDir = "/var/lib/wakapi";
   };
-  systemd.services.wakapi = {
-    script = lib.mkForce ''
-      exec ${lib.getExe wakapiPackage} -config "$CREDENTIALS_DIRECTORY/config.yml"
-    '';
-    serviceConfig.LoadCredential = "config.yml:/etc/wakapi/config.yml";
+  systemd.services.wakapi.serviceConfig = {
+    ExecStart = lib.mkForce "${lib.getExe pkgs.wakapi} -config \${CREDENTIALS_DIRECTORY}/config.yml";
+    LoadCredential = "config.yml:/etc/wakapi/config.yml";
   };
 
   users.groups.foundry = {};
