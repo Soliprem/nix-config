@@ -284,7 +284,7 @@ in {
         };
       };
       neorg = {
-        enable = true;
+        enable = false;
         setupOpts = {
           load = {
             "core.defaults" = {};
