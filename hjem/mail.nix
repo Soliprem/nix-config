@@ -169,7 +169,7 @@
     '';
 
     ".local/share/gnupg/gpg-agent.conf".text = ''
-      pinentry-program ${pkgs.pinentry-qt}/bin/pinentry
+      pinentry-program ${pkgs.pinentry-all}/bin/pinentry
       default-cache-ttl 3600
       max-cache-ttl 28800
     '';

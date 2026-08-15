@@ -7,6 +7,8 @@ _: {
       ''
         if status is-interactive
             set fish_greeting
+            set -gx GPG_TTY (tty)
+            command gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
         end
 
         command nix-your-shell fish | source
