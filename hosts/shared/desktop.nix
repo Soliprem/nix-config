@@ -24,7 +24,6 @@
   imports = map (file: configRoot + "/system/modules/${file}" + ".nix") [
     "flatpak"
     "steam"
-    "open-webui"
     "printing"
     "spicetify"
     "dmscripts"
