@@ -1,10 +1,19 @@
 ;;; config.el -*- lexical-binding: t; -*-
 
 (setq doom-theme 'gruber-darker
-      display-line-numbers-type t
+      display-line-numbers-type 'relative
+      display-line-numbers-current-absolute t
       org-directory "~/Documents/org/"
       org-roam-directory org-directory
       org-roam-dailies-directory "dailies/")
+
+(after! org
+  (custom-set-faces!
+    '(org-document-title :weight bold :height 1.5)
+    '(org-level-1 :weight bold :height 1.35)
+    '(org-level-2 :weight bold :height 1.25)
+    '(org-level-3 :weight bold :height 1.15)
+    '(org-level-4 :weight bold :height 1.1)))
 
 (use-package! org-roam-ui
   :after org-roam

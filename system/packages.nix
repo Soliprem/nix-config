@@ -178,8 +178,7 @@ in {
     openai-whisper
     typst
     tinymist
-    texliveSmall
-    texlivePackages.dvipng
+    (texliveSmall.withPackages (ps: [ps.dvipng]))
     zed-editor
 
     # Wayland, theming, and desktop utilities

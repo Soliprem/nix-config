@@ -43,6 +43,7 @@ local common_keybinds = {
       m = { action = exec("swayosd-client --output-volume mute-toggle"), opts = { locked = true }, },
       E = { action = hl.dsp.exit(), },
       Comma = { action = hl.dsp.window.move({ monitor = "-1" }), },
+      Return = { action = exec("emacsclient -c"), },
       Period = { action = hl.dsp.window.move({ monitor = "+1" }), },
       space = { action = hl.dsp.window.float({ action = "toggle" }), },
       f = { action = hl.dsp.window.fullscreen({ mode = "fullscreen" }), },
