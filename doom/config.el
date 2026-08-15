@@ -2,7 +2,18 @@
 
 (setq doom-theme 'gruber-darker
       display-line-numbers-type t
-      org-directory "~/Documents/org/")
+      org-directory "~/Documents/org/"
+      org-roam-directory org-directory
+      org-roam-dailies-directory "dailies/")
+
+(use-package! org-roam-ui
+  :after org-roam
+  :commands org-roam-ui-mode
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
 
 (set-email-account! "unibo"
   '((user-full-name . "Francesco Prem Solidoro")

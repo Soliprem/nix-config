@@ -178,6 +178,8 @@ in {
     openai-whisper
     typst
     tinymist
+    texliveSmall
+    texlivePackages.dvipng
     zed-editor
 
     # Wayland, theming, and desktop utilities
