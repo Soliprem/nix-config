@@ -26,69 +26,68 @@
           --add-flags "$out/bin/stremio-unwrapped"
       '';
   });
-  sableSrc = inputs.sable-nightly;
-  sableVersion = (builtins.fromJSON (builtins.readFile "${sableSrc}/package.json")).version;
-  sableFrontend = pkgs.stdenvNoCC.mkDerivation {
-    pname = "sable-frontend";
-    version = sableVersion;
-    src = sableSrc;
-    NODE_OPTIONS = "--max-old-space-size=4096";
-
-    pnpmDeps = pkgs.fetchPnpmDeps {
-      pname = "sable";
-      version = sableVersion;
-      src = sableSrc;
-      pnpm = pkgs.pnpm_10;
-      fetcherVersion = 3;
-      hash = "sha256-1siT4fB6ty2azmWXe5L40EFUdk0th59qIdARUB0cVOc=";
-    };
-
-    pnpmInstallFlags = ["--ignore-scripts"];
-    nativeBuildInputs = [
-      pkgs.git
-      pkgs.nodejs_24
-      pkgs.pnpm_10
-      (pkgs.pnpmConfigHook.override {pnpm = pkgs.pnpm_10;})
-    ];
-
-    buildPhase = "pnpm build";
-    installPhase = "cp -r dist $out";
-  };
-  sable-desktop = pkgs.rustPlatform.buildRustPackage {
+  sableSrcInfo = pkgs.lib.splitString "\n" (builtins.readFile "${inputs.sable-nightly}/.SRCINFO");
+  sableSrcInfoValue = field: let
+    prefix = "\t${field} = ";
+    line = pkgs.lib.findFirst (pkgs.lib.hasPrefix prefix) (throw "Missing ${field} in Sable .SRCINFO") sableSrcInfo;
+  in
+    pkgs.lib.removePrefix prefix line;
+  sableSource = pkgs.lib.last (pkgs.lib.splitString "::" (sableSrcInfoValue "source_x86_64"));
+  sable-desktop = pkgs.stdenv.mkDerivation {
     pname = "sable";
-    version = "${sableVersion}-nightly";
-    src = sableSrc;
-
-    cargoRoot = "src-tauri";
-    cargoHash = "sha256-GO1hm/4SNqU4OQW5UeZzLZS2J4TMVu1O9SkUGBJ3S8o=";
-
-    postPatch = ''
-      ${pkgs.lib.getExe pkgs.jq} \
-        '.build.frontendDist = "${sableFrontend}" | del(.build.beforeBuildCommand) | .bundle.createUpdaterArtifacts = false' src-tauri/tauri.conf.json \
-        | ${pkgs.lib.getExe' pkgs.moreutils "sponge"} src-tauri/tauri.conf.json
-    '';
+    version = sableSrcInfoValue "pkgver";
+    src = pkgs.fetchurl {
+      url = sableSource;
+      sha256 = sableSrcInfoValue "sha256sums_x86_64";
+    };
+    dontUnpack = true;
 
     nativeBuildInputs = [
-      pkgs.cargo-tauri.hook
+      pkgs.autoPatchelfHook
       pkgs.dpkg
-      pkgs.pkg-config
       pkgs.wrapGAppsHook3
     ];
 
     buildInputs = [
+      pkgs.alsa-lib
+      pkgs.at-spi2-core
+      pkgs.cairo
+      pkgs.cups
       pkgs.dbus
-      pkgs.glib-networking
+      pkgs.expat
+      pkgs.glib
+      pkgs.gtk3
       pkgs.libayatana-appindicator
-      pkgs.openssl
-      pkgs.webkitgtk_4_1
+      pkgs.libdrm
+      pkgs.libgbm
+      pkgs.libxkbcommon
+      pkgs.nspr
+      pkgs.nss
+      pkgs.pango
+      pkgs.systemd
+      pkgs.libx11
+      pkgs.libxcomposite
+      pkgs.libxdamage
+      pkgs.libxext
+      pkgs.libxfixes
+      pkgs.libxrandr
+      pkgs.libxcb
     ];
 
-    buildFeatures = [
-      "wry"
-      "custom-protocol"
-    ];
-    buildNoDefaultFeatures = true;
-    doCheck = false;
+    dontStrip = true;
+
+    installPhase = ''
+      runHook preInstall
+
+      dpkg-deb -x $src $out
+      mkdir -p $out/bin $out/lib
+      mv $out/opt/sable $out/lib/sable
+      mv $out/usr/share $out/share
+      ln -s ../lib/sable/sable $out/bin/sable
+
+      rm -r $out/etc $out/opt $out/usr
+      runHook postInstall
+    '';
 
     preFixup = ''
       gappsWrapperArgs+=(
@@ -98,21 +97,7 @@
           pkgs.xdg-utils
         ]
       }
-        --prefix GST_PLUGIN_SYSTEM_PATH_1_0 : ${
-        pkgs.lib.makeSearchPath "lib/gstreamer-1.0" [
-          pkgs.gst_all_1.gst-plugins-base
-          pkgs.gst_all_1.gst-plugins-good
-        ]
-      }
       )
-    '';
-
-    installPhase = ''
-      runHook preInstall
-      dpkg-deb -x src-tauri/target/${pkgs.stdenv.hostPlatform.rust.cargoShortTarget}/release/bundle/deb/*.deb $out
-      mv $out/usr/* $out/
-      rmdir $out/usr
-      runHook postInstall
     '';
 
     meta = {
@@ -147,8 +132,9 @@ in {
     t3code
     zk
     graphviz
-    emacs
-    waypipe
+    inputs.self.packages.${sys}.doom-emacs
+    mu
+    isync
 
     # CLI, shells, and core tools
     gnupg
