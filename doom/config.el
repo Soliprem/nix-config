@@ -5,7 +5,8 @@
       display-line-numbers-current-absolute t
       org-directory "~/Documents/org/"
       org-roam-directory org-directory
-      org-roam-dailies-directory "dailies/")
+      org-roam-dailies-directory "dailies/"
+      doom-font (font-spec :size 12.0))
 
 (after! org
   (custom-set-faces!
