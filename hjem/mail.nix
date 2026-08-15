@@ -167,11 +167,5 @@
           # Unibo Conditional Access blocks device-code authorization.
           auth_endpoint: https://login.microsoftonline.com/e99647dc-1b08-454a-bf8c-699181b389ab/oauth2/v2.0/authorize
     '';
-
-    ".local/share/gnupg/gpg-agent.conf".text = ''
-      pinentry-program ${pkgs.pinentry-all}/bin/pinentry
-      default-cache-ttl 3600
-      max-cache-ttl 28800
-    '';
   };
 }
