@@ -2,7 +2,7 @@
 
 (setq doom-theme 'gruber-darker
       display-line-numbers-type t
-      org-directory "~/org/")
+      org-directory "~/Documents/org/")
 
 (set-email-account! "unibo"
   '((user-full-name . "Francesco Prem Solidoro")
