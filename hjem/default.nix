@@ -24,6 +24,7 @@ in {
     ./fastfetch.nix
     ./git.nix
     ./helix.nix
+    ./mail.nix
     ./nushell.nix
     ./starship.nix
   ];
