@@ -32,6 +32,7 @@
 
        :tools
        (eval +overlay)
+       (lsp +eglot)
        lookup
        magit
        tree-sitter
