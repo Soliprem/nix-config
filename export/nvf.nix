@@ -305,7 +305,7 @@ in {
           };
         };
       };
-      orgmode.enable = true;
+      orgmode.enable = false;
       todo-comments.enable = true;
     };
 
