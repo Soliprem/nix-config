@@ -25,6 +25,26 @@
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
 
+(use-package! typst-ts-mode
+  :mode "\\.typ\\'"
+  :hook (typst-ts-mode . eglot-ensure)
+  :config
+  (map! :map typst-ts-mode-map
+        :localleader
+        (:prefix ("c" . "compile")
+         "c" #'typst-ts-compile
+         "p" #'typst-ts-compile-and-preview)
+        (:prefix ("p" . "preview")
+         "p" #'typst-preview-mode
+         "s" #'typst-preview-send-position)))
+
+(after! eglot
+  (add-to-list 'eglot-server-programs '(typst-ts-mode . ("tinymist"))))
+
+(use-package! typst-preview
+  :commands (typst-preview-mode
+             typst-preview-send-position))
+
 (set-email-account! "unibo"
   '((user-full-name . "Francesco Prem Solidoro")
     (user-mail-address . "francesco.solidoro@studio.unibo.it")

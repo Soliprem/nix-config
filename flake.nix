@@ -87,6 +87,11 @@
       doom-emacs = doomPkgs.emacsWithDoom {
         doomDir = ./doom;
         doomLocalDir = "~/.local/share/nix-doom";
+        extraPackages = epkgs: [
+          (epkgs.treesit-grammars.with-grammars (grammars: [
+            grammars.tree-sitter-typst
+          ]))
+        ];
         extraBinPackages = with doomPkgs; [
           fd
           git
@@ -94,6 +99,8 @@
           msmtp
           oama
           ripgrep
+          tinymist
+          typst
         ];
       };
       default = nvf;
