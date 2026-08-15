@@ -134,7 +134,9 @@ in {
     graphviz
     inputs.self.packages.${sys}.doom-emacs
     mu
-    isync
+    inputs.self.packages.${sys}.isync-oauth
+    msmtp
+    oama
 
     # CLI, shells, and core tools
     gnupg

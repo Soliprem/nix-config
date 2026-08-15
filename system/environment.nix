@@ -34,7 +34,6 @@ _: {
       UNISON = "$HOME/.local/share/unison";
       HISTFILE = "$HOME/.local/share/history";
       WEECHAT_HOME = "$HOME/.config/weechat";
-      MBSYNCRC = "$HOME/.config/mbsync/config";
       ELECTRUMDIR = "$HOME/.local/share/electrum";
       # Other program settings:;
       DICS = "/usr/share/stardict/dic/";

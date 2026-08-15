@@ -6,7 +6,7 @@
 
        :ui
        doom
-       doom-dashboard
+       dashboard
        hl-todo
        modeline
        ophints
@@ -48,7 +48,7 @@
        sh
 
        :email
-       (mu4e +org +gmail)
+       (mu4e +org +gmail +mbsync)
 
        :config
        (default +bindings +smartparens))

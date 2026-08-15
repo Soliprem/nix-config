@@ -11,8 +11,9 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [inputs.nix-doom-emacs-unstraightened.overlays.default];
     };
+    doomPkgs = pkgs.extend inputs.nix-doom-emacs-unstraightened.overlays.default;
+    isyncOauth = pkgs.callPackage ./packages/isync-oauth.nix {};
     nvfPkgs = import inputs.nvf.inputs.nixpkgs {
       inherit system;
       config.allowUnfreePredicate = pkg:
@@ -82,12 +83,17 @@
         }).neovim;
       foundry-vtt = pkgs.callPackage ./packages/foundry-vtt.nix {};
       iocaine = pkgs.callPackage ./packages/iocaine.nix {};
-      doom-emacs = pkgs.emacsWithDoom {
+      isync-oauth = isyncOauth;
+      doom-emacs = doomPkgs.emacsWithDoom {
         doomDir = ./doom;
         doomLocalDir = "~/.local/share/nix-doom";
-        extraBinPackages = with pkgs; [
-          isync
-          mu
+        extraBinPackages = with doomPkgs; [
+          fd
+          git
+          isyncOauth
+          msmtp
+          oama
+          ripgrep
         ];
       };
       default = nvf;
