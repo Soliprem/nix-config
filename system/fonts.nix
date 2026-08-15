@@ -69,8 +69,8 @@ in {
       font-awesome
       noto-fonts-color-emoji
       twemoji-color-font
-      openmoji-color
-      openmoji-black
+      # openmoji-color
+      # openmoji-black
     ];
   };
 }
