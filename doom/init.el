@@ -43,7 +43,7 @@
        emacs-lisp
        markdown
        nix
-       org
+       (org +pretty +roam)
        python
        sh
 
