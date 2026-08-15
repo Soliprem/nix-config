@@ -11,6 +11,7 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
+      overlays = [inputs.nix-doom-emacs-unstraightened.overlays.default];
     };
     nvfPkgs = import inputs.nvf.inputs.nixpkgs {
       inherit system;
@@ -81,18 +82,33 @@
         }).neovim;
       foundry-vtt = pkgs.callPackage ./packages/foundry-vtt.nix {};
       iocaine = pkgs.callPackage ./packages/iocaine.nix {};
+      doom-emacs = pkgs.emacsWithDoom {
+        doomDir = ./doom;
+        doomLocalDir = "~/.local/share/nix-doom";
+        extraBinPackages = with pkgs; [
+          isync
+          mu
+        ];
+      };
       default = nvf;
     };
   };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-doom-emacs-unstraightened = {
+      url = "github:marienz/nix-doom-emacs-unstraightened";
+      inputs.nixpkgs.follows = "";
+    };
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sable-nightly = {
-      url = "github:SableClient/Sable/nightly";
+      # Upstream updates this package after publishing each nightly binary.  It
+      # pins the release URL and checksum together, so updating the flake input
+      # never requires changing dependency hashes in this repository.
+      url = "git+https://aur.archlinux.org/sable-nightly-bin.git?ref=master";
       flake = false;
     };
 
