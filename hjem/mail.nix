@@ -52,6 +52,58 @@
       Expunge Both
       Sync All
       SyncState *
+
+      IMAPAccount soliprem-accounts
+      Host mail.soliprem.eu
+      Port 993
+      User accounts@soliprem.eu
+      PassCmd "gpg --quiet --batch --decrypt ~/.local/state/mail-credentials/accounts-at-soliprem.gpg"
+      AuthMechs LOGIN
+      TLSType IMAPS
+      CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+      IMAPStore soliprem-accounts-remote
+      Account soliprem-accounts
+
+      MaildirStore soliprem-accounts-local
+      SubFolders Verbatim
+      Path ~/.local/share/mail/soliprem-accounts/
+      Inbox ~/.local/share/mail/soliprem-accounts/INBOX
+
+      Channel soliprem-accounts
+      Far :soliprem-accounts-remote:
+      Near :soliprem-accounts-local:
+      Patterns *
+      Create Both
+      Expunge Both
+      Sync All
+      SyncState *
+
+      IMAPAccount soliprem
+      Host mail.soliprem.eu
+      Port 993
+      User soliprem@soliprem.eu
+      PassCmd "gpg --quiet --batch --decrypt ~/.local/state/mail-credentials/soliprem-at-soliprem.gpg"
+      AuthMechs LOGIN
+      TLSType IMAPS
+      CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+      IMAPStore soliprem-remote
+      Account soliprem
+
+      MaildirStore soliprem-local
+      SubFolders Verbatim
+      Path ~/.local/share/mail/soliprem/
+      Inbox ~/.local/share/mail/soliprem/INBOX
+
+      Channel soliprem
+      Far :soliprem-remote:
+      Near :soliprem-local:
+      Patterns *
+      Create Both
+      Expunge Both
+      Sync All
+      SyncState *
     '';
 
     ".config/msmtp/config".text = ''
@@ -75,6 +127,24 @@
       from franci.solidoro@gmail.com
       user franci.solidoro@gmail.com
       passwordeval oama access franci.solidoro@gmail.com
+
+      account soliprem-accounts
+      host mail.soliprem.eu
+      port 465
+      tls_starttls off
+      auth on
+      from accounts@soliprem.eu
+      user accounts@soliprem.eu
+      passwordeval gpg --quiet --batch --decrypt ~/.local/state/mail-credentials/accounts-at-soliprem.gpg
+
+      account soliprem
+      host mail.soliprem.eu
+      port 465
+      tls_starttls off
+      auth on
+      from soliprem@soliprem.eu
+      user soliprem@soliprem.eu
+      passwordeval gpg --quiet --batch --decrypt ~/.local/state/mail-credentials/soliprem-at-soliprem.gpg
 
       account default : unibo
     '';
