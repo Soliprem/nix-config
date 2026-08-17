@@ -44,7 +44,7 @@
        emacs-lisp
        markdown
        nix
-       (org +pretty +roam)
+       (org +pretty +roam +dragndrop +brain)
        python
        sh
 
