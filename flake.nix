@@ -81,7 +81,6 @@
             ./export/nvf-minimal.nix
           ];
         }).neovim;
-      foundry-vtt = pkgs.callPackage ./packages/foundry-vtt.nix {};
       iocaine = pkgs.callPackage ./packages/iocaine.nix {};
       isync-oauth = isyncOauth;
       doom-emacs = doomPkgs.emacsWithDoom {
@@ -199,7 +198,7 @@
     };
 
     # nvf-soli.url = "github:soliprem/nvf-soli/";
-    nvf.url = "github:soliprem/nvf/bin-path";
+    nvf.url = "github:notashelf/nvf/";
     # nvf.url = "path:/home/soliprem/.local/src/nvf-admin/";
     hjem = {
       url = "github:feel-co/hjem";
