@@ -5,32 +5,38 @@
   ...
 }: let
   system = pkgs.stdenv.hostPlatform.system;
-  foundryPackage = inputs.self.packages.${system}.foundry-vtt;
   iocainePackage = inputs.self.packages.${system}.iocaine;
 in {
-  services.caddy = {
-    enable = true;
-    configFile = ./assets/Caddyfile;
-    environmentFile = "/run/agenix/caddy_env";
-  };
+  services = {
+    caddy = {
+      enable = true;
+      configFile = ./assets/Caddyfile;
+      environmentFile = "/run/agenix/caddy_env";
+    };
 
-  services.redis.servers."" = {
-    enable = true;
-    bind = "127.0.0.1 -::1";
-    save = [
-      [3600 1]
-      [300 100]
-      [60 10000]
-    ];
-  };
+    redis.servers."" = {
+      enable = true;
+      bind = "127.0.0.1 -::1";
+      save = [
+        [3600 1]
+        [300 100]
+        [60 10000]
+      ];
+    };
 
-  # A cold copy of the live 0.58.0 database passed a full start, HTTP health
-  # probe, clean shutdown and SQLite integrity check with this 0.63.2 module.
-  services.navidrome = {
-    enable = true;
-    settings = {
-      DataFolder = "/var/lib/navidrome";
-      MusicFolder = "/mnt/storage-box/music";
+    # A cold copy of the live 0.58.0 database passed a full start, HTTP health
+    # probe, clean shutdown and SQLite integrity check with this 0.63.2 module.
+    navidrome = {
+      enable = true;
+      settings = {
+        DataFolder = "/var/lib/navidrome";
+        MusicFolder = "/mnt/storage-box/music";
+      };
+    };
+
+    wakapi = {
+      enable = true;
+      settings.db.name = "/var/lib/wakapi/wakapi.db";
     };
   };
   users.users.navidrome.uid = 985;
@@ -43,11 +49,6 @@ in {
       "${pkgs.util-linux}/bin/mountpoint -q /mnt/storage-box/music"
       "${pkgs.bash}/bin/bash -c '${pkgs.findutils}/bin/find /mnt/storage-box/music -mindepth 1 -maxdepth 1 -print -quit | ${pkgs.gnugrep}/bin/grep -q .'"
     ];
-  };
-
-  services.wakapi = {
-    enable = true;
-    settings.db.name = "/var/lib/wakapi/wakapi.db";
   };
 
   users.groups.foundry = {};
@@ -65,8 +66,8 @@ in {
       User = "foundry";
       Group = "foundry";
       StateDirectory = "foundry";
-      WorkingDirectory = foundryPackage;
-      ExecStart = "${pkgs.nodejs_24}/bin/node ${foundryPackage}/main.js --dataPath=/var/lib/foundry";
+      WorkingDirectory = "/root/foundry";
+      ExecStart = "${pkgs.nodejs_24}/bin/node /root/foundry/main.js --dataPath=/var/lib/foundry";
       Restart = "on-failure";
       NoNewPrivileges = true;
       PrivateTmp = true;
