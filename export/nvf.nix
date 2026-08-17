@@ -113,7 +113,10 @@ in {
       };
       lua.enable = true;
       bash.enable = true;
-      typst.enable = true;
+      typst = {
+        enable = true;
+        extensions.typst-concealer.enable = true;
+      };
       julia.enable = true;
       clang = {
         enable = true;
@@ -219,7 +222,6 @@ in {
 
     minimap = {
       minimap-vim.enable = false;
-      codewindow.enable = false; # lighter, faster, and uses lua for configuration
     };
 
     dashboard = {
