@@ -66,8 +66,8 @@ in {
       User = "foundry";
       Group = "foundry";
       StateDirectory = "foundry";
-      WorkingDirectory = "/root/foundry";
-      ExecStart = "${pkgs.nodejs_24}/bin/node /root/foundry/main.js --dataPath=/var/lib/foundry";
+      WorkingDirectory = "/opt/foundry";
+      ExecStart = "${pkgs.nodejs_24}/bin/node /opt/foundry/main.js --dataPath=/var/lib/foundry";
       Restart = "on-failure";
       NoNewPrivileges = true;
       PrivateTmp = true;
