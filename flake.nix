@@ -116,11 +116,8 @@
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sable-nightly = {
-      # Upstream updates this package after publishing each nightly binary.  It
-      # pins the release URL and checksum together, so updating the flake input
-      # never requires changing dependency hashes in this repository.
-      url = "git+https://aur.archlinux.org/sable-nightly-bin.git?ref=master";
+    sable = {
+      url = "file+https://github.com/SableClient/Sable/releases/download/v1.21.0/Sable-1.21.0-linux-x86_64.tar.gz";
       flake = false;
     };
 

@@ -26,88 +26,6 @@
           --add-flags "$out/bin/stremio-unwrapped"
       '';
   });
-  sableSrcInfo = pkgs.lib.splitString "\n" (builtins.readFile "${inputs.sable-nightly}/.SRCINFO");
-  sableSrcInfoValue = field: let
-    prefix = "\t${field} = ";
-    line = pkgs.lib.findFirst (pkgs.lib.hasPrefix prefix) (throw "Missing ${field} in Sable .SRCINFO") sableSrcInfo;
-  in
-    pkgs.lib.removePrefix prefix line;
-  sableSource = pkgs.lib.last (pkgs.lib.splitString "::" (sableSrcInfoValue "source_x86_64"));
-  sable-desktop = pkgs.stdenv.mkDerivation {
-    pname = "sable";
-    version = sableSrcInfoValue "pkgver";
-    src = pkgs.fetchurl {
-      url = sableSource;
-      sha256 = sableSrcInfoValue "sha256sums_x86_64";
-    };
-    dontUnpack = true;
-
-    nativeBuildInputs = [
-      pkgs.autoPatchelfHook
-      pkgs.dpkg
-      pkgs.wrapGAppsHook3
-    ];
-
-    buildInputs = [
-      pkgs.alsa-lib
-      pkgs.at-spi2-core
-      pkgs.cairo
-      pkgs.cups
-      pkgs.dbus
-      pkgs.expat
-      pkgs.glib
-      pkgs.gtk3
-      pkgs.libayatana-appindicator
-      pkgs.libdrm
-      pkgs.libgbm
-      pkgs.libxkbcommon
-      pkgs.nspr
-      pkgs.nss
-      pkgs.pango
-      pkgs.systemd
-      pkgs.libx11
-      pkgs.libxcomposite
-      pkgs.libxdamage
-      pkgs.libxext
-      pkgs.libxfixes
-      pkgs.libxrandr
-      pkgs.libxcb
-    ];
-
-    dontStrip = true;
-
-    installPhase = ''
-      runHook preInstall
-
-      dpkg-deb -x $src $out
-      mkdir -p $out/bin $out/lib
-      mv $out/opt/sable $out/lib/sable
-      mv $out/usr/share $out/share
-      ln -s ../lib/sable/sable $out/bin/sable
-
-      rm -r $out/etc $out/opt $out/usr
-      runHook postInstall
-    '';
-
-    preFixup = ''
-      gappsWrapperArgs+=(
-        --prefix PATH : ${
-        pkgs.lib.makeBinPath [
-          pkgs.desktop-file-utils
-          pkgs.xdg-utils
-        ]
-      }
-      )
-    '';
-
-    meta = {
-      description = "Matrix client based on Cinny";
-      homepage = "https://github.com/SableClient/Sable";
-      license = pkgs.lib.licenses.agpl3Plus;
-      mainProgram = "sable";
-      platforms = ["x86_64-linux"];
-    };
-  };
 in {
   environment.systemPackages = with pkgs; [
     # Flake inputs and custom derivations
@@ -218,7 +136,10 @@ in {
     # Browsers, communication, and network clients
     beeper
     cinny-desktop
-    sable-desktop
+    (callPackage ../packages/sable.nix {
+      src = inputs.sable;
+      version = "1.21.0";
+    })
     gomuks-web
     bitwarden-desktop
     rnote
