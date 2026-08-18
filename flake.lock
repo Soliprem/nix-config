@@ -927,7 +927,7 @@
         "r-nvim": "r-nvim",
         "remarkable-bridge": "remarkable-bridge",
         "roam-graph": "roam-graph",
-        "sable-nightly": "sable-nightly",
+        "sable": "sable",
         "spicetify-nix": "spicetify-nix",
         "sysboard": "sysboard",
         "thumbpick": "thumbpick",
@@ -1054,21 +1054,16 @@
         "type": "github"
       }
     },
-    "sable-nightly": {
+    "sable": {
       "flake": false,
       "locked": {
-        "lastModified": 1786744507,
-        "narHash": "sha256-rAzXtVn/Pm6VKGU8KAcpbHJl7GzezCI+MKYe5xZaqQA=",
-        "ref": "master",
-        "rev": "649d37a0daa1df81c1d64ed40b3c4d005473511b",
-        "revCount": 35,
-        "type": "git",
-        "url": "https://aur.archlinux.org/sable-nightly-bin.git"
+        "narHash": "sha256-kbRnS0QYvmPFTWh/vTKtMo+JRyWRmKnD8BHLNJkn7xY=",
+        "type": "file",
+        "url": "https://github.com/SableClient/Sable/releases/download/v1.21.0/Sable-1.21.0-linux-x86_64.tar.gz"
       },
       "original": {
-        "ref": "master",
-        "type": "git",
-        "url": "https://aur.archlinux.org/sable-nightly-bin.git"
+        "type": "file",
+        "url": "https://github.com/SableClient/Sable/releases/download/v1.21.0/Sable-1.21.0-linux-x86_64.tar.gz"
       }
     },
     "spicetify-nix": {
