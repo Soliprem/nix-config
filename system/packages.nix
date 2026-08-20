@@ -55,6 +55,7 @@ in {
     inputs.self.packages.${sys}.isync-oauth
     msmtp
     oama
+    ispell
 
     # CLI, shells, and core tools
     gnupg
