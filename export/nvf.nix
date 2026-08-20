@@ -328,7 +328,7 @@ in {
       fastaction.enable = false;
       breadcrumbs = {
         enable = false;
-        navbuddy.enable = true;
+        navbuddy.enable = false;
       };
       smartcolumn = {
         enable = true;

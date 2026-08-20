@@ -753,11 +753,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1786909272,
-        "narHash": "sha256-m7QpfDgI/lEavv8M+zMxG+076Y4OimkbCIrSOAxvI/0=",
+        "lastModified": 1787161243,
+        "narHash": "sha256-3voBPkuncAi4/6fn3EZG7UvG8TO9xkEt6FXUAzeWVdI=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "b05fadedb5e8510ed5dd07fce5364f36fc359dac",
+        "rev": "c5cad7edcdcf683f4ba80c4d0cbf0e0eb7116c08",
         "type": "github"
       },
       "original": {
