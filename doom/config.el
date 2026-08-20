@@ -10,6 +10,7 @@
       doom-font (font-spec :size 12.0))
 
 (after! code-review
+  (require 'ghub-legacy)
   (setq code-review-auth-login-marker 'forge))
 
 (use-package! pr-review
