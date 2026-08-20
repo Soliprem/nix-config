@@ -7,3 +7,5 @@
 (package! typst-preview
   :recipe (:host github :repo "havarddj/typst-preview.el"))
 (package! catppuccin-theme)
+(package! pr-review
+  :recipe (:host github :repo "blahgeek/emacs-pr-review"))
