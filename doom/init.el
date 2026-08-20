@@ -36,7 +36,7 @@
        (eval +overlay)
        (lsp +eglot)
        lookup
-       magit
+       (magit +forge)
        tree-sitter
        ;;ansible
        biblio            ; Writes a PhD for you (citation needed)
