@@ -1,8 +1,16 @@
-{lib, ...}: {
+{
+  lib,
+  osConfig,
+  ...
+}: {
   files = {
+    ".authinfo".source = osConfig.age.secrets.github_authinfo.path;
     ".gitconfig".text = lib.generators.toGitINI {
       commit = {
         gpgSign = true;
+      };
+      github = {
+        user = "Soliprem";
       };
       user = {
         email = "franci.solidoro@gmail.com";
