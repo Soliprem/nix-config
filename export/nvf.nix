@@ -498,6 +498,7 @@ in {
       ${octo-nvim.pname} = {
         lazy = true;
         package = octo-nvim;
+        setupModule = "octo";
         cmd = "Octo";
         keys = [
           {
@@ -531,10 +532,11 @@ in {
           {
             key = "<leader>os";
             mode = "n";
+            lua = true;
             action = ''
               function()
                 require("octo.utils").create_base_search_command { include_current_repo = true }
-              end,
+              end
             '';
             silent = true;
             desc = "Search GitHub";
