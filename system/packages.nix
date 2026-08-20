@@ -56,6 +56,7 @@ in {
     msmtp
     oama
     ispell
+    gh
 
     # CLI, shells, and core tools
     gnupg
