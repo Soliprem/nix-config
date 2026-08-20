@@ -12,6 +12,14 @@
 (after! code-review
   (setq code-review-auth-login-marker 'forge))
 
+(use-package! pr-review
+  :commands (pr-review
+             pr-review-notification
+             pr-review-search
+             pr-review-search-open)
+  :init
+  (setq pr-review-ghub-auth-name 'forge))
+
 (after! org
   (custom-set-faces!
     '(org-document-title :weight bold :height 1.5)
