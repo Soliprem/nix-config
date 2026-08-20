@@ -3,10 +3,14 @@
 (setq doom-theme 'gruber-darker
       display-line-numbers-type 'relative
       display-line-numbers-current-absolute t
+      auth-sources '("~/.authinfo")
       org-directory "~/Documents/org/"
       org-roam-directory org-directory
       org-roam-dailies-directory "dailies/"
       doom-font (font-spec :size 12.0))
+
+(after! code-review
+  (setq code-review-auth-login-marker 'forge))
 
 (after! org
   (custom-set-faces!

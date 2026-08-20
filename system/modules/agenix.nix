@@ -19,4 +19,10 @@
     file = configRoot + /secrets/bitwarden_password.age;
     owner = "soliprem";
   };
+
+  age.secrets.github_authinfo = {
+    file = configRoot + /secrets/github_authinfo.age;
+    owner = "soliprem";
+    mode = "600";
+  };
 }
