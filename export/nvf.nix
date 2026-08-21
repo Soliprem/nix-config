@@ -214,6 +214,7 @@ in {
 
     git = {
       enable = true;
+      octo-nvim.enable = true;
       gitsigns = {
         enable = true;
         codeActions.enable = false; # throws an annoying debug message
@@ -494,54 +495,6 @@ in {
             }
           ];
         };
-      };
-      ${octo-nvim.pname} = {
-        lazy = true;
-        package = octo-nvim;
-        setupModule = "octo";
-        cmd = "Octo";
-        keys = [
-          {
-            key = "<leader>oi";
-            mode = "n";
-            action = ":Octo issue list<cr>";
-            silent = true;
-            desc = "List GitHub Issues";
-          }
-          {
-            key = "<leader>op";
-            mode = "n";
-            action = ":Octo pr list<cr>";
-            silent = true;
-            desc = "List GitHub PullRequests";
-          }
-          {
-            key = "<leader>od";
-            mode = "n";
-            action = ":Octo discussion list<cr>";
-            silent = true;
-            desc = "List GitHub Discussions";
-          }
-          {
-            key = "<leader>on";
-            mode = "n";
-            action = ":Octo notification list<cr>";
-            silent = true;
-            desc = "Open GitHub Notification";
-          }
-          {
-            key = "<leader>os";
-            mode = "n";
-            lua = true;
-            action = ''
-              function()
-                require("octo.utils").create_base_search_command { include_current_repo = true }
-              end
-            '';
-            silent = true;
-            desc = "Search GitHub";
-          }
-        ];
       };
       ${zk-nvim.pname} = {
         lazy = true;
