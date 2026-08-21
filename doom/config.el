@@ -13,6 +13,11 @@
   (require 'ghub-legacy)
   (setq code-review-auth-login-marker 'forge))
 
+(use-package! wakatime-mode
+  :ensure t
+  :config
+  (global-wakatime-mode 1))
+
 (use-package! pr-review
   :commands (pr-review
              pr-review-notification
