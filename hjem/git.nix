@@ -6,6 +6,9 @@
   files = {
     ".authinfo".source = osConfig.age.secrets.github_authinfo.path;
     ".gitconfig".text = lib.generators.toGitINI {
+      alias = {
+        forward = ''!f() { git rebase --onto "$1" "$(git merge-base "$1" HEAD)"; }; f'';
+      };
       commit = {
         gpgSign = true;
       };
