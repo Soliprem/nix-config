@@ -25,4 +25,16 @@
     owner = "soliprem";
     mode = "600";
   };
+
+  age.secrets.mail_soliprem_accounts_password = {
+    file = configRoot + /secrets/mail_soliprem_accounts_password.age;
+    owner = "soliprem";
+    mode = "400";
+  };
+
+  age.secrets.mail_soliprem_password = {
+    file = configRoot + /secrets/mail_soliprem_password.age;
+    owner = "soliprem";
+    mode = "400";
+  };
 }

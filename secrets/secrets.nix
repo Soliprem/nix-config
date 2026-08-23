@@ -12,6 +12,8 @@ in {
   "bitwarden_password.age".publicKeys = users ++ systems;
   "hermes_env.age".publicKeys = users ++ systems;
   "github_authinfo.age".publicKeys = users ++ systems;
+  "mail_soliprem_accounts_password.age".publicKeys = users ++ systems;
+  "mail_soliprem_password.age".publicKeys = users ++ systems;
   "server_caddy_env.age".publicKeys = users ++ [server];
   "server_storage_box_credentials.age".publicKeys = users ++ [server];
   "server_livekit_keys.age".publicKeys = users ++ [server];
