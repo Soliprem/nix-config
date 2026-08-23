@@ -57,7 +57,7 @@
       Host mail.soliprem.eu
       Port 993
       User accounts@soliprem.eu
-      PassCmd "gpg --quiet --batch --decrypt ~/.local/state/mail-credentials/accounts-at-soliprem.gpg"
+      PassCmd "cat /run/agenix/mail_soliprem_accounts_password"
       AuthMechs LOGIN
       TLSType IMAPS
       CertificateFile /etc/ssl/certs/ca-certificates.crt
@@ -83,7 +83,7 @@
       Host mail.soliprem.eu
       Port 993
       User soliprem@soliprem.eu
-      PassCmd "gpg --quiet --batch --decrypt ~/.local/state/mail-credentials/soliprem-at-soliprem.gpg"
+      PassCmd "cat /run/agenix/mail_soliprem_password"
       AuthMechs LOGIN
       TLSType IMAPS
       CertificateFile /etc/ssl/certs/ca-certificates.crt
@@ -135,7 +135,7 @@
       auth on
       from accounts@soliprem.eu
       user accounts@soliprem.eu
-      passwordeval gpg --quiet --batch --decrypt ~/.local/state/mail-credentials/accounts-at-soliprem.gpg
+      passwordeval cat /run/agenix/mail_soliprem_accounts_password
 
       account soliprem
       host mail.soliprem.eu
@@ -144,15 +144,14 @@
       auth on
       from soliprem@soliprem.eu
       user soliprem@soliprem.eu
-      passwordeval gpg --quiet --batch --decrypt ~/.local/state/mail-credentials/soliprem-at-soliprem.gpg
+      passwordeval cat /run/agenix/mail_soliprem_password
 
       account default : unibo
     '';
 
     ".config/oama/config.yaml".text = ''
       encryption:
-        tag: GPG
-        contents: 5B5C1ABDC222B3AAFDCF04F60CD53BE47CE39A04
+        tag: KEYRING
 
       services:
         google:
