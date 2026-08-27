@@ -39,7 +39,7 @@ local common_keybinds = {
 
   SUPER = {
     SHIFT = {
-      Q = { action = exec("hyprctl kill"), },
+      Q = { action = exec(cyberpunk and "cyberarch-overkill" or "hyprctl kill"), },
       P = { action = shell_action("modal pwr", exec("hyprshot -m output -m active -c -r - | satty -f -")), },
       S = { action = shell_action("region-shot", exec("hyprshot -m region -r - | wl-copy")), },
       v = { action = shell_action("modal vol", hl.dsp.workspace.toggle_special("protonvpn")), },
@@ -185,6 +185,10 @@ local layout_binds = {
 H.key_table_parser(common_keybinds, {}, { submap_universal = true })
 if cyberpunk then
   H.key_table_parser(cyberpunk_keybinds, {}, { submap_universal = true })
+  hl.define_submap("kill", function()
+    hl.bind("mouse:272", exec("cyberarch-overkill kill"))
+    hl.bind("escape", exec("cyberarch-overkill exit"))
+  end)
 end
 H.layout_table_submapper(layout_binds, "master")
 H.layout_table_submapper(layout_binds, "monocle")
