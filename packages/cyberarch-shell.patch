@@ -131,7 +131,7 @@ diff --git a/components/modules/sidepanel.ts b/components/modules/sidepanel.ts
  }
  
  
--const WX_STORE = `${CYBER_DIR}/city.json`
+-const WX_STORE = `${CYBER_DIR}/config/city.json`
 +const WX_STORE = `${STATE_DIR}/city.json`
  const saveWxLocation = () => {
   try { GLib.file_set_contents(WX_STORE, new TextEncoder().encode(JSON.stringify({ name: wxName, full: wxFull, lat: wxLat, lon: wxLon, mapLat: geoLat, mapLon: geoLon }))) } catch (e) { print("[cyber] wx save:", e) }
@@ -160,7 +160,7 @@ diff --git a/components/modules/markets.ts b/components/modules/markets.ts
  
  const readCity = () => {
      try {
--        const [ok, data] = GLib.file_get_contents(`${CYBER_DIR}/city.json`)
+-        const [ok, data] = GLib.file_get_contents(`${CYBER_DIR}/config/city.json`)
 +        const [ok, data] = GLib.file_get_contents(`${STATE_DIR}/city.json`)
          if (ok) {
              const o = JSON.parse(new TextDecoder().decode(data))

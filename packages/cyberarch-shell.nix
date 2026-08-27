@@ -91,7 +91,8 @@
       "${src}/assets/gtk" "${src}/assets/icons" "${src}/assets/img" "$out/assets/"
     cp -r "${src}/components/login" "${src}/components/modules" \
       "${src}/components/style" "$out/components/"
-    cp "${src}/city.json" "${src}/core.ts" "${src}/env.ts" "${src}/theme.lua" "${src}/widget.ts" "$out/"
+    cp "${src}/config/city.json" "${src}/core.ts" "${src}/env.ts" "${src}/theme.lua" \
+      "${src}/components/modules/widget.ts" "$out/"
     cp "${src}/scripts/appvol-keeper" "${src}/scripts/screenrecord" "$out/scripts/"
     cp "${nixUpdate}/bin/cyberarch-update" "$out/scripts/aur"
 
@@ -109,7 +110,7 @@
         config: "cyberarch-lock"'
     substituteInPlace "$out/components/login/themes/netwatch/Main.qml" \
       --replace-fail 'import QtGraphicalEffects' 'import Qt5Compat.GraphicalEffects' \
-      --replace-fail 'cat ~/.config/hypr/themes/cyberpunk/city.json 2>/dev/null' \
+      --replace-fail 'cat ~/.config/hypr/themes/cyberpunk/config/city.json 2>/dev/null' \
         'cat \"$CYBERARCH_STATE_DIR/city.json\" 2>/dev/null'
   '';
 
