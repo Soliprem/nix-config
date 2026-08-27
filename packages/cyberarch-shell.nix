@@ -1,17 +1,25 @@
 {
   ags,
   astal,
+  atk,
   bash,
   bluez,
   brightnessctl,
   coreutils,
   curl,
   findutils,
+  ffmpeg_8,
   foot,
+  gdk-pixbuf,
   gawk,
+  glib,
   gnugrep,
   gnused,
+  gobject-introspection,
   grim,
+  harfbuzz,
+  gtk3,
+  gtk-layer-shell,
   hyprland,
   hyprlock,
   imagemagick,
@@ -25,10 +33,12 @@
   nh,
   nix,
   pciutils,
+  pango,
   pipewire,
   playerctl,
   power-profiles-daemon,
   procps,
+  python3,
   pulseaudio,
   quickshell,
   rofi,
@@ -41,11 +51,14 @@
   util-linux,
   wireplumber,
   wirelesstools,
+  wf-recorder,
   wl-clipboard,
   writeShellApplication,
   xdg-utils,
 }: let
   version = "unstable-2026-08-26";
+  python = python3.withPackages (ps: [ps.numpy ps.pillow ps.pygobject3]);
+  recorder = wf-recorder.override {ffmpeg = ffmpeg_8;};
 
   cyberarchRebuild = writeShellApplication {
     name = "cyberarch-rebuild";
@@ -80,7 +93,8 @@
       "${src}/components/style" "$out/components/"
     cp "${src}/config/city.json" "${src}/core.ts" "${src}/env.ts" "${src}/theme.lua" \
       "${src}/components/modules/widget.ts" "$out/"
-    cp "${src}/scripts/appvol-keeper" "${src}/scripts/screenrecord" "$out/scripts/"
+    cp "${src}/scripts/appvol-keeper" "${src}/scripts/gen-map.py" \
+      "${src}/scripts/overkill" "${src}/scripts/screenrecord" "$out/scripts/"
     cp "${nixUpdate}/bin/cyberarch-update" "$out/scripts/aur"
 
     # Upstream ships one cursor backup link with no target and makes several
@@ -99,6 +113,11 @@
       --replace-fail 'import QtGraphicalEffects' 'import Qt5Compat.GraphicalEffects' \
       --replace-fail 'cat ~/.config/hypr/themes/cyberpunk/config/city.json 2>/dev/null' \
         'cat \"$CYBERARCH_STATE_DIR/city.json\" 2>/dev/null'
+    substituteInPlace "$out/scripts/overkill" \
+      --replace-fail 'os.path.expanduser("~/.config/hypr/themes/cyberpunk/assets/icons/alert.png")' \
+        '"'$out'/assets/icons/alert.png"' \
+      --replace-fail 'os.path.expanduser("~/.config/hypr/themes/cyberpunk/scripts/overkill")' \
+        '"'$out'/scripts/overkill"'
   '';
 
   cyberarchLock = writeShellApplication {
@@ -153,6 +172,7 @@
     playerctl
     power-profiles-daemon
     procps
+    python
     pulseaudio
     rofi
     socat
@@ -162,6 +182,7 @@
     util-linux
     wireplumber
     wirelesstools
+    recorder
     wl-clipboard
     xdg-utils
   ];
@@ -188,6 +209,18 @@ in
     postFixup = ''
       ln -s ${cyberarchRebuild}/bin/cyberarch-rebuild "$out/bin/cyberarch-rebuild"
       ln -s ${cyberarchLock}/bin/cyberarch-lock "$out/bin/cyberarch-lock"
+      makeWrapper "$out/share/scripts/overkill" "$out/bin/cyberarch-overkill" \
+        --prefix PATH : "${runtimePath}" \
+        --prefix GI_TYPELIB_PATH : "${lib.makeSearchPath "lib/girepository-1.0" [
+        atk
+        gdk-pixbuf
+        glib.out
+        gobject-introspection
+        gtk3
+        gtk-layer-shell
+        harfbuzz
+        pango.out
+      ]}"
       mkdir -p "$out/share/icons" "$out/share/Kvantum"
       ln -s ../assets/gtk/iconpack "$out/share/icons/CyberArch"
       ln -s ../assets/cursor "$out/share/icons/CyberArch-cursors"

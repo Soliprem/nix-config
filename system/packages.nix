@@ -162,6 +162,7 @@ in {
     appimage-run
     darktable
     foot
+    cool-retro-term
     gale
     gowall
     imv
