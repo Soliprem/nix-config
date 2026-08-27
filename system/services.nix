@@ -100,7 +100,6 @@
       partOf = ["graphical-session.target"];
       after = ["graphical-session-pre.target"];
       serviceConfig = {
-        Type = "simple";
         ExecStart = "/run/current-system/sw/bin/rice-style run";
         Restart = "on-failure";
         RestartSec = 1;

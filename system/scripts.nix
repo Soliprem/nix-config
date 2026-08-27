@@ -10,20 +10,9 @@
   scripts = [
     (pkgs.writeShellApplication {
       name = "cyberarch-ctl";
-      runtimeInputs = [pkgs.coreutils pkgs.socat];
+      runtimeInputs = [pkgs.socat];
       text = ''
-        if [ "$#" -eq 0 ]; then
-          printf 'usage: %s REQUEST\n' "$0" >&2
-          exit 2
-        fi
-
-        socket="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/astal/cyberpunk.sock"
-        if [ ! -S "$socket" ]; then
-          printf 'cyberarch-ctl: shell socket is unavailable\n' >&2
-          exit 1
-        fi
-
-        printf '%s' "$*" | socat - "UNIX-CONNECT:$socket" >/dev/null
+        printf '%s' "$*" | socat - "UNIX-CONNECT:$XDG_RUNTIME_DIR/astal/cyberpunk.sock" >/dev/null
       '';
     })
     (pkgs.writeShellApplication {
@@ -50,7 +39,6 @@
         pkgs.coreutils
         pkgs.glib
         pkgs.gsettings-desktop-schemas
-        pkgs.gnused
         pkgs.hyprland
         pkgs.quickshell
         pkgs.systemd
@@ -63,8 +51,6 @@
 
         state_dir="''${XDG_STATE_HOME:-$HOME/.local/state}/nixrice"
         state_file="$state_dir/style"
-        material_wallpaper_file="$state_dir/material-wallpaper"
-        cyberpunk_wallpaper="${cyberarchShell}/share/assets/img/lucy_wallpaper.png"
         default_style="material"
 
         apply_app_theme() {
@@ -85,8 +71,7 @@
             for key in icon-theme cursor-theme color-scheme; do
               saved="$theme_dir/gsettings-$key"
               if [ ! -s "$saved" ]; then
-                value="$(gsettings get org.gnome.desktop.interface "$key")"
-                printf '%s\n' "$value" > "$saved"
+                gsettings get org.gnome.desktop.interface "$key" > "$saved"
               fi
             done
 
@@ -184,28 +169,15 @@
           fi
         }
 
-        active_wallpaper() {
-          awww query 2>/dev/null \
-            | sed -n 's/.*currently displaying: image: //p' \
-            | head -n 1
-        }
-
         set_wallpaper() {
           style="$1"
           if [ "$style" = "cyberpunk" ]; then
-            active="$(active_wallpaper || true)"
-            if [ -n "$active" ] && [ "$active" != "$cyberpunk_wallpaper" ] && [ -r "$active" ]; then
-              printf '%s\n' "$active" > "$material_wallpaper_file"
-            fi
-            wallpaper="$cyberpunk_wallpaper"
+            wallpaper="${cyberarchShell}/share/assets/img/lucy_wallpaper.png"
           else
-            wallpaper="$(cat "$material_wallpaper_file" 2>/dev/null || true)"
-            if [ ! -r "$wallpaper" ]; then
-              wallpaper="$(cat "$HOME/.cache/bgpath" 2>/dev/null || true)"
-            fi
+            wallpaper="$HOME/.local/src/nix-config/assets/bg"
           fi
 
-          if [ -r "''${wallpaper:-}" ]; then
+          if [ -r "$wallpaper" ]; then
             for _ in 1 2 3 4 5; do
               if awww img --transition-type random --transition-step 4 --transition-fps 120 "$wallpaper" 2>/dev/null; then
                 return

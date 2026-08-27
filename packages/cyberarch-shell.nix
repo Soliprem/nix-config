@@ -55,10 +55,7 @@
 
       generation="$(readlink /nix/var/nix/profiles/system | sed -n 's/^system-\([0-9][0-9]*\)-link$/\1/p')"
       message="pkg-installed SYSTEM REBUILT!|NIXOS GENERATION ''${generation:-ACTIVE}"
-      socket="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/astal/cyberpunk.sock"
-      if [ -S "$socket" ]; then
-        printf '%s' "$message" | socat - "UNIX-CONNECT:$socket" >/dev/null 2>&1 || true
-      fi
+      printf '%s' "$message" | socat - "UNIX-CONNECT:$XDG_RUNTIME_DIR/astal/cyberpunk.sock" >/dev/null 2>&1 || true
     '';
   };
 
@@ -66,20 +63,10 @@
     name = "cyberarch-update";
     runtimeInputs = [foot];
     text = ''
-      case "''${1:-check}" in
-        check)
-          # Avoid an implicit network request every time the HUD starts. Nix
-          # updates happen explicitly through the rebuild action below.
-          printf '0\n'
-          ;;
-        upgrade)
-          exec foot ${cyberarchRebuild}/bin/cyberarch-rebuild --update
-          ;;
-        *)
-          printf 'usage: %s [check|upgrade]\n' "$0" >&2
-          exit 2
-          ;;
-      esac
+      if [ "''${1:-check}" = upgrade ]; then
+        exec foot ${cyberarchRebuild}/bin/cyberarch-rebuild --update
+      fi
+      printf '0\n'
     '';
   };
 
