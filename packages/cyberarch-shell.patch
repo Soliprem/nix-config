@@ -422,3 +422,247 @@ diff --git a/components/modules/appsmenu.ts b/components/modules/appsmenu.ts
       visible: false, child: evt,
   })
   menuWin.connect("key-press-event", (_w, e) => {
+diff --git a/components/login/lock_shell.qml b/components/login/lock_shell.qml
+--- a/components/login/lock_shell.qml
++++ b/components/login/lock_shell.qml
+@@ -28,3 +28,4 @@ ShellRoot {
+     PamContext {
++        config: "cyberarch-lock"
+         id: pam
+         property string pendingPassword: ""
+diff --git a/components/login/themes/netwatch/Main.qml b/components/login/themes/netwatch/Main.qml
+--- a/components/login/themes/netwatch/Main.qml
++++ b/components/login/themes/netwatch/Main.qml
+@@ -53,7 +53,7 @@ Rectangle {
+     property string cityFull: "UNKNOWN LOCATION"
+     property real cityLat: 0
+     property real cityLon: 0
+-    Process { id: cityProc; command: ["sh","-c","cat ~/.config/hypr/themes/cyberpunk/config/city.json 2>/dev/null || echo '{}'"]; running: true
++    Process { id: cityProc; command: ["sh","-c","cat \"$CYBERARCH_STATE_DIR/city.json\" 2>/dev/null || echo '{}'"]; running: true
+         stdout: StdioCollector { onStreamFinished: {
+             try {
+                 var o = JSON.parse(this.text)
+diff --git a/scripts/overkill b/scripts/overkill
+index d75b5f2..81351fe 100755
+--- a/scripts/overkill
++++ b/scripts/overkill
+@@ -17,3 +17,3 @@ stop_hum() {
+ DAEMON_PID=/tmp/overkill-daemon.pid
+-daemon_alive() { [ -f "$DAEMON_PID" ] && kill -0 "$(cat "$DAEMON_PID" 2>/dev/null)" 2>/dev/null; }
++daemon_alive() { pgrep -F "$DAEMON_PID" -f '/tmp/overkill.py' >/dev/null 2>&1; }
+ ensure_daemon() {
+@@ -28,7 +28,7 @@ ensure_daemon() {
+ dump_py() {
+     cat > /tmp/overkill.py << 'PYEOF'
+ #!/usr/bin/env python3
+-import gi, signal, math, cairo, subprocess, random, os, socket
++import gi, signal, math, cairo, subprocess, random, os
+ gi.require_version('Gtk', '3.0')
+ gi.require_version('Gdk', '3.0')
+ gi.require_version('GtkLayerShell', '0.1')
+@@ -47,29 +47,6 @@ CAL_HUD = 0.30       # how long the cyan center HUD takes to draw itself in
+ BANNER_INTRO = 0.5   # how long the bottom banner takes to slam in
+ def clamp(v, a, b): return a if v < a else b if v > b else v
+ def ease_out_cubic(x): return 1 - (1 - x) ** 3
+-# ask Hyprland for the cursor position straight over its socket -- this is way cheaper
+-# than spawning hyprctl 30 times a second like the old version did.
+-_HIS = os.environ.get("HYPRLAND_INSTANCE_SIGNATURE", "")
+-_XRD = os.environ.get("XDG_RUNTIME_DIR", "")
+-def _hypr_sock():
+-    for p in ("%s/hypr/%s/.socket.sock" % (_XRD, _HIS), "/tmp/hypr/%s/.socket.sock" % _HIS):
+-        if _HIS and os.path.exists(p): return p
+-    return None
+-_SOCK = _hypr_sock()
+-def query_cursor():
+-    if _SOCK:
+-        s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM); s.settimeout(0.2)
+-        try:
+-            s.connect(_SOCK); s.sendall(b"cursorpos")
+-            data = b""
+-            while True:
+-                chunk = s.recv(64)
+-                if not chunk: break
+-                data += chunk
+-            return data.decode().strip()
+-        finally:
+-            s.close()
+-    return subprocess.check_output(["hyprctl", "cursorpos"], text=True).strip()
+ def stroke_partial(cr, pts, frac):
+     if frac <= 0.001: return
+     seg = []; total = 0.0
+@@ -99,64 +76,20 @@ def tri(cr, x, y, size, up):
+         cr.move_to(x, y + size); cr.line_to(x - size*0.9, y - size*0.7); cr.line_to(x + size*0.9, y - size*0.7)
+     cr.close_path(); cr.fill()
+ 
+-# THE CURSOR itself -- i hand-ported the CP2077 triskelion emblem from its SVG, i tried to convert as much as possible the original SVG trnsforms here
+-# draws a custom crosshair like the game, as the mouse instead of the normal pointer.
+-EBR = (1.0, 0.231, 0.361)     # #ff3b5c, the bright outline color
+-EDK = (0.478, 0.114, 0.169)   # #7a1d2b, the dark inner chevrons
+-def _rotpt(px, py, deg):
+-    a = math.radians(deg); ca = math.cos(a); sa = math.sin(a)
+-    dx = px - 100; dy = py - 100
+-    return (100 + dx*ca - dy*sa, 100 + dx*sa + dy*ca)
+-def draw_emblem(cr, x, y, R, t, rev=1.0, lw=1.7):
+-    rv = ease_out_cubic(clamp(rev, 0, 1))           
+-    if rv <= 0.01: return
+-    R = R * (0.45 + 0.55 * rv); A = rv
+-    sc = R / 85.0
+-    grot = 0.0
+-    cg = math.cos(grot); sg = math.sin(grot)
+-    po = math.sin(t * 3.4) * 7.0                  
+-    def P(px, py):
+-        dx = (px - 100)*sc; dy = (py - 100)*sc
+-        return (x + dx*cg - dy*sg, y + dx*sg + dy*cg)
+-    def GP(px, py, deg):
+-        sx, sy = _rotpt(px, py, deg); return P(sx, sy)
+-    def poly(pts):
+-        cr.new_path(); cr.move_to(*pts[0])
+-        for p in pts[1:]: cr.line_to(*p)
+-        cr.stroke()
+-    spokes = [[GP(100, 75 - po, d), GP(100, 15 - po, d)] for d in (0, 120, 240)]
+-    caps = [[GP(75.5, 54.5, d), GP(82, 46, d), GP(118, 46, d), GP(124.5, 54.5, d)] for d in (60, 180, 300)]
+-    chev = [[GP(83, 75, d), GP(100, 85, d), GP(117, 75, d)] for d in (60, 180, 300)]
+-    cr.set_line_cap(cairo.LineCap.ROUND); cr.set_line_join(cairo.LineJoin.ROUND)
+-    cr.set_operator(cairo.OPERATOR_ADD); cr.set_source_rgba(*EBR, 0.10*A); cr.set_line_width(lw*4)
+-    for g in spokes: poly(g)
+-    for g in caps: poly(g)
+-    cr.set_operator(cairo.OPERATOR_OVER)
+-    # the dark inner chevrons -- sharp (miter) corners, no glow on these
+-    cr.set_source_rgba(*EDK, 0.95*A); cr.set_line_width(lw*0.9); cr.set_line_join(cairo.LineJoin.MITER)
+-    for g in chev: poly(g)
+-    # now the bright spokes + caps on top
+-    cr.set_line_join(cairo.LineJoin.ROUND); cr.set_source_rgba(*EBR, 0.98*A); cr.set_line_width(lw)
+-    for g in spokes: poly(g)
+-    for g in caps: poly(g)
+-    # little dot in the very center of the corsshair
+-    cr.set_source_rgba(*EBR, 1.0*A)
+-    cr.new_path(); cr.arc(x, y, max(1.8, 2.2*sc), 0, TAU); cr.fill()
+-
+ # the dark red vignette that dims the whole screen.
+ # bilinear smoothing. the gradient is soft anyway so your eye can't tell, but it's
+ # ~16x fewer gradient calculations per frame -- the full-size radial fill was eating
+ # most of the CPU before i did this.
+-_VCACHE = {"surf": None, "w": 0, "h": 0}
++_VCACHE = {}
+ def draw_vignette(cr, W, H, t, rev=1.0):
+     f = clamp(rev / 0.5, 0, 1)
+     if f <= 0.01: return
+     pulse = 0.94 + 0.06 * math.sin(t * 2.0)
+     sw = max(2, int(W // 4)); sh = max(2, int(H // 4))
+-    if _VCACHE["surf"] is None or _VCACHE["w"] != sw or _VCACHE["h"] != sh:
+-        _VCACHE["surf"] = cairo.ImageSurface(cairo.FORMAT_ARGB32, sw, sh)
+-        _VCACHE["w"] = sw; _VCACHE["h"] = sh
+-    surf = _VCACHE["surf"]
++    key = (sw, sh)
++    if key not in _VCACHE:
++        _VCACHE[key] = cairo.ImageSurface(cairo.FORMAT_ARGB32, sw, sh)
++    surf = _VCACHE[key]
+     c2 = cairo.Context(surf)
+     c2.set_operator(cairo.OPERATOR_CLEAR); c2.paint(); c2.set_operator(cairo.OPERATOR_OVER)
+     cx, cy = sw / 2, sh / 2; reach = math.hypot(sw, sh) / 2
+@@ -325,20 +258,22 @@ def draw_banner(cr, W, H, t, rev):
+             cr.set_source_rgba(*TB, textA); cr.move_to(tx, ty); cr.show_text(msg)
+ 
+ class W(Gtk.Window):
+-    def __init__(s):
++    def __init__(s, monitor):
+         super().__init__(type=Gtk.WindowType.TOPLEVEL)
++        s.monitor = monitor
+         s.set_title("overkill"); s.set_wmclass("overkill", "Overkill")
+         s.set_decorated(False); s.set_accept_focus(False)
+         s.set_app_paintable(True)
+-        s.mx = 0; s.my = 0; s.t = 0.0
++        s.t = 0.0
+         s.rev = 0.0; s.dir = 1            # reveal goes 0..1; dir +1 = animating in, -1 = animating out
+         s.intro = 0.45; s.outro = 0.40    # intro/outro length, in seconds
+-        s.active = False; s.poll_id = 0; s.anim_id = 0
++        s.active = False; s.anim_id = 0
+         screen = s.get_screen()
+         v = screen.get_rgba_visual()
+         if v: s.set_visual(v)
+         GtkLayerShell.init_for_window(s)
+         L = GtkLayerShell.Layer; E = GtkLayerShell.Edge
++        GtkLayerShell.set_monitor(s, monitor)
+         GtkLayerShell.set_layer(s, L.OVERLAY)
+         for e in (E.LEFT, E.RIGHT, E.TOP, E.BOTTOM): GtkLayerShell.set_anchor(s, e, 1)
+         GtkLayerShell.set_exclusive_zone(s, -1)
+@@ -348,38 +283,29 @@ class W(Gtk.Window):
+         s.add_events(Gdk.EventMask.BUTTON_PRESS_MASK)
+         s.connect("button-press-event", s.on_click)
+         # NB: no show_all() here -- it stays hidden/resident until SIGUSR2 wakes it (instant deploy)
+-    def _hide_cursor(s):
++    def _set_cursor(s):
+         try:
+             win = s.get_window()
+             if not win: return
+             cur = None
+-            try: cur = Gdk.Cursor.new_from_name(s.get_display(), "none")
++            try: cur = Gdk.Cursor.new_from_name(s.get_display(), "not-allowed")
+             except Exception: cur = None
+             if cur is None:
+-                cur = Gdk.Cursor.new_for_display(s.get_display(), Gdk.CursorType.BLANK_CURSOR)
++                cur = Gdk.Cursor.new_for_display(s.get_display(), Gdk.CursorType.X_CURSOR)
+             win.set_cursor(cur)
+         except Exception:
+             pass
+-    def _sync_cursor(s):
+-        try:
+-            out = query_cursor(); x, y = out.split(", "); s.mx, s.my = float(x), float(y)
+-        except Exception:
+-            pass
+     def on_realize(s, *a):
+-        s._hide_cursor()
++        s._set_cursor()
+     def activate(s):
+         s.dir = 1
+         if s.active: return
+         s.active = True; s.t = 0.0; s.rev = 0.0
+-        s._sync_cursor()
+-        s.show_all(); s._hide_cursor()
+-        s.poll_id = GLib.timeout_add(33, s.poll_mouse)
++        s.show_all(); s._set_cursor()
+         s.anim_id = GLib.timeout_add(33, s.animate)
+-    def activate_signal(s):
+-        s.activate(); return True
+     def deactivate(s):
+         s.active = False
+-        for sid in ("poll_id", "anim_id"):
++        for sid in ("anim_id",):
+             try: GLib.source_remove(getattr(s, sid))
+             except Exception: pass
+             setattr(s, sid, 0)
+@@ -392,10 +318,6 @@ class W(Gtk.Window):
+     def start_outro(s):
+         if s.active: s.dir = -1
+         return True
+-    def poll_mouse(s):
+-        if not s.active: return False
+-        s._sync_cursor()
+-        return True
+     def animate(s):
+         if not s.active: return False
+         s.t += 0.033
+@@ -412,13 +334,19 @@ class W(Gtk.Window):
+         draw_vignette(cr, W, H, s.t, s.rev)
+         draw_hud(cr, W, H, s.rev)
+         draw_banner(cr, W, H, s.t, s.rev)
+-        draw_emblem(cr, s.mx, s.my, 32, s.t, s.rev)
+         return True
+ 
+ signal.signal(signal.SIGTERM, lambda *a: Gtk.main_quit())
+-win = W()
+-GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, signal.SIGUSR1, win.start_outro)   # play outro + hide
+-GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, signal.SIGUSR2, win.activate_signal)  # wake + show
++display = Gdk.Display.get_default()
++wins = [W(display.get_monitor(i)) for i in range(display.get_n_monitors())]
++def start_outro(*a):
++    for win in wins: win.start_outro()
++    return True
++def activate(*a):
++    for win in wins: win.activate()
++    return True
++GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, signal.SIGUSR1, start_outro)   # play outro + hide
++GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, signal.SIGUSR2, activate)  # wake + show
+ try:
+     with open("/tmp/overkill-daemon.pid", "w") as fp: fp.write(str(os.getpid()))
+ except Exception: pass
