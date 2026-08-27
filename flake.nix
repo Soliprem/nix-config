@@ -61,13 +61,10 @@
     checks = builtins.mapAttrs (_: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
 
     packages.${pkgs.stdenv.hostPlatform.system} = rec {
-      cyberarch-fonts = pkgs.runCommand "cyberarch-fonts-unstable-2026-08-26" {} ''
-        mkdir -p "$out/share/fonts/truetype/cyberarch"
-        cp "${inputs.cyberarch}/assets/fonts/"* "$out/share/fonts/truetype/cyberarch/"
-      '';
       cyberarch-shell = pkgs.callPackage ./packages/cyberarch-shell.nix {
         src = inputs.cyberarch;
       };
+      cyberarch-fonts = cyberarch-shell;
       nvf =
         (inputs.nvf.lib.neovimConfiguration {
           pkgs = nvfPkgs;

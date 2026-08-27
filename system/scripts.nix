@@ -5,7 +5,6 @@
   ...
 }: let
   cyberarchShell = inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.cyberarch-shell;
-  materialGtkCss = pkgs.writeText "material-rice.css" "";
   qt5Kvantum = pkgs.libsForQt5."qtstyleplugin-kvantum";
   qt6Kvantum = pkgs.kdePackages."qtstyleplugin-kvantum";
   scripts = [
@@ -70,27 +69,16 @@
 
         apply_app_theme() {
           style="$1"
+          profile_dir="$HOME/.config/nixrice/themes/$style"
           theme_dir="$state_dir/app-theme"
-          kvantum_name="NixRiceCyberArch"
           kvantum_config="$HOME/.config/Kvantum/kvantum.kvconfig"
-          kvantum_generated="$theme_dir/kvantum.kvconfig"
           kvantum_saved="$theme_dir/kvantum.kvconfig.material"
           kvantum_saved_marker="$theme_dir/kvantum-config-saved"
-          kvantum_theme="$theme_dir/$kvantum_name"
-          kvantum_theme_link="$HOME/.config/Kvantum/$kvantum_name"
           mkdir -p "$theme_dir" "$HOME/.config/Kvantum"
 
-          # Older revisions changed the GTK base theme. Restore it once and
-          # let the profile-specific rice.css provide the CyberArch styling.
-          legacy_gtk_theme="$theme_dir/gsettings-gtk-theme"
-          if [ -s "$legacy_gtk_theme" ]; then
-            gsettings set org.gnome.desktop.interface gtk-theme \
-              "$(cat "$legacy_gtk_theme")"
-            rm "$legacy_gtk_theme"
-          fi
-
           for version in 3.0 4.0; do
-            mkdir -p "$HOME/.config/gtk-$version"
+            ln -sfn "$profile_dir/gtk-settings.ini" "$HOME/.config/gtk-$version/settings.ini"
+            ln -sfn "$profile_dir/gtk.css" "$HOME/.config/gtk-$version/rice.css"
           done
 
           if [ "$style" = cyberpunk ]; then
@@ -102,48 +90,13 @@
               fi
             done
 
-            for version in 3.0 4.0; do
-              settings="$HOME/.config/gtk-$version/settings.ini"
-              saved="$theme_dir/gtk-$version-settings.material"
-              generated="$theme_dir/gtk-$version-settings.cyberpunk"
-              if [ ! -e "$saved" ] && [ ! -L "$saved" ]; then
-                cp -a --no-dereference "$settings" "$saved"
-              fi
-              sed \
-                -e '/^gtk-icon-theme-name=/d' \
-                -e '/^gtk-cursor-theme-name=/d' \
-                -e '/^gtk-cursor-theme-size=/d' \
-                -e '/^gtk-application-prefer-dark-theme=/d' \
-                "$saved" > "$generated"
-              printf '%s\n' \
-                'gtk-icon-theme-name=CyberArch' \
-                'gtk-cursor-theme-name=CyberArch-cursors' \
-                'gtk-cursor-theme-size=48' \
-                'gtk-application-prefer-dark-theme=1' >> "$generated"
-              ln -sfn "$generated" "$settings"
-            done
-
-            ln -sfn "${cyberarchShell}/share/assets/gtk/gtk.css" "$HOME/.config/gtk-3.0/rice.css"
-            ln -sfn "${cyberarchShell}/share/assets/gtk/gtk.css" "$HOME/.config/gtk-4.0/rice.css"
             if [ ! -e "$kvantum_saved_marker" ]; then
               if [ -e "$kvantum_config" ] || [ -L "$kvantum_config" ]; then
                 cp -a "$kvantum_config" "$kvantum_saved"
               fi
               touch "$kvantum_saved_marker"
             fi
-            mkdir -p "$kvantum_theme"
-            ln -sfn "${cyberarchShell}/share/Kvantum/Daemon/Daemon.kvconfig" \
-              "$kvantum_theme/$kvantum_name.kvconfig"
-            ln -sfn "${cyberarchShell}/share/Kvantum/Daemon/Daemon.svg" \
-              "$kvantum_theme/$kvantum_name.svg"
-            if [ ! -e "$kvantum_theme_link" ] && [ ! -L "$kvantum_theme_link" ]; then
-              ln -s "$kvantum_theme" "$kvantum_theme_link"
-            elif [ "$(readlink "$kvantum_theme_link" 2>/dev/null || true)" != "$kvantum_theme" ]; then
-              printf 'rice-style: leaving existing Kvantum theme at %s in place\n' \
-                "$kvantum_theme_link" >&2
-            fi
-            printf '[General]\ntheme=%s\n' "$kvantum_name" > "$kvantum_generated"
-            ln -sfn "$kvantum_generated" "$kvantum_config"
+            ln -sfn "$profile_dir/kvantum.kvconfig" "$kvantum_config"
 
             gsettings set org.gnome.desktop.interface icon-theme CyberArch
             gsettings set org.gnome.desktop.interface cursor-theme CyberArch-cursors
@@ -171,36 +124,12 @@
               hyprctl setcursor CyberArch-cursors 48 >/dev/null || true
             fi
           else
-            for version in 3.0 4.0; do
-              settings="$HOME/.config/gtk-$version/settings.ini"
-              saved="$theme_dir/gtk-$version-settings.material"
-              generated="$theme_dir/gtk-$version-settings.cyberpunk"
-              if [ -L "$settings" ] && [ "$(readlink "$settings")" = "$generated" ]; then
-                rm "$settings"
-                if [ -e "$saved" ] || [ -L "$saved" ]; then
-                  mv "$saved" "$settings"
-                fi
-              elif [ -e "$saved" ] || [ -L "$saved" ]; then
-                printf 'rice-style: leaving existing GTK %s settings at %s in place\n' \
-                  "$version" "$settings" >&2
-                rm "$saved"
-              fi
-              rm -f "$generated"
-            done
-
-            ln -sfn "${materialGtkCss}" "$HOME/.config/gtk-3.0/rice.css"
-            ln -sfn "${materialGtkCss}" "$HOME/.config/gtk-4.0/rice.css"
-
             if [ -L "$kvantum_config" ] \
-              && [ "$(readlink "$kvantum_config")" = "$kvantum_generated" ]; then
+              && [ "$(readlink "$kvantum_config")" = "$HOME/.config/nixrice/themes/cyberpunk/kvantum.kvconfig" ]; then
               rm "$kvantum_config"
             fi
             if [ -e "$kvantum_saved" ] || [ -L "$kvantum_saved" ]; then
               mv "$kvantum_saved" "$kvantum_config"
-            fi
-            if [ -L "$kvantum_theme_link" ] \
-              && [ "$(readlink "$kvantum_theme_link")" = "$kvantum_theme" ]; then
-              rm "$kvantum_theme_link"
             fi
             rm -f "$kvantum_saved_marker"
 
@@ -243,7 +172,6 @@
         esac
 
         restart_shell() {
-          quickshell kill >/dev/null 2>&1 || true
           systemctl --user unset-environment \
             WAYLAND_DISPLAY DISPLAY HYPRLAND_INSTANCE_SIGNATURE \
             XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
