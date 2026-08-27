@@ -6,9 +6,9 @@ local browser = H.browser
 local exec = hl.dsp.exec_cmd
 local cyberpunk = H.cyberpunk
 
-local shell_action = function(request, fallback)
+local shell_action = function(action, fallback)
   if cyberpunk then
-    return exec('cyberarch-ctl "' .. request .. '"')
+    return type(action) == "string" and exec('cyberarch-ctl "' .. action .. '"') or action
   end
   return fallback
 end
@@ -17,12 +17,12 @@ local common_keybinds = {
   XF86PowerOff = { action = exec("wlogout"), },
   Print = { action = exec("grimblast copy area"), },
   XF86AudioMicMute = { action = exec("swayosd-client --input-volume mute-toggle"), opts = { locked = true }, },
-  XF86AudioMute = { action = exec("swayosd-client --output-volume mute-toggle"), opts = { locked = true }, },
+  XF86AudioMute = { action = shell_action(exec("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), exec("swayosd-client --output-volume mute-toggle")), opts = { locked = true }, },
   XF86AudioPlay = { action = exec("playerctl play-pause"), opts = { locked = true }, },
   XF86AudioPrev = { action = exec("playerctl previous"), opts = { locked = true }, },
   XF86AudioNext = { action = exec("playerctl next"), opts = { locked = true }, },
-  XF86AudioRaiseVolume = { action = exec("swayosd-client --output-volume raise"), opts = { locked = true, repeating = true }, },
-  XF86AudioLowerVolume = { action = exec("swayosd-client --output-volume lower"), opts = { locked = true, repeating = true }, },
+  XF86AudioRaiseVolume = { action = shell_action(exec("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), exec("swayosd-client --output-volume raise")), opts = { locked = true, repeating = true }, },
+  XF86AudioLowerVolume = { action = shell_action(exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), exec("swayosd-client --output-volume lower")), opts = { locked = true, repeating = true }, },
   XF86MonBrightnessUp = { action = exec("swayosd-client --brightness raise"), opts = { locked = true, repeating = true }, },
   XF86MonBrightnessDown = { action = exec("swayosd-client --brightness lower"), opts = { locked = true, repeating = true }, },
   Caps_Lock = { action = exec("sleep 0.1 && swayosd-client --caps-lock"), opts = { locked = true, repeating = true }, },
