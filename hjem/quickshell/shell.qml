@@ -103,6 +103,7 @@ ShellRoot {
         id: buttonModel
         ListElement { icon: "󰍜"; color_role: "second"; action: "cmd";           binary: "fuzzel"; args: "" }
         ListElement { icon: "󱙓"; color_role: "second"; action: "cmd";           binary: "nixrice"; args: "" }
+        ListElement { icon: "󰌁"; color_role: "warm";   action: "cmd";           binary: "rice-style"; args: "cyberpunk" }
         ListElement { icon: "󰂯"; color_role: "second"; action: "cmd";           binary: "foot"; args: "bluetui" }
         ListElement { icon: "󰖩"; color_role: "accent"; action: "cmd";           binary: "foot";           args: "nmtui" }
         ListElement { icon: "󰏘"; color_role: "accent"; action: "cmd";           binary: "color-mode";         args: "" }

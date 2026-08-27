@@ -61,6 +61,13 @@
     checks = builtins.mapAttrs (_: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
 
     packages.${pkgs.stdenv.hostPlatform.system} = rec {
+      cyberarch-fonts = pkgs.runCommand "cyberarch-fonts-unstable-2026-08-26" {} ''
+        mkdir -p "$out/share/fonts/truetype/cyberarch"
+        cp "${inputs.cyberarch}/assets/fonts/"* "$out/share/fonts/truetype/cyberarch/"
+      '';
+      cyberarch-shell = pkgs.callPackage ./packages/cyberarch-shell.nix {
+        src = inputs.cyberarch;
+      };
       nvf =
         (inputs.nvf.lib.neovimConfiguration {
           pkgs = nvfPkgs;
@@ -108,6 +115,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    cyberarch = {
+      url = "github:arcangel0/cyberarch-dotfiles";
+      flake = false;
+    };
     nix-doom-emacs-unstraightened = {
       url = "github:marienz/nix-doom-emacs-unstraightened";
       inputs.nixpkgs.follows = "";

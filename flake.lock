@@ -64,6 +64,22 @@
         "type": "github"
       }
     },
+    "cyberarch": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1787785630,
+        "narHash": "sha256-AyGRvyA1KzFY2ltaNRNi35iJvpIxB+n2H3y5mWImuZU=",
+        "owner": "arcangel0",
+        "repo": "cyberarch-dotfiles",
+        "rev": "eacc83197022176e03e5d69cdb3504a8060d62bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "arcangel0",
+        "repo": "cyberarch-dotfiles",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -914,6 +930,7 @@
         "agenix": "agenix",
         "beer": "beer",
         "cade": "cade",
+        "cyberarch": "cyberarch",
         "deploy-rs": "deploy-rs",
         "dm-scripts": "dm-scripts",
         "eh": "eh",

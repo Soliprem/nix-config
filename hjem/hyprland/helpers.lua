@@ -8,6 +8,15 @@ M.default_layout = "master"
 
 M.workspaces_per_monitor = 10
 
+function M.rice_style()
+  local state_home = os.getenv("XDG_STATE_HOME") or (os.getenv("HOME") .. "/.local/state")
+  local file = io.open(state_home .. "/nixrice/style", "r")
+  if not file then return "material" end
+  local style = file:read("*l")
+  file:close()
+  return style == "cyberpunk" and style or "material"
+end
+
 function M.merge_orphaned_windows()
   local clients = hl.get_windows and hl.get_windows() or {}
 

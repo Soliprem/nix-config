@@ -127,6 +127,40 @@ toggle-polarity dark
 toggle-polarity light
 ```
 
+Switch between the Material and CyberArch shells:
+
+```bash
+rice-style material
+rice-style cyberpunk
+rice-style toggle
+rice-style current
+```
+
+The CyberArch profile currently runs only under Hyprland; other compositors
+fall back to the Material Quickshell. `SUPER + CTRL + R` toggles the profile in
+Hyprland. The CyberArch profile selects its bundled Lucy wallpaper; switching
+back to Material restores the wallpaper that was active before it. It also
+switches GTK styling, the icon and cursor themes, and Qt's Kvantum theme;
+switching back restores the saved Material settings. Already-running apps may
+need to be reopened to inherit the new toolkit environment.
+
+`SUPER + ALT + L`, wlogout, and hypridle use the selected profile's lockscreen:
+CyberArch's Quickshell lock in the cyberpunk profile and hyprlock in Material.
+The Quickshell lock authenticates through its dedicated `cyberarch-lock` PAM
+service.
+
+Shell-facing Hyprland bindings follow the selected profile. In CyberArch,
+`SUPER + D` and `SUPER + TAB` open its app wheel, while `SUPER + X` opens its
+notification HUD. The upstream `SUPER + SHIFT` module bindings are available
+for volume (`V`), brightness (`I`), updates (`U`), notifications (`M`), player
+(`O`), Wi-Fi (`N`), Bluetooth (`B`), power (`P`), forecast (`W`), clock (`-`),
+markets (`G`), battery (`Y`), system (`C`), and notification actions (`E`/`X`).
+`SUPER + SHIFT + /` opens the built-in key guide.
+
+Use `cyberarch-rebuild` in place of `nh os switch` to show CyberArch's Street
+Cred animation after a successful NixOS rebuild. Any arguments are forwarded to
+`nh os switch`, including `--update`.
+
 ## Shortcuts
 
 - `SUPER + Return` - Terminal

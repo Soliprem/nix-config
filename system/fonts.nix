@@ -1,5 +1,6 @@
 # thanks raf
 {
+  inputs,
   pkgs,
   lib,
   ...
@@ -44,6 +45,7 @@ in {
 
     # font packages that should be installed
     packages = with pkgs; [
+      inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.cyberarch-fonts
       # defaults worth keeping
       dejavu_fonts
       freefont_ttf
