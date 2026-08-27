@@ -43,6 +43,6 @@ hl.layer_rule({ match = { namespace = "launcher" }, blur = true, ignore_alpha = 
 hl.layer_rule({ match = { namespace = "quickshell-sidebar" }, blur = true, ignore_alpha = 0.2 })
 hl.layer_rule({ match = { namespace = "quantum-notification-popups" }, blur = true, ignore_alpha = 0.01 })
 
-if H.rice_style() == "cyberpunk" then
+if H.cyberpunk then
   hl.layer_rule({ match = { namespace = "modal_.*" }, blur = true })
 end

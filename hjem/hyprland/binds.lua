@@ -4,7 +4,7 @@ local mod = H.mod
 local term = H.term
 local browser = H.browser
 local exec = hl.dsp.exec_cmd
-local cyberpunk = H.rice_style() == "cyberpunk"
+local cyberpunk = H.cyberpunk
 
 local shell_action = function(request, fallback)
   if cyberpunk then

@@ -6,7 +6,7 @@ hl.env("SDL_IM_MODULE", "fcitx")
 hl.env("GLFW_IM_MODULE", "ibus")
 hl.env("INPUT_METHOD", "fcitx")
 
-if H.rice_style() == "cyberpunk" then
+if H.cyberpunk then
   hl.env("HYPRCURSOR_THEME", "")
   hl.env("HYPRCURSOR_SIZE", "")
   hl.env("XCURSOR_THEME", "CyberArch-cursors")

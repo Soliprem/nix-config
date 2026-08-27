@@ -1,5 +1,5 @@
 H = require("helpers")
-local cyberpunk = H.rice_style() == "cyberpunk"
+local cyberpunk = H.cyberpunk
 
 local general = {
   gaps_in = cyberpunk and 12 or 4,
