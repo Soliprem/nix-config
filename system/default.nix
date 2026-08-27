@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./scripts.nix
+    ./scripts
     ./modules
     ./nixpkgs.nix
     ./substituters.nix
