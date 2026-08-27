@@ -106,13 +106,6 @@
     cp "$out/assets/gtk/iconpack/mimetypes/22/text-html.svg" \
       "$out/assets/gtk/iconpack/places/22/folder-html.svg"
 
-    substituteInPlace "$out/components/login/lock_shell.qml" \
-      --replace-fail 'PamContext {' 'PamContext {
-        config: "cyberarch-lock"'
-    substituteInPlace "$out/components/login/themes/netwatch/Main.qml" \
-      --replace-fail 'import QtGraphicalEffects' 'import Qt5Compat.GraphicalEffects' \
-      --replace-fail 'cat ~/.config/hypr/themes/cyberpunk/config/city.json 2>/dev/null' \
-        'cat \"$CYBERARCH_STATE_DIR/city.json\" 2>/dev/null'
     substituteInPlace "$out/scripts/overkill" \
       --replace-fail 'os.path.expanduser("~/.config/hypr/themes/cyberpunk/assets/icons/alert.png")' \
         '"'$out'/assets/icons/alert.png"' \

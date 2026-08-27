@@ -67,11 +67,11 @@
     "cyberarch": {
       "flake": false,
       "locked": {
-        "lastModified": 1787838520,
-        "narHash": "sha256-z+5c22iaSsLAuQXpmx7TbFA/rwLHX4ZMdzNvj8Wh3Xc=",
+        "lastModified": 1787859486,
+        "narHash": "sha256-ssuqJV0fArfXwBt+LOO5UYdwT7X7UbGl7Sd7hPcAjpU=",
         "owner": "arcangel0",
         "repo": "cyberarch-dotfiles",
-        "rev": "eeeaebf17d6467af276b7b311cdabffb2cd061f8",
+        "rev": "bf5e53dfc7af20092500c9ac2071364c4a0abb7c",
         "type": "github"
       },
       "original": {
