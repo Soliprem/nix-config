@@ -36,6 +36,7 @@ in {
       done
     '')
     inputs.agenix.packages.${sys}.default
+    inputs.self.packages.${sys}.cyberarch-shell
     inputs.deploy-rs.packages.${sys}.default
     inputs.self.packages.${sys}.nvf
     inputs.thumbpick.packages.${sys}.default
@@ -113,6 +114,7 @@ in {
     hyprshutdown
     iio-hyprland
     hyprlock
+    hypridle
     glib
     kanshi
     kdePackages.polkit-kde-agent-1

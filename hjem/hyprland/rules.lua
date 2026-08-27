@@ -1,3 +1,5 @@
+local H = require("helpers")
+
 local function window_rule(match, effects)
   effects.match = match
   hl.window_rule(effects)
@@ -40,3 +42,7 @@ hl.layer_rule({ match = { namespace = "launcher" }, blur = true, ignore_alpha = 
 -- TODO: https://github.com/hyprwm/Hyprland/pull/13211 will remove the need for these
 hl.layer_rule({ match = { namespace = "quickshell-sidebar" }, blur = true, ignore_alpha = 0.2 })
 hl.layer_rule({ match = { namespace = "quantum-notification-popups" }, blur = true, ignore_alpha = 0.01 })
+
+if H.rice_style() == "cyberpunk" then
+  hl.layer_rule({ match = { namespace = "modal_.*" }, blur = true })
+end

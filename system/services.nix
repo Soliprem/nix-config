@@ -50,6 +50,7 @@
   security = {
     pam.services.soliprem.enableGnomeKeyring = true;
     pam.services.sddm.enableGnomeKeyring = true;
+    pam.services."cyberarch-lock" = {};
     pki.certificateFiles = [../assets/almawifi.cer];
     polkit.enable = true;
   };
@@ -92,6 +93,17 @@
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;
+      };
+    };
+    user.services.rice-shell = {
+      description = "Selected desktop shell profile";
+      partOf = ["graphical-session.target"];
+      after = ["graphical-session-pre.target"];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "/run/current-system/sw/bin/rice-style run";
+        Restart = "on-failure";
+        RestartSec = 1;
       };
     };
   };

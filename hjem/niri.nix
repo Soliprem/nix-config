@@ -58,7 +58,7 @@ _: {
         spawn-at-startup "xwayland-satellite"
         spawn-at-startup "awww-daemon"
         spawn-at-startup "battery-monitor"
-        spawn-at-startup "quickshell" "--no-duplicate"
+        spawn-at-startup "rice-style" "apply"
         spawn-at-startup "nm-applet"
         spawn-at-startup "kanshi"
         spawn-at-startup "protonvpn-app"

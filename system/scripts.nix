@@ -4,7 +4,335 @@
   inputs,
   ...
 }: let
+  cyberarchShell = inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.cyberarch-shell;
+  materialGtkCss = pkgs.writeText "material-rice.css" "";
+  qt5Kvantum = pkgs.libsForQt5."qtstyleplugin-kvantum";
+  qt6Kvantum = pkgs.kdePackages."qtstyleplugin-kvantum";
   scripts = [
+    (pkgs.writeShellApplication {
+      name = "cyberarch-ctl";
+      runtimeInputs = [pkgs.coreutils pkgs.socat];
+      text = ''
+        if [ "$#" -eq 0 ]; then
+          printf 'usage: %s REQUEST\n' "$0" >&2
+          exit 2
+        fi
+
+        socket="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/astal/cyberpunk.sock"
+        if [ ! -S "$socket" ]; then
+          printf 'cyberarch-ctl: shell socket is unavailable\n' >&2
+          exit 1
+        fi
+
+        printf '%s' "$*" | socat - "UNIX-CONNECT:$socket" >/dev/null
+      '';
+    })
+    (pkgs.writeShellApplication {
+      name = "rice-lock";
+      runtimeInputs = [cyberarchShell pkgs.hyprlock pkgs.procps pkgs.swaylock-effects];
+      text = ''
+        state_file="''${XDG_STATE_HOME:-$HOME/.local/state}/nixrice/style"
+        style="$(cat "$state_file" 2>/dev/null || printf 'material\n')"
+
+        if [ "$style" = cyberpunk ] && [ -n "''${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+          exec cyberarch-lock
+        elif [ -n "''${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+          pidof hyprlock >/dev/null || exec hyprlock
+        else
+          pidof swaylock >/dev/null || exec swaylock
+        fi
+      '';
+    })
+    (pkgs.writeShellApplication {
+      name = "rice-style";
+      runtimeInputs = [
+        cyberarchShell
+        pkgs.awww
+        pkgs.coreutils
+        pkgs.glib
+        pkgs.gsettings-desktop-schemas
+        pkgs.gnused
+        pkgs.hyprland
+        pkgs.quickshell
+        pkgs.systemd
+      ];
+      text = ''
+        # This service starts with systemd's deliberately minimal PATH, but
+        # desktop entries expect the same profile commands as the session.
+        export PATH="$HOME/.local/bin:/run/wrappers/bin:$HOME/.nix-profile/bin:/nix/profile/bin:$HOME/.local/state/nix/profile/bin:/etc/profiles/per-user/$USER/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
+        export XDG_DATA_DIRS="${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}''${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}"
+
+        state_dir="''${XDG_STATE_HOME:-$HOME/.local/state}/nixrice"
+        state_file="$state_dir/style"
+        material_wallpaper_file="$state_dir/material-wallpaper"
+        cyberpunk_wallpaper="${cyberarchShell}/share/assets/img/lucy_wallpaper.png"
+        default_style="material"
+
+        apply_app_theme() {
+          style="$1"
+          theme_dir="$state_dir/app-theme"
+          kvantum_name="NixRiceCyberArch"
+          kvantum_config="$HOME/.config/Kvantum/kvantum.kvconfig"
+          kvantum_generated="$theme_dir/kvantum.kvconfig"
+          kvantum_saved="$theme_dir/kvantum.kvconfig.material"
+          kvantum_saved_marker="$theme_dir/kvantum-config-saved"
+          kvantum_theme="$theme_dir/$kvantum_name"
+          kvantum_theme_link="$HOME/.config/Kvantum/$kvantum_name"
+          mkdir -p "$theme_dir" "$HOME/.config/Kvantum"
+
+          # Older revisions changed the GTK base theme. Restore it once and
+          # let the profile-specific rice.css provide the CyberArch styling.
+          legacy_gtk_theme="$theme_dir/gsettings-gtk-theme"
+          if [ -s "$legacy_gtk_theme" ]; then
+            gsettings set org.gnome.desktop.interface gtk-theme \
+              "$(cat "$legacy_gtk_theme")"
+            rm "$legacy_gtk_theme"
+          fi
+
+          for version in 3.0 4.0; do
+            mkdir -p "$HOME/.config/gtk-$version"
+          done
+
+          if [ "$style" = cyberpunk ]; then
+            for key in icon-theme cursor-theme color-scheme; do
+              saved="$theme_dir/gsettings-$key"
+              if [ ! -s "$saved" ]; then
+                value="$(gsettings get org.gnome.desktop.interface "$key")"
+                printf '%s\n' "$value" > "$saved"
+              fi
+            done
+
+            for version in 3.0 4.0; do
+              settings="$HOME/.config/gtk-$version/settings.ini"
+              saved="$theme_dir/gtk-$version-settings.material"
+              generated="$theme_dir/gtk-$version-settings.cyberpunk"
+              if [ ! -e "$saved" ] && [ ! -L "$saved" ]; then
+                cp -a --no-dereference "$settings" "$saved"
+              fi
+              sed \
+                -e '/^gtk-icon-theme-name=/d' \
+                -e '/^gtk-cursor-theme-name=/d' \
+                -e '/^gtk-cursor-theme-size=/d' \
+                -e '/^gtk-application-prefer-dark-theme=/d' \
+                "$saved" > "$generated"
+              printf '%s\n' \
+                'gtk-icon-theme-name=CyberArch' \
+                'gtk-cursor-theme-name=CyberArch-cursors' \
+                'gtk-cursor-theme-size=48' \
+                'gtk-application-prefer-dark-theme=1' >> "$generated"
+              ln -sfn "$generated" "$settings"
+            done
+
+            ln -sfn "${cyberarchShell}/share/assets/gtk/gtk.css" "$HOME/.config/gtk-3.0/rice.css"
+            ln -sfn "${cyberarchShell}/share/assets/gtk/gtk.css" "$HOME/.config/gtk-4.0/rice.css"
+            if [ ! -e "$kvantum_saved_marker" ]; then
+              if [ -e "$kvantum_config" ] || [ -L "$kvantum_config" ]; then
+                cp -a "$kvantum_config" "$kvantum_saved"
+              fi
+              touch "$kvantum_saved_marker"
+            fi
+            mkdir -p "$kvantum_theme"
+            ln -sfn "${cyberarchShell}/share/Kvantum/Daemon/Daemon.kvconfig" \
+              "$kvantum_theme/$kvantum_name.kvconfig"
+            ln -sfn "${cyberarchShell}/share/Kvantum/Daemon/Daemon.svg" \
+              "$kvantum_theme/$kvantum_name.svg"
+            if [ ! -e "$kvantum_theme_link" ] && [ ! -L "$kvantum_theme_link" ]; then
+              ln -s "$kvantum_theme" "$kvantum_theme_link"
+            elif [ "$(readlink "$kvantum_theme_link" 2>/dev/null || true)" != "$kvantum_theme" ]; then
+              printf 'rice-style: leaving existing Kvantum theme at %s in place\n' \
+                "$kvantum_theme_link" >&2
+            fi
+            printf '[General]\ntheme=%s\n' "$kvantum_name" > "$kvantum_generated"
+            ln -sfn "$kvantum_generated" "$kvantum_config"
+
+            gsettings set org.gnome.desktop.interface icon-theme CyberArch
+            gsettings set org.gnome.desktop.interface cursor-theme CyberArch-cursors
+            gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
+            unset GTK_THEME
+            systemctl --user unset-environment GTK_THEME
+            export XCURSOR_THEME=CyberArch-cursors XCURSOR_SIZE=48
+            export QT_STYLE_OVERRIDE=kvantum
+            export QT_PLUGIN_PATH="${qt6Kvantum}/lib/qt-6/plugins:${qt5Kvantum}/lib/qt-5.15.19/plugins''${QT_PLUGIN_PATH:+:$QT_PLUGIN_PATH}"
+            systemctl --user set-environment \
+              XCURSOR_THEME=CyberArch-cursors XCURSOR_SIZE=48 \
+              QT_STYLE_OVERRIDE=kvantum \
+              QT_PLUGIN_PATH="$QT_PLUGIN_PATH"
+            if [ -n "''${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+              hyprctl eval '
+                hl.env("GTK_THEME", "")
+                hl.env("HYPRCURSOR_THEME", "")
+                hl.env("HYPRCURSOR_SIZE", "")
+                hl.env("XCURSOR_THEME", "CyberArch-cursors")
+                hl.env("XCURSOR_SIZE", "48")
+                hl.env("QT_STYLE_OVERRIDE", "kvantum")
+                hl.env("QT_PLUGIN_PATH", os.getenv("QT_PLUGIN_PATH") or "")
+              ' >/dev/null || true
+              hyprctl setcursor CyberArch-cursors 48 >/dev/null || true
+            fi
+          else
+            for version in 3.0 4.0; do
+              settings="$HOME/.config/gtk-$version/settings.ini"
+              saved="$theme_dir/gtk-$version-settings.material"
+              generated="$theme_dir/gtk-$version-settings.cyberpunk"
+              if [ -L "$settings" ] && [ "$(readlink "$settings")" = "$generated" ]; then
+                rm "$settings"
+                if [ -e "$saved" ] || [ -L "$saved" ]; then
+                  mv "$saved" "$settings"
+                fi
+              elif [ -e "$saved" ] || [ -L "$saved" ]; then
+                printf 'rice-style: leaving existing GTK %s settings at %s in place\n' \
+                  "$version" "$settings" >&2
+                rm "$saved"
+              fi
+              rm -f "$generated"
+            done
+
+            ln -sfn "${materialGtkCss}" "$HOME/.config/gtk-3.0/rice.css"
+            ln -sfn "${materialGtkCss}" "$HOME/.config/gtk-4.0/rice.css"
+
+            if [ -L "$kvantum_config" ] \
+              && [ "$(readlink "$kvantum_config")" = "$kvantum_generated" ]; then
+              rm "$kvantum_config"
+            fi
+            if [ -e "$kvantum_saved" ] || [ -L "$kvantum_saved" ]; then
+              mv "$kvantum_saved" "$kvantum_config"
+            fi
+            if [ -L "$kvantum_theme_link" ] \
+              && [ "$(readlink "$kvantum_theme_link")" = "$kvantum_theme" ]; then
+              rm "$kvantum_theme_link"
+            fi
+            rm -f "$kvantum_saved_marker"
+
+            for key in icon-theme cursor-theme color-scheme; do
+              saved="$theme_dir/gsettings-$key"
+              if [ -s "$saved" ]; then
+                gsettings set org.gnome.desktop.interface "$key" "$(cat "$saved")"
+              fi
+            done
+
+            unset GTK_THEME XCURSOR_THEME XCURSOR_SIZE QT_STYLE_OVERRIDE QT_PLUGIN_PATH
+            systemctl --user unset-environment \
+              GTK_THEME XCURSOR_THEME XCURSOR_SIZE QT_STYLE_OVERRIDE QT_PLUGIN_PATH
+            if [ -n "''${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+              hyprctl eval '
+                hl.env("GTK_THEME", "")
+                hl.env("XCURSOR_THEME", "")
+                hl.env("XCURSOR_SIZE", "")
+                hl.env("HYPRCURSOR_THEME", "Hypr-Bibata-Modern-Ice")
+                hl.env("HYPRCURSOR_SIZE", "24")
+                hl.env("QT_STYLE_OVERRIDE", "")
+                hl.env("QT_PLUGIN_PATH", "")
+              ' >/dev/null || true
+              hyprctl setcursor Hypr-Bibata-Modern-Ice 24 >/dev/null || true
+            fi
+
+            rm -f \
+              "$theme_dir/gsettings-gtk-theme" \
+              "$theme_dir/gsettings-icon-theme" \
+              "$theme_dir/gsettings-cursor-theme" \
+              "$theme_dir/gsettings-color-scheme"
+          fi
+        }
+
+        mkdir -p "$state_dir"
+        current_style="$(cat "$state_file" 2>/dev/null || printf '%s\n' "$default_style")"
+        case "$current_style" in
+          material|cyberpunk) ;;
+          *) current_style="$default_style" ;;
+        esac
+
+        restart_shell() {
+          quickshell kill >/dev/null 2>&1 || true
+          systemctl --user unset-environment \
+            WAYLAND_DISPLAY DISPLAY HYPRLAND_INSTANCE_SIGNATURE \
+            XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+          systemctl --user import-environment \
+            WAYLAND_DISPLAY DISPLAY HYPRLAND_INSTANCE_SIGNATURE \
+            XDG_CURRENT_DESKTOP XDG_SESSION_TYPE 2>/dev/null || true
+          systemctl --user restart rice-shell.service
+          if [ -n "''${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+            hyprctl reload >/dev/null
+          fi
+        }
+
+        active_wallpaper() {
+          awww query 2>/dev/null \
+            | sed -n 's/.*currently displaying: image: //p' \
+            | head -n 1
+        }
+
+        set_wallpaper() {
+          style="$1"
+          if [ "$style" = "cyberpunk" ]; then
+            active="$(active_wallpaper || true)"
+            if [ -n "$active" ] && [ "$active" != "$cyberpunk_wallpaper" ] && [ -r "$active" ]; then
+              printf '%s\n' "$active" > "$material_wallpaper_file"
+            fi
+            wallpaper="$cyberpunk_wallpaper"
+          else
+            wallpaper="$(cat "$material_wallpaper_file" 2>/dev/null || true)"
+            if [ ! -r "$wallpaper" ]; then
+              wallpaper="$(cat "$HOME/.cache/bgpath" 2>/dev/null || true)"
+            fi
+          fi
+
+          if [ -r "''${wallpaper:-}" ]; then
+            for _ in 1 2 3 4 5; do
+              if awww img --transition-type random --transition-step 4 --transition-fps 120 "$wallpaper" 2>/dev/null; then
+                return
+              fi
+              sleep 0.2
+            done
+          fi
+        }
+
+        case "''${1:-current}" in
+          current|get|print)
+            printf '%s\n' "$current_style"
+            ;;
+          material|cyberpunk)
+            printf '%s\n' "$1" > "$state_file"
+            restart_shell
+            ;;
+          toggle)
+            if [ "$current_style" = "material" ]; then
+              next_style="cyberpunk"
+            else
+              next_style="material"
+            fi
+            printf '%s\n' "$next_style" > "$state_file"
+            restart_shell
+            printf '%s\n' "$next_style"
+            ;;
+          apply)
+            restart_shell
+            ;;
+          wallpaper)
+            set_wallpaper "$current_style"
+            ;;
+          run)
+            effective_style="$current_style"
+            if [ "$effective_style" = "cyberpunk" ] && [ -z "''${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+              effective_style="material"
+            fi
+            apply_app_theme "$effective_style"
+            set_wallpaper "$effective_style"
+            if [ "$effective_style" = "cyberpunk" ]; then
+              exec cyberarch-shell
+            fi
+            if [ "$current_style" = "cyberpunk" ]; then
+              printf '%s\n' "rice-style: CyberArch currently requires Hyprland; starting Material shell" >&2
+            fi
+            exec quickshell --no-duplicate
+            ;;
+          *)
+            printf 'usage: %s [current|material|cyberpunk|toggle|apply|wallpaper]\n' "$0" >&2
+            exit 2
+            ;;
+        esac
+      '';
+    })
     (pkgs.writeShellApplication {
       name = "toggle-polarity";
       runtimeInputs = with pkgs; [

@@ -475,7 +475,7 @@
       xwayland-satellite &
       awww-daemon &
       battery-monitor &
-      quickshell --no-duplicate &
+      rice-style apply &
       nm-applet &
       kanshi &
       protonvpn-app &

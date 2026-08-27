@@ -10,6 +10,7 @@
     '';
     ".config/gtk-3.0/gtk.css".text = ''
       @import 'colors.css';
+      @import 'rice.css';
     '';
     ".config/gtk-4.0/settings.ini".text = ''
       [Settings]
@@ -21,6 +22,7 @@
     '';
     ".config/gtk-4.0/gtk.css".text = ''
       @import 'colors.css';
+      @import 'rice.css';
     '';
   };
 }

@@ -4,7 +4,14 @@ local mod = H.mod
 local term = H.term
 local browser = H.browser
 local exec = hl.dsp.exec_cmd
+local cyberpunk = H.rice_style() == "cyberpunk"
 
+local shell_action = function(request, fallback)
+  if cyberpunk then
+    return exec('cyberarch-ctl "' .. request .. '"')
+  end
+  return fallback
+end
 
 local common_keybinds = {
   XF86PowerOff = { action = exec("wlogout"), },
@@ -33,15 +40,15 @@ local common_keybinds = {
   SUPER = {
     SHIFT = {
       Q = { action = exec("hyprctl kill"), },
-      P = { action = exec("hyprshot -m output -m active -c -r - | satty -f -"), },
-      S = { action = exec("hyprshot -m region -r - | wl-copy"), },
-      v = { action = hl.dsp.workspace.toggle_special("protonvpn"), },
-      n = { action = exec(term .. " -e notes"), },
-      b = { action = exec("overskride"), },
+      P = { action = shell_action("modal pwr", exec("hyprshot -m output -m active -c -r - | satty -f -")), },
+      S = { action = shell_action("region-shot", exec("hyprshot -m region -r - | wl-copy")), },
+      v = { action = shell_action("modal vol", hl.dsp.workspace.toggle_special("protonvpn")), },
+      n = { action = shell_action("modal wifi", exec(term .. " -e notes")), },
+      b = { action = shell_action("modal bt", exec("overskride")), },
       d = { action = exec("fuzzel-run"), },
       semicolon = { action = exec("dm-expand"), },
-      m = { action = exec("swayosd-client --output-volume mute-toggle"), opts = { locked = true }, },
-      E = { action = hl.dsp.exit(), },
+      m = { action = shell_action("notif-hud", exec("swayosd-client --output-volume mute-toggle")), opts = { locked = true }, },
+      E = { action = shell_action("notif-expand", hl.dsp.exit()), },
       Comma = { action = hl.dsp.window.move({ monitor = "-1" }), },
       Return = { action = exec("emacsclient -c"), },
       Period = { action = hl.dsp.window.move({ monitor = "+1" }), },
@@ -57,6 +64,7 @@ local common_keybinds = {
       t = { action = exec(term .. " -e tray-tui"), },
       w = { action = exec(term .. " -e wiki-tui"), },
       v = { action = exec("pwvucontrol"), },
+      r = { action = exec("rice-style toggle"), },
     },
     ALT = {
       T = { action = function() H.set_layout("master") end },
@@ -66,7 +74,7 @@ local common_keybinds = {
       b = { action = hl.dsp.workspace.toggle_special("bitwarden"), },
       -- p = { action = hl.dsp.window.pin(), },
       F = { action = hl.dsp.window.fullscreen_state({ internal = -1, client = 2 }), },
-      l = { action = exec("hyprlock"), },
+      l = { action = exec("rice-lock"), },
       P = { action = exec("hyprshot -m window -r - | satty -f -"), },
       N = { action = exec("dm-sunsetr"), },
     },
@@ -74,7 +82,7 @@ local common_keybinds = {
     ["mouse:272"] = { action = hl.dsp.window.drag(), opts = { mouse = true }, },
     z = { action = hl.dsp.window.drag(), opts = { mouse = true }, },
     ["mouse:273"] = { action = hl.dsp.window.resize(), opts = { mouse = true }, },
-    Tab = { action = hl.dsp.focus({ last = true }), },
+    Tab = { action = shell_action("apps-menu", hl.dsp.focus({ last = true })), },
     Comma = { action = hl.dsp.focus({ monitor = "-1" }), },
     Period = { action = hl.dsp.focus({ monitor = "+1" }), },
     s = { action = hl.dsp.workspace.toggle_special(""), },
@@ -85,13 +93,31 @@ local common_keybinds = {
     w = { action = exec(browser), },
     E = { action = exec("nautilus --new-window"), },
     n = { action = exec("dm-notes"), },
-    d = { action = exec("fuzzel"), },
+    d = { action = shell_action("apps-menu", exec("fuzzel")), },
     V = { action = exec("clipmenu"), },
     o = { action = exec("dm-hub"), },
     minus = { action = exec("wtype -k emdash"), },
-    X = { action = exec("quickshell ipc call sidebar toggle"), },
+    X = { action = shell_action("notif-hud", exec("quickshell ipc call sidebar toggle")), },
     T = { action = exec("notify-time"), },
     B = { action = exec("notify-battery"), },
+  },
+}
+
+local cyberpunk_keybinds = {
+  SUPER = {
+    SHIFT = {
+      z = { action = exec('cyberarch-ctl "toggle-hud"'), },
+      i = { action = exec('cyberarch-ctl "modal brt"'), },
+      u = { action = exec('cyberarch-ctl "modal aur"'), },
+      o = { action = exec('cyberarch-ctl "player"'), },
+      w = { action = exec('cyberarch-ctl "forecast"'), },
+      minus = { action = exec('cyberarch-ctl "clock"'), },
+      g = { action = exec('cyberarch-ctl "markets"'), },
+      y = { action = exec('cyberarch-ctl "modal bat"'), },
+      c = { action = exec('cyberarch-ctl "modal sys"'), },
+      x = { action = exec('cyberarch-ctl "notif-dismiss"'), },
+      slash = { action = exec('cyberarch-ctl "modal keys"'), },
+    },
   },
 }
 
@@ -155,6 +181,9 @@ local layout_binds = {
 }
 
 H.key_table_parser(common_keybinds, {}, { submap_universal = true })
+if cyberpunk then
+  H.key_table_parser(cyberpunk_keybinds, {}, { submap_universal = true })
+end
 H.layout_table_submapper(layout_binds, "master")
 H.layout_table_submapper(layout_binds, "monocle")
 H.layout_table_submapper(layout_binds, "scrolling")

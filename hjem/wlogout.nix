@@ -3,7 +3,7 @@
     ".config/wlogout/layout".text = ''
       {
           "label" : "lock",
-          "action" : "swaylock",
+          "action" : "rice-lock",
           "text" : "lock",
           "keybind" : "l"
       }
