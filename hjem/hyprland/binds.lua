@@ -56,6 +56,7 @@ local common_keybinds = {
       f = { action = hl.dsp.window.fullscreen({ mode = "fullscreen" }), },
       ALT = {
         Period = { action = exec("fuzzel-emoji"), },
+      n = { action = exec(term .. " -e notes"), },
       },
     },
     CTRL = {
@@ -72,6 +73,7 @@ local common_keybinds = {
       X = { action = function() H.set_layout("scrolling") end },
       s = { action = hl.dsp.window.move({ workspace = "special", follow = false }), },
       b = { action = hl.dsp.workspace.toggle_special("bitwarden"), },
+      v = { action = hl.dsp.workspace.toggle_special("protonvpn"), },
       -- p = { action = hl.dsp.window.pin(), },
       F = { action = hl.dsp.window.fullscreen_state({ internal = -1, client = 2 }), },
       l = { action = exec("rice-lock"), },
