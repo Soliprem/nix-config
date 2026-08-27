@@ -1,6 +1,6 @@
 ;;; config.el -*- lexical-binding: t; -*-
 
-(setq doom-theme 'gruber-darker
+(setq doom-theme 'kusanagi
       display-line-numbers-type 'relative
       display-line-numbers-current-absolute t
       auth-sources '("~/.authinfo")

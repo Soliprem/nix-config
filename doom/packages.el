@@ -2,6 +2,7 @@
 ;;; packages.el
 
 (package! gruber-darker-theme)
+(package! kusanagi-theme)
 (package! wakatime-mode)
 (package! org-roam-ui)
 (package! typst-ts-mode)
