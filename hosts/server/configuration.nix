@@ -11,12 +11,14 @@
     ./docker-compat.nix
     ./secrets.nix
     ./native-compat.nix
+    ./services/caddy.nix
     ./services/continuwuity.nix
     ./services/livekit.nix
     ./services/vaultwarden.nix
     ./services/memos.nix
     ./services/send.nix
     ./services/karakeep.nix
+    ./services/silksong.nix
   ];
 
   networking.hostName = "debian-4gb-fsn1-1";
