@@ -1,7 +1,6 @@
 {
   ags,
   astal,
-  atk,
   bash,
   bluez,
   brightnessctl,
@@ -9,31 +8,21 @@
   curl,
   findutils,
   ffmpeg_8,
-  foot,
-  gdk-pixbuf,
   gawk,
   glib,
   gnugrep,
   gnused,
-  gobject-introspection,
   grim,
-  harfbuzz,
-  gtk3,
-  gtk-layer-shell,
   hyprland,
-  hyprlock,
   imagemagick,
   iproute2,
   jq,
   kdePackages,
   lib,
   libnotify,
-  makeWrapper,
   networkmanager,
   nh,
-  nix,
   pciutils,
-  pango,
   pipewire,
   playerctl,
   power-profiles-daemon,
@@ -56,7 +45,7 @@
   writeShellApplication,
   xdg-utils,
 }: let
-  version = "unstable-2026-08-26";
+  version = "unstable-2026-09-02";
   python = python3.withPackages (ps: [ps.numpy ps.pillow ps.pygobject3]);
   recorder = wf-recorder.override {ffmpeg = ffmpeg_8;};
 
@@ -72,17 +61,6 @@
     '';
   };
 
-  nixUpdate = writeShellApplication {
-    name = "cyberarch-update";
-    runtimeInputs = [foot];
-    text = ''
-      if [ "''${1:-check}" = upgrade ]; then
-        exec foot ${cyberarchRebuild}/bin/cyberarch-rebuild --update
-      fi
-      printf '0\n'
-    '';
-  };
-
   # Package the shell, lock screen, and application theme without pulling in
   # the upstream installer, previews, terminals, or Hyprland plugin.
   shellSource = runCommand "cyberarch-shell-source-${version}" {} ''
@@ -91,11 +69,10 @@
       "${src}/assets/gtk" "${src}/assets/icons" "${src}/assets/img" "$out/assets/"
     cp -r "${src}/components/login" "${src}/components/modules" \
       "${src}/components/style" "$out/components/"
-    cp "${src}/config/city.json" "${src}/core.ts" "${src}/env.ts" "${src}/theme.lua" \
+    cp "${src}/core.ts" "${src}/env.ts" "${src}/theme.lua" \
       "${src}/components/modules/widget.ts" "$out/"
     cp "${src}/scripts/appvol-keeper" "${src}/scripts/gen-map.py" \
-      "${src}/scripts/overkill" "${src}/scripts/screenrecord" "$out/scripts/"
-    cp "${nixUpdate}/bin/cyberarch-update" "$out/scripts/aur"
+      "${src}/scripts/screenrecord" "$out/scripts/"
 
     # Upstream ships one cursor backup link with no target and makes several
     # icons depend on a host /usr path. Keep the intended icon locally so the
@@ -105,12 +82,6 @@
     rm "$out/assets/gtk/iconpack/places/22/folder-html.svg"
     cp "$out/assets/gtk/iconpack/mimetypes/22/text-html.svg" \
       "$out/assets/gtk/iconpack/places/22/folder-html.svg"
-
-    substituteInPlace "$out/scripts/overkill" \
-      --replace-fail 'os.path.expanduser("~/.config/hypr/themes/cyberpunk/assets/icons/alert.png")' \
-        '"'$out'/assets/icons/alert.png"' \
-      --replace-fail 'os.path.expanduser("~/.config/hypr/themes/cyberpunk/scripts/overkill")' \
-        '"'$out'/scripts/overkill"'
   '';
 
   cyberarchLock = writeShellApplication {
@@ -121,7 +92,8 @@
       exec 9>"$lock_file"
       flock -n 9 || exit 0
 
-      export CYBERARCH_STATE_DIR="''${XDG_STATE_HOME:-$HOME/.local/state}/cyberarch"
+      export CYBERARCH_CONFIG_DIR="''${XDG_CONFIG_HOME:-$HOME/.config}/cyberarch"
+      export QS_PAM_CONFIG=cyberarch-lock
       export QS_THEME=netwatch
       export QS_THEME_PATH="${shellSource}/components/login/themes/netwatch"
       export QT_MEDIA_BACKEND=ffmpeg
@@ -146,20 +118,16 @@
     coreutils
     curl
     findutils
-    foot
     gawk
     gnugrep
     gnused
     grim
     hyprland
-    hyprlock
     imagemagick
     iproute2
     jq
     libnotify
     networkmanager
-    nh
-    nix
     pciutils
     pipewire
     playerctl
@@ -192,9 +160,6 @@ in
       astal.wireplumber
     ];
 
-    patches = [./cyberarch-shell.patch];
-    nativeBuildInputs = [makeWrapper];
-
     preFixup = ''
       gappsWrapperArgs+=(--prefix PATH : "${runtimePath}")
     '';
@@ -202,18 +167,6 @@ in
     postFixup = ''
       ln -s ${cyberarchRebuild}/bin/cyberarch-rebuild "$out/bin/cyberarch-rebuild"
       ln -s ${cyberarchLock}/bin/cyberarch-lock "$out/bin/cyberarch-lock"
-      makeWrapper "$out/share/scripts/overkill" "$out/bin/cyberarch-overkill" \
-        --prefix PATH : "${runtimePath}" \
-        --prefix GI_TYPELIB_PATH : "${lib.makeSearchPath "lib/girepository-1.0" [
-        atk
-        gdk-pixbuf
-        glib.out
-        gobject-introspection
-        gtk3
-        gtk-layer-shell
-        harfbuzz
-        pango.out
-      ]}"
       mkdir -p "$out/share/icons" "$out/share/Kvantum"
       ln -s ../assets/gtk/iconpack "$out/share/icons/CyberArch"
       ln -s ../assets/cursor "$out/share/icons/CyberArch-cursors"
