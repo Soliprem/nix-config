@@ -202,6 +202,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    silksong-aa = {
+      url = "github:Soliprem/silkgsong-journal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # nvf-soli.url = "github:soliprem/nvf-soli/";
     nvf.url = "github:notashelf/nvf/octo";
     # nvf.url = "path:/home/soliprem/.local/src/nvf-admin/";

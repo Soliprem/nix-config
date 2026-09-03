@@ -8,12 +8,6 @@
   iocainePackage = inputs.self.packages.${system}.iocaine;
 in {
   services = {
-    caddy = {
-      enable = true;
-      configFile = ./assets/Caddyfile;
-      environmentFile = "/run/agenix/caddy_env";
-    };
-
     redis.servers."" = {
       enable = true;
       bind = "127.0.0.1 -::1";
@@ -151,46 +145,6 @@ in {
       AmbientCapabilities = "CAP_NET_ADMIN";
     };
   };
-  systemd.services.caddy = {
-    after = ["iocaine.service"];
-    wants = ["iocaine.service"];
-  };
-
-  # Temporary external binary pending a declarative package:
-  # SHA-256 70e44ec0cb6384e04071b3fc4a49a63475add47510b71dd3b00185d6722eef97.
-  systemd.services.silksong-collab = {
-    description = "Silksong shared-room collaboration API";
-    after = ["network.target"];
-    wantedBy = ["multi-user.target"];
-    serviceConfig = {
-      Type = "simple";
-      DynamicUser = true;
-      StateDirectory = "silksong-aa";
-      ExecStartPre = "${pkgs.coreutils}/bin/test -s /var/www/silksong-aa/public/data.json";
-      ExecStart = "/opt/compat-bin/silksong-collab";
-      Environment = [
-        "SILKSONG_DATABASE=/var/lib/silksong-aa/collab.sqlite3"
-        "SILKSONG_DATASET=/var/www/silksong-aa/public/data.json"
-        "SILKSONG_BIND=127.0.0.1:3100"
-      ];
-      Restart = "on-failure";
-      NoNewPrivileges = true;
-      PrivateTmp = true;
-      ProtectSystem = "strict";
-      ProtectHome = true;
-      ProtectKernelTunables = true;
-      ProtectKernelModules = true;
-      ProtectControlGroups = true;
-      RestrictAddressFamilies = [
-        "AF_INET"
-        "AF_INET6"
-        "AF_UNIX"
-      ];
-      LockPersonality = true;
-      MemoryDenyWriteExecute = true;
-    };
-  };
-
   # CloudPanel and Percona are intentionally not configured: no application
   # schemas, users, routines, events, triggers or clients depend on them.
   # Tailscale is intentionally disabled and has no persisted state.

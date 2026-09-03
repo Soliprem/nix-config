@@ -67,11 +67,11 @@
     "cyberarch": {
       "flake": false,
       "locked": {
-        "lastModified": 1788434479,
-        "narHash": "sha256-x5zl8BORa0dUBoSt1c1K5hKnB5w6Cx6JKPHrjTLPUZo=",
+        "lastModified": 1788435262,
+        "narHash": "sha256-anGHgkcXe2xTVd/fMTD90XlCZNHCIrQXaChGG1rpdzY=",
         "owner": "Soliprem",
         "repo": "cyberarch-dotfiles",
-        "rev": "438d2033b452ed5d7a6afa0caec883fd8c97d1d8",
+        "rev": "00d764180303c1cb82cb518d2882d256f20ea5f3",
         "type": "github"
       },
       "original": {
@@ -947,6 +947,7 @@
         "remarkable-bridge": "remarkable-bridge",
         "roam-graph": "roam-graph",
         "sable": "sable",
+        "silksong-aa": "silksong-aa",
         "spicetify-nix": "spicetify-nix",
         "sysboard": "sysboard",
         "thumbpick": "thumbpick",
@@ -1083,6 +1084,26 @@
       "original": {
         "type": "file",
         "url": "https://github.com/SableClient/Sable/releases/download/v1.21.0/Sable-1.21.0-linux-x86_64.tar.gz"
+      }
+    },
+    "silksong-aa": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788451042,
+        "narHash": "sha256-pgmcvhT6yTLEnbuHOPYk7zkj8/CAgM07lYQ6r2nCXt4=",
+        "owner": "Soliprem",
+        "repo": "silkgsong-journal",
+        "rev": "7a357474a72a2b6ccc875010debf6fc5b73839ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Soliprem",
+        "repo": "silkgsong-journal",
+        "type": "github"
       }
     },
     "spicetify-nix": {
