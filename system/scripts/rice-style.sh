@@ -45,11 +45,9 @@ apply_app_theme() {
     systemctl --user unset-environment GTK_THEME
     export XCURSOR_THEME=CyberArch-cursors XCURSOR_SIZE=48
     export QT_STYLE_OVERRIDE=kvantum
-    export QT_PLUGIN_PATH="$KVANTUM_QT6_PLUGIN_PATH:$KVANTUM_QT5_PLUGIN_PATH${QT_PLUGIN_PATH:+:$QT_PLUGIN_PATH}"
     systemctl --user set-environment \
       XCURSOR_THEME=CyberArch-cursors XCURSOR_SIZE=48 \
-      QT_STYLE_OVERRIDE=kvantum \
-      QT_PLUGIN_PATH="$QT_PLUGIN_PATH"
+      QT_STYLE_OVERRIDE=kvantum
     if [ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
       hyprctl eval '
         hl.env("GTK_THEME", "")
@@ -58,7 +56,6 @@ apply_app_theme() {
         hl.env("XCURSOR_THEME", "CyberArch-cursors")
         hl.env("XCURSOR_SIZE", "48")
         hl.env("QT_STYLE_OVERRIDE", "kvantum")
-        hl.env("QT_PLUGIN_PATH", os.getenv("QT_PLUGIN_PATH") or "")
       ' >/dev/null || true
       hyprctl setcursor CyberArch-cursors 48 >/dev/null || true
     fi
@@ -79,9 +76,9 @@ apply_app_theme() {
       fi
     done
 
-    unset GTK_THEME XCURSOR_THEME XCURSOR_SIZE QT_STYLE_OVERRIDE QT_PLUGIN_PATH
+    unset GTK_THEME XCURSOR_THEME XCURSOR_SIZE QT_STYLE_OVERRIDE
     systemctl --user unset-environment \
-      GTK_THEME XCURSOR_THEME XCURSOR_SIZE QT_STYLE_OVERRIDE QT_PLUGIN_PATH
+      GTK_THEME XCURSOR_THEME XCURSOR_SIZE QT_STYLE_OVERRIDE
     if [ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
       hyprctl eval '
         hl.env("GTK_THEME", "")
@@ -90,7 +87,6 @@ apply_app_theme() {
         hl.env("HYPRCURSOR_THEME", "Hypr-Bibata-Modern-Ice")
         hl.env("HYPRCURSOR_SIZE", "24")
         hl.env("QT_STYLE_OVERRIDE", "")
-        hl.env("QT_PLUGIN_PATH", "")
       ' >/dev/null || true
       hyprctl setcursor Hypr-Bibata-Modern-Ice 24 >/dev/null || true
     fi
