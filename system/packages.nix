@@ -118,9 +118,9 @@ in {
     glib
     kanshi
     kdePackages.polkit-kde-agent-1
-    kdePackages.qt6ct
+    kdePackages.qtstyleplugin-kvantum
     qt5.qtgraphicaleffects
-    libsForQt5.qt5ct
+    libsForQt5.qtstyleplugin-kvantum
     linearicons-free
     matugen
     networkmanagerapplet

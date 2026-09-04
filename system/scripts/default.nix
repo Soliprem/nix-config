@@ -5,8 +5,6 @@
   ...
 }: let
   cyberarchShell = inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.cyberarch-shell;
-  qt5Kvantum = pkgs.libsForQt5."qtstyleplugin-kvantum";
-  qt6Kvantum = pkgs.kdePackages."qtstyleplugin-kvantum";
   gsettingsSchemaPath = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}";
   scripts = [
     (pkgs.writeShellApplication {
@@ -34,8 +32,6 @@
       runtimeEnv = {
         CYBERARCH_WALLPAPER = "${cyberarchShell}/share/assets/img/lucy_wallpaper.png";
         NIXRICE_GSETTINGS_SCHEMA_PATH = gsettingsSchemaPath;
-        KVANTUM_QT5_PLUGIN_PATH = "${qt5Kvantum}/lib/qt-5.15.19/plugins";
-        KVANTUM_QT6_PLUGIN_PATH = "${qt6Kvantum}/lib/qt-6/plugins";
       };
       text = builtins.readFile ./rice-style.sh;
     })
