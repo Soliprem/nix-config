@@ -74,7 +74,7 @@
 
       "immich.soliprem.eu".extraConfig = ''
         import iocaine
-        reverse_proxy localhost:2283
+        reverse_proxy 127.0.0.1:2283
       '';
 
       "files.soliprem.eu".extraConfig = ''

@@ -1093,11 +1093,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788454171,
-        "narHash": "sha256-/kVKIhocrp/+ET0qlN+bV3zlGUGr3/2iuaQF8gupEm4=",
+        "lastModified": 1788469816,
+        "narHash": "sha256-L7TLjSTb16W+4eyviKVbGrGODRx6cnBpz0syv1VtEwU=",
         "owner": "Soliprem",
         "repo": "silkgsong-journal",
-        "rev": "82c3f9e02b1d1409003668d35d9cd454747f27be",
+        "rev": "04e94ed41789b1b26dba141d993fd30db6a30799",
         "type": "github"
       },
       "original": {
