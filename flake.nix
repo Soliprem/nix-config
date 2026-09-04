@@ -113,7 +113,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     cyberarch = {
-      url = "github:Soliprem/cyberarch-dotfiles/nix-integration";
+      url = "github:ARCANGEL0/cyberarch-dotfiles/";
       flake = false;
     };
     nix-doom-emacs-unstraightened = {

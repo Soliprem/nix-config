@@ -67,16 +67,15 @@
     "cyberarch": {
       "flake": false,
       "locked": {
-        "lastModified": 1788435262,
-        "narHash": "sha256-anGHgkcXe2xTVd/fMTD90XlCZNHCIrQXaChGG1rpdzY=",
-        "owner": "Soliprem",
+        "lastModified": 1788556563,
+        "narHash": "sha256-Wl7Bm6uD66afVquPNimOfhmWp+78YwymDUtAEvH3VWI=",
+        "owner": "ARCANGEL0",
         "repo": "cyberarch-dotfiles",
-        "rev": "00d764180303c1cb82cb518d2882d256f20ea5f3",
+        "rev": "7ffeb0b71f4949c73fc8f8a4100e593d2198587f",
         "type": "github"
       },
       "original": {
-        "owner": "Soliprem",
-        "ref": "nix-integration",
+        "owner": "ARCANGEL0",
         "repo": "cyberarch-dotfiles",
         "type": "github"
       }
