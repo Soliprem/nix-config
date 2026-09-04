@@ -19,6 +19,7 @@
     ./services/send.nix
     ./services/karakeep.nix
     ./services/silksong.nix
+    ./services/immich.nix
   ];
 
   networking.hostName = "debian-4gb-fsn1-1";
