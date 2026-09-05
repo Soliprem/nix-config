@@ -65,6 +65,10 @@
         src = inputs.cyberarch;
       };
       cyberarch-fonts = cyberarch-shell;
+      amethyst-mod-manager = pkgs.callPackage ./packages/amethyst-mod-manager.nix {
+        src = inputs.amethyst-mod-manager;
+        liblootSrc = inputs.amethyst-libloot;
+      };
       nvf =
         (inputs.nvf.lib.neovimConfiguration {
           pkgs = nvfPkgs;
@@ -114,6 +118,14 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     cyberarch = {
       url = "github:ARCANGEL0/cyberarch-dotfiles/";
+      flake = false;
+    };
+    amethyst-mod-manager = {
+      url = "github:ChrisDKN/Amethyst-Mod-Manager/v2.4.0";
+      flake = false;
+    };
+    amethyst-libloot = {
+      url = "github:loot/libloot/0.29.6";
       flake = false;
     };
     nix-doom-emacs-unstraightened = {
