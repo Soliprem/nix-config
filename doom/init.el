@@ -14,6 +14,7 @@
        (vc-gutter +pretty)
        vi-tilde-fringe
        workspaces
+       zen
 
        :editor
        (evil +everywhere)
@@ -70,7 +71,7 @@
        emacs-lisp
        markdown
        nix
-       (org +pretty +roam +dragndrop +brain)
+       (org +pretty +roam +dragndrop +brain +noter)
        python
        sh
 
