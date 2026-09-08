@@ -59,6 +59,7 @@ in {
     oama
     ispell
     gh
+    _7zz-rar
 
     # CLI, shells, and core tools
     gnupg
