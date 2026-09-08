@@ -1,7 +1,6 @@
 {
   config,
   inputs,
-  pkgs,
   ...
 }: let
   fontDefaults = config.fonts.fontconfig.defaultFonts;
@@ -28,6 +27,4 @@ in {
     ./nushell.nix
     ./starship.nix
   ];
-
-  hjem.linker = inputs.hjem.packages.${pkgs.stdenv.hostPlatform.system}.smfh;
 }

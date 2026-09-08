@@ -124,7 +124,11 @@
     statusline = {
       lualine = {
         enable = true;
-        theme = "tokyonight";
+        setupOpts.options.theme = "tokyonight";
+        integrations.breadcrumbs = {
+          nvim-navic.enable = true;
+          navbuddy.enable = true;
+        };
       };
     };
 
@@ -303,10 +307,6 @@
       modes-nvim.enable = false; # the theme looks terrible with catppuccin
       illuminate.enable = true;
       # fastaction.enable = true;
-      breadcrumbs = {
-        enable = true;
-        navbuddy.enable = true;
-      };
       smartcolumn = {
         enable = true;
         setupOpts.custom_colorcolumn = {
