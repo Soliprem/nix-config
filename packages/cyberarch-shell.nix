@@ -4,7 +4,6 @@
 }: let
   version = "unstable-2026-09-02";
   python = pkgs.python3.withPackages (ps: [ps.numpy ps.pillow ps.pygobject3]);
-  recorder = pkgs.wf-recorder.override {ffmpeg = pkgs.ffmpeg_8;};
 
   cyberarchRebuild = pkgs.writeShellApplication {
     name = "cyberarch-rebuild";
@@ -109,7 +108,7 @@
       util-linux
       wireplumber
       wirelesstools
-      recorder
+      wf-recorder
       wl-clipboard
       xdg-utils
     ];

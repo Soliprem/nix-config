@@ -150,6 +150,10 @@ in {
     statusline = {
       lualine = {
         enable = true;
+        integrations.breadcrumbs = {
+          nvim-navic.enable = false;
+          navbuddy.enable = false;
+        };
       };
     };
 
@@ -327,10 +331,6 @@ in {
       modes-nvim.enable = false; # the theme looks terrible with catppuccin
       illuminate.enable = true;
       fastaction.enable = false;
-      breadcrumbs = {
-        enable = false;
-        navbuddy.enable = false;
-      };
       smartcolumn = {
         enable = true;
         setupOpts.custom_colorcolumn = {
