@@ -1,8 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-; FIXME: this should be removed as soon as https://codeberg.org/meow_king/typst-ts-mode/pulls/106/files gets merged
-(require 'compile)
-
 (doom! :completion
        (corfu +orderless)
        vertico
@@ -74,6 +71,7 @@
        emacs-lisp
        markdown
        nix
+       rust
        (org +pretty +roam +dragndrop +brain +noter)
        python
        sh
