@@ -83,7 +83,7 @@ apply_app_theme() {
       hyprctl eval '
         hl.env("GTK_THEME", "")
         hl.env("XCURSOR_THEME", "")
-        hl.env("XCURSOR_SIZE", "")
+        hl.env("XCURSOR_SIZE", "24")
         hl.env("HYPRCURSOR_THEME", "Hypr-Bibata-Modern-Ice")
         hl.env("HYPRCURSOR_SIZE", "24")
         hl.env("QT_STYLE_OVERRIDE", "")

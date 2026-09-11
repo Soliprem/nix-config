@@ -12,6 +12,8 @@ if H.cyberpunk then
   hl.env("XCURSOR_THEME", "CyberArch-cursors")
   hl.env("XCURSOR_SIZE", "48")
 else
+  hl.env("XCURSOR_THEME", "")
+  hl.env("XCURSOR_SIZE", "24")
   hl.env("HYPRCURSOR_THEME", "Hypr-Bibata-Modern-Ice")
   hl.env("HYPRCURSOR_SIZE", "24")
 end
