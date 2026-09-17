@@ -8,6 +8,7 @@ hl.on("hyprland.start", function()
     "iio-hyprland",
     "hypridle",
     "battery-monitor",
+    "emacs --daemon",
     "swayosd-server",
     "awww-daemon",
     "nm-applet",
