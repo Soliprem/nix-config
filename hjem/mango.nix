@@ -121,6 +121,7 @@
       gappov=10
       scratchpad_width_ratio=0.8
       scratchpad_height_ratio=0.9
+      scratchpad_cross_monitor=1
       borderpx=1
       rootcolor=0x201b14ff
       bordercolor=0x444444ff
@@ -148,7 +149,8 @@
       windowrule=isfloating:1,title:^(Picture-in-Picture)$
       windowrule=isfloating:1,title:^(Open File|Select a File|Choose wallpaper|Open Folder|Save As|Library)(.*)$
       windowrule=isfloating:1,appid:^(org.kde.polkit-kde-authentication-agent-1)$
-      windowrule=isfloating:1,appid:^(protonvpn-app)$
+      windowrule=isnamedscratchpad:1,appid:^(Bitwarden|bitwarden|com[.]bitwarden[.]desktop)$
+      windowrule=isnamedscratchpad:1,appid:^(proton[.]vpn[.]app[.]gtk|protonvpn-app)$
       windowrule=isfloating:1,appid:^(eu.soliprem.thumbpick)$
       windowrule=offsetx:100,offsety:-100,width:640,height:360,title:^(Picture-in-Picture)$
       windowrule=offsetx:0,offsety:0,width:900,height:700,title:^(flame|script-fu)$
@@ -179,6 +181,9 @@
       bind=SUPER+CTRL,w,spawn,foot wiki-tui
       bind=SUPER,g,toggleoverview
       bind=SUPER,s,toggle_scratchpad
+      # Named scratchpads launch on demand and stay separate from the normal pool.
+      bind=SUPER+ALT,b,toggle_named_scratchpad,^(Bitwarden|bitwarden|com[.]bitwarden[.]desktop)$,none,bitwarden
+      bind=SUPER+ALT,v,toggle_named_scratchpad,^(proton[.]vpn[.]app[.]gtk|protonvpn-app)$,none,protonvpn-app
       bind=SUPER+ALT,s,minimized
       bind=SUPER+CTRL,s,toggleglobal
       bind=SUPER+SHIFT,o,toggleoverlay
@@ -188,6 +193,7 @@
 
       # Terminal, Launcher, Browser
       bind=SUPER,Return,spawn,foot
+      bind=SUPER+SHIFT,Return,spawn,emacsclient -c
       bind=SUPER,w,spawn,zen
       bind=SUPER,d,spawn,fuzzel
       bind=SUPER+SHIFT,d,spawn,fuzzel-run
@@ -331,6 +337,10 @@
       gesturebind=NONE,down,3,viewtoright_have_client
       gesturebind=NONE,left,3,focusstack,prev
       gesturebind=NONE,right,3,focusstack,next
+      gesturebind=SUPER,down,3,killclient
+      gesturebind=SUPER,up,3,togglefullscreen
+      gesturebind=NONE,up,4,toggle_scratchpad
+      gesturebind=NONE,down,4,toggle_scratchpad
 
       # --- Layout Specific Keymodes ---
 
@@ -475,10 +485,10 @@
       xwayland-satellite &
       awww-daemon &
       battery-monitor &
+      emacs --daemon &
       rice-style apply &
       nm-applet &
       kanshi &
-      protonvpn-app &
       swayosd-server &
       sunsetr &
       gomuks-web &
