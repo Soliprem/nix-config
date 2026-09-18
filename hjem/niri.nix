@@ -2,8 +2,8 @@ _: let
   # Niri spawn takes separate arguments, not a shell command string.
   # Beer: ["beer" "--" "fish"] / ["beer" "--"].
   # Ghostty: ["ghostty"] / ["ghostty" "-e"].
-  terminal = ["foot"];
-  terminalCommand = ["foot" "--"];
+  terminal = ["beer"];
+  terminalCommand = ["beer" "--"];
   spawnArgs = args: builtins.concatStringsSep " " (map builtins.toJSON args);
 in {
   files = {

@@ -1,8 +1,8 @@
 {pkgs, ...}: let
   # Independent launch commands: do not append applications to the shell launch.
   # Beer: "beer -- fish" / "beer --"; Ghostty: "ghostty" / "ghostty -e".
-  terminal = "foot";
-  terminalCommand = "foot --";
+  terminal = "beer -- fish";
+  terminalCommand = "beer --";
 in {
   files = {
     ".config/mango/config.conf".text = ''
