@@ -6,6 +6,7 @@ hl.on("hyprland.start", function()
   )
   for _, cmd in ipairs({
     "iio-hyprland",
+    "beer --server",
     "hypridle",
     "battery-monitor",
     "emacs --daemon",
