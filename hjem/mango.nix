@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  # Independent launch commands: do not append applications to the shell launch.
+  # Beer: "beer -- fish" / "beer --"; Ghostty: "ghostty" / "ghostty -e".
+  terminal = "foot";
+  terminalCommand = "foot --";
+in {
   files = {
     ".config/mango/config.conf".text = ''
       # More option see https://github.com/DreamMaoMao/mango/wiki/
@@ -177,8 +182,8 @@
       # Common mode - bindings available in all modes
       keymode = common
       bind=SUPER+CTRL,R,reload_config
-      bind=SUPER+CTRL,t,spawn,foot tray-tui
-      bind=SUPER+CTRL,w,spawn,foot wiki-tui
+      bind=SUPER+CTRL,t,spawn,${terminalCommand} tray-tui
+      bind=SUPER+CTRL,w,spawn,${terminalCommand} wiki-tui
       bind=SUPER,g,toggleoverview
       bind=SUPER,s,toggle_scratchpad
       # Named scratchpads launch on demand and stay separate from the normal pool.
@@ -192,7 +197,7 @@
       bind=ALT,Tab,focuslast
 
       # Terminal, Launcher, Browser
-      bind=SUPER,Return,spawn,foot
+      bind=SUPER,Return,spawn,${terminal}
       bind=SUPER+SHIFT,Return,spawn,emacsclient -c
       bind=SUPER,w,spawn,zen
       bind=SUPER,d,spawn,fuzzel
@@ -224,7 +229,7 @@
       bind=NONE,Print,spawn,grimblast copy area
       bind=SUPER+SHIFT+ALT,period,spawn,fuzzel-emoji
       bind=SUPER,n,spawn,dm-notes
-      bind=SUPER+SHIFT,n,spawn,foot notes
+      bind=SUPER+SHIFT,n,spawn,${terminalCommand} notes
       bind=SUPER,o,spawn,dm-hub
       bind=SUPER+SHIFT,semicolon,spawn,dm-expand
       bind=SUPER,minus,spawn,wtype -k emdash

@@ -76,6 +76,10 @@ in {
           input_path = ./templates/foot-colors.ini;
           output_path = "~/.config/foot/themes/matugen.ini";
         };
+        beer = {
+          input_path = ./templates/beer-colors.toml;
+          output_path = "~/.config/beer/themes/matugen.toml";
+        };
         niri = {
           input_path = ./templates/niri.kdl;
           output_path = "~/.config/niri/colors.kdl";

@@ -4,6 +4,7 @@
     "niri"
     "ghostty"
     "foot"
+    "beer"
     "gtk"
     "qt"
     "tofi"
@@ -20,6 +21,9 @@
     "sunsetr"
     "thumbpick"
   ];
+
+  # Beer layers config files through BEER_CONFIG rather than an include key.
+  environment.sessionVariables.BEER_CONFIG = "$HOME/.config/beer/themes/matugen.toml:$HOME/.config/beer/beer.toml";
 
   imports = map (file: configRoot + "/system/modules/${file}" + ".nix") [
     "flatpak"

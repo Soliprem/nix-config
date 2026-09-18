@@ -1,4 +1,11 @@
-_: {
+_: let
+  # Niri spawn takes separate arguments, not a shell command string.
+  # Beer: ["beer" "--" "fish"] / ["beer" "--"].
+  # Ghostty: ["ghostty"] / ["ghostty" "-e"].
+  terminal = ["foot"];
+  terminalCommand = ["foot" "--"];
+  spawnArgs = args: builtins.concatStringsSep " " (map builtins.toJSON args);
+in {
   files = {
     ".config/niri/config.kdl".text =
       /*
@@ -134,8 +141,8 @@ _: {
 
             Mod+Shift+Slash { show-hotkey-overlay; }
 
-            Mod+Control+T { spawn "foot" "tray-tui"; }
-            Mod+Return { spawn "foot"; }
+            Mod+Control+T { spawn ${spawnArgs (terminalCommand ++ ["tray-tui"])}; }
+            Mod+Return { spawn ${spawnArgs terminal}; }
             Mod+Minus { spawn "wtype" "-k" "emdash"; }
             Mod+W { spawn "zen"; }
             Mod+E { spawn "nautilus"; }
@@ -146,13 +153,13 @@ _: {
             Super+X { spawn "quickshell" "ipc" "call" "sidebar" "toggle"; }
             Super+V {spawn "clipmenu"; }
             Mod+T     { spawn "notify-time"; }
-            Mod+Control+W     { spawn "foot" "wiki-tui"; }
+            Mod+Control+W     { spawn ${spawnArgs (terminalCommand ++ ["wiki-tui"])}; }
             Mod+B     { spawn "notify-battery"; }
             Mod+Alt+N { spawn "dm-sunsetr"; }
             Mod+O { spawn "dm-hub"; }
 
             Mod+N { spawn "dm-notes"; }
-            Mod+Shift+N { spawn "foot" "notes"; }
+            Mod+Shift+N { spawn ${spawnArgs (terminalCommand ++ ["notes"])}; }
             Mod+Control+V { spawn "pwvucontrol"; }
             Mod+Shift+Alt+Period { spawn "fuzzel-emoji"; }
             Mod+Shift+Semicolon { spawn "dm-expand"; }

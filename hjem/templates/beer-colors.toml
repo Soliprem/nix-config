@@ -1,0 +1,13 @@
+[colors]
+background = "{{colors.surface_dim.default.hex}}"
+foreground = "{{colors.on_surface.default.hex}}"
+regular = [
+  "#262626", "#ac8a8c", "#8aac8b", "#aca98a",
+  "{{colors.primary.default.hex}}", "#ac8aac", "#8aacab", "#e7e7e7",
+]
+bright = [
+  "#4c4c4c", "#c49ea0", "#9ec49f", "#c4c19e",
+  "#a39ec4", "#c49ec4", "#9ec3c4", "#f0f0f0",
+]
+selection-background = "{{colors.secondary_fixed_dim.default.hex}}"
+selection-foreground = "{{colors.on_secondary.default.hex}}"

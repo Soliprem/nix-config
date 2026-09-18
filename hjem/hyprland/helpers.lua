@@ -2,7 +2,10 @@ local M = {}
 
 M.mod = "SUPER"
 M.browser = "zen"
-M.term = "foot"
+-- Keep the interactive shell separate from the prefix used to run an app.
+-- Foot: "foot" / "foot --"; Ghostty: "ghostty" / "ghostty -e".
+M.terminal = "beer -- fish"
+M.terminalCommand = "beer --"
 M.editor = "nvim"
 M.default_layout = "master"
 
