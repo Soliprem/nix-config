@@ -1,0 +1,46 @@
+diff --git a/crates/beer-protocols/src/key.rs b/crates/beer-protocols/src/key.rs
+index 58bd018..669eecd 100644
+--- a/crates/beer-protocols/src/key.rs
++++ b/crates/beer-protocols/src/key.rs
+@@ -229,8 +229,7 @@ pub fn kitty_encode(
+   // event reporting, repeats are re-sent as presses (legacy repeat), but a
+   // release must produce nothing. Otherwise a release encodes as a press
+   // and a single tap sends the key twice.
+-  let events_ok = report_events || report_all;
+-  let kind = if events_ok {
++  let kind = if report_events {
+     kind
+   } else if kind == KeyKind::Release {
+     return None;
+@@ -569,6 +568,31 @@ mod tests {
+     assert_eq!(release(0b1011), Some(b"\x1b[97;5:3u".to_vec()));
+   }
+ 
++  #[test]
++  fn kitty_report_all_without_events_does_not_duplicate_input() {
++    let event = key(Keysym::a, Some("a"));
++    // Fish requests disambiguation, alternate keys, all keys and text (29),
++    // but not event types. Report-all must not implicitly enable releases.
++    for flags in [8, 29] {
++      assert_eq!(
++        kitty_encode(&event, NONE, flags, KeyKind::Release, false),
++        None
++      );
++      assert_eq!(
++        kitty_encode(&event, NONE, flags, KeyKind::Repeat, false),
++        kitty_encode(&event, NONE, flags, KeyKind::Press, false)
++      );
++    }
++    assert_eq!(
++      kitty_encode(&event, NONE, 29, KeyKind::Press, false),
++      Some(b"\x1b[97;1;97u".to_vec())
++    );
++    assert_eq!(
++      kitty_encode(&event, NONE, 10, KeyKind::Release, false),
++      Some(b"\x1b[97;1:3u".to_vec())
++    );
++  }
++
+   #[test]
+   fn kitty_release_suppressed_without_event_reporting() {
+     // A release under disambiguate-only (no report-event-types, no

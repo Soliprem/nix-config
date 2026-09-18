@@ -1,7 +1,8 @@
 local H = require("helpers")
 
 local mod = H.mod
-local term = H.term
+local terminal = H.terminal
+local terminalCommand = H.terminalCommand
 local browser = H.browser
 local exec = hl.dsp.exec_cmd
 local cyberpunk = H.cyberpunk
@@ -43,7 +44,7 @@ local common_keybinds = {
       P = { action = shell_action("modal pwr", exec("hyprshot -m output -m active -c -r - | satty -f -")), },
       S = { action = shell_action("region-shot", exec("hyprshot -m region -r - | wl-copy")), },
       v = { action = shell_action("modal vol", hl.dsp.workspace.toggle_special("protonvpn")), },
-      n = { action = shell_action("modal wifi", exec(term .. " -e notes")), },
+      n = { action = shell_action("modal wifi", exec(terminalCommand .. " notes")), },
       b = { action = shell_action("modal bt", exec("overskride")), },
       d = { action = exec("fuzzel-run"), },
       semicolon = { action = exec("dm-expand"), },
@@ -56,14 +57,14 @@ local common_keybinds = {
       f = { action = hl.dsp.window.fullscreen({ mode = "fullscreen" }), },
       ALT = {
         Period = { action = exec("fuzzel-emoji"), },
-      n = { action = exec(term .. " -e notes"), },
+      n = { action = exec(terminalCommand .. " notes"), },
       },
     },
     CTRL = {
       Comma = { action = hl.dsp.workspace.move({ monitor = "-1" }), },
       Period = { action = hl.dsp.workspace.move({ monitor = "+1" }), },
-      t = { action = exec(term .. " -e tray-tui"), },
-      w = { action = exec(term .. " -e wiki-tui"), },
+      t = { action = exec(terminalCommand .. " tray-tui"), },
+      w = { action = exec(terminalCommand .. " wiki-tui"), },
       v = { action = exec("pwvucontrol"), },
       r = { action = exec("rice-style toggle"), },
     },
@@ -91,7 +92,7 @@ local common_keybinds = {
     f = { action = hl.dsp.window.fullscreen({ mode = "maximized" }), },
     P = { action = exec("hyprshot -m output -c -r - | satty -f -"), },
     F1 = { action = exec("gamemode"), },
-    Return = { action = exec(term), },
+    Return = { action = exec(terminal), },
     w = { action = exec(browser), },
     E = { action = exec("nautilus --new-window"), },
     n = { action = exec("dm-notes"), },
@@ -110,7 +111,7 @@ local cyberpunk_keybinds = {
     SHIFT = {
       z = { action = exec('cyberarch-ctl "toggle-hud"'), },
       i = { action = exec('cyberarch-ctl "modal brt"'), },
-      u = { action = exec("foot cyberarch-rebuild --update"), },
+      u = { action = exec(terminalCommand .. " cyberarch-rebuild --update"), },
       o = { action = exec('cyberarch-ctl "player"'), },
       w = { action = exec('cyberarch-ctl "forecast"'), },
       minus = { action = exec('cyberarch-ctl "clock"'), },

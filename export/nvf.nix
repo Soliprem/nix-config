@@ -115,7 +115,7 @@ in {
       bash.enable = true;
       typst = {
         enable = true;
-        extensions.typst-concealer.enable = true;
+        extensions.typst-concealer.enable = false;
       };
       julia.enable = true;
       clang = {
