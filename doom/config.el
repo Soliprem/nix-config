@@ -18,6 +18,12 @@
   :config
   (global-wakatime-mode 1))
 
+(use-package! org-typst-preview
+  :after org)
+
+;; To enable it in every Org buffer
+(add-hook 'org-mode-hook #'org-typst-preview-mode)
+
 (use-package! pr-review
   :commands (pr-review
              pr-review-notification

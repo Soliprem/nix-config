@@ -13,3 +13,6 @@
 (package! catppuccin-theme)
 (package! pr-review
   :recipe (:host github :repo "blahgeek/emacs-pr-review"))
+(package! org-typst-preview
+  :recipe (:host github :repo "soliprem/org-typst-preview")
+  :pin "6475957e5371e04c6ac50663a9fe44a95c1068c2")
