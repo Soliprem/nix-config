@@ -19,7 +19,7 @@ _: {
 
         # Applications
         PDF_VIEWER="zathura"
-        DMBROWSER="zen"
+        DMBROWSER="zen-beta"
         DMTERM="ghostty -e"
         DMEDITOR="''${DMTERM} nvim"
         DMLOCKER="swaylock"

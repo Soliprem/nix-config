@@ -199,7 +199,7 @@ in {
       # Terminal, Launcher, Browser
       bind=SUPER,Return,spawn,${terminal}
       bind=SUPER+SHIFT,Return,spawn,emacsclient -c
-      bind=SUPER,w,spawn,zen
+      bind=SUPER,w,spawn,zen-beta
       bind=SUPER,d,spawn,fuzzel
       bind=SUPER+SHIFT,d,spawn,fuzzel-run
 

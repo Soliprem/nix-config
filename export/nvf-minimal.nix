@@ -424,7 +424,7 @@
         ];
         package = lazygit-nvim;
         setupOpts = {
-          open_cmd = "zen %s";
+          open_cmd = "zen-beta %s";
         };
         keys = [
           {

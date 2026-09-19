@@ -2,11 +2,11 @@ _: {
   xdg.mime = {
     enable = true;
     defaultApplications = {
-      "text/html" = ["zen.desktop" "org.qutebrowser.qutebrowser.desktop"];
-      "x-scheme-handler/http" = ["zen.desktop" "org.qutebrowser.qutebrowser.desktop"];
-      "x-scheme-handler/https" = ["zen.desktop" "org.qutebrowser.qutebrowser.desktop"];
-      "x-scheme-handler/about" = ["zen.desktop" "org.qutebrowser.qutebrowser.desktop"];
-      "x-scheme-handler/unknown" = ["zen.desktop" "org.qutebrowser.qutebrowser.desktop"];
+      "text/html" = ["zen-beta.desktop" "org.qutebrowser.qutebrowser.desktop"];
+      "x-scheme-handler/http" = ["zen-beta.desktop" "org.qutebrowser.qutebrowser.desktop"];
+      "x-scheme-handler/https" = ["zen-beta.desktop" "org.qutebrowser.qutebrowser.desktop"];
+      "x-scheme-handler/about" = ["zen-beta.desktop" "org.qutebrowser.qutebrowser.desktop"];
+      "x-scheme-handler/unknown" = ["zen-beta.desktop" "org.qutebrowser.qutebrowser.desktop"];
       "x-scheme-handler/nxm" = "vortex-downloads-handler.desktop";
       "x-scheme-handler/nxm-protocol" = "vortex-downloads-handler.desktop";
       "video/mp2t" = "mpv.desktop";
