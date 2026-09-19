@@ -1,7 +1,7 @@
 local M = {}
 
 M.mod = "SUPER"
-M.browser = "zen"
+M.browser = "zen-beta"
 -- Keep the interactive shell separate from the prefix used to run an app.
 -- Foot: "foot" / "foot --"; Ghostty: "ghostty" / "ghostty -e".
 M.terminal = "beer -- fish"

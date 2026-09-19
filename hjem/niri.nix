@@ -104,7 +104,7 @@ in {
             open-floating true
         }
         window-rule {
-            match app-id="zen$" title=r#"^(Picture-in-Picture|YouTube|Invidious|zen — Sharing Indicator|Enter name of file to save to…|Save)(.*)$"#
+            match app-id="zen-beta$" title=r#"^(Picture-in-Picture|YouTube|Invidious|zen — Sharing Indicator|Enter name of file to save to…|Save)(.*)$"#
             match app-id="eu.soliprem.thumbpick$"
             open-floating true
         }
@@ -144,7 +144,7 @@ in {
             Mod+Control+T { spawn ${spawnArgs (terminalCommand ++ ["tray-tui"])}; }
             Mod+Return { spawn ${spawnArgs terminal}; }
             Mod+Minus { spawn "wtype" "-k" "emdash"; }
-            Mod+W { spawn "zen"; }
+            Mod+W { spawn "zen-beta"; }
             Mod+E { spawn "nautilus"; }
             Mod+Shift+B { spawn "overskride"; }
             Mod+D { spawn "fuzzel"; }

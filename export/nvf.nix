@@ -683,7 +683,7 @@ in {
         ];
         package = lazygit-nvim;
         setupOpts = {
-          open_cmd = "zen %s";
+          open_cmd = "zen-beta %s";
         };
       };
       ${typst-preview-nvim.pname} = {
@@ -691,7 +691,7 @@ in {
         cmd = "TypstPreview";
         package = typst-preview-nvim;
         setupOpts = {
-          open_cmd = "zen %s";
+          open_cmd = "zen-beta %s";
         };
       };
       ${boole-nvim.pname} = {
