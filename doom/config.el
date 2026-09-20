@@ -67,7 +67,24 @@
 
 (use-package! typst-preview
   :commands (typst-preview-mode
-             typst-preview-send-position))
+             typst-preview-send-position)
+  :init
+  (setq typst-preview-browser "xwidget")
+  :config
+  (defun +typst-preview-in-right-window (open-browser browser hostname)
+    "Open the embedded Typst preview on the right without moving focus."
+    (if (equal browser "xwidget")
+        (let ((switch-to-buffer-obey-display-actions t)
+              (display-buffer-overriding-action
+               '((display-buffer-reuse-window display-buffer-in-direction)
+                 (direction . right)
+                 (window-width . 0.5)
+                 (inhibit-same-window . t))))
+          (save-selected-window
+            (funcall open-browser browser hostname)))
+      (funcall open-browser browser hostname)))
+  (advice-add 'typst-preview--connect-browser :around
+              #'+typst-preview-in-right-window))
 
 (set-email-account! "unibo"
   '((user-full-name . "Francesco Prem Solidoro")
