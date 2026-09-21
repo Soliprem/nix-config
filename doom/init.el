@@ -71,9 +71,7 @@
        emacs-lisp
        markdown
        nix
-       rust
        (org +pretty +roam +dragndrop +brain +noter)
-       python
        sh
 
        :email
