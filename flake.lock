@@ -545,6 +545,24 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_6"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "hermes-agent": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -948,6 +966,27 @@
         "type": "github"
       }
     },
+    "ratune": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787186913,
+        "narHash": "sha256-ScisnXcLTJCp57gezqYM4+deuKjPmG+Ww4N5sEOq78U=",
+        "owner": "acmagn",
+        "repo": "ratune",
+        "rev": "bbf9df5e5e343c8eb31a6d52d4de0328c2803d7c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "acmagn",
+        "repo": "ratune",
+        "type": "github"
+      }
+    },
     "remarkable-bridge": {
       "flake": false,
       "locked": {
@@ -1006,6 +1045,7 @@
         "nixpkgs": "nixpkgs",
         "nvf": "nvf",
         "r-nvim": "r-nvim",
+        "ratune": "ratune",
         "remarkable-bridge": "remarkable-bridge",
         "roam-graph": "roam-graph",
         "sable": "sable",
@@ -1190,7 +1230,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "systems": "systems_6"
+        "systems": "systems_7"
       },
       "locked": {
         "lastModified": 1788683578,
@@ -1327,6 +1367,21 @@
         "type": "github"
       }
     },
+    "systems_8": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "thumbpick": {
       "inputs": {
         "fenix": "fenix_6",
@@ -1391,7 +1446,7 @@
     },
     "utils_2": {
       "inputs": {
-        "systems": "systems_7"
+        "systems": "systems_8"
       },
       "locked": {
         "lastModified": 1731533236,

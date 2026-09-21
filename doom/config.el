@@ -3,11 +3,37 @@
 (setq doom-theme 'kusanagi
       display-line-numbers-type 'relative
       display-line-numbers-current-absolute t
-      auth-sources '("~/.authinfo")
+      auth-sources '("~/.authinfo" "/run/agenix/navidrome_authinfo")
       org-directory "~/Documents/org/"
       org-roam-directory org-directory
       org-roam-dailies-directory "dailies/"
       doom-font (font-spec :size 12.0))
+
+(after! emms
+  (require 'emms-player-mpv)
+  (setq emms-player-list '(emms-player-mpv)))
+
+(use-package! empv
+  :bind-keymap ("C-c m" . empv-map)
+  :commands (empv-play empv-subsonic-search empv-subsonic-artists
+             empv-subsonic-albums empv-subsonic-songs)
+  :config
+  (require 'auth-source)
+  (keymap-set empv-map "/" #'empv-subsonic-search)
+  (keymap-set empv-map "A" #'empv-subsonic-artists)
+  (keymap-set empv-map "B" #'empv-subsonic-albums)
+  (keymap-set empv-map "S" #'empv-subsonic-songs)
+  (setq empv-subsonic-url "https://nv.soliprem.eu")
+  (when-let* ((auth (car (auth-source-search :host empv-subsonic-url
+                                           :require '(:user :secret)))))
+    (setq empv-subsonic-username (plist-get auth :user)
+          empv-subsonic-password (auth-info-password auth))))
+
+(use-package! supersonic
+  :commands supersonic
+  :config
+  (require 'auth-source)
+  (setq supersonic-host "https://nv.soliprem.eu"))
 
 (after! code-review
   (require 'ghub-legacy)

@@ -45,6 +45,7 @@ in {
     inputs.zen-browser.packages.${sys}.default
     inputs.tuicr.packages.${sys}.default
     inputs.ferrosonic.packages.${sys}.default
+    inputs.ratune.packages.${sys}.default
     (inputs.beer.packages.${sys}.default.overrideAttrs (old: {
       # Fish requests all keys, but not release events (kitty flags 29).
       patches = (old.patches or []) ++ [../packages/beer-keyboard-event-types.patch];
@@ -196,10 +197,11 @@ in {
     gimp
     kdePackages.qtmultimedia
     libnotify
-    mpv
+    (mpv.override {scripts = [mpvScripts.mpris];})
     muse-sounds-manager
     musescore
     pipewire
+    playerctl
     pwvucontrol
     qpwgraph
     spek

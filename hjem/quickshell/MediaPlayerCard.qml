@@ -1,13 +1,17 @@
 import QtQuick
 import QtQuick.Effects
 import QtQuick.Layouts
+import QtQuick.Controls.Basic as Controls
+import Quickshell.Services.Mpris
 
 Rectangle {
     id: root
 
-    property var activePlayer
-    property bool hasPlayer: false
-    property bool isPlaying: false
+    property var players: Mpris.players.values
+    property var selectedPlayer: null
+    readonly property var activePlayer: players.includes(selectedPlayer) ? selectedPlayer : (players[0] ?? null)
+    readonly property bool hasPlayer: activePlayer !== null
+    readonly property bool isPlaying: hasPlayer && activePlayer.playbackState === MprisPlaybackState.Playing
     property color themeAccent
     property color themeSecond
     property color themeFg
@@ -28,6 +32,95 @@ Rectangle {
         anchors.fill: parent
         anchors.margins: 20
         spacing: 16
+
+        // use the native picker for MPRIS sources.
+        Controls.ComboBox {
+            id: sourcePicker
+
+            Layout.fillWidth: true
+            visible: root.players.length > 1
+            model: root.players
+            textRole: "identity"
+            currentIndex: root.players.indexOf(root.activePlayer)
+            onActivated: root.selectedPlayer = root.players[currentIndex]
+            Accessible.name: "Media source"
+            implicitHeight: 38
+            leftPadding: 14
+            rightPadding: 38
+            hoverEnabled: true
+
+            contentItem: Text {
+                text: sourcePicker.displayText
+                color: root.themeSecond
+                font { pixelSize: 12; weight: Font.Medium; letterSpacing: 0.3 }
+                verticalAlignment: Text.AlignVCenter
+                elide: Text.ElideRight
+            }
+
+            indicator: Text {
+                x: sourcePicker.width - width - 14
+                anchors.verticalCenter: parent.verticalCenter
+                text: "⌄"
+                font.pixelSize: 18
+                color: root.themeAccent
+                rotation: sourcePicker.popup.visible ? 180 : 0
+                Behavior on rotation { NumberAnimation { duration: 160 } }
+            }
+
+            background: Rectangle {
+                radius: 12
+                color: sourcePicker.down ? "#20ffffff" : sourcePicker.hovered ? "#18ffffff" : "#0cffffff"
+                border.width: 1
+                border.color: sourcePicker.visualFocus ? root.themeAccent : "#0effffff"
+                Behavior on color { ColorAnimation { duration: 160 } }
+            }
+
+            delegate: Controls.ItemDelegate {
+                id: sourceOption
+                required property var modelData
+                required property int index
+                width: sourcePicker.popup.availableWidth
+                implicitHeight: 38
+                leftPadding: 12
+                rightPadding: 12
+                text: modelData.identity
+                highlighted: sourcePicker.highlightedIndex === index
+                hoverEnabled: true
+
+                contentItem: Text {
+                    text: sourceOption.text
+                    color: sourceOption.index === sourcePicker.currentIndex ? root.themeAccent : root.themeFg
+                    font { pixelSize: 12; weight: Font.Medium }
+                    verticalAlignment: Text.AlignVCenter
+                    elide: Text.ElideRight
+                }
+                background: Rectangle {
+                    radius: 9
+                    color: sourceOption.highlighted || sourceOption.hovered ? "#18ffffff" : "transparent"
+                }
+            }
+
+            popup: Controls.Popup {
+                y: sourcePicker.height + 6
+                width: sourcePicker.width
+                padding: 6
+                implicitHeight: Math.min(contentItem.implicitHeight + 12, 240)
+                margins: 8
+                background: Rectangle {
+                    radius: 16
+                    color: root.themeRawBg
+                    border { width: 1; color: "#20ffffff" }
+                }
+                contentItem: ListView {
+                    clip: true
+                    implicitHeight: contentHeight
+                    model: sourcePicker.delegateModel
+                    currentIndex: sourcePicker.highlightedIndex
+                    highlightMoveDuration: 0
+                    Controls.ScrollIndicator.vertical: Controls.ScrollIndicator { }
+                }
+            }
+        }
 
         RowLayout {
             Layout.fillWidth: true

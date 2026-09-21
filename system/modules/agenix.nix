@@ -1,9 +1,16 @@
 {
   configRoot,
   inputs,
+  lib,
   ...
 }: {
   imports = [inputs.agenix.nixosModules.default];
+
+  age.secrets.navidrome_authinfo = lib.mkIf (builtins.pathExists (configRoot + /secrets/navidrome_authinfo.age)) {
+    file = configRoot + /secrets/navidrome_authinfo.age;
+    owner = "soliprem";
+    mode = "400";
+  };
 
   age.secrets.bitwarden_clientid = {
     file = configRoot + /secrets/bitwarden_clientid.age;

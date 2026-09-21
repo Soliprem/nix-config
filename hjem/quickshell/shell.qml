@@ -3,7 +3,6 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
-import Quickshell.Services.Mpris
 import Quickshell.Services.Notifications
 
 ShellRoot {
@@ -134,11 +133,6 @@ ShellRoot {
             radius: 15
         }
 
-        readonly property MprisPlayer activePlayer:
-            Mpris.players.values.length > 0 ? Mpris.players.values[0] : null
-        readonly property bool hasPlayer: activePlayer !== null
-        readonly property bool isPlaying: hasPlayer && activePlayer.playbackState === MprisPlaybackState.Playing
-
         Rectangle {
             anchors.fill: parent
             radius: 15
@@ -162,9 +156,6 @@ ShellRoot {
 
                 buttonModel:  buttonModel
                 notificationModel: notificationDaemon.trackedNotifications
-                activePlayer: sidebarWindow.activePlayer
-                hasPlayer:    sidebarWindow.hasPlayer
-                isPlaying:    sidebarWindow.isPlaying
 
                 onRequestCmd: (cmd) => root.runCmd(cmd)
                 onRequestHide:       sidebarWindow.visible = false
