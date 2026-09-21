@@ -17,9 +17,6 @@ Item {
 
     property var buttonModel
     property var notificationModel
-    property var activePlayer
-    property bool hasPlayer: false
-    property bool isPlaying: false
 
     signal requestCmd(var cmdArray)
     signal requestHide()
@@ -61,9 +58,6 @@ Item {
 
             Layout.fillWidth: true
 
-            activePlayer: root.activePlayer
-            hasPlayer: root.hasPlayer
-            isPlaying: root.isPlaying
             themeAccent: root.themeAccent
             themeSecond: root.themeSecond
             themeFg: root.themeFg

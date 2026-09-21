@@ -5,6 +5,10 @@
 (package! kusanagi-theme)
 (package! wakatime-mode)
 (package! org-roam-ui)
+(package! empv)
+(package! supersonic
+  :recipe (:host github :repo "systemfreund/supersonic.el")
+  :pin "531c2458bf3c4516335ffb594df5d4fea8be7d71")
 (package! typst-ts-mode
   :recipe (:host codeberg :repo "meow_king/typst-ts-mode")
   :pin "00048014025fc51c5c910727623d147b9a899d8c")

@@ -104,6 +104,7 @@
           fd
           git
           isyncOauth
+          (mpv.override {scripts = [mpvScripts.mpris];})
           msmtp
           oama
           ripgrep
@@ -164,6 +165,10 @@
     };
     ferrosonic = {
       url = "github:jaidaken/ferrosonic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    ratune = {
+      url = "github:acmagn/ratune";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     beer = {
