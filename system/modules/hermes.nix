@@ -36,7 +36,7 @@
     settings = {
       model = {
         provider = "openai-codex";
-        default = "gpt-5.6-terra";
+        default = "gpt-6-astra";
       };
 
       model_aliases = {
@@ -53,6 +53,11 @@
         sol = {
           provider = "openai-codex";
           model = "gpt-5.6-sol";
+        };
+
+        astra = {
+          provider = "openai-codex";
+          model = "gpt-5.6-astra";
         };
       };
 
@@ -78,29 +83,22 @@
         user_profile_enabled = true;
       };
 
-      mcp_servers = {
-        thunderbird-mail = {
-          command = "thunderbird-mcp";
-          env = {
-            THUNDERBIRD_MCP_CONNECTION_FILE = "/tmp/thunderbird-mcp/connection.json";
-          };
-        };
-      };
       agent.tool_use_enforcement = true;
     };
   };
 
   users.groups.hermes = {};
 
-  systemd.services.hermes-agent = {
-    environment.TMPDIR = "/run/hermes-agent";
-    serviceConfig = {
-      RuntimeDirectory = "hermes-agent";
-      RuntimeDirectoryMode = "0770";
-      # The Thunderbird MCP extension writes its discovery file to the user's real
-      # /tmp/thunderbird-mcp/connection.json. A private /tmp for the gateway makes
-      # /reload-mcp report no connected MCP servers even when Thunderbird is running.
-      PrivateTmp = lib.mkForce false;
-    };
-  };
+  # NOTE: no longer necessary because I dropped thunderbird mpc in favor of mu
+  # systemd.services.hermes-agent = {
+  #   environment.TMPDIR = "/run/hermes-agent";
+  #   serviceConfig = {
+  #     RuntimeDirectory = "hermes-agent";
+  #     RuntimeDirectoryMode = "0770";
+  #     # The Thunderbird MCP extension writes its discovery file to the user's real
+  #     # /tmp/thunderbird-mcp/connection.json. A private /tmp for the gateway makes
+  #     # /reload-mcp report no connected MCP servers even when Thunderbird is running.
+  #     PrivateTmp = lib.mkForce false;
+  #   };
+  # };
 }
