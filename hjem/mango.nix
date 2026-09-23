@@ -497,6 +497,7 @@ in {
       swayosd-server &
       sunsetr &
       gomuks-web &
+      nextcloud &
     '';
   };
 }
