@@ -20,6 +20,7 @@
     ./services/karakeep.nix
     ./services/silksong.nix
     ./services/immich.nix
+    ./services/nextcloud.nix
   ];
 
   networking.hostName = "debian-4gb-fsn1-1";
