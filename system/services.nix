@@ -58,12 +58,10 @@
   networking.networkmanager = {
     enable = true;
     plugins = with pkgs; [
-      networkmanager-fortisslvpn
       networkmanager-l2tp
       networkmanager-openconnect
       networkmanager-openvpn
-      networkmanager-sstp
-      networkmanager-vpnc
+      networkmanager-libreswan
       networkmanager-strongswan
     ];
   };

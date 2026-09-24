@@ -116,7 +116,7 @@
 
       "nc2.soliprem.eu".extraConfig = ''
         import iocaine
-        reverse_proxy localhost:11000
+        reverse_proxy 127.0.0.1:11000
       '';
 
       "vw.soliprem.eu".extraConfig = ''
