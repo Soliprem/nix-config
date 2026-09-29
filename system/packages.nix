@@ -144,12 +144,13 @@ in {
     xwayland-satellite
 
     # Browsers, communication, and network clients
-    beeper
     cinny-desktop
-    (callPackage ../packages/sable.nix {
-      src = inputs.sable;
-      version = "1.21.0";
-    })
+    # (callPackage ../packages/sable.nix {
+    #   src = inputs.sable;
+    #   version = "1.21.0";
+    # })
+    sable
+    beeper
     gomuks-web
     bitwarden-desktop
     rnote
