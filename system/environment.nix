@@ -8,7 +8,7 @@ _: {
     localBinInPath = true;
     variables = {
       EDITOR = "nvim";
-      BROWSER = "firefox";
+      BROWSER = "zen-beta";
       DXVK_HDR = 1;
       TERMINAL = "foot";
       MANPAGER = "nvim -c 'Man!'";

@@ -6,6 +6,7 @@ _: {
     ./substituters.nix
     ./services.nix
     ./environment.nix
+    ./mime.nix
     ./packages.nix
     ./fonts.nix
   ];
