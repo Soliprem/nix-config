@@ -20,3 +20,6 @@
 (package! org-typst-preview
   :recipe (:host github :repo "soliprem/org-typst-preview")
   :pin "6475957e5371e04c6ac50663a9fe44a95c1068c2")
+(package! gomuks
+  :recipe (:host github :repo "soliprem/gomuks.el")
+  :pin "22cd4db996d3aea01798a03711cbda254bad3c5e")
