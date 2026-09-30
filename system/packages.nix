@@ -189,7 +189,7 @@ in {
     yad
     zathura
     sioyek
-    zotero
+    # zotero
 
     # Audio, video, and creative tools
     alsa-utils
@@ -216,7 +216,7 @@ in {
     gamemode
     heroic
     mangohud
-    goverlay
+    # goverlay
     prismlauncher
     protonplus
     umu-launcher
