@@ -21,6 +21,7 @@
     ./services/silksong.nix
     ./services/immich.nix
     ./services/nextcloud.nix
+    ./services/pager.nix
   ];
 
   networking.hostName = "debian-4gb-fsn1-1";
