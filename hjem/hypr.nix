@@ -2,6 +2,7 @@
   fontProfiles,
   pkgs,
   lib,
+  suspendOnIdle,
   ...
 }: {
   files = {
@@ -68,10 +69,12 @@
           timeout=330
         }
 
-        listener {
-          on-timeout=systemctl suspend
-          timeout=1800
-        }
+        ${lib.optionalString suspendOnIdle ''
+          listener {
+            on-timeout=systemctl suspend
+            timeout=1800
+          }
+        ''}
       '';
     ".config/hypr/hyprlock.conf".text =
       /*

@@ -12,6 +12,7 @@
     ./secrets.nix
     ./native-compat.nix
     ./services/caddy.nix
+    ./services/gonic.nix
     ./services/continuwuity.nix
     ./services/livekit.nix
     ./services/vaultwarden.nix

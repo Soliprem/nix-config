@@ -162,7 +162,6 @@ in {
     super-productivity
     thunderbird
     himalaya
-    transmission_4-gtk
 
     # General desktop applications
     anki-bin
