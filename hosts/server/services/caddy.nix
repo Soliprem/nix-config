@@ -126,7 +126,11 @@
 
       "nv.soliprem.eu".extraConfig = ''
         import iocaine
-        reverse_proxy localhost:4533
+        reverse_proxy localhost:4747
+      '';
+
+      "gonic.soliprem.eu".extraConfig = ''
+        redir https://nv.soliprem.eu{uri} permanent
       '';
 
       "memos.soliprem.eu".extraConfig = ''

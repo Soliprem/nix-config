@@ -9,7 +9,7 @@
 
 ;;; Authentication
 
-(setq auth-sources '("~/.authinfo" "/run/agenix/navidrome_authinfo" "/run/agenix/gomuks_authinfo"))
+(setq auth-sources '("/run/agenix/gonic_authinfo" "~/.authinfo" "/run/agenix/gomuks_authinfo"))
 
 ;;; Development
 
