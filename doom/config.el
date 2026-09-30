@@ -9,7 +9,7 @@
 
 ;;; Authentication
 
-(setq auth-sources '("~/.authinfo" "/run/agenix/navidrome_authinfo"))
+(setq auth-sources '("~/.authinfo" "/run/agenix/navidrome_authinfo" "/run/agenix/gomuks_authinfo"))
 
 ;;; Development
 
@@ -175,6 +175,13 @@
                                            :require '(:user :secret)))))
     (setq empv-subsonic-username (plist-get auth :user)
           empv-subsonic-password (auth-info-password auth))))
+
+(use-package! gomuks
+  :commands gomuks
+  :init
+  (map! :leader
+        :desc "Gomuks"
+        "o g" #'gomuks))
 
 (use-package! supersonic
   :bind ("C-c s" . supersonic)

@@ -187,6 +187,10 @@
       url = "github:soliprem/thumbpick";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pager = {
+      url = "git+ssh://git@github.com/soliprem/pager.git?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     roam-graph = {
       url = "github:soliprem/roam-graph-rs";
       inputs.nixpkgs.follows = "nixpkgs";

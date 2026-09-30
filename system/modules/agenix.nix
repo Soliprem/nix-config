@@ -6,42 +6,50 @@
 }: {
   imports = [inputs.agenix.nixosModules.default];
 
-  age.secrets.navidrome_authinfo = lib.mkIf (builtins.pathExists (configRoot + /secrets/navidrome_authinfo.age)) {
-    file = configRoot + /secrets/navidrome_authinfo.age;
-    owner = "soliprem";
-    mode = "400";
-  };
+  age.secrets = {
+    navidrome_authinfo = {
+      file = configRoot + /secrets/navidrome_authinfo.age;
+      owner = "soliprem";
+      mode = "400";
+    };
 
-  age.secrets.bitwarden_clientid = {
-    file = configRoot + /secrets/bitwarden_clientid.age;
-    owner = "soliprem";
-  };
+    gomuks_authinfo = {
+      file = configRoot + /secrets/gomuks_authinfo.age;
+      owner = "soliprem";
+      mode = "400";
+    };
 
-  age.secrets.bitwarden_clientsecret = {
-    file = configRoot + /secrets/bitwarden_clientsecret.age;
-    owner = "soliprem";
-  };
+    bitwarden_clientid = {
+      file = configRoot + /secrets/bitwarden_clientid.age;
+      owner = "soliprem";
+    };
 
-  age.secrets.bitwarden_password = {
-    file = configRoot + /secrets/bitwarden_password.age;
-    owner = "soliprem";
-  };
+    bitwarden_clientsecret = {
+      file = configRoot + /secrets/bitwarden_clientsecret.age;
+      owner = "soliprem";
+    };
 
-  age.secrets.github_authinfo = {
-    file = configRoot + /secrets/github_authinfo.age;
-    owner = "soliprem";
-    mode = "600";
-  };
+    bitwarden_password = {
+      file = configRoot + /secrets/bitwarden_password.age;
+      owner = "soliprem";
+    };
 
-  age.secrets.mail_soliprem_accounts_password = {
-    file = configRoot + /secrets/mail_soliprem_accounts_password.age;
-    owner = "soliprem";
-    mode = "400";
-  };
+    github_authinfo = {
+      file = configRoot + /secrets/github_authinfo.age;
+      owner = "soliprem";
+      mode = "600";
+    };
 
-  age.secrets.mail_soliprem_password = {
-    file = configRoot + /secrets/mail_soliprem_password.age;
-    owner = "soliprem";
-    mode = "400";
+    mail_soliprem_accounts_password = {
+      file = configRoot + /secrets/mail_soliprem_accounts_password.age;
+      owner = "soliprem";
+      mode = "400";
+    };
+
+    mail_soliprem_password = {
+      file = configRoot + /secrets/mail_soliprem_password.age;
+      owner = "soliprem";
+      mode = "400";
+    };
   };
 }

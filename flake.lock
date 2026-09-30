@@ -900,6 +900,27 @@
         "type": "github"
       }
     },
+    "pager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790388664,
+        "narHash": "sha256-KLnNNu5EUxRzDIR66dC+wGPr3FB3i+LkW6wxFmpOtVY=",
+        "ref": "main",
+        "rev": "d8071b8018e48526e7bad06c3ebb27ad7fefdf20",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/soliprem/pager.git"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://git@github.com/soliprem/pager.git"
+      }
+    },
     "pyproject-build-systems": {
       "inputs": {
         "nixpkgs": [
@@ -1044,6 +1065,7 @@
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs",
         "nvf": "nvf",
+        "pager": "pager",
         "r-nvim": "r-nvim",
         "ratune": "ratune",
         "remarkable-bridge": "remarkable-bridge",
