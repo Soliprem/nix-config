@@ -11,7 +11,6 @@
     ]
     ++ map (file: configRoot + "/system/modules/${file}" + ".nix") [
       "ollamaRocm"
-      "open-webui"
       "vane"
       "openrgb"
       "hermes"
