@@ -13,6 +13,7 @@ in {
   "hermes_env.age".publicKeys = users ++ systems;
   "github_authinfo.age".publicKeys = users ++ systems;
   "navidrome_authinfo.age".publicKeys = users ++ systems;
+  "gomuks_authinfo.age".publicKeys = users ++ systems;
   "mail_soliprem_accounts_password.age".publicKeys = users ++ systems;
   "mail_soliprem_password.age".publicKeys = users ++ systems;
   "server_caddy_env.age".publicKeys = users ++ [server];
