@@ -36,13 +36,13 @@
     settings = {
       model = {
         provider = "openai-codex";
-        default = "gpt-6-astra";
+        default = "gpt-6.1-sol";
       };
 
       model_aliases = {
         luna = {
           provider = "openai-codex";
-          model = "gpt-5.6-luna";
+          model = "gpt-6-luna";
         };
 
         terra = {
@@ -52,18 +52,18 @@
 
         sol = {
           provider = "openai-codex";
-          model = "gpt-5.6-sol";
+          model = "gpt-6.1-sol";
         };
 
         astra = {
           provider = "openai-codex";
-          model = "gpt-5.6-astra";
+          model = "gpt-6-astra";
         };
       };
 
       delegation = {
         provider = "openai-codex";
-        model = "gpt-5.6-luna";
+        model = "gpt-6-luna";
 
         max_concurrent_children = 1;
         max_spawn_depth = 1;
@@ -88,6 +88,15 @@
   };
 
   users.groups.hermes = {};
+
+  systemd.services.hermes-agent = {
+    after = ["user@1000.service"];
+    wants = ["user@1000.service"];
+    environment = {
+      XDG_RUNTIME_DIR = "/run/user/1000";
+      DBUS_SESSION_BUS_ADDRESS = "unix:path=/run/user/1000/bus";
+    };
+  };
 
   # NOTE: no longer necessary because I dropped thunderbird mpc in favor of mu
   # systemd.services.hermes-agent = {
