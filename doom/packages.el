@@ -22,4 +22,4 @@
   :pin "6475957e5371e04c6ac50663a9fe44a95c1068c2")
 (package! gomuks
   :recipe (:host github :repo "soliprem/gomuks.el")
-  :pin "264ca929edcf60c8c5f3baed98ce9a3c2a7c045a")
+  :pin "cfd7e895147278c1353bb4f25b95fca2ad9d3ec6")
