@@ -7,8 +7,9 @@
   imports = [inputs.agenix.nixosModules.default];
 
   age.secrets = {
-    navidrome_authinfo = {
-      file = configRoot + /secrets/navidrome_authinfo.age;
+
+    gonic_authinfo = {
+      file = configRoot + /secrets/gonic_authinfo.age;
       owner = "soliprem";
       mode = "400";
     };

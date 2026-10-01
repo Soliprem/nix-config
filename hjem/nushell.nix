@@ -94,7 +94,6 @@ _: {
         alias sc = cd $'($env.HOME)/.local/bin'; ls -a
         alias sdn = shutdown -h now
         alias src = cd $'($env.HOME)/.local/src'; ls -a
-        alias trem = transmission-remote
         alias v = nvim
         alias vv = cd $'($env.HOME)/Videos'; ls -a
         alias xi = sudo xbps-install

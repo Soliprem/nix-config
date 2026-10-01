@@ -90,7 +90,6 @@ _: {
       ip = "ip -color";
       ka = "killall";
       g = "git";
-      trem = "transmission-remote";
       YT = "youtube-viewer";
       sdn = "shutdown -h now";
       e = "nvim";

@@ -16,7 +16,10 @@ in {
     inputs.hjem.nixosModules.default
   ];
 
-  hjem.specialArgs = {inherit inputs fontProfiles;};
+  hjem.specialArgs = {
+    inherit inputs fontProfiles;
+    suspendOnIdle = config.networking.hostName == "nixos-laptop";
+  };
 
   hjem.users.soliprem.imports = [
     ./fish.nix
