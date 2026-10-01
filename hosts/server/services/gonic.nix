@@ -1,4 +1,4 @@
-{lib, pkgs, ...}: {
+{lib, ...}: {
   services.gonic = {
     enable = true;
     settings = {
@@ -14,10 +14,6 @@
     unitConfig.RequiresMountsFor = "/mnt/storage-box/music";
     serviceConfig = {
       StateDirectory = lib.mkForce ["gonic" "gonic/podcasts" "gonic/playlists"];
-      ExecStartPre = [
-        "${pkgs.util-linux}/bin/mountpoint -q /mnt/storage-box/music"
-        "${pkgs.bash}/bin/bash -c '${pkgs.findutils}/bin/find /mnt/storage-box/music -mindepth 1 -maxdepth 1 -print -quit | ${pkgs.gnugrep}/bin/grep -q .'"
-      ];
     };
   };
 }
