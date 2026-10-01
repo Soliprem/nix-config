@@ -9,8 +9,5 @@
     };
   };
 
-  systemd.services.vaultwarden = {
-    unitConfig.ConditionPathExists = "/var/lib/vaultwarden/db.sqlite3";
-    serviceConfig.StateDirectoryMode = "0700";
-  };
+  systemd.services.vaultwarden.unitConfig.ConditionPathExists = "/var/lib/vaultwarden/db.sqlite3";
 }

@@ -8,14 +8,6 @@
 
   systemd.services.immich-server = {
     unitConfig.RequiresMountsFor = "/mnt/storage-box/immich/files";
-    serviceConfig.ExecStartPre = [
-      "${pkgs.util-linux}/bin/findmnt -T /mnt/storage-box/immich/files -n -t cifs"
-      (pkgs.writeShellScript "verify-immich-media" ''
-        set -eu
-        for path in backups encoded-video library profile thumbs upload; do
-          test -d "/mnt/storage-box/immich/files/$path"
-        done
-      '')
-    ];
+    serviceConfig.ExecStartPre = "${pkgs.util-linux}/bin/findmnt -T /mnt/storage-box/immich/files -n -t cifs";
   };
 }

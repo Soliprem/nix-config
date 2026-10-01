@@ -23,6 +23,7 @@
     ./services/immich.nix
     ./services/nextcloud.nix
     ./services/pager.nix
+    ./services/bookorbit.nix
   ];
 
   networking.hostName = "debian-4gb-fsn1-1";

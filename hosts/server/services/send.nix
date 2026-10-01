@@ -16,10 +16,7 @@
     unitConfig.RequiresMountsFor = "/mnt/storage-box";
     serviceConfig = {
       BindPaths = ["/mnt/storage-box/send/uploads:/var/lib/send/uploads"];
-      ExecStartPre = [
-        "${pkgs.util-linux}/bin/mountpoint -q /mnt/storage-box"
-        "${pkgs.coreutils}/bin/test -d /mnt/storage-box/send/uploads"
-      ];
+      ExecStartPre = "${pkgs.util-linux}/bin/mountpoint -q /mnt/storage-box";
     };
   };
 }
