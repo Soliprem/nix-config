@@ -161,15 +161,17 @@
   (setq emms-player-list '(emms-player-mpv)))
 
 (use-package! empv
-  :bind-keymap ("C-c m" . empv-map)
   :commands (empv-play empv-subsonic-search empv-subsonic-artists
              empv-subsonic-albums empv-subsonic-songs)
+  :init
+  (map! :leader
+        :prefix ("o e" . "empv")
+        "/" #'empv-subsonic-search
+        "A" #'empv-subsonic-artists
+        "B" #'empv-subsonic-albums
+        "S" #'empv-subsonic-songs)
   :config
   (require 'auth-source)
-  (keymap-set empv-map "/" #'empv-subsonic-search)
-  (keymap-set empv-map "A" #'empv-subsonic-artists)
-  (keymap-set empv-map "B" #'empv-subsonic-albums)
-  (keymap-set empv-map "S" #'empv-subsonic-songs)
   (setq empv-subsonic-url "https://nv.soliprem.eu")
   (when-let* ((auth (car (auth-source-search :host empv-subsonic-url
                                            :require '(:user :secret)))))
