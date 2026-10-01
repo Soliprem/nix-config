@@ -12,12 +12,14 @@ in {
   "bitwarden_password.age".publicKeys = users ++ systems;
   "hermes_env.age".publicKeys = users ++ systems;
   "github_authinfo.age".publicKeys = users ++ systems;
-  "navidrome_authinfo.age".publicKeys = users ++ systems;
+  "gonic_authinfo.age".publicKeys = users ++ systems;
   "gomuks_authinfo.age".publicKeys = users ++ systems;
   "mail_soliprem_accounts_password.age".publicKeys = users ++ systems;
   "mail_soliprem_password.age".publicKeys = users ++ systems;
   "server_caddy_env.age".publicKeys = users ++ [server];
   "server_storage_box_credentials.age".publicKeys = users ++ [server];
+  "pc_slskd_env.age".publicKeys = users ++ [pc];
+  "pc_storage_box_webdav.age".publicKeys = users ++ [pc];
   "server_livekit_keys.age".publicKeys = users ++ [server];
   "server_continuwuity_registration_token.age".publicKeys = users ++ [server];
   "server_karakeep_env.age".publicKeys = users ++ [server];

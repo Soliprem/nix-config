@@ -18,33 +18,11 @@ in {
       ];
     };
 
-    # A cold copy of the live 0.58.0 database passed a full start, HTTP health
-    # probe, clean shutdown and SQLite integrity check with this 0.63.2 module.
-    navidrome = {
-      enable = true;
-      settings = {
-        DataFolder = "/var/lib/navidrome";
-        MusicFolder = "/mnt/storage-box/music";
-      };
-    };
-
     wakapi = {
       enable = true;
       settings.db.name = "/var/lib/wakapi/wakapi.db";
     };
   };
-  users.users.navidrome.uid = 985;
-  users.groups.navidrome.gid = 985;
-  systemd.services.navidrome = {
-    unitConfig.RequiresMountsFor = "/mnt/storage-box/music";
-    serviceConfig.ExecStartPre = [
-      # The module runs in a RootDirectory namespace and bind-mounts only the
-      # exact music leaf, so check that leaf rather than its hidden parent.
-      "${pkgs.util-linux}/bin/mountpoint -q /mnt/storage-box/music"
-      "${pkgs.bash}/bin/bash -c '${pkgs.findutils}/bin/find /mnt/storage-box/music -mindepth 1 -maxdepth 1 -print -quit | ${pkgs.gnugrep}/bin/grep -q .'"
-    ];
-  };
-
   users.groups.foundry = {};
   users.users.foundry = {
     isSystemUser = true;

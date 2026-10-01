@@ -8,6 +8,7 @@
       ./hardware-configuration.nix
       ../shared
       ../shared/desktop.nix
+      ./media.nix
     ]
     ++ map (file: configRoot + "/system/modules/${file}" + ".nix") [
       "ollamaRocm"
