@@ -21,7 +21,8 @@
     createUser = false;
     addToSystemPackages = true;
 
-    extraDependencyGroups = ["hindsight" "messaging" "matrix"];
+    # Hindsight moved to Hermes' plugin catalog and is no longer a Python extra.
+    extraDependencyGroups = ["messaging" "matrix"];
     extraPackages = with pkgs; [
       curl
       jq
@@ -37,6 +38,9 @@
       model = {
         provider = "openai-codex";
         default = "gpt-6.1-sol";
+        # Settings merge into mutable state; clear credentials from prior providers.
+        base_url = null;
+        api_key = null;
       };
 
       model_aliases = {
@@ -64,6 +68,9 @@
       delegation = {
         provider = "openai-codex";
         model = "gpt-6-luna";
+        base_url = null;
+        api_key = null;
+        api_mode = null;
 
         max_concurrent_children = 1;
         max_spawn_depth = 1;
