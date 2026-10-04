@@ -56,6 +56,7 @@ in {
     t3code
     zk
     graphviz
+    qbittorrent
     inputs.self.packages.${sys}.doom-emacs
     mu
     inputs.self.packages.${sys}.isync-oauth
