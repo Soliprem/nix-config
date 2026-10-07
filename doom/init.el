@@ -69,6 +69,7 @@
 
        :lang
        emacs-lisp
+       (julia +lsp +tree-sitter +snail)
        markdown
        nix
        (org +pretty +roam +dragndrop +brain +noter)

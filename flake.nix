@@ -98,6 +98,16 @@
         extraPackages = epkgs: [
           (epkgs.treesit-grammars.with-grammars (grammars: [
             grammars.tree-sitter-typst
+            # julia-ts-mode's queries target grammar v0.23.1.
+            (grammars.tree-sitter-julia.override {
+              version = "0.23.1";
+              src = doomPkgs.fetchFromGitHub {
+                owner = "tree-sitter";
+                repo = "tree-sitter-julia";
+                rev = "v0.23.1";
+                hash = "sha256-jwtMgHYSa9/kcsqyEUBrxC+U955zFZHVQ4N4iogiIHY=";
+              };
+            })
           ]))
         ];
         extraBinPackages = with doomPkgs; [

@@ -13,6 +13,36 @@
 
 ;;; Development
 
+(after! envrc
+  (defadvice! +envrc-cade-env-dir-p-a (dir)
+    :before-until #'envrc--env-dir-p
+    (file-exists-p (expand-file-name ".cade" dir)))
+
+  (defadvice! +envrc-cade-status-a ()
+    :override #'envrc--direnv-allowed-status-code
+    ;; ponytail: Cade 0.1.3 has text status only; use JSON when it supports it.
+    (with-temp-buffer
+      (unless (zerop (process-file "cade" nil t nil "status"))
+        (error "Cade status failed: %s" (buffer-string)))
+      (goto-char (point-min))
+      (cond
+       ((re-search-forward "^root: +none " nil t) nil)
+       ((re-search-forward "^  .+  \\[\\([^]]+\\)\\]$" nil t)
+        (pcase (match-string 1)
+          ("allowed, composed" 0)
+          ((pred (string-prefix-p "not allowed")) 2)
+          (_ (error "Unrecognised Cade trust status"))))
+       (t (error "Unrecognised Cade status output")))))
+
+  (defadvice! +envrc-cade-command-a (original verb)
+    :around #'envrc--run-direnv
+    (if (equal verb "reload")
+        ;; A fresh JSON export makes Cade recheck its watched files.
+        (envrc--with-required-current-env env-dir
+          (envrc--get-current-env-or-run-direnv t))
+      (let ((envrc-direnv-executable "cade"))
+        (funcall original (if (equal verb "deny") "disallow" verb))))))
+
 (after! code-review
   (require 'ghub-legacy)
   (setq code-review-auth-login-marker 'forge))
@@ -58,6 +88,33 @@
 
 ;; To enable it in every Org buffer
 (add-hook 'org-mode-hook #'org-typst-preview-mode)
+
+;;; Julia
+
+(use-package! julia-snail
+  :hook ((julia-mode julia-ts-mode) . julia-snail-mode)
+  :config
+  (setq-default julia-snail-multimedia-enable t)
+  (advice-add #'julia-snail :around #'envrc-propagate-environment)
+  (map! :map julia-snail-mode-map
+        :localleader
+        :desc "Start or open Julia REPL" "'" #'julia-snail
+        :desc "Activate Julia project" "a" #'julia-snail-package-activate
+        :desc "Look up documentation" "d" #'julia-snail-doc-lookup
+        :desc "Update module cache" "r" #'julia-snail-update-module-cache
+        :desc "Interrupt Julia task" "i" #'julia-snail-interrupt-task
+        :desc "Copy last result" "y" #'julia-snail-copy-last-eval-result
+        :desc "Evaluate expression or region" "e e" #'julia-snail-send-dwim
+        :desc "Evaluate line" "e l" #'julia-snail-send-line
+        :desc "Evaluate region" "e r" #'julia-snail-send-region
+        :desc "Evaluate file" "e b" #'julia-snail-send-buffer-file
+        :desc "Evaluate top-level form" "e f" #'julia-snail-send-top-level-form)
+  (map! :map julia-snail-repl-mode-map
+        :localleader
+        :desc "Return to source" "m" #'julia-snail-repl-go-back
+        :desc "Activate Julia project" "a" #'julia-snail-package-activate
+        :desc "Look up documentation" "d" #'julia-snail-doc-lookup
+        :desc "Update module cache" "r" #'julia-snail-update-module-cache))
 
 ;;; Typst
 
