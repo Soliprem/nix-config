@@ -52,7 +52,11 @@
     pam.services.sddm.enableGnomeKeyring = true;
     pam.services."cyberarch-lock" = {};
     pki.certificateFiles = [../assets/almawifi.cer];
-    polkit.enable = true;
+    polkit = {
+      enable = true;
+      # Needed by apps such as showmethekey to launch a privileged backend.
+      enablePkexecWrapper = true;
+    };
   };
   # xdg.portal.wlr.enable = true;
   networking.networkmanager = {
