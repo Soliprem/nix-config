@@ -15,6 +15,7 @@
       "openrgb"
       "hermes"
       "media"
+      "pvpn"
     ];
 
   networking.hostName = "nixos-pc";
