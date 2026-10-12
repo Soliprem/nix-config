@@ -14,6 +14,7 @@
   environment.shells = with pkgs; [
     nushell
     busybox
+    "${busybox}/bin/ash"
     fish
   ];
 }
