@@ -95,6 +95,7 @@
   :hook ((julia-mode julia-ts-mode) . julia-snail-mode)
   :config
   (setq-default julia-snail-multimedia-enable t)
+  (setq-default julia-snail-extensions '(formatter))
   (advice-add #'julia-snail :around #'envrc-propagate-environment)
   (map! :map julia-snail-mode-map
         :localleader
@@ -108,7 +109,9 @@
         :desc "Evaluate line" "e l" #'julia-snail-send-line
         :desc "Evaluate region" "e r" #'julia-snail-send-region
         :desc "Evaluate file" "e b" #'julia-snail-send-buffer-file
-        :desc "Evaluate top-level form" "e f" #'julia-snail-send-top-level-form)
+        :desc "Evaluate top-level form" "e f" #'julia-snail-send-top-level-form
+        :desc "Format buffer" "f" #'julia-snail/formatter-format-buffer
+        :desc "Format region" "F" #'julia-snail/formatter-format-region)
   (map! :map julia-snail-repl-mode-map
         :localleader
         :desc "Return to source" "m" #'julia-snail-repl-go-back
