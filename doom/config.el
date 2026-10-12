@@ -245,6 +245,14 @@
         :desc "Gomuks"
         "o g" #'gomuks))
 
+(use-package! sub-buffer
+  :commands sub-buffer
+  :init
+  (setq sub-buffer-server "https://nv.soliprem.eu")
+  (map! :leader
+        :desc "sub-buffer"
+        "o s" #'sub-buffer))
+
 (use-package! supersonic
   :bind ("C-c s" . supersonic)
   :config
