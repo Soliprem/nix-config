@@ -95,6 +95,19 @@
         emacs = doomPkgs.emacs-pgtk;
         doomDir = ./doom;
         doomLocalDir = "~/.local/share/nix-doom";
+        emacsPackageOverrides = _: epkgs: {
+          julia-snail = epkgs.julia-snail.overrideAttrs (old: {
+            postPatch =
+              (old.postPatch or "")
+              + ''
+                      cat >> extensions/formatter/Project.toml <<'EOF'
+
+                [compat]
+                JuliaFormatter = "=1.0.62"
+                EOF
+              '';
+          });
+        };
         extraPackages = epkgs: [
           (epkgs.treesit-grammars.with-grammars (grammars: [
             grammars.tree-sitter-typst
