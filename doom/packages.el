@@ -23,3 +23,6 @@
 (package! gomuks
   :recipe (:host github :repo "soliprem/gomuks.el")
   :pin "63bdab19bff8baeda4adfb051891b8bed9906e23")
+(package! sub-buffer
+  :recipe (:host github :repo "soliprem/sub-buffer.el")
+  :pin "3335d08a18ac8fbd716f2c1cd4a633d33549ae6c")
