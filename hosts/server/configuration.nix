@@ -14,10 +14,11 @@
     ./services/caddy.nix
     ./services/gonic.nix
     ./services/continuwuity.nix
+    ./services/matrix-bridges.nix
     ./services/livekit.nix
     ./services/vaultwarden.nix
     ./services/memos.nix
-    ./services/send.nix
+    ./services/microbin.nix
     ./services/karakeep.nix
     ./services/silksong.nix
     ./services/immich.nix

@@ -27,8 +27,7 @@ in {
     };
   };
 
-  # Preserve the appservice URLs stored in Continuwuity while the bridges
-  # remain in Docker and publish their listeners on host loopback.
+  # Preserve the stored appservice URLs for both native and Docker bridges.
   networking.hosts."127.0.0.1" = [
     "mautrix-telegram"
     "mautrix-signal"
