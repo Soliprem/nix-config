@@ -6,6 +6,18 @@
   imports = [inputs.agenix.nixosModules.default];
 
   age.secrets = {
+    microbin_env = {
+      file = configRoot + /secrets/server_microbin_env.age;
+      mode = "0400";
+    };
+    mautrix_signal_env = {
+      file = configRoot + /secrets/server_mautrix_signal_env.age;
+      mode = "0400";
+    };
+    mautrix_whatsapp_env = {
+      file = configRoot + /secrets/server_mautrix_whatsapp_env.age;
+      mode = "0400";
+    };
     caddy_env = {
       file = configRoot + /secrets/server_caddy_env.age;
       mode = "0400";

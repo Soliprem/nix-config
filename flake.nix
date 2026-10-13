@@ -89,7 +89,6 @@
             ./export/nvf-minimal.nix
           ];
         }).neovim;
-      iocaine = pkgs.callPackage ./packages/iocaine.nix {};
       isync-oauth = isyncOauth;
       doom-emacs = doomPkgs.emacsWithDoom {
         emacs = doomPkgs.emacs-pgtk;

@@ -25,4 +25,7 @@ in {
   "server_karakeep_env.age".publicKeys = users ++ [server];
   "server_bookorbit_env.age".publicKeys = users ++ [server];
   "server_meilisearch_master_key.age".publicKeys = users ++ [server];
+  "server_mautrix_signal_env.age".publicKeys = users ++ [server];
+  "server_mautrix_whatsapp_env.age".publicKeys = users ++ [server];
+  "server_microbin_env.age".publicKeys = users ++ [server];
 }

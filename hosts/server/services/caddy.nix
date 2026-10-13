@@ -83,10 +83,13 @@
       '';
 
       "send.soliprem.eu".extraConfig = ''
+        redir https://microbin.soliprem.eu permanent
+      '';
+
+      "microbin.soliprem.eu".extraConfig = ''
         import iocaine
-        @protected {
-          path / /upload /api/upload* /api/send*
-        }
+        # MicroBin merges and trims slashes before routing.
+        @protected path_regexp protected ^/+(upload/*|list/*|admin.*|auth_admin.*|edit/+.*|edit_private/+.*|submit_edit_private/+.*|remove/+.*)?$
         basic_auth @protected {
           admin {$SEND_BASIC_AUTH_HASH}
         }
@@ -144,8 +147,7 @@
       '';
 
       "picsur.soliprem.eu".extraConfig = ''
-        import iocaine
-        reverse_proxy localhost:31416
+        redir https://microbin.soliprem.eu permanent
       '';
 
       "waka.soliprem.eu".extraConfig = ''

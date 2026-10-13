@@ -1,12 +1,8 @@
 {
-  inputs,
   lib,
   pkgs,
   ...
-}: let
-  system = pkgs.stdenv.hostPlatform.system;
-  iocainePackage = inputs.self.packages.${system}.iocaine;
-in {
+}: {
   services = {
     redis.servers."" = {
       enable = true;
@@ -59,9 +55,12 @@ in {
     };
   };
 
-  # The 2.5 package in the pinned nixpkgs inputs uses an incompatible handler
-  # model and accepts ordinary browsers. Keep the proven 3.5 policy and KDL
-  # interface until nixpkgs carries a drop-in-compatible release.
+  services.iocaine = {
+    enable = true;
+    settings = {};
+    extraSettingsPaths = ["/etc/iocaine/config.kdl"];
+  };
+
   environment.etc."iocaine/config.kdl".text = ''
     http-server default {
       bind "127.0.0.1:42069"
@@ -86,39 +85,15 @@ in {
     declare-handler default language=roto
   '';
   systemd.services.iocaine = {
-    description = "iocaine, the deadliest poison known to AI";
-    after = ["network.target"];
-    wantedBy = ["multi-user.target"];
     serviceConfig = {
-      Type = "notify";
-      DynamicUser = true;
-      StateDirectory = "iocaine";
-      WorkingDirectory = "/var/lib/iocaine";
-      RuntimeDirectory = "iocaine";
-      ExecStart = "${lib.getExe iocainePackage} --config-path /etc/iocaine/config.kdl start";
-      Restart = "on-failure";
-      UMask = "0077";
-      LimitNOFILE = 524288;
-      ProtectSystem = "strict";
-      ProtectClock = true;
-      ProtectHostname = true;
-      ProtectProc = "invisible";
-      ProtectControlGroups = true;
-      ProtectKernelModules = true;
-      ProtectKernelTunables = true;
-      ProtectKernelLogs = true;
-      ProtectHome = true;
-      PrivateTmp = true;
-      PrivateDevices = true;
-      NoNewPrivileges = true;
+      # Preserve the existing KDL policy's access to the host firewall.
+      PrivateUsers = lib.mkForce false;
       RestrictAddressFamilies = [
         "AF_NETLINK"
         "AF_INET"
         "AF_INET6"
         "AF_UNIX"
       ];
-      RestrictNamespaces = true;
-      RestrictRealtime = true;
       CapabilityBoundingSet = "CAP_NET_ADMIN";
       AmbientCapabilities = "CAP_NET_ADMIN";
     };
