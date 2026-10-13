@@ -20,7 +20,7 @@
 
   (defadvice! +envrc-cade-status-a ()
     :override #'envrc--direnv-allowed-status-code
-    ;; ponytail: Cade 0.1.3 has text status only; use JSON when it supports it.
+    ;; Cade 0.1.3 has text status only; use JSON when it supports it.
     (with-temp-buffer
       (unless (zerop (process-file "cade" nil t nil "status"))
         (error "Cade status failed: %s" (buffer-string)))
