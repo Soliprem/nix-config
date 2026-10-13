@@ -13,6 +13,7 @@
     ./native-compat.nix
     ./services/caddy.nix
     ./services/gonic.nix
+    ./services/gatus.nix
     ./services/continuwuity.nix
     ./services/matrix-bridges.nix
     ./services/livekit.nix
