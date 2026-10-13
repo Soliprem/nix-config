@@ -1,7 +1,6 @@
 {
   config,
   inputs,
-  lib,
   pkgs,
   configRoot,
   ...
@@ -104,17 +103,4 @@
       DBUS_SESSION_BUS_ADDRESS = "unix:path=/run/user/1000/bus";
     };
   };
-
-  # NOTE: no longer necessary because I dropped thunderbird mpc in favor of mu
-  # systemd.services.hermes-agent = {
-  #   environment.TMPDIR = "/run/hermes-agent";
-  #   serviceConfig = {
-  #     RuntimeDirectory = "hermes-agent";
-  #     RuntimeDirectoryMode = "0770";
-  #     # The Thunderbird MCP extension writes its discovery file to the user's real
-  #     # /tmp/thunderbird-mcp/connection.json. A private /tmp for the gateway makes
-  #     # /reload-mcp report no connected MCP servers even when Thunderbird is running.
-  #     PrivateTmp = lib.mkForce false;
-  #   };
-  # };
 }

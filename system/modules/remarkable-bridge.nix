@@ -64,12 +64,6 @@ in {
 
   hardware.uinput.enable = true;
 
-  boot.kernelModules = [
-    "uinput"
-  ];
-
-  users.groups.uinput = {};
-
   users.users.soliprem.extraGroups = [
     "uinput"
   ];

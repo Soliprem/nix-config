@@ -44,7 +44,6 @@
       enable = true;
       # mountOnMedia = true;
     };
-    printing.enable = true;
     gnome.gnome-keyring.enable = true;
   };
   security = {

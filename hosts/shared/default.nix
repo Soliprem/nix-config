@@ -37,9 +37,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     jack.enable = true;
-    audio.enable = true;
     pulse.enable = true;
-    wireplumber.enable = true;
     extraConfig.pipewire."99-allowed-rates" = {
       "context.properties" = {
         "default.clock.allowed-rates" = [
@@ -61,7 +59,6 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  nixpkgs.config.allowUnfree = true;
   nix = {
     settings.experimental-features = ["nix-command" "flakes"];
     registry.t = {

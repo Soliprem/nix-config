@@ -29,18 +29,15 @@ in {
 
   systemd.services = {
     karakeep-init = {
-      unitConfig.ConditionPathExists = "/var/lib/karakeep/db.db";
       serviceConfig.StateDirectoryMode = "0700";
     };
     karakeep-workers = {
       wants = ["meilisearch.service" "karakeep-browser.service"];
       after = ["meilisearch.service" "karakeep-browser.service"];
-      unitConfig.ConditionPathExists = "/var/lib/karakeep/db.db";
     };
     karakeep-web = {
       wants = ["meilisearch.service" "karakeep-browser.service"];
       after = ["meilisearch.service" "karakeep-browser.service"];
-      unitConfig.ConditionPathExists = "/var/lib/karakeep/db.db";
     };
   };
 }

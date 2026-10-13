@@ -8,6 +8,4 @@
       ROCKET_PORT = 11001;
     };
   };
-
-  systemd.services.vaultwarden.unitConfig.ConditionPathExists = "/var/lib/vaultwarden/db.sqlite3";
 }

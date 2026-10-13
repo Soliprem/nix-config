@@ -41,6 +41,4 @@
   };
 
   swapDevices = [{device = "/home/.swap";}];
-
-  networking.useDHCP = false;
 }

@@ -3,7 +3,6 @@
     enable = true;
     keyFile = config.age.secrets.livekit_keys.path;
     settings = {
-      port = 7880;
       bind_addresses = [""];
       rtc = {
         tcp_port = 7881;

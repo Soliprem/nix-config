@@ -48,8 +48,6 @@
     deploy.nodes.nixos-server = {
       hostname = "49.12.104.79";
       sshUser = "root";
-      autoRollback = true;
-      magicRollback = true;
       activationTimeout = 600;
       confirmTimeout = 60;
       profiles.system = {
@@ -57,8 +55,6 @@
         path = inputs.deploy-rs.lib.${system}.activate.nixos self.nixosConfigurations.nixos-server;
       };
     };
-
-    checks = builtins.mapAttrs (_: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
 
     packages.${pkgs.stdenv.hostPlatform.system} = rec {
       cyberarch-shell = pkgs.callPackage ./packages/cyberarch-shell.nix {
