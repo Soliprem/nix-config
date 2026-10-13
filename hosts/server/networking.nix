@@ -2,7 +2,6 @@
   networking = {
     useDHCP = false;
     useNetworkd = true;
-    dhcpcd.enable = false;
     nameservers = [
       "2a01:4ff:ff00::add:2"
       "2a01:4ff:ff00::add:1"
@@ -11,7 +10,6 @@
   };
 
   systemd.network = {
-    enable = true;
     networks."10-hetzner" = {
       matchConfig.MACAddress = "96:00:03:6b:af:6b";
       address = [
@@ -55,7 +53,6 @@
     settings = {
       KbdInteractiveAuthentication = false;
       PasswordAuthentication = false;
-      PermitRootLogin = "prohibit-password";
     };
   };
 

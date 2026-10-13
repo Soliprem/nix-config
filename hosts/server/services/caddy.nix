@@ -171,11 +171,6 @@
         logFormat = ''
           output file /var/log/caddy/mail.soliprem.eu.log {
             roll_disabled
-            roll_size 512M
-            roll_uncompressed
-            roll_local_time
-            roll_keep 3
-            roll_keep_for 48h
           }
         '';
         extraConfig = ''

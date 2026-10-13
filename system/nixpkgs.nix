@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   nix.package = pkgs.lixPackageSets.stable.lix;
   nixpkgs = {
     overlays = [
@@ -15,15 +11,6 @@
           colmena
           ;
       })
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
     ];
     config = {
       allowUnfree = true;
@@ -31,7 +18,6 @@
         "electron-39.8.10"
         "pnpm-10.29.2"
       ];
-      allowUnfreePredicate = _: true;
     };
   };
   documentation = {

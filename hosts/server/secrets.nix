@@ -8,19 +8,15 @@
   age.secrets = {
     microbin_env = {
       file = configRoot + /secrets/server_microbin_env.age;
-      mode = "0400";
     };
     mautrix_signal_env = {
       file = configRoot + /secrets/server_mautrix_signal_env.age;
-      mode = "0400";
     };
     mautrix_whatsapp_env = {
       file = configRoot + /secrets/server_mautrix_whatsapp_env.age;
-      mode = "0400";
     };
     caddy_env = {
       file = configRoot + /secrets/server_caddy_env.age;
-      mode = "0400";
     };
     storage_box_credentials = {
       file = configRoot + /secrets/server_storage_box_credentials.age;
@@ -30,23 +26,18 @@
     };
     livekit_keys = {
       file = configRoot + /secrets/server_livekit_keys.age;
-      mode = "0400";
     };
     continuwuity_registration_token = {
       file = configRoot + /secrets/server_continuwuity_registration_token.age;
-      mode = "0400";
     };
     karakeep_env = {
       file = configRoot + /secrets/server_karakeep_env.age;
-      mode = "0400";
     };
     bookorbit_env = {
       file = configRoot + /secrets/server_bookorbit_env.age;
-      mode = "0400";
     };
     meilisearch_master_key = {
       file = configRoot + /secrets/server_meilisearch_master_key.age;
-      mode = "0400";
     };
   };
 }

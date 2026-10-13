@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   services = {
     redis.servers."" = {
       enable = true;
@@ -30,7 +26,6 @@
     after = ["network.target"];
     wantedBy = ["multi-user.target"];
     serviceConfig = {
-      Type = "simple";
       User = "foundry";
       Group = "foundry";
       StateDirectory = "foundry";
@@ -51,7 +46,6 @@
         "AF_UNIX"
       ];
       LockPersonality = true;
-      MemoryDenyWriteExecute = false;
     };
   };
 
@@ -84,21 +78,4 @@
 
     declare-handler default language=roto
   '';
-  systemd.services.iocaine = {
-    serviceConfig = {
-      # Preserve the existing KDL policy's access to the host firewall.
-      PrivateUsers = lib.mkForce false;
-      RestrictAddressFamilies = [
-        "AF_NETLINK"
-        "AF_INET"
-        "AF_INET6"
-        "AF_UNIX"
-      ];
-      CapabilityBoundingSet = "CAP_NET_ADMIN";
-      AmbientCapabilities = "CAP_NET_ADMIN";
-    };
-  };
-  # CloudPanel and Percona are intentionally not configured: no application
-  # schemas, users, routines, events, triggers or clients depend on them.
-  # Tailscale is intentionally disabled and has no persisted state.
 }

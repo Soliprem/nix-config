@@ -12,13 +12,7 @@
 
   environment.systemPackages = [pkgs.docker-compose];
 
-  # Several Compose projects bind Storage Box application paths. Gate
-  # the daemon itself so restart policies cannot populate empty local fallback
-  # directories when the remote filesystem is unavailable.
-  systemd.services.docker = {
-    unitConfig.RequiresMountsFor = "/mnt/storage-box";
-    serviceConfig.ExecStartPre = "${pkgs.util-linux}/bin/mountpoint -q /mnt/storage-box";
-  };
+  systemd.services.docker.unitConfig.RequiresMountsFor = "/mnt/storage-box";
 
   # Mailcow's netfilter container bind-mounts the conventional host module
   # path. Expose the current NixOS module tree there.
