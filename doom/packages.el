@@ -25,4 +25,4 @@
   :pin "63bdab19bff8baeda4adfb051891b8bed9906e23")
 (package! sub-buffer
   :recipe (:host github :repo "soliprem/sub-buffer.el")
-  :pin "f30e52afdc32689a3a2c4394bda95af8be194d5c")
+  :pin "48a25c97db0cc9f1a19ec77b63637cbf7924fcc0")
