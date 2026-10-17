@@ -248,7 +248,8 @@
 (use-package! sub-buffer
   :commands sub-buffer
   :init
-  (setq sub-buffer-server "https://nv.soliprem.eu")
+  (setq sub-buffer-server "https://nv.soliprem.eu"
+        sub-buffer-use-org t))
   (map! :leader
         :desc "sub-buffer"
         "o s" #'sub-buffer))
