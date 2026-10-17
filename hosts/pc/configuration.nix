@@ -13,7 +13,6 @@
       "ollamaRocm"
       "vane"
       "openrgb"
-      "hermes"
       "media"
       "pvpn"
     ];
@@ -29,7 +28,6 @@
     "gamemode"
     "audio"
     "video"
-    "hermes"
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
