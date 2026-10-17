@@ -160,11 +160,6 @@
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sable = {
-      url = "file+https://github.com/SableClient/Sable/releases/download/v1.21.0/Sable-1.21.0-linux-x86_64.tar.gz";
-      flake = false;
-    };
-
     r-nvim = {
       url = "github:R-nvim/R.nvim";
       flake = false;
@@ -181,18 +176,6 @@
       url = "github:blwtxc/remarkable-bridge";
       flake = false;
     };
-    hermes-agent = {
-      url = "github:NousResearch/hermes-agent";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    ferrosonic = {
-      url = "github:jaidaken/ferrosonic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    ratune = {
-      url = "github:acmagn/ratune";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     beer = {
       url = "git+https://git.notashelf.dev/notashelf/beer.git";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -202,7 +185,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     eh = {
-      url = "github:notashelf/eh";
+      url = "github:notashelf/eh/notashelf/push-sqworykzvvsw";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     thumbpick = {
@@ -213,47 +196,30 @@
       url = "git+ssh://git@github.com/soliprem/pager.git?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    roam-graph = {
-      url = "github:soliprem/roam-graph-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    tuicr = {
-      url = "github:agavra/tuicr";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     dm-scripts = {
       url = "github:soliprem/dm-scripts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak";
     };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     silksong-aa = {
       url = "github:Soliprem/silkgsong-journal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # nvf-soli.url = "github:soliprem/nvf-soli/";
     nvf.url = "github:notashelf/nvf";
-    # nvf.url = "path:/home/soliprem/.local/src/nvf-admin/";
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
