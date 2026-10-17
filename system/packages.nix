@@ -41,16 +41,12 @@ in {
     inputs.deploy-rs.packages.${sys}.default
     inputs.self.packages.${sys}.nvf
     inputs.thumbpick.packages.${sys}.default
-    inputs.roam-graph.packages.${sys}.default
     inputs.zen-browser.packages.${sys}.default
-    inputs.tuicr.packages.${sys}.default
-    inputs.ferrosonic.packages.${sys}.default
-    inputs.ratune.packages.${sys}.default
-    (inputs.beer.packages.${sys}.default.overrideAttrs (old: {
-      # Fish requests all keys, but not release events (kitty flags 29).
-      patches = (old.patches or []) ++ [../packages/beer-keyboard-event-types.patch];
-    }))
-    cava
+    inputs.beer.packages.${sys}.default
+    # (inputs.beer.packages.${sys}.default.overrideAttrs (old: {
+    #   # Fish requests all keys, but not release events (kitty flags 29).
+    #   patches = (old.patches or []) ++ [../packages/beer-keyboard-event-types.patch];
+    # }))
     stash-clipboard
     codex
     t3code
