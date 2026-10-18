@@ -9,6 +9,7 @@
     route=$(${pkgs.iproute2}/bin/ip -4 route get 1.1.1.1 uid "$(${pkgs.coreutils}/bin/id -u)")
     case " $route " in
       *" dev proton0 "*) ;;
+      *" dev pvpn0 "*) ;;
       *) echo "Refusing to start: traffic is not routed through proton0" >&2; exit 1 ;;
     esac
   '';
