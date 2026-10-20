@@ -64,11 +64,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792186550,
-        "narHash": "sha256-pxYMSEXljfN3ecKYpHLQMylIhGI+cR2MPYWm7scPqsw=",
+        "lastModified": 1792435431,
+        "narHash": "sha256-XAAkr0862gstusBRxLmkrOtxNzzsk23BcRjnHEIG23s=",
         "ref": "refs/heads/main",
-        "rev": "f2152d299b9602088449c614a9ae13cd745b7f37",
-        "revCount": 237,
+        "rev": "1204609940fbeaafc5d781eada682cecd938d43c",
+        "revCount": 240,
         "type": "git",
         "url": "https://git.notashelf.dev/notashelf/beer.git"
       },
