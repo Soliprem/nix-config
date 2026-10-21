@@ -38,6 +38,7 @@ in {
     inputs.agenix.packages.${sys}.default
     inputs.self.packages.${sys}.amethyst-mod-manager
     inputs.self.packages.${sys}.cyberarch-shell
+    inputs.material-shell.packages.${sys}.default
     inputs.deploy-rs.packages.${sys}.default
     inputs.self.packages.${sys}.nvf
     inputs.thumbpick.packages.${sys}.default

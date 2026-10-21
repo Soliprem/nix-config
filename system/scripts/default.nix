@@ -21,12 +21,12 @@
       name = "rice-style";
       runtimeInputs = [
         cyberarchShell
+        inputs.material-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
         pkgs.awww
         pkgs.coreutils
         pkgs.glib
         pkgs.gsettings-desktop-schemas
         pkgs.hyprland
-        pkgs.quickshell
         pkgs.systemd
       ];
       runtimeEnv = {

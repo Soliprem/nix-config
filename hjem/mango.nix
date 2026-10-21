@@ -221,7 +221,7 @@ in {
       # Application/Script Binds
       bind=NONE,XF86PowerOff,spawn,wlogout
       bind=SUPER,V,spawn, clipmenu
-      bind=SUPER,x,spawn,quickshell ipc call sidebar toggle
+      bind=SUPER,x,spawn,material-shell ipc call sidebar toggle
       bind=SUPER,E,spawn,nautilus --new-window
       bind=SUPER,t,spawn,notify-time
       bind=SUPER+SHIFT,v,spawn,notify-volume

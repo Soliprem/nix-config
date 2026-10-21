@@ -144,6 +144,10 @@
       url = "github:ARCANGEL0/cyberarch-dotfiles/";
       flake = false;
     };
+    material-shell = {
+      url = "github:Soliprem/material-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     amethyst-mod-manager = {
       url = "github:ChrisDKN/Amethyst-Mod-Manager/v2.4.0";
       flake = false;
