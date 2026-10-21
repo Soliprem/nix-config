@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   networking = {
     useDHCP = false;
     useNetworkd = true;
@@ -54,6 +54,44 @@
       KbdInteractiveAuthentication = false;
       PasswordAuthentication = false;
     };
+  };
+
+  # Enroll once with `tailscale up`; Caddy checks direct tailnet peer addresses.
+  services.tailscale = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  services.dnsmasq = {
+    enable = true;
+    resolveLocalQueries = false;
+    settings = {
+      listen-address = "100.95.235.17";
+      # Bind only this address, including when tailscale0 appears after startup.
+      bind-dynamic = true;
+      # Do not export Nextcloud's server-local loopback entries to clients.
+      no-hosts = true;
+      no-resolv = true;
+      server = config.networking.nameservers;
+      host-record = map (name: "${name}.soliprem.eu,100.95.235.17,fd7a:115c:a1e0::ee29:eb12") [
+        "nc2"
+        "nextcloud"
+        "nc"
+        "al"
+        "adventurelog"
+        "nv"
+        "gonic"
+        "gatus"
+        "mail"
+        "autodiscover"
+        "autoconfig"
+      ];
+    };
+  };
+
+  systemd.services.dnsmasq = {
+    wants = ["tailscaled.service"];
+    after = ["tailscaled.service"];
   };
 
   users.users.root.openssh.authorizedKeys.keys = [

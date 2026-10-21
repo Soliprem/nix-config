@@ -8,6 +8,13 @@
     environmentFile = config.age.secrets.caddy_env.path;
 
     extraConfig = ''
+      # Import first inside a route containing every handler for a private site.
+      # Trust direct tailnet peers and local server-side callbacks.
+      (tailscale_only) {
+        @outside_tailnet not remote_ip 100.64.0.0/10 fd7a:115c:a1e0::/48 127.0.0.1 ::1
+        respond @outside_tailnet "Forbidden" 403
+      }
+
       (iocaine) {
         @read method GET HEAD
         reverse_proxy @read 127.0.0.1:42069 {
@@ -97,13 +104,16 @@
       '';
 
       "al.soliprem.eu".extraConfig = ''
-        import iocaine
-        @frontend {
-          not path /media* /admin* /static* /accounts*
-        }
-        reverse_proxy @frontend localhost:8015
+        route {
+          import tailscale_only
+          import iocaine
+          @frontend {
+            not path /media* /admin* /static* /accounts*
+          }
+          reverse_proxy @frontend localhost:8015
 
-        reverse_proxy localhost:8016
+          reverse_proxy localhost:8016
+        }
       '';
 
       "adventurelog.soliprem.eu".extraConfig = ''
@@ -118,8 +128,11 @@
       };
 
       "nc2.soliprem.eu".extraConfig = ''
-        import iocaine
-        reverse_proxy 127.0.0.1:11000
+        route {
+          import tailscale_only
+          import iocaine
+          reverse_proxy 127.0.0.1:11000
+        }
       '';
 
       "vw.soliprem.eu".extraConfig = ''
@@ -128,8 +141,11 @@
       '';
 
       "nv.soliprem.eu".extraConfig = ''
-        import iocaine
-        reverse_proxy localhost:4747
+        route {
+          import tailscale_only
+          import iocaine
+          reverse_proxy localhost:4747
+        }
       '';
 
       "gonic.soliprem.eu".extraConfig = ''
@@ -174,8 +190,11 @@
           }
         '';
         extraConfig = ''
-          import iocaine
-          reverse_proxy 127.0.0.1:8080
+          route {
+            import tailscale_only
+            import iocaine
+            reverse_proxy 127.0.0.1:8080
+          }
         '';
       };
     };
