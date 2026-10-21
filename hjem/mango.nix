@@ -338,10 +338,10 @@ in {
       mousebind=SUPER,btn_right,moveresize,curresize
 
       # Touchpad Gestures (3-finger)
-      gesturebind=NONE,up,3,viewtoleft_have_client
-      gesturebind=NONE,down,3,viewtoright_have_client
-      gesturebind=NONE,left,3,focusstack,prev
-      gesturebind=NONE,right,3,focusstack,next
+      gesturebind=NONE,up,3,viewtoright_have_client
+      gesturebind=NONE,down,3,viewtoleft_have_client
+      gesturebind=NONE,left,3,focusstack,next
+      gesturebind=NONE,right,3,focusstack,prev
       gesturebind=SUPER,down,3,killclient
       gesturebind=SUPER,up,3,togglefullscreen
       gesturebind=NONE,up,4,toggle_scratchpad
