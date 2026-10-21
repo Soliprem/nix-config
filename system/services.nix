@@ -4,6 +4,18 @@
   ...
 }: {
   hardware.keyboard.qmk.enable = true;
+
+  # These HTTPS sites must reach Caddy over Tailscale, including via SOCKS5.
+  # Keep mail.soliprem.eu public here: isync/msmtp connect without a proxy.
+  networking.hosts."100.95.235.17" = [
+    "nc2.soliprem.eu"
+    "al.soliprem.eu"
+    "nv.soliprem.eu"
+    "gatus.soliprem.eu"
+    "autodiscover.soliprem.eu"
+    "autoconfig.soliprem.eu"
+  ];
+
   services = {
     resolved.enable = true;
     earlyoom = {

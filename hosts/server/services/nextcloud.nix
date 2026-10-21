@@ -17,6 +17,8 @@ in {
       adminuser = null;
     };
     notify_push.enable = true;
+    # The setup self-check uses the HTTPS hostname through local Caddy.
+    notify_push.bendDomainToLocalhost = true;
     imaginary.enable = true;
     appstoreEnable = true;
     maxUploadSize = "1G";
@@ -87,6 +89,10 @@ in {
       };
       # Keep the public push URL; only daemon callbacks bypass Caddy.
       nextcloud-notify_push.environment.NEXTCLOUD_URL = lib.mkForce "http://127.0.0.1:11000";
+      nextcloud-notify_push_setup = {
+        after = ["caddy.service" "nginx.service"];
+        requires = ["caddy.service" "nginx.service"];
+      };
     };
 
   services.borgbackup.jobs.nextcloud = {

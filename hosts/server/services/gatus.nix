@@ -67,6 +67,9 @@
   };
 
   services.caddy.virtualHosts."gatus.soliprem.eu".extraConfig = ''
-    reverse_proxy 127.0.0.1:8082
+    route {
+      import tailscale_only
+      reverse_proxy 127.0.0.1:8082
+    }
   '';
 }
