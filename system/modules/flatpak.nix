@@ -13,6 +13,7 @@
       }
     ];
     packages = [
+      "io.scottlabs.reManager"
     ];
   };
 }
