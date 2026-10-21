@@ -54,7 +54,10 @@
     };
   };
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    useBabelfish = true;
+  };
   programs.zsh.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
