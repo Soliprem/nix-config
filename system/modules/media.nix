@@ -63,7 +63,7 @@ in {
 
       directories = {
         incomplete = "/var/lib/slskd/incomplete";
-        downloads = "/mnt/storage-box/music";
+        downloads = "/mnt/storage-box/files/subsonic/music";
       };
     };
   };
