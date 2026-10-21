@@ -14,7 +14,6 @@
     "kanshi"
     "mango"
     "matugen"
-    "quickshell"
     "swaylock"
     "wlogout"
     "dmscripts"

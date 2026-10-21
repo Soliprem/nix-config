@@ -175,7 +175,7 @@ case "${1:-current}" in
     if [ "$current_style" = "cyberpunk" ]; then
       printf '%s\n' "rice-style: CyberArch currently requires Hyprland; starting Material shell" >&2
     fi
-    exec quickshell --no-duplicate
+    exec material-shell --no-duplicate
     ;;
   *)
     printf 'usage: %s [current|material|cyberpunk|toggle|apply|wallpaper]\n' "$0" >&2

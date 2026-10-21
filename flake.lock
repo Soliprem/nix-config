@@ -473,6 +473,26 @@
         "type": "github"
       }
     },
+    "material-shell": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792569359,
+        "narHash": "sha256-CaJz3bJKJ1N4X7Q9vFT3UEaL4iKTwibYi3vysezXjEs=",
+        "owner": "Soliprem",
+        "repo": "material-shell",
+        "rev": "d1aca5b0421fbfbaff7e109b4cffcd893058ab44",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Soliprem",
+        "repo": "material-shell",
+        "type": "github"
+      }
+    },
     "mnw": {
       "locked": {
         "lastModified": 1780772958,
@@ -699,6 +719,7 @@
         "dm-scripts": "dm-scripts",
         "eh": "eh",
         "hjem": "hjem",
+        "material-shell": "material-shell",
         "neowiki-nvim": "neowiki-nvim",
         "nix-doom-emacs-unstraightened": "nix-doom-emacs-unstraightened",
         "nix-flatpak": "nix-flatpak",

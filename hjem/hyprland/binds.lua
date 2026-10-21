@@ -100,7 +100,7 @@ local common_keybinds = {
     V = { action = exec("clipmenu"), },
     o = { action = exec("dm-hub"), },
     minus = { action = exec("wtype -k emdash"), },
-    X = { action = shell_action("notif-hud", exec("quickshell ipc call sidebar toggle")), },
+    X = { action = shell_action("notif-hud", exec("material-shell ipc call sidebar toggle")), },
     T = { action = exec("notify-time"), },
     B = { action = exec("notify-battery"), },
   },
