@@ -95,6 +95,7 @@ _: {
       e = "nvim";
       v = "nvim";
       p = "cd ~/Projects/";
+      pd = "cd ~/Projects/dev";
       xi = "sudo xbps-install";
       xr = "sudo xbps-remove -R";
       xq = "xbps-query";

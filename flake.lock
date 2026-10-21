@@ -480,11 +480,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792569359,
-        "narHash": "sha256-CaJz3bJKJ1N4X7Q9vFT3UEaL4iKTwibYi3vysezXjEs=",
+        "lastModified": 1792576333,
+        "narHash": "sha256-gMX+PupnTJCK/7/9E/6FldnWoYN6cf4r1D0KwUl5kL4=",
         "owner": "Soliprem",
         "repo": "material-shell",
-        "rev": "d1aca5b0421fbfbaff7e109b4cffcd893058ab44",
+        "rev": "32e4c6b4db3420d90a4398c3da2990dd08577deb",
         "type": "github"
       },
       "original": {
