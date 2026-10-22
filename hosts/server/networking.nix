@@ -85,6 +85,9 @@
         "mail"
         "autodiscover"
         "autoconfig"
+        "stalwart"
+        "calendar"
+        "dav"
       ];
     };
   };

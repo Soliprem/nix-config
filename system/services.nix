@@ -14,6 +14,9 @@
     "gatus.soliprem.eu"
     "autodiscover.soliprem.eu"
     "autoconfig.soliprem.eu"
+    "stalwart.soliprem.eu"
+    "calendar.soliprem.eu"
+    "dav.soliprem.eu"
   ];
 
   services = {
