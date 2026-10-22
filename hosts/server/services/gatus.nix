@@ -42,11 +42,6 @@
         }
         ++ [
           {
-            name = "Nextcloud";
-            url = "http://127.0.0.1:11000/status.php";
-            conditions = ["[STATUS] == 200" "[BODY].maintenance == false" "[BODY].needsDbUpgrade == false"];
-          }
-          {
             name = "Iocaine";
             url = "http://127.0.0.1:42069/";
             method = "HEAD";

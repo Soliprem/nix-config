@@ -69,14 +69,11 @@
       listen-address = "100.95.235.17";
       # Bind only this address, including when tailscale0 appears after startup.
       bind-dynamic = true;
-      # Do not export Nextcloud's server-local loopback entries to clients.
+      # Serve only the explicit records below, not the server's /etc/hosts.
       no-hosts = true;
       no-resolv = true;
       server = config.networking.nameservers;
       host-record = map (name: "${name}.soliprem.eu,100.95.235.17,fd7a:115c:a1e0::ee29:eb12") [
-        "nc2"
-        "nextcloud"
-        "nc"
         "al"
         "adventurelog"
         "nv"

@@ -120,21 +120,6 @@
         redir https://al.soliprem.eu{uri} permanent
       '';
 
-      "nextcloud.soliprem.eu" = {
-        serverAliases = ["nc.soliprem.eu"];
-        extraConfig = ''
-          redir https://nc2.soliprem.eu{uri} permanent
-        '';
-      };
-
-      "nc2.soliprem.eu".extraConfig = ''
-        route {
-          import tailscale_only
-          import iocaine
-          reverse_proxy 127.0.0.1:11000
-        }
-      '';
-
       "vw.soliprem.eu".extraConfig = ''
         import iocaine
         reverse_proxy localhost:11001

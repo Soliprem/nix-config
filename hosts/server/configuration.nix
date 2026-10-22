@@ -23,7 +23,6 @@
     ./services/karakeep.nix
     ./services/silksong.nix
     ./services/immich.nix
-    ./services/nextcloud.nix
     ./services/pager.nix
     ./services/bookorbit.nix
     ./services/filebrowser.nix

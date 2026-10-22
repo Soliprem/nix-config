@@ -55,6 +55,9 @@
     extraSettingsPaths = ["/etc/iocaine/config.kdl"];
   };
 
+  # The module cannot infer the IPv4 listeners in the external KDL config.
+  systemd.services.iocaine.serviceConfig.RestrictAddressFamilies = ["AF_INET"];
+
   environment.etc."iocaine/config.kdl".text = ''
     http-server default {
       bind "127.0.0.1:42069"

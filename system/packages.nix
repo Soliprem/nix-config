@@ -154,7 +154,6 @@ in {
     rnote
     chromium
     legcord
-    nextcloud-client
     qutebrowser
     telegram-desktop
     super-productivity
