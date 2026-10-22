@@ -39,5 +39,17 @@
     meilisearch_master_key = {
       file = configRoot + /secrets/server_meilisearch_master_key.age;
     };
+    stalwart_admin_password = {
+      file = configRoot + /secrets/server_stalwart_admin_password.age;
+    };
+    stalwart_dkim_private_key = {
+      file = configRoot + /secrets/server_stalwart_dkim_private_key.age;
+    };
+    calendar_credentials = {
+      file = configRoot + /secrets/server_calendar_credentials.age;
+    };
+    filebrowser_env = {
+      file = configRoot + /secrets/server_filebrowser_env.age;
+    };
   };
 }

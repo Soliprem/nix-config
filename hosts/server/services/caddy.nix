@@ -193,7 +193,7 @@
           route {
             import tailscale_only
             import iocaine
-            reverse_proxy 127.0.0.1:8080
+            reverse_proxy 127.0.0.1:18081
           }
         '';
       };

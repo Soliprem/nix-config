@@ -26,6 +26,9 @@
     ./services/nextcloud.nix
     ./services/pager.nix
     ./services/bookorbit.nix
+    ./services/filebrowser.nix
+    ./services/stalwart.nix
+    ./services/calendar.nix
   ];
 
   networking.hostName = "debian-4gb-fsn1-1";
