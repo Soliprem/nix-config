@@ -11,7 +11,6 @@
       host = "0.0.0.0";
       port = 11434;
       package = pkgs.ollama-rocm;
-      home = "/storage/ollama";
       environmentVariables = {
         HIP_VISIBLE_DEVICES = "0";
         ROCR_VISIBLE_DEVICES = "0";

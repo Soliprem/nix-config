@@ -15,6 +15,7 @@
       (
         {pkgs, ...}: {
           networking.hostName = "nixos-pc";
+          services.ollama.home = "/storage/ollama";
 
           boot = {
             kernelParams = ["acpi_backlight=video"];
