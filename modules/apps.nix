@@ -84,6 +84,7 @@
           # Additional libraries that might be needed
           libxkbcommon
           wayland
+          zotero
         ];
       };
       kdeconnect.enable = true;
