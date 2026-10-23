@@ -29,11 +29,7 @@
     };
     amethyst-mod-manager = {
       url = "github:ChrisDKN/Amethyst-Mod-Manager/v2.4.0";
-      flake = false;
-    };
-    amethyst-libloot = {
-      url = "github:loot/libloot/0.29.6";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-doom-emacs-unstraightened = {
       url = "github:marienz/nix-doom-emacs-unstraightened";
