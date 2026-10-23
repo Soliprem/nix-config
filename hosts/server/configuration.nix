@@ -30,6 +30,10 @@
     ./services/calendar.nix
   ];
 
+  programs.fish = {
+    enable = true;
+  };
+
   networking.hostName = "debian-4gb-fsn1-1";
   time.timeZone = "Europe/Rome";
   i18n.defaultLocale = "en_US.UTF-8";
