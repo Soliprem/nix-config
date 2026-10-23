@@ -9,8 +9,8 @@
   };
 
   config = {
-    flake.modules.nixos.neovim = {pkgs, ...}: {
-      environment.systemPackages = [inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvf];
+    flake.modules.nixos.neovim = {system, ...}: {
+      environment.systemPackages = [inputs.self.packages.${system}.nvf];
     };
 
     perSystem = {system, ...}: let

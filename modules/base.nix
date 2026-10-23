@@ -1,5 +1,9 @@
 {inputs, ...}: {
-  flake.modules.nixos.base = {pkgs, ...}: {
+  flake.modules.nixos.base = {
+    pkgs,
+    system,
+    ...
+  }: {
     imports = [inputs.agenix.nixosModules.default];
     boot.loader = {
       systemd-boot.enable = true;
@@ -21,7 +25,7 @@
       };
     };
     environment = {
-      systemPackages = [inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default];
+      systemPackages = [inputs.agenix.packages.${system}.default];
       sessionVariables.NIXOS_OZONE_WL = "1";
       shells = with pkgs; [
         nushell

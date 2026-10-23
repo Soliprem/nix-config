@@ -28,7 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     amethyst-mod-manager = {
-      url = "github:ChrisDKN/Amethyst-Mod-Manager/v2.4.0";
+      url = "github:ChrisDKN/Amethyst-Mod-Manager/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-doom-emacs-unstraightened = {

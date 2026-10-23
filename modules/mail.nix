@@ -1,7 +1,9 @@
 {inputs, ...}: {
-  flake.modules.nixos.mail = {pkgs, ...}: let
-    sys = pkgs.stdenv.hostPlatform.system;
-  in {
+  flake.modules.nixos.mail = {
+    pkgs,
+    system,
+    ...
+  }: {
     age.secrets = {
       mail_soliprem_accounts_password = {
         file = ../secrets/mail_soliprem_accounts_password.age;
@@ -16,7 +18,7 @@
     };
     environment.systemPackages = with pkgs; [
       mu
-      inputs.self.packages.${sys}.isync-oauth
+      inputs.self.packages.${system}.isync-oauth
       msmtp
       oama
       thunderbird

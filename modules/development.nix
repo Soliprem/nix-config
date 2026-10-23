@@ -1,7 +1,9 @@
 {inputs, ...}: {
-  flake.modules.nixos.development = {pkgs, ...}: let
-    sys = pkgs.stdenv.hostPlatform.system;
-  in {
+  flake.modules.nixos.development = {
+    pkgs,
+    system,
+    ...
+  }: {
     environment.systemPackages = with pkgs; [
       codex
       t3code
@@ -14,7 +16,7 @@
       tinymist
       (texliveSmall.withPackages (ps: [ps.dvipng]))
       zed-editor
-      inputs.deploy-rs.packages.${sys}.default
+      inputs.deploy-rs.packages.${system}.default
     ];
   };
 }

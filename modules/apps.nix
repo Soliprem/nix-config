@@ -1,9 +1,11 @@
 {inputs, ...}: {
-  flake.modules.nixos.apps = {pkgs, ...}: let
-    sys = pkgs.stdenv.hostPlatform.system;
-  in {
+  flake.modules.nixos.apps = {
+    pkgs,
+    system,
+    ...
+  }: {
     environment.systemPackages = with pkgs; [
-      inputs.zen-browser.packages.${sys}.default
+      inputs.zen-browser.packages.${system}.default
       qbittorrent
       xleak
       drawy

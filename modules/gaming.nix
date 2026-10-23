@@ -1,7 +1,9 @@
 {inputs, ...}: {
-  flake.modules.nixos.gaming = {pkgs, ...}: let
-    sys = pkgs.stdenv.hostPlatform.system;
-  in {
+  flake.modules.nixos.gaming = {
+    pkgs,
+    system,
+    ...
+  }: {
     programs.steam = {
       enable = true;
       dedicatedServer.openFirewall = true;
@@ -9,7 +11,7 @@
       localNetworkGameTransfers.openFirewall = true;
     };
     environment.systemPackages = with pkgs; [
-      inputs.amethyst-mod-manager.packages.${sys}.default
+      inputs.amethyst-mod-manager.packages.${system}.default
       beyond-all-reason
       gamemode
       heroic
