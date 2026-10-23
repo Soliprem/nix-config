@@ -9,7 +9,7 @@
       localNetworkGameTransfers.openFirewall = true;
     };
     environment.systemPackages = with pkgs; [
-      inputs.self.packages.${sys}.amethyst-mod-manager
+      inputs.amethyst-mod-manager.packages.${sys}.default
       beyond-all-reason
       gamemode
       heroic
