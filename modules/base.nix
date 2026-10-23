@@ -34,6 +34,7 @@
         fish
       ];
     };
+    users.users.root.openssh.authorizedKeys.keys = import ../secrets/user-keys.nix;
     users.users.soliprem = {
       isNormalUser = true;
       description = "Francesco Prem Solidoro";
