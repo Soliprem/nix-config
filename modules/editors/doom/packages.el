@@ -19,7 +19,7 @@
   :recipe (:host github :repo "blahgeek/emacs-pr-review"))
 (package! org-typst-preview
   :recipe (:host github :repo "soliprem/org-typst-preview")
-  :pin "6475957e5371e04c6ac50663a9fe44a95c1068c2")
+  :pin "baa97a92781d0e9882b4e72c327233c283350146")
 (package! gomuks
   :recipe (:host github :repo "soliprem/gomuks.el")
   :pin "ca5fefb21634bd2f5a15ea518cd30def879edc65")
