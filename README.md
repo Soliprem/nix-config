@@ -71,10 +71,16 @@ Beyond the host builds, the flake exposes a few outputs:
 ## Structure
 
 ```
-hosts/             # Host configs (laptop/pc/shared)
-system/            # System modules, packages, services, scripts, fonts
-hjem/              # User dotfiles
-export/            # Standalone nvf configs
+modules/           # Auto-imported flake-parts modules, grouped by feature
+  hosts/           # Laptop, PC, and server assembly
+  desktop/         # Compositors, shell, and theming (NixOS + Hjem)
+  editors/         # Doom, Neovim, and Helix; standalone editor packages
+    neovim/        # Full and minimal nvf modules
+    doom/          # Native Doom Lisp files
+  media/           # Audio, video, and the PC music library
+  server/          # Server services and infrastructure
+hosts/             # Generated hardware configurations
+scripts/           # Shell and Nushell sources used by desktop features
 flake-templates/   # Flake templates
 assets/            # Screenshots, wallpapers, certs, wlogout assets
 secrets/           # Encrypted secrets
@@ -82,11 +88,26 @@ secrets/           # Encrypted secrets
 
 ## Hosts
 
-- **nixos-laptop**: laptop hardware config, TLP, normal Ollama, iio-niri
-- **nixos-pc**: desktop hardware config, latest kernel, AMDGPU bits, Ollama ROCm
+- [**nixos-laptop**](modules/hosts/laptop.nix): laptop hardware config, Watt, normal Ollama, iio-niri
+- [**nixos-pc**](modules/hosts/pc.nix): desktop hardware config, latest kernel, AMDGPU bits, Ollama ROCm
+- [**nixos-server**](modules/hosts/server.nix): server hardware, networking, storage, and services
 
-Both hosts use the shared desktop setup in `hosts/shared/desktop.nix`, and the
-shared base system in `hosts/shared/default.nix`.
+Both desktop hosts select the shared profile in `modules/desktop.nix`. Each
+feature combines its NixOS settings, Hjem dotfiles, and packages. The server is
+assembled separately in `modules/hosts/server.nix`.
+
+`flake.nix` loads every Nix module under `modules/` using flake-parts and
+import-tree. Features declare `flake.modules.nixos.<name>`; hosts select those
+modules explicitly. Files under `modules/server/` contribute to the shared
+`server` module. Adding a file makes its declarations available; host imports
+determine which features are enabled.
+
+Generated hardware modules, package recipes, and flake templates stay outside
+the auto-imported tree. `modules/editors/neovim.nix` declares the `neovim`
+namespace and builds its entries as packages; auto-imported files under
+`modules/editors/neovim/` supply the full and minimal nvf configurations.
+Doom's native Lisp files live in `modules/editors/doom/`, used directly by
+the auto-imported `modules/editors/doom.nix`.
 
 ## Key Components
 
@@ -177,11 +198,14 @@ Cred animation after a successful NixOS rebuild. Any arguments are forwarded to
 
 _(Most compositors have similar bindings when using that session)_
 
-## Standalone Neovim (using nvf)
+## Standalone editors
 
 ```bash
 nix build .#nvf          # Full config
 nix build .#nvf-minimal  # Minimal config
+nix run .#nvf           # Run full Neovim
+nix run .#nvf-minimal   # Run minimal Neovim
+nix run .#doom-emacs    # Run Doom Emacs
 ```
 
 ## Templates
@@ -200,8 +224,10 @@ nix flake init -t github:soliprem/nix-config#julia
 
 ## Secrets
 
-Secrets are defined in `secrets/secrets.nix` and deployed through agenix. The
-active system module is `system/modules/agenix.nix`.
+Encryption recipients are defined in `secrets/secrets.nix`. Agenix secret
+declarations live beside the features that use them: mail credentials in
+`modules/mail.nix`, Git authentication in `modules/shells/git.nix`, and server
+credentials in their respective `modules/server/` service files.
 
 Edit an existing secret with:
 
