@@ -2,6 +2,7 @@
   flake.modules.nixos.theme = {
     lib,
     pkgs,
+    system,
     ...
   }: let
     inherit (lib.attrsets) mapAttrs;
@@ -40,7 +41,7 @@
         decompressFonts = true;
       };
       packages = with pkgs; [
-        inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.cyberarch-fonts
+        inputs.self.packages.${system}.cyberarch-fonts
         # defaults worth keeping
         dejavu_fonts
         freefont_ttf
@@ -90,7 +91,7 @@
       pkgs,
       ...
     }: let
-      cyberarchShell = inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.cyberarch-shell;
+      cyberarchShell = inputs.self.packages.${system}.cyberarch-shell;
       materialSettings = pkgs.writeText "gtk-material.ini" ''
         [Settings]
         gtk-cursor-theme-name=Bibata-Modern-Ice

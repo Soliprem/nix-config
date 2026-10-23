@@ -1,5 +1,6 @@
 {config, ...}: {
   flake.modules.nixos.desktop.imports = with config.flake.modules.nixos; [
+    platform
     base
     nix
     hjem

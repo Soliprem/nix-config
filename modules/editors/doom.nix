@@ -1,7 +1,9 @@
 {inputs, ...}: {
-  flake.modules.nixos.doom = {pkgs, ...}: let
-    sys = pkgs.stdenv.hostPlatform.system;
-  in {
+  flake.modules.nixos.doom = {
+    pkgs,
+    system,
+    ...
+  }: {
     age.secrets = {
       gonic_authinfo = {
         file = ../../secrets/gonic_authinfo.age;
@@ -15,13 +17,17 @@
       };
     };
     environment.systemPackages = with pkgs; [
-      inputs.self.packages.${sys}.doom-emacs
+      inputs.self.packages.${system}.doom-emacs
       ispell
     ];
   };
-  perSystem = {pkgs, ...}: let
+  perSystem = {
+    pkgs,
+    system,
+    ...
+  }: let
     doomPkgs = pkgs.extend inputs.nix-doom-emacs-unstraightened.overlays.default;
-    isyncOauth = inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.isync-oauth;
+    isyncOauth = inputs.self.packages.${system}.isync-oauth;
   in {
     packages.doom-emacs = doomPkgs.emacsWithDoom {
       emacs = doomPkgs.emacs-pgtk;

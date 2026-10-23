@@ -1,4 +1,7 @@
 {inputs, ...}: {
+  flake.modules.nixos.platform = {pkgs, ...}: {
+    _module.args.system = pkgs.stdenv.hostPlatform.system;
+  };
   flake.modules.nixos.nix = {pkgs, ...}: {
     nix = {
       package = pkgs.lixPackageSets.stable.lix;

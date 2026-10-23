@@ -6,11 +6,16 @@
   flake.nixosConfigurations.nixos-server = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
+      config.flake.modules.nixos.platform
       inputs.agenix.nixosModules.default
       ../../hosts/server/hardware-configuration.nix
       config.flake.modules.nixos.server
       (
-        {pkgs, ...}: {
+        {
+          pkgs,
+          system,
+          ...
+        }: {
           programs.fish = {
             enable = true;
           };
@@ -27,8 +32,8 @@
             cifs-utils
             git
             tmux
-            inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
-            inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvf-minimal
+            inputs.agenix.packages.${system}.default
+            inputs.self.packages.${system}.nvf-minimal
           ];
 
           services.fstrim.enable = true;

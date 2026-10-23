@@ -1,5 +1,9 @@
 {inputs, ...}: {
-  flake.modules.nixos.audio = {pkgs, ...}: {
+  flake.modules.nixos.audio = {
+    pkgs,
+    system,
+    ...
+  }: {
     hardware.bluetooth.enable = true;
     security.rtkit.enable = true;
     services.pipewire = {
@@ -25,7 +29,7 @@
       inputs.spicetify-nix.nixosModules.default
     ];
     programs.spicetify = let
-      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+      spicePkgs = inputs.spicetify-nix.legacyPackages.${system};
     in {
       enable = true;
       enabledExtensions = with spicePkgs.extensions; [

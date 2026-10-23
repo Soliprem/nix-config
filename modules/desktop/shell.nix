@@ -3,9 +3,10 @@
     config,
     lib,
     pkgs,
+    system,
     ...
   }: let
-    cyberarchShell = inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.cyberarch-shell;
+    cyberarchShell = inputs.self.packages.${system}.cyberarch-shell;
     gsettingsSchemaPath = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}";
     scripts = [
       (pkgs.writeShellApplication {
@@ -22,7 +23,7 @@
         name = "rice-style";
         runtimeInputs = [
           cyberarchShell
-          inputs.material-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
+          inputs.material-shell.packages.${system}.default
           pkgs.awww
           pkgs.coreutils
           pkgs.glib
@@ -79,7 +80,7 @@
           "PATH"
           ":"
           "${lib.makeBinPath [
-            inputs.thumbpick.packages.${pkgs.stdenv.hostPlatform.system}.default
+            inputs.thumbpick.packages.${system}.default
             pkgs.awww
           ]}"
         ];
@@ -188,7 +189,6 @@
         text = builtins.readFile ../../scripts/bw-export-session.sh;
       })
     ];
-    sys = pkgs.stdenv.hostPlatform.system;
   in {
     age.secrets = {
       bitwarden_clientid = {
@@ -256,9 +256,9 @@
     environment.systemPackages =
       scripts
       ++ (with pkgs; [
-        inputs.self.packages.${sys}.cyberarch-shell
-        inputs.material-shell.packages.${sys}.default
-        inputs.thumbpick.packages.${sys}.default
+        inputs.self.packages.${system}.cyberarch-shell
+        inputs.material-shell.packages.${system}.default
+        inputs.thumbpick.packages.${system}.default
         stash-clipboard
         brightnessctl
         fuzzel
@@ -921,8 +921,12 @@
       };
     };
   };
-  perSystem = {pkgs, ...}: {
+  perSystem = {
+    pkgs,
+    system,
+    ...
+  }: {
     packages.cyberarch-shell = pkgs.callPackage ../../packages/cyberarch-shell.nix {src = inputs.cyberarch;};
-    packages.cyberarch-fonts = inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.cyberarch-shell;
+    packages.cyberarch-fonts = inputs.self.packages.${system}.cyberarch-shell;
   };
 }

@@ -1,14 +1,16 @@
 {inputs, ...}: {
-  flake.modules.nixos.terminals = {pkgs, ...}: let
-    sys = pkgs.stdenv.hostPlatform.system;
-  in {
+  flake.modules.nixos.terminals = {
+    pkgs,
+    system,
+    ...
+  }: {
     environment = {
       sessionVariables.BEER_CONFIG = "$HOME/.config/beer/themes/matugen.toml:$HOME/.config/beer/beer.toml";
       systemPackages = with pkgs; [
         ghostty
         foot
         cool-retro-term
-        inputs.beer.packages.${sys}.default
+        inputs.beer.packages.${system}.default
       ];
     };
     hjem.users.soliprem = {
