@@ -23,36 +23,22 @@
         "type": "github"
       }
     },
-    "amethyst-libloot": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1782581598,
-        "narHash": "sha256-Pz13z0uQfTeo47NJORfZ8n8ucqZdoLVGNIsrf2+OOGA=",
-        "owner": "loot",
-        "repo": "libloot",
-        "rev": "136f3983c3eec7d377f83a7e7e0b0129aa5c8fe1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "loot",
-        "ref": "0.29.6",
-        "repo": "libloot",
-        "type": "github"
-      }
-    },
     "amethyst-mod-manager": {
-      "flake": false,
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1788184422,
-        "narHash": "sha256-M6moW1cw0mLU3N5sAAdXmLTKP+gF7BAkZWcJFp96wxI=",
+        "lastModified": 1792427460,
+        "narHash": "sha256-cLIeaG+utA1Jy32oqkwg/5tVzi0HpQP+MQCtHawyvyU=",
         "owner": "ChrisDKN",
         "repo": "Amethyst-Mod-Manager",
-        "rev": "74d0f18b762d2ac517673f67a03c503694d39655",
+        "rev": "544d0055eab0916fbf65b9adabe761ddd3fff06a",
         "type": "github"
       },
       "original": {
         "owner": "ChrisDKN",
-        "ref": "v2.4.0",
         "repo": "Amethyst-Mod-Manager",
         "type": "github"
       }
@@ -375,6 +361,26 @@
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790898470,
+        "narHash": "sha256-zTwuwezD0w3hpga6a6P8emidzAZFyWqlNeRBlpWOOl8=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "024633cd702b10285db5cb19b40ad48d2399ba60",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": [
           "nur",
           "nixpkgs"
         ]
@@ -470,6 +476,21 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "import-tree": {
+      "locked": {
+        "lastModified": 1788467110,
+        "narHash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s=",
+        "owner": "denful",
+        "repo": "import-tree",
+        "rev": "eb1b52eaecc57f7c136d07ae8a93e724dfecac46",
+        "type": "github"
+      },
+      "original": {
+        "owner": "denful",
+        "repo": "import-tree",
         "type": "github"
       }
     },
@@ -600,6 +621,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-audio": {
+      "locked": {
+        "lastModified": 1790822859,
+        "narHash": "sha256-69xHQhAeMAD2wDXO7T2pcOZIF9Sga2W+JkmY2a11Ops=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1787498568,
@@ -615,7 +652,7 @@
     },
     "nur": {
       "inputs": {
-        "flake-parts": "flake-parts",
+        "flake-parts": "flake-parts_2",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -710,7 +747,6 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
-        "amethyst-libloot": "amethyst-libloot",
         "amethyst-mod-manager": "amethyst-mod-manager",
         "beer": "beer",
         "cade": "cade",
@@ -718,12 +754,15 @@
         "deploy-rs": "deploy-rs",
         "dm-scripts": "dm-scripts",
         "eh": "eh",
+        "flake-parts": "flake-parts",
         "hjem": "hjem",
+        "import-tree": "import-tree",
         "material-shell": "material-shell",
         "neowiki-nvim": "neowiki-nvim",
         "nix-doom-emacs-unstraightened": "nix-doom-emacs-unstraightened",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-audio": "nixpkgs-audio",
         "nur": "nur",
         "nvf": "nvf",
         "pager": "pager",

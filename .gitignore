@@ -3,3 +3,5 @@ assets/bg
 /hjem/hyprland/stubs
 /hjem/hyprland/.backup-stubs
 /local-only
+/modules/desktop/hyprland/stubs
+/modules/desktop/hyprland/.backup-stubs

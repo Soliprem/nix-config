@@ -1,141 +1,22 @@
 {
   description = "Soli's Nixos Config";
-
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      imports = [
+        inputs.flake-parts.flakeModules.modules
+        (inputs.import-tree ./modules)
+      ];
     };
-    doomPkgs = pkgs.extend inputs.nix-doom-emacs-unstraightened.overlays.default;
-    isyncOauth = pkgs.callPackage ./packages/isync-oauth.nix {};
-    nvfPkgs = import inputs.nvf.inputs.nixpkgs {
-      inherit system;
-      config.allowUnfreePredicate = pkg:
-        builtins.elem (inputs.nvf.inputs.nixpkgs.lib.getName pkg) ["eyeliner.nvim"];
-    };
-    configRoot = ./.;
-  in {
-    templates = import ./flake-templates;
-    formatter.${system} = pkgs.alejandra;
-    nixosConfigurations = {
-      nixos-laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs configRoot;};
-        modules = [
-          ./hosts/laptop/configuration.nix
-        ];
-      };
-      nixos-pc = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs configRoot;};
-        modules = [
-          ./hosts/pc/configuration.nix
-        ];
-      };
-      nixos-server = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs outputs configRoot;};
-        modules = [
-          ./hosts/server/configuration.nix
-        ];
-      };
-    };
-
-    deploy.nodes.nixos-server = {
-      hostname = "49.12.104.79";
-      sshUser = "root";
-      activationTimeout = 600;
-      confirmTimeout = 60;
-      profiles.system = {
-        user = "root";
-        path = inputs.deploy-rs.lib.${system}.activate.nixos self.nixosConfigurations.nixos-server;
-      };
-    };
-
-    packages.${pkgs.stdenv.hostPlatform.system} = rec {
-      cyberarch-shell = pkgs.callPackage ./packages/cyberarch-shell.nix {
-        src = inputs.cyberarch;
-      };
-      cyberarch-fonts = cyberarch-shell;
-      amethyst-mod-manager = pkgs.callPackage ./packages/amethyst-mod-manager.nix {
-        src = inputs.amethyst-mod-manager;
-        liblootSrc = inputs.amethyst-libloot;
-      };
-      nvf =
-        (inputs.nvf.lib.neovimConfiguration {
-          pkgs = nvfPkgs;
-          extraSpecialArgs = {
-            flakeInputs = inputs;
-          };
-          modules = [
-            ./export/nvf.nix
-          ];
-        }).neovim;
-      nvf-minimal =
-        (inputs.nvf.lib.neovimConfiguration {
-          pkgs = nvfPkgs;
-          extraSpecialArgs = {
-            flakeInputs = inputs;
-          };
-          modules = [
-            ./export/nvf-minimal.nix
-          ];
-        }).neovim;
-      isync-oauth = isyncOauth;
-      doom-emacs = doomPkgs.emacsWithDoom {
-        emacs = doomPkgs.emacs-pgtk;
-        doomDir = ./doom;
-        doomLocalDir = "~/.local/share/nix-doom";
-        emacsPackageOverrides = _: epkgs: {
-          julia-snail = epkgs.julia-snail.overrideAttrs (old: {
-            postPatch =
-              (old.postPatch or "")
-              + ''
-                      cat >> extensions/formatter/Project.toml <<'EOF'
-
-                [compat]
-                JuliaFormatter = "=1.0.62"
-                EOF
-              '';
-          });
-        };
-        extraPackages = epkgs: [
-          (epkgs.treesit-grammars.with-grammars (grammars: [
-            grammars.tree-sitter-typst
-            # julia-ts-mode's queries target grammar v0.23.1.
-            (grammars.tree-sitter-julia.override {
-              version = "0.23.1";
-              src = doomPkgs.fetchFromGitHub {
-                owner = "tree-sitter";
-                repo = "tree-sitter-julia";
-                rev = "v0.23.1";
-                hash = "sha256-jwtMgHYSa9/kcsqyEUBrxC+U955zFZHVQ4N4iogiIHY=";
-              };
-            })
-          ]))
-        ];
-        extraBinPackages = with doomPkgs; [
-          fd
-          git
-          isyncOauth
-          (mpv.override {scripts = [mpvScripts.mpris];})
-          msmtp
-          oama
-          ripgrep
-          tinymist
-          typst
-        ];
-      };
-      default = nvf;
-    };
-  };
 
   inputs = {
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+    import-tree.url = "github:denful/import-tree";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Temporary until the Audacity/MuseScore Qt fixes reach nixos-unstable and its cache.
+    nixpkgs-audio.url = "github:nixos/nixpkgs/c59305bab2065cfecc4944690d9eedbb56f3a9fa";
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -149,12 +30,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     amethyst-mod-manager = {
-      url = "github:ChrisDKN/Amethyst-Mod-Manager/v2.4.0";
-      flake = false;
-    };
-    amethyst-libloot = {
-      url = "github:loot/libloot/0.29.6";
-      flake = false;
+      url = "github:ChrisDKN/Amethyst-Mod-Manager/";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-doom-emacs-unstraightened = {
       url = "github:marienz/nix-doom-emacs-unstraightened";
