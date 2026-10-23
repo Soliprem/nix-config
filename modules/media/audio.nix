@@ -46,9 +46,9 @@
     };
     environment.systemPackages = with pkgs; [
       alsa-utils
-      audacity
+      inputs.nixpkgs-audio.legacyPackages.${system}.audacity
       muse-sounds-manager
-      musescore
+      inputs.nixpkgs-audio.legacyPackages.${system}.musescore
       pipewire
       playerctl
       pwvucontrol
