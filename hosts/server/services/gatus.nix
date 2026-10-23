@@ -27,7 +27,7 @@
           "Karakeep" = "http://127.0.0.1:60221/api/health";
           "LiveKit" = "http://127.0.0.1:7880/";
           "LiveKit JWT" = "http://127.0.0.1:8081/healthz";
-          "Mail" = "http://127.0.0.1:8080/";
+          "Mail" = "http://127.0.0.1:18081/";
           "Matrix" = "http://127.0.0.1:6167/_matrix/client/versions";
           "Meilisearch" = "http://127.0.0.1:7700/health";
           "Memos" = "http://127.0.0.1:5230/";
