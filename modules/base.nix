@@ -26,7 +26,6 @@
     };
     environment = {
       systemPackages = [inputs.agenix.packages.${system}.default];
-      sessionVariables.NIXOS_OZONE_WL = "1";
       shells = with pkgs; [
         nushell
         busybox

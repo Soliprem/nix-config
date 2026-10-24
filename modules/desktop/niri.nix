@@ -1,5 +1,9 @@
 {
-  flake.modules.nixos.niri = {pkgs, ...}: {
+  flake.modules.nixos.niri = {
+    lib,
+    pkgs,
+    ...
+  }: {
     programs.niri.enable = true;
     environment.systemPackages = with pkgs; [
       xwayland-satellite
@@ -12,6 +16,12 @@
       terminalCommand = ["beer" "--"];
       spawnArgs = args: builtins.concatStringsSep " " (map builtins.toJSON args);
     in {
+      files.".config/nushell/config.nu".text = lib.mkAfter ''
+        source ~/.cache/niri/completions.nu
+      '';
+      files.".config/nushell/env.nu".text = lib.mkAfter ''
+        ensure-cache ($env.HOME + "/.cache/niri/completions.nu") { niri completions nushell }
+      '';
       files.".config/niri/config.kdl".text =
         /*
         kdl

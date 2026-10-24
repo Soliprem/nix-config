@@ -11,7 +11,7 @@ inconsistencies, and that the system is generally more robust.
 
 ## Things
 
-- Modular NixOS flake for my laptop and desktop
+- Modular NixOS flake for my laptop, desktop, headless home host, and VPS
 - Wayland desktop stack with Mango, Hyprland, Niri, Quickshell, and matugen
   theming
 - Hjem-managed dotfiles and agenix-managed secrets
@@ -60,6 +60,22 @@ sudo nixos-rebuild switch --flake .#nixos-pc
 nh os switch
 ```
 
+Remote rebuilds use deploy-rs with an explicit host target:
+
+```bash
+deploy .#nixos-laptop
+deploy .#nixos-pc
+deploy .#nixos-home
+deploy .#nixos-server
+
+# Override the address when the hostname does not resolve
+deploy .#nixos-home --hostname 192.168.1.50
+```
+
+Deployments use root SSH with the administrator keys in `secrets/user-keys.nix`.
+Rebuild each non-server host locally once to install those keys before its first
+deployment. Add `--remote-build` to build on the target machine.
+
 ## Flake Outputs
 
 Beyond the host builds, the flake exposes a few outputs:
@@ -72,12 +88,12 @@ Beyond the host builds, the flake exposes a few outputs:
 
 ```
 modules/           # Auto-imported flake-parts modules, grouped by feature
-  hosts/           # Laptop, PC, and server assembly
+  hosts/           # Laptop, PC, home, and server assembly
   desktop/         # Compositors, shell, and theming (NixOS + Hjem)
   editors/         # Doom, Neovim, and Helix; standalone editor packages
     neovim/        # Full and minimal nvf modules
     doom/          # Native Doom Lisp files
-  media/           # Audio, video, and the PC music library
+  media/           # Audio, video, and the PC/home music library
   server/          # Server services and infrastructure
 hosts/             # Generated hardware configurations
 scripts/           # Shell and Nushell sources used by desktop features
@@ -90,6 +106,7 @@ secrets/           # Encrypted secrets
 
 - [**nixos-laptop**](modules/hosts/laptop.nix): laptop hardware config, Watt, normal Ollama, iio-niri
 - [**nixos-pc**](modules/hosts/pc.nix): desktop hardware config, latest kernel, AMDGPU bits, Ollama ROCm
+- [**nixos-home**](modules/hosts/home.nix): mostly headless home host, VPN-backed media library, shared fonts, and Mango for local use
 - [**nixos-server**](modules/hosts/server.nix): server hardware, networking, storage, and services
 
 Both desktop hosts select the shared profile in `modules/desktop.nix`. Each

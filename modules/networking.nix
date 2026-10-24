@@ -7,7 +7,7 @@
     };
     systemd.services.pvpnd.serviceConfig.ConfigurationDirectory = "pvpn";
   };
-  flake.modules.nixos.networking = {pkgs, ...}: {
+  flake.modules.nixos.networking = {
     networking = {
       # These HTTPS sites reach Caddy over Tailscale, including via SOCKS5.
       # Mail stays public: isync/msmtp connect without a proxy.
@@ -21,16 +21,7 @@
         "calendar.soliprem.eu"
         "dav.soliprem.eu"
       ];
-      networkmanager = {
-        enable = true;
-        plugins = with pkgs; [
-          networkmanager-l2tp
-          networkmanager-openconnect
-          networkmanager-openvpn
-          networkmanager-libreswan
-          networkmanager-strongswan
-        ];
-      };
+      networkmanager.enable = true;
     };
     services = {
       resolved.enable = true;
@@ -44,6 +35,15 @@
       };
       openssh.enable = true;
     };
+  };
+  flake.modules.nixos.desktop-networking = {pkgs, ...}: {
+    networking.networkmanager.plugins = with pkgs; [
+      networkmanager-l2tp
+      networkmanager-openconnect
+      networkmanager-openvpn
+      networkmanager-libreswan
+      networkmanager-strongswan
+    ];
     environment.systemPackages = with pkgs; [
       networkmanagerapplet
       overskride

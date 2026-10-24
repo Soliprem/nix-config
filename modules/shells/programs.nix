@@ -1,5 +1,10 @@
 {inputs, ...}: {
-  flake.modules.nixos.shells = {pkgs, ...}: {
+  flake.modules.nixos.shells = {
+    lib,
+    pkgs,
+    system,
+    ...
+  }: {
     programs = {
       eh = {
         enable = true;
@@ -11,22 +16,21 @@
       };
       gnupg.agent = {
         enable = true;
-        pinentryPackage = pkgs.pinentry-all;
+        pinentryPackage = lib.mkDefault pkgs.pinentry-curses;
       };
     };
-    services.keyd = {
-      enable = true;
-      keyboards.default = {
-        ids = ["*"];
-        settings = {
-          global.overload_tap_timeout = 200;
-          main = {
-            altgr = "overload(altgr, capslock)";
-            capslock = "overload(control,esc)";
-            leftshift = "overload(shift, S-9)";
-            rightshift = "overload(shift, S-0)";
-          };
-        };
+    age.secrets = {
+      bitwarden_clientid = {
+        file = ../../secrets/bitwarden_clientid.age;
+        owner = "soliprem";
+      };
+      bitwarden_clientsecret = {
+        file = ../../secrets/bitwarden_clientsecret.age;
+        owner = "soliprem";
+      };
+      bitwarden_password = {
+        file = ../../secrets/bitwarden_password.age;
+        owner = "soliprem";
       };
     };
     imports = [
@@ -35,6 +39,26 @@
       inputs.cade.nixosModules.default
     ];
     environment.systemPackages = with pkgs; [
+      inputs.deploy-rs.packages.${system}.default
+      (pkgs.writeShellApplication {
+        name = "greeting";
+        runtimeInputs = with pkgs; [
+          coreutils
+          gawk
+          ncurses
+          microfetch
+          dotacat
+        ];
+        text = builtins.readFile ../../scripts/greeting.sh;
+      })
+      (pkgs.writeShellApplication {
+        name = "bw-export-session";
+        runtimeInputs = with pkgs; [
+          bitwarden-cli
+          coreutils
+        ];
+        text = builtins.readFile ../../scripts/bw-export-session.sh;
+      })
       gnupg
       atuin
       bat
