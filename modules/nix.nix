@@ -42,8 +42,6 @@
       config = {
         allowUnfree = true;
         permittedInsecurePackages = [
-          "electron-39.8.10"
-          "pnpm-10.29.2"
           "firefox-esr-140-bin-unwrapped-140.17.0esr"
         ];
       };
