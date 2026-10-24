@@ -10,7 +10,7 @@
     in {
       files = {
         ".config/mango/config.conf".text = ''
-          # More option see https://github.com/DreamMaoMao/mango/wiki/
+          # More options: https://mangowm.github.io/docs/
 
           # Window effect
           blur=1
@@ -26,7 +26,7 @@
           shadows_blur = 15
           shadows_position_x = 0
           shadows_position_y = 0
-          shadowscolor= 0x000000ff
+          shadows_color= 0x000000ff
 
           border_radius=15
           no_radius_when_single=0
@@ -44,8 +44,8 @@
           tag_animation_direction=0
           zoom_initial_ratio=0.3
           zoom_end_ratio=0.8
-          fadein_begin_opacity=0.5
-          fadeout_begin_opacity=0.8
+          fade_in_begin_opacity=0.5
+          fade_out_begin_opacity=0.8
           animation_duration_move=200
           animation_duration_open=100
           animation_duration_tag=90
@@ -66,23 +66,22 @@
 
           # Master-Stack Layout Setting
           new_is_master=0
-          default_mfact=0.55
-          default_nmaster=1
-          smartgaps=0
+          default_master_factor=0.55
+          default_master_count=1
+          smart_gaps=0
 
           # Overview Setting
           hotarea_size=10
           enable_hotarea=0
-          ov_tab_mode=0
-          overviewgappi=5
-          overviewgappo=30
+          overview_gap_inner=5
+          overview_gap_outer=30
 
           # Misc
           no_border_when_single=0
           axis_bind_apply_timeout=100
           focus_on_activate=1
-          sloppyfocus=0
-          warpcursor=1
+          sloppy_focus=0
+          warp_cursor=1
           focus_cross_monitor=0
           focus_cross_tag=0
           enable_floating_snap=0
@@ -93,7 +92,7 @@
           # keyboard
           repeat_rate=25
           repeat_delay=600
-          numlockon=0
+          numlock_on=0
           xkb_rules_layout=eu,it
           xkb_rules_options=grp:alt_space_toggle
 
@@ -114,9 +113,7 @@
           tap_and_drag=1
           drag_lock=1
           trackpad_natural_scrolling=1
-          disable_while_typing=1
-          left_handed=0
-          middle_button_emulation=1
+          trackpad_middle_button_emulation=1
           swipe_min_threshold=1
 
           # mouse
@@ -124,67 +121,67 @@
           mouse_natural_scrolling=0
 
           # Appearance
-          gappih=10
-          gappiv=10
-          gappoh=10
-          gappov=10
+          gap_inner_horizontal=10
+          gap_inner_vertical=10
+          gap_outer_horizontal=10
+          gap_outer_vertical=10
           scratchpad_width_ratio=0.8
           scratchpad_height_ratio=0.9
           scratchpad_cross_monitor=1
-          borderpx=1
-          rootcolor=0x201b14ff
-          bordercolor=0x444444ff
-          focuscolor=0xc9b890ff
-          # focuscolor=0x005577ff
-          maximizescreencolor=0x89aa61ff
-          urgentcolor=0xad401fff
-          scratchpadcolor=0x516c93ff
-          globalcolor=0xb153a7ff
-          overlaycolor=0x14a57cff
+          border_px=1
+          root_color=0x201b14ff
+          border_color=0x444444ff
+          focus_color=0xc9b890ff
+          # focus_color=0x005577ff
+          maximized_screen_color=0x89aa61ff
+          urgent_color=0xad401fff
+          scratchpad_color=0x516c93ff
+          global_color=0xb153a7ff
+          overlay_color=0x14a57cff
 
           # Layout Rules
-          tagrule=id:1,layout_name:tile
-          tagrule=id:2,layout_name:tile
-          tagrule=id:3,layout_name:tile
-          tagrule=id:4,layout_name:tile
-          tagrule=id:5,layout_name:tile
-          tagrule=id:6,layout_name:tile
-          tagrule=id:7,layout_name:tile
-          tagrule=id:8,layout_name:tile
-          tagrule=id:9,layout_name:tile
+          tag_rule=id:1,layout_name:tile
+          tag_rule=id:2,layout_name:tile
+          tag_rule=id:3,layout_name:tile
+          tag_rule=id:4,layout_name:tile
+          tag_rule=id:5,layout_name:tile
+          tag_rule=id:6,layout_name:tile
+          tag_rule=id:7,layout_name:tile
+          tag_rule=id:8,layout_name:tile
+          tag_rule=id:9,layout_name:tile
 
           # Window Rules
-          windowrule=isfloating:1,title:^(Julia|flame|script-fu|org.gtk_rs.HelloWorld2)$
-          windowrule=isfloating:1,title:^(Picture-in-Picture)$
-          windowrule=isfloating:1,title:^(Open File|Select a File|Choose wallpaper|Open Folder|Save As|Library)(.*)$
-          windowrule=isfloating:1,appid:^(org.kde.polkit-kde-authentication-agent-1)$
-          windowrule=isnamedscratchpad:1,appid:^(Bitwarden|bitwarden|com[.]bitwarden[.]desktop)$
-          windowrule=isnamedscratchpad:1,appid:^(proton[.]vpn[.]app[.]gtk|protonvpn-app)$
-          windowrule=isfloating:1,appid:^(eu.soliprem.thumbpick)$
-          windowrule=offsetx:100,offsety:-100,width:640,height:360,title:^(Picture-in-Picture)$
-          windowrule=offsetx:0,offsety:0,width:900,height:700,title:^(flame|script-fu)$
-          windowrule=isterm:1,appid:^(foot|kitty|com.mitchellh.ghostty)$
-          windowrule=noswallow:1,title:^(nvim|v|vi|wev|R|glxgears|julia)(.*)$
-          windowrule=force_tearing:1,appid:^(mpv|steam_app)(.*)$
-          windowrule=force_tearing:1,title:^(.*)(YouTube|Invidious)(.*)$
+          window_rule=is_floating:1,title:^(Julia|flame|script-fu|org.gtk_rs.HelloWorld2)$
+          window_rule=is_floating:1,title:^(Picture-in-Picture)$
+          window_rule=is_floating:1,title:^(Open File|Select a File|Choose wallpaper|Open Folder|Save As|Library)(.*)$
+          window_rule=is_floating:1,app_id:^(org.kde.polkit-kde-authentication-agent-1)$
+          window_rule=is_named_scratchpad:1,app_id:^(Bitwarden|bitwarden|com[.]bitwarden[.]desktop)$
+          window_rule=is_named_scratchpad:1,app_id:^(proton[.]vpn[.]app[.]gtk|protonvpn-app)$
+          window_rule=is_floating:1,app_id:^(eu.soliprem.thumbpick)$
+          window_rule=offset_x:100,offset_y:-100,width:640,height:360,title:^(Picture-in-Picture)$
+          window_rule=offset_x:0,offset_y:0,width:900,height:700,title:^(flame|script-fu)$
+          window_rule=is_term:1,app_id:^(foot|kitty|com.mitchellh.ghostty)$
+          window_rule=no_swallow:1,title:^(nvim|v|vi|wev|R|glxgears|julia)(.*)$
+          window_rule=force_tearing:1,app_id:^(mpv|steam_app)(.*)$
+          window_rule=force_tearing:1,title:^(.*)(YouTube|Invidious)(.*)$
 
           # Layer Rules
-          layerrule=noblur:0,layer_name:^logout_dialog$
-          layerrule=noblur:0,layer_name:^launcher$
-          layerrule=noblur:0,layer_name:^quickshell-sidebar$
-          layerrule=noblur:0,layer_name:^quantum-notification-popups$
-          layerrule=layer_name:selection,noblur:1,noanim:1
+          layer_rule=no_blur:0,layer_name:^logout_dialog$
+          layer_rule=no_blur:0,layer_name:^launcher$
+          layer_rule=no_blur:0,layer_name:^quickshell-sidebar$
+          layer_rule=no_blur:0,layer_name:^quantum-notification-popups$
+          layer_rule=layer_name:selection,no_blur:1,no_animation:1
 
           # Monitor Config
-          monitorrule=name:^HDMI-A-1$,width:1920,height:1080,refresh:120,x:2560,y:0
-          monitorrule=model:Q27G3XMN,serial:1APQ7JA005710,width:2560,height:1440,refresh:180.002,x:0,y:0,hdr:1
-          monitorrule=name:^eDP-1$,width:1920,height:1200,refresh:60,x:0,y:0,scale:1
-          monitorrule=make:Seiko Epson Corporation,model:EPSON PJ,serial:0x01010101,scale:1.5
+          monitor_rule=name:^HDMI-A-1$,width:1920,height:1080,refresh:120,x:2560,y:0
+          monitor_rule=model:Q27G3XMN,serial:1APQ7JA005710,width:2560,height:1440,refresh:180.002,x:0,y:0,hdr:1
+          monitor_rule=name:^eDP-1$,width:1920,height:1200,refresh:60,x:0,y:0,scale:1
+          monitor_rule=make:Seiko Epson Corporation,model:EPSON PJ,serial:0x01010101,scale:1.5
 
           # --- Keymodes and Bindings ---
 
           # Common mode - bindings available in all modes
-          keymode = common
+          key_mode = common
           bind=SUPER+CTRL,R,reload_config
           bind=SUPER+CTRL,t,spawn,${terminalCommand} tray-tui
           bind=SUPER+CTRL,w,spawn,${terminalCommand} wiki-tui
@@ -228,7 +225,7 @@
           bind=SUPER,x,spawn,material-shell ipc call sidebar toggle
           bind=SUPER,E,spawn,nautilus --new-window
           bind=SUPER,t,spawn,notify-time
-          bind=SUPER+SHIFT,v,spawn,notify-volume
+          bindc=SUPER+SHIFT,v,spawn,notify-volume
           bind=SUPER,b,spawn,notify-battery
           bind=NONE,Print,spawn,grimblast copy area
           bind=SUPER+SHIFT+ALT,period,spawn,fuzzel-emoji
@@ -260,7 +257,7 @@
 
           # Media Keys (Mic)
           bind=NONE,XF86AudioMicMute,spawn,swayosd-client --input-volume mute-toggle
-          bind=SUPER+SHIFT,M,spawn,swayosd-client --output-volume mute-toggle
+          bindc=SUPER+SHIFT,M,spawn,swayosd-client --output-volume mute-toggle
 
           # Media Keys (Playback)
           bind=NONE,XF86AudioMedia,spawn,swayosd-client --playerctl play-pause
@@ -304,35 +301,36 @@
           bind=SUPER+SHIFT,8,tag,8
           bind=SUPER+SHIFT,9,tag,9
 
-          # Layout Switching (Automatically switches keymode too)
-          bind=SUPER+SHIFT,T,setlayout,tile
-          bind=SUPER+SHIFT,T,setkeymode,default
-          bind=SUPER+SHIFT,M,setlayout,monocle
-          bind=SUPER+SHIFT,M,setkeymode,monocle
-          bind=SUPER+SHIFT,G,setlayout,grid
-          bind=SUPER+SHIFT,G,setkeymode,grid
-          bind=SUPER+SHIFT,X,setlayout,scroller
-          bind=SUPER+SHIFT,X,setkeymode,scroller
-          bind=SUPER+CTRL+SHIFT,D,setlayout,deck
-          bind=SUPER+CTRL+SHIFT,D,setkeymode,deck
-          bind=SUPER+SHIFT,C,setlayout,center_tile
-          bind=SUPER+SHIFT,C,setkeymode,center_tile
-          bind=SUPER+SHIFT,R,setlayout,right_tile
-          bind=SUPER+SHIFT,R,setkeymode,right_tile
-          bind=SUPER+SHIFT,V,setlayout,vertical_tile
-          bind=SUPER+SHIFT,V,setkeymode,vertical_tile
-          bind=SUPER+CTRL,G,setlayout,vertical_grid
-          bind=SUPER+CTRL,G,setkeymode,vertical_grid
-          bind=SUPER+CTRL,X,setlayout,vertical_scroller
-          bind=SUPER+CTRL,X,setkeymode,vertical_scroller
-          bind=SUPER+CTRL,D,setlayout,vertical_deck
-          bind=SUPER+CTRL,D,setkeymode,vertical_deck
-          bind=SUPER+ALT,T,setlayout,tile
-          bind=SUPER+ALT,T,setkeymode,default
-          bind=SUPER+ALT,M,setlayout,monocle
-          bind=SUPER+ALT,M,setkeymode,monocle
-          bind=SUPER+ALT,X,setlayout,scroller
-          bind=SUPER+ALT,X,setkeymode,scroller
+          # Layout Switching (Automatically switches key_mode too)
+          # bindc runs every command sharing the shortcut.
+          bindc=SUPER+SHIFT,T,setlayout,tile
+          bindc=SUPER+SHIFT,T,setkeymode,default
+          bindc=SUPER+SHIFT,M,setlayout,monocle
+          bindc=SUPER+SHIFT,M,setkeymode,monocle
+          bindc=SUPER+SHIFT,G,setlayout,grid
+          bindc=SUPER+SHIFT,G,setkeymode,grid
+          bindc=SUPER+SHIFT,X,setlayout,scroller
+          bindc=SUPER+SHIFT,X,setkeymode,scroller
+          bindc=SUPER+CTRL+SHIFT,D,setlayout,deck
+          bindc=SUPER+CTRL+SHIFT,D,setkeymode,deck
+          bindc=SUPER+SHIFT,C,setlayout,center_tile
+          bindc=SUPER+SHIFT,C,setkeymode,center_tile
+          bindc=SUPER+SHIFT,R,setlayout,right_tile
+          bindc=SUPER+SHIFT,R,setkeymode,right_tile
+          bindc=SUPER+SHIFT,V,setlayout,vertical_tile
+          bindc=SUPER+SHIFT,V,setkeymode,vertical_tile
+          bindc=SUPER+CTRL,G,setlayout,vertical_grid
+          bindc=SUPER+CTRL,G,setkeymode,vertical_grid
+          bindc=SUPER+CTRL,X,setlayout,vertical_scroller
+          bindc=SUPER+CTRL,X,setkeymode,vertical_scroller
+          bindc=SUPER+CTRL,D,setlayout,vertical_deck
+          bindc=SUPER+CTRL,D,setkeymode,vertical_deck
+          bindc=SUPER+ALT,T,setlayout,tile
+          bindc=SUPER+ALT,T,setkeymode,default
+          bindc=SUPER+ALT,M,setlayout,monocle
+          bindc=SUPER+ALT,M,setkeymode,monocle
+          bindc=SUPER+ALT,X,setlayout,scroller
+          bindc=SUPER+ALT,X,setkeymode,scroller
 
           # Cycle through keymodes
           bind=SUPER+CTRL+SHIFT,S,setkeymode,cycle
@@ -354,7 +352,7 @@
           # --- Layout Specific Keymodes ---
 
           # Tile (Master/Stack, default mode because it is the default layout in tagrules)
-          keymode=default
+          key_mode=default
           bind=SUPER,k,focusstack,prev
           bind=SUPER,j,focusstack,next
           bind=SUPER+SHIFT,k,exchange_stack_client,prev
@@ -366,7 +364,7 @@
           bind=SUPER+SHIFT,l,incnmaster,-1
 
           # Scroller
-          keymode=scroller
+          key_mode=scroller
           bind=SUPER,r,switch_proportion_preset
           bind=SUPER,h,focusdir,left
           bind=SUPER,l,focusdir,right
@@ -380,7 +378,7 @@
           bind=SUPER+SHIFT,l,scroller_stack,right
 
           # Tile (Master/Stack)
-          keymode=tile
+          key_mode=tile
           bind=SUPER,k,focusstack,prev
           bind=SUPER,j,focusstack,next
           bind=SUPER+SHIFT,k,exchange_stack_client,prev
@@ -392,14 +390,14 @@
           bind=SUPER+SHIFT,l,incnmaster,-1
 
           # Monocle
-          keymode=monocle
+          key_mode=monocle
           bind=SUPER,k,focusstack,prev
           bind=SUPER,j,focusstack,next
           bind=SUPER+SHIFT,k,exchange_stack_client,prev
           bind=SUPER+SHIFT,j,exchange_stack_client,next
 
           # Grid
-          keymode=grid
+          key_mode=grid
           bind=SUPER,k,focusdir,up
           bind=SUPER,j,focusdir,down
           bind=SUPER,h,focusdir,left
@@ -410,7 +408,7 @@
           bind=SUPER+SHIFT,l,exchange_client,right
 
           # Deck
-          keymode=deck
+          key_mode=deck
           bind=SUPER,k,focusstack,prev
           bind=SUPER,j,focusstack,next
           bind=SUPER+SHIFT,k,exchange_stack_client,prev
@@ -422,7 +420,7 @@
           bind=SUPER+SHIFT,l,incnmaster,-1
 
           # Center Tile
-          keymode=center_tile
+          key_mode=center_tile
           bind=SUPER,k,focusstack,prev
           bind=SUPER,j,focusstack,next
           bind=SUPER+SHIFT,k,exchange_stack_client,prev
@@ -434,7 +432,7 @@
           bind=SUPER+SHIFT,l,incnmaster,-1
 
           # Right Tile (Similar to Tile, but master is on the right)
-          keymode=right_tile
+          key_mode=right_tile
           bind=SUPER,k,focusstack,prev
           bind=SUPER,j,focusstack,next
           bind=SUPER+SHIFT,k,exchange_stack_client,prev
@@ -446,7 +444,7 @@
           bind=SUPER+SHIFT,l,incnmaster,-1
 
           # Vertical Tile
-          keymode=vertical_tile
+          key_mode=vertical_tile
           bind=SUPER,k,focusstack,prev
           bind=SUPER,j,focusstack,next
           bind=SUPER+SHIFT,k,exchange_stack_client,prev
@@ -458,7 +456,7 @@
           bind=SUPER+SHIFT,l,incnmaster,-1
 
           # Vertical Grid
-          keymode=vertical_grid
+          key_mode=vertical_grid
           bind=SUPER,k,focusdir,up
           bind=SUPER,j,focusdir,down
           bind=SUPER,h,focusdir,left
@@ -469,7 +467,7 @@
           bind=SUPER+SHIFT,l,exchange_client,right
 
           # Vertical Scroller
-          keymode=vertical_scroller
+          key_mode=vertical_scroller
           bind=SUPER,r,switch_proportion_preset
           bind=SUPER,k,focusstack,prev
           bind=SUPER,j,focusstack,next
@@ -477,7 +475,7 @@
           bind=SUPER+SHIFT,j,exchange_stack_client,next
 
           # Vertical Deck
-          keymode=vertical_deck
+          key_mode=vertical_deck
           bind=SUPER,k,focusstack,prev
           bind=SUPER,j,focusstack,next
           bind=SUPER+SHIFT,k,exchange_stack_client,prev
@@ -487,7 +485,7 @@
           bind=SUPER,space,zoom
           bind=SUPER+SHIFT,h,incnmaster,+1
           bind=SUPER+SHIFT,l,incnmaster,-1
-          exec-once=~/.config/mango/autostart.sh
+          exec_once=~/.config/mango/autostart.sh
         '';
         ".config/mango/autostart.sh".source = pkgs.writers.writeBash "autostart.sh" ''
           stash watch &
