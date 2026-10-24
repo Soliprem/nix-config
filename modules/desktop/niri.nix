@@ -12,7 +12,7 @@
       # Niri spawn takes separate arguments, not a shell command string.
       # Beer: ["beer" "--" "fish"] / ["beer" "--"].
       # Ghostty: ["ghostty"] / ["ghostty" "-e"].
-      terminal = ["beer"];
+      terminal = ["beer" "--" "fish"];
       terminalCommand = ["beer" "--"];
       spawnArgs = args: builtins.concatStringsSep " " (map builtins.toJSON args);
     in {
@@ -156,18 +156,22 @@
 
               Mod+Control+T { spawn ${spawnArgs (terminalCommand ++ ["tray-tui"])}; }
               Mod+Return { spawn ${spawnArgs terminal}; }
+              Mod+Shift+Return { spawn "emacsclient" "-c"; }
               Mod+Minus { spawn "wtype" "-k" "emdash"; }
               Mod+W { spawn "zen-beta"; }
-              Mod+E { spawn "nautilus"; }
+              Mod+E { spawn "nautilus" "--new-window"; }
               Mod+Shift+B { spawn "overskride"; }
-              Mod+D { spawn "fuzzel"; }
+              Mod+D { spawn "rice-style" "action" "launcher"; }
               Mod+Shift+D { spawn "fuzzel-run"; }
+              Mod+Control+R { spawn "rice-style" "toggle"; }
               Super+Alt+L allow-when-locked=true { spawn "rice-lock"; }
               Super+X { spawn "rice-style" "action" "panel"; }
               Super+V {spawn "clipmenu"; }
               Mod+T     { spawn "notify-time"; }
               Mod+Control+W     { spawn ${spawnArgs (terminalCommand ++ ["wiki-tui"])}; }
               Mod+B     { spawn "notify-battery"; }
+              Mod+F1 { spawn "gamemode"; }
+              Mod+Shift+M allow-when-locked=true { spawn "rice-style" "action" "volume-mute"; }
               Mod+Alt+N { spawn "dm-sunsetr"; }
               Mod+O { spawn "dm-hub"; }
 
@@ -176,6 +180,14 @@
               Mod+Control+V { spawn "pwvucontrol"; }
               Mod+Shift+Alt+Period { spawn "fuzzel-emoji"; }
               Mod+Shift+Semicolon { spawn "dm-expand"; }
+
+              Mod+Control+Alt+V { spawn "rice-style" "action" "audio"; }
+              Mod+Control+Alt+N { spawn "rice-style" "action" "network"; }
+              Mod+Control+Alt+B { spawn "rice-style" "action" "bluetooth"; }
+              Mod+Control+Alt+P { spawn "rice-style" "action" "power"; }
+              Mod+Control+Alt+C { spawn "rice-style" "action" "system"; }
+              Mod+Control+Alt+M { spawn "rice-style" "action" "notifications"; }
+              Mod+Control+Alt+O { spawn "rice-style" "action" "media"; }
 
               XF86AudioRaiseVolume allow-when-locked=true { spawn "rice-style" "action" "volume-up"; }
               XF86AudioLowerVolume allow-when-locked=true { spawn "rice-style" "action" "volume-down"; }
@@ -215,8 +227,10 @@
               Mod+Shift+J     { focus-monitor-down; }
               Mod+Shift+K     { focus-monitor-up; }
 
-              Mod+Shift+Comma     { move-column-to-monitor-previous; }
-              Mod+Shift+Period     { move-column-to-monitor-next; }
+              Mod+Shift+Comma     { move-window-to-monitor-previous; }
+              Mod+Shift+Period     { move-window-to-monitor-next; }
+              Mod+Ctrl+Comma     { move-workspace-to-monitor-previous; }
+              Mod+Ctrl+Period     { move-workspace-to-monitor-next; }
               Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
               Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
               Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
@@ -314,7 +328,8 @@
               Mod+Alt+Ctrl+8 { move-column-to-workspace 8; }
               Mod+Alt+Ctrl+9 { move-column-to-workspace 9; }
 
-              Mod+Tab { focus-workspace-previous; }
+              Alt+Tab { focus-window-previous; }
+              Mod+Tab { focus-window-previous; }
 
               Mod+Shift+h  { consume-or-expel-window-left; }
               Mod+Shift+l  { consume-or-expel-window-right; }
@@ -323,9 +338,10 @@
 
               Mod+R { switch-preset-column-width; }
               Mod+Shift+R { switch-preset-window-height; }
-              Mod+Ctrl+R { reset-window-height; }
+              Mod+Ctrl+Shift+R { reset-window-height; }
               Mod+F { maximize-column; }
               Mod+Shift+F { fullscreen-window; }
+              Mod+Alt+F { toggle-windowed-fullscreen; }
               Mod+C { center-column; }
               Mod+G { toggle-overview; }
 
@@ -343,10 +359,11 @@
               // Mod+Space       { switch-layout "next"; }
               // Mod+Shift+Space { switch-layout "prev"; }
 
-              Mod+P { screenshot; }
-              Mod+Shift+S { screenshot; }
-              Mod+Shift+P { screenshot-screen; }
-              Mod+Alt+P { screenshot-window; }
+              Print { spawn "rice-style" "action" "screenshot-region"; }
+              Mod+P { spawn "rice-style" "action" "screenshot"; }
+              Mod+Shift+S { spawn "rice-style" "action" "screenshot-region"; }
+              Mod+Shift+P { spawn "rice-style" "action" "screenshot-screen"; }
+              Mod+Alt+P { spawn "rice-style" "action" "screenshot-window"; }
 
               Mod+Shift+E { quit; }
               Ctrl+Alt+Delete { quit; }

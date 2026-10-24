@@ -37,7 +37,25 @@
         rice-theme material
       '';
       actions = {
+        launcher = ''cyberarch-ctl "apps-menu"'';
         panel = ''cyberarch-ctl "notif-hud"'';
+        audio = ''cyberarch-ctl "modal vol"'';
+        network = ''cyberarch-ctl "modal wifi"'';
+        bluetooth = ''cyberarch-ctl "modal bt"'';
+        power = ''cyberarch-ctl "modal pwr"'';
+        system = ''cyberarch-ctl "modal sys"'';
+        notifications = ''cyberarch-ctl "notif-hud"'';
+        media = ''cyberarch-ctl "player"'';
+        screenshot = ''cyberarch-ctl "region-shot"'';
+        screenshot-region = ''cyberarch-ctl "region-shot"'';
+        screenshot-screen = ''
+          ${pkgs.hyprshot}/bin/hyprshot -m output -m active
+          cyberarch-ctl "shutter"
+        '';
+        screenshot-window = ''
+          ${pkgs.hyprshot}/bin/hyprshot -m window
+          cyberarch-ctl "shutter"
+        '';
         lock = "${cyberarchShell}/bin/cyberarch-lock";
         volume-up = "${pkgs.wireplumber}/bin/wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+";
         volume-down = "${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";

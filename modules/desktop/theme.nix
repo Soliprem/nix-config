@@ -109,7 +109,8 @@
             prefer = "saturation";
             wallpaper = {
               set = true;
-              command = "awww img --transition-type random --transition-step 4 --transition-fps 120 {{ image }}";
+              # Noctalia's wallpaper hook only needs to regenerate application themes.
+              command = ''if [ -z "''${NOCTALIA_WALLPAPER_PATH:-}" ]; then awww img --transition-type random --transition-step 4 --transition-fps 120 {{ image }}; fi'';
             };
           };
           templates = {

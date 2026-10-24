@@ -5,6 +5,16 @@
     ...
   }: let
     material = inputs.material-shell.packages.${system}.default;
+    panel = "${material}/bin/material-shell ipc call sidebar toggle";
+    screenshot = {hyprland, niri, mango}: ''
+      if [ -n "''${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+        ${hyprland}
+      elif [ -n "''${NIRI_SOCKET:-}" ]; then
+        ${niri}
+      else
+        ${mango}
+      fi
+    '';
     wallpaper = ''
       wallpaper="$HOME/.local/src/nix-config/assets/bg"
       if [ -r "$wallpaper" ]; then
@@ -27,7 +37,35 @@
       '';
       off = "systemctl --user stop material-shell.target";
       actions = {
-        panel = "${material}/bin/material-shell ipc call sidebar toggle";
+        launcher = "${pkgs.fuzzel}/bin/fuzzel";
+        inherit panel;
+        audio = "foot wiremix";
+        network = "foot nmtui";
+        bluetooth = "foot bluetui";
+        power = "wlogout";
+        system = "foot btop";
+        notifications = panel;
+        media = panel;
+        screenshot = screenshot {
+          hyprland = "${pkgs.hyprshot}/bin/hyprshot -m output --raw | ${pkgs.satty}/bin/satty -f -";
+          niri = "${pkgs.niri}/bin/niri msg action screenshot";
+          mango = "${pkgs.wayshot}/bin/wayshot --geometry - | ${pkgs.satty}/bin/satty -f -";
+        };
+        screenshot-region = screenshot {
+          hyprland = "${pkgs.hyprshot}/bin/hyprshot -m region --clipboard-only";
+          niri = "${pkgs.niri}/bin/niri msg action screenshot";
+          mango = "${pkgs.wayshot}/bin/wayshot --geometry --clipboard - > /dev/null";
+        };
+        screenshot-screen = screenshot {
+          hyprland = "${pkgs.hyprshot}/bin/hyprshot -m output -m active --raw | ${pkgs.satty}/bin/satty -f -";
+          niri = "${pkgs.niri}/bin/niri msg action screenshot-screen";
+          mango = "${pkgs.wayshot}/bin/wayshot --choose-output - | ${pkgs.satty}/bin/satty -f -";
+        };
+        screenshot-window = screenshot {
+          hyprland = "${pkgs.hyprshot}/bin/hyprshot -m window --raw | ${pkgs.satty}/bin/satty -f -";
+          niri = "${pkgs.niri}/bin/niri msg action screenshot-window";
+          mango = "${pkgs.wayshot}/bin/wayshot --choose-toplevel - | ${pkgs.satty}/bin/satty -f -";
+        };
         lock = ''
           if [ -n "''${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
             exec ${pkgs.hyprlock}/bin/hyprlock

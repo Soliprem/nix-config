@@ -165,19 +165,20 @@ toggle-polarity dark
 toggle-polarity light
 ```
 
-Switch between the Material and CyberArch shells:
+Switch between the installed shells:
 
 ```bash
 rice-style material
 rice-style cyberpunk
+rice-style noctalia
 rice-style toggle
 rice-style current
 ```
 
-The CyberArch profile currently runs only under Hyprland; other compositors
-fall back to the Material Quickshell. `SUPER + CTRL + R` toggles the profile in
-Hyprland. The CyberArch profile selects its bundled Lucy wallpaper; switching
-back to Material restores the wallpaper that was active before it. It also
+The CyberArch profile is available only under Hyprland. `SUPER + CTRL + R`
+cycles the available profiles in all three compositors. The CyberArch profile
+selects its bundled Lucy wallpaper; switching back to Material restores the
+wallpaper that was active before it. It also
 switches GTK styling, the icon and cursor themes, and Qt's Kvantum theme;
 switching back restores the saved Material settings. Already-running apps may
 need to be reopened to inherit the new toolkit environment.
