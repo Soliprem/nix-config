@@ -142,17 +142,6 @@
         text = builtins.readFile ../../scripts/grimpick.sh;
       })
       (pkgs.writeShellApplication {
-        name = "greeting";
-        runtimeInputs = with pkgs; [
-          coreutils
-          gawk
-          ncurses
-          microfetch
-          dotacat
-        ];
-        text = builtins.readFile ../../scripts/greeting.sh;
-      })
-      (pkgs.writeShellApplication {
         name = "fuzzel-run";
         runtimeInputs = with pkgs; [
           fuzzel
@@ -180,30 +169,8 @@
         ];
         text = builtins.readFile ../../scripts/sll.sh;
       })
-      (pkgs.writeShellApplication {
-        name = "bw-export-session";
-        runtimeInputs = with pkgs; [
-          bitwarden-cli
-          coreutils
-        ];
-        text = builtins.readFile ../../scripts/bw-export-session.sh;
-      })
     ];
   in {
-    age.secrets = {
-      bitwarden_clientid = {
-        file = ../../secrets/bitwarden_clientid.age;
-        owner = "soliprem";
-      };
-      bitwarden_clientsecret = {
-        file = ../../secrets/bitwarden_clientsecret.age;
-        owner = "soliprem";
-      };
-      bitwarden_password = {
-        file = ../../secrets/bitwarden_password.age;
-        owner = "soliprem";
-      };
-    };
     imports = [
       inputs.dm-scripts.nixosModules.default
     ];
@@ -226,6 +193,22 @@
         "dm-sunsetr"
         "dm-notes"
       ];
+    };
+    programs.gnupg.agent.pinentryPackage = pkgs.pinentry-all;
+    services.keyd = {
+      enable = true;
+      keyboards.default = {
+        ids = ["*"];
+        settings = {
+          global.overload_tap_timeout = 200;
+          main = {
+            altgr = "overload(altgr, capslock)";
+            capslock = "overload(control,esc)";
+            leftshift = "overload(shift, S-9)";
+            rightshift = "overload(shift, S-0)";
+          };
+        };
+      };
     };
     services = {
       displayManager.ly.enable = true;

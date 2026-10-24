@@ -16,6 +16,7 @@
     neovim
     helix
     networking
+    desktop-networking
     gaming
     audio
     video

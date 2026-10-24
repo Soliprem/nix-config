@@ -4,26 +4,17 @@
       localBinInPath = true;
       variables = {
         EDITOR = "nvim";
-        BROWSER = "zen-beta";
-        DXVK_HDR = 1;
-        TERMINAL = "foot";
         MANPAGER = "nvim -c 'Man!'";
-        XKB_DEFAULT_OPTIONS = "grp:alt_space_toggle";
-        XKD_DEFAULT_LAYOUT = "eu";
         XDG_CONFIG_HOME = "$HOME/.config";
         XDG_DATA_HOME = "$HOME/.local/share";
         XDG_CACHE_HOME = "$HOME/.cache";
-        XINITRC = "$HOME/.config/x11/xinitrc";
         NOTMUCH_CONFIG = "$HOME/.config/notmuch-config";
-        GTK2_RC_FILES = "$HOME/.config/gtk-2.0/gtkrc-2.0";
         LESSHISTFILE = "$XDG_CACHEHOME/less/history";
         WGETRC = "$HOME/.config/wget/wgetrc";
         INPUTRC = "$HOME/.config/shell/inputrc";
         ZDOTDIR = "$HOME/.config/zsh";
         GNUPGHOME = "$HOME/.local/share/gnupg";
-        WINEPREFIX = "$HOME/.local/share/wineprefixes/default";
         JULIA_DEPOT_PATH = "$HOME/.local/share/julia:$JULIA_DEPOT_PATH";
-        KODI_DATA = "$HOME/.local/share/kodi";
         PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
         TMUX_TMPDIR = "$XDG_RUNTIME_DIR";
         ANDROID_SDK_HOME = "$HOME/.config/android";
@@ -36,7 +27,6 @@
         WEECHAT_HOME = "$HOME/.config/weechat";
         ELECTRUMDIR = "$HOME/.local/share/electrum";
         DICS = "/usr/share/stardict/dic/";
-        SUDO_ASKPASS = "$HOME/.local/bin/dmenupass";
         FZF_DEFAULT_OPTS = "--layout=reverse --height 40%";
         LESS = "-R";
         LESS_TERMCAP_mb = "$(printf '%b' '[1;31m')";
@@ -46,10 +36,6 @@
         LESS_TERMCAP_se = "$(printf '%b' '[0m')";
         LESS_TERMCAP_us = "$(printf '%b' '[1;32m')";
         LESS_TERMCAP_ue = "$(printf '%b' '[0m')";
-        QT_QPA_PLATFORM = "wayland";
-        MOZ_USE_XINPUT2 = "1";
-        AWT_TOOLKIT = "MToolkit wmname LG3D";
-        _JAVA_AWT_WM_NONREPARENTING = "1";
       };
       shellAliases = {
         mount = "sudo mount";
@@ -60,14 +46,12 @@
         su = "sudo su";
         shutdown = "sudo shutdown";
         poweroff = "sudo poweroff";
-        river = "XKB_DEFAULT_LAYOUT=eu river";
         rcow = "fortune | cowsay -r | lolcat";
         cp = "cp -iv";
         nnn = "nnn -e";
         mv = "mv -iv";
         rm = "rm -vI";
         bc = "bc -ql";
-        aoe2rg = "cd .steam/steam/steamapps/compatdata/813780/pfx/drive_c/users/steamuser/Games/Age\\ of\\ Empires\\ 2\\ DE/76561199050658286/savegame";
         mkd = "mkdir -pv";
         yt = "yt-dlp --embed-metadata -i";
         yta = "yt -x -f bestaudio/best";
@@ -84,7 +68,6 @@
         ip = "ip -color";
         ka = "killall";
         g = "git";
-        YT = "youtube-viewer";
         sdn = "shutdown -h now";
         e = "nvim";
         v = "nvim";
@@ -94,7 +77,6 @@
         xr = "sudo xbps-remove -R";
         xq = "xbps-query";
         config = "/usr/bin/git --git-dir=/home/soliprem/.cfg/ --work-tree=/home/soliprem";
-        z = "zathura";
         "cd.." = "cd ..";
         lf = "lfub";
         magit = "nvim -c MagitOnly";
@@ -131,10 +113,8 @@
         sleep = "timer";
         vim = "nvim";
         vimdiff = "nvim -d";
-        startx = "startx $XINITRC";
         nos = "nh os switch";
         snos = "deploy $HOME/.local/src/nix-config#nixos-server";
-        sl = "sll";
         lg = "lazygit";
         n = "cd ~/.local/src/nix-config && ls";
       };

@@ -12,7 +12,7 @@
       fontProfiles,
       lib,
       pkgs,
-      suspendOnIdle,
+      osConfig,
       ...
     }: {
       files = {
@@ -75,7 +75,7 @@
               timeout=330
             }
 
-            ${lib.optionalString suspendOnIdle ''
+            ${lib.optionalString (osConfig.networking.hostName == "nixos-laptop") ''
               listener {
                 on-timeout=systemctl suspend
                 timeout=1800

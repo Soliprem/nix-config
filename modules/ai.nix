@@ -43,6 +43,7 @@
         };
       };
     };
+    # Allow Vane's container bridge to reach Ollama.
     networking.firewall.interfaces."podman0".allowedTCPPorts = [11434];
   };
   flake.modules.nixos.open-webui = {

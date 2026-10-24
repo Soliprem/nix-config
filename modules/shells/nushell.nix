@@ -34,7 +34,6 @@
 
           use ~/.cache/starship/init.nu
           source ~/.cache/zoxide/init.nu
-          source ~/.cache/niri/completions.nu
           source ~/.cache/carapace/init.nu
           source ~/.cache/atuin/init.nu
           source ~/.cache/nix_your_shell/nix-your-shell.nu
@@ -56,11 +55,9 @@
           alias nos = nh os switch
           alias snos = deploy $'($env.HOME)/.local/src/nix-config#nixos-server'
           alias nd = nix develop
-          alias sl = sll
           alias fg = job unfreeze
           alias ,, = , (history | last | get command)
           alias lg = lazygit
-          alias YT = youtube-viewer
           alias bc = bc -ql
           alias cac = cd $'($env.HOME)/.cache'; ls -a
           alias cat = bat
@@ -103,7 +100,6 @@
           alias xr = sudo xbps-remove -R
           alias yt = yt-dlp --embed-metadata -i
           alias yta = yt -x -f bestaudio/best
-          alias z = zathura
         '';
       ".config/nushell/env.nu".text =
         /*
@@ -122,7 +118,6 @@
                 ensure-cache ($env.HOME + "/.cache/carapace/init.nu") { carapace _carapace nushell }
                 ensure-cache ($env.HOME + "/.cache/atuin/init.nu") { atuin init nu }
                 ensure-cache ($env.HOME + "/.cache/zoxide/init.nu") { zoxide init nushell --cmd cd }
-                ensure-cache ($env.HOME + "/.cache/niri/completions.nu") { niri completions nushell }
 
                 load-env {}
         '';

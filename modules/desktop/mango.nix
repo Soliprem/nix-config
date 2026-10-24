@@ -1,6 +1,7 @@
 {
   flake.modules.nixos.mango = {
     programs.mango.enable = true;
+    hardware.graphics.enable = true;
     hjem.users.soliprem = {pkgs, ...}: let
       # Independent launch commands: do not append applications to the shell launch.
       # Beer: "beer -- fish" / "beer --"; Ghostty: "ghostty" / "ghostty -e".

@@ -22,10 +22,4 @@
       lumafly
     ];
   };
-  perSystem = {pkgs, ...}: {
-    packages.amethyst-mod-manager = pkgs.callPackage ../packages/amethyst-mod-manager.nix {
-      src = inputs.amethyst-mod-manager;
-      liblootSrc = inputs.amethyst-libloot;
-    };
-  };
 }
