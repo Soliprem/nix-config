@@ -222,7 +222,7 @@
           # Application/Script Binds
           bind=NONE,XF86PowerOff,spawn,wlogout
           bind=SUPER,V,spawn, clipmenu
-          bind=SUPER,x,spawn,material-shell ipc call sidebar toggle
+          bind=SUPER,x,spawn,rice-style action panel
           bind=SUPER,E,spawn,nautilus --new-window
           bind=SUPER,t,spawn,notify-time
           bindc=SUPER+SHIFT,v,spawn,notify-volume
@@ -242,7 +242,7 @@
           bind=SUPER,f,togglemaximizescreen
           bind=SUPER+SHIFT,f,togglefullscreen
           bind=SUPER+ALT,f,togglefakefullscreen
-          bind=SUPER+ALT,l,spawn,swaylock
+          bind=SUPER+ALT,l,spawn,rice-lock
 
           # Screenshots
           bind=SUPER,P,spawn,grimpick
@@ -251,26 +251,25 @@
           bind=SUPER+ALT,P,spawn,grimblast save active
 
           # Media Keys (Volume)
-          bind=NONE,XF86AudioRaiseVolume,spawn,swayosd-client --output-volume raise
-          bind=NONE,XF86AudioLowerVolume, spawn, swayosd-client --output-volume lower
-          bind=NONE,XF86AudioMute,spawn, swayosd-client --output-volume mute-toggle
+          bind=NONE,XF86AudioRaiseVolume,spawn,rice-style action volume-up
+          bind=NONE,XF86AudioLowerVolume, spawn, rice-style action volume-down
+          bind=NONE,XF86AudioMute,spawn, rice-style action volume-mute
 
           # Media Keys (Mic)
-          bind=NONE,XF86AudioMicMute,spawn,swayosd-client --input-volume mute-toggle
-          bindc=SUPER+SHIFT,M,spawn,swayosd-client --output-volume mute-toggle
+          bind=NONE,XF86AudioMicMute,spawn,rice-style action mic-mute
+          bindc=SUPER+SHIFT,M,spawn,rice-style action volume-mute
 
           # Media Keys (Playback)
-          bind=NONE,XF86AudioMedia,spawn,swayosd-client --playerctl play-pause
-          bind=NONE,XF86AudioPlay,spawn,swayosd-client --playerctl play-pause
+          bind=NONE,XF86AudioMedia,spawn,playerctl play-pause
+          bind=NONE,XF86AudioPlay,spawn,playerctl play-pause
           bind=NONE,XF86AudioPrev,spawn,playerctl previous
           bind=NONE,XF86AudioNext,spawn,playerctl next
 
           # Media Keys (Brightness)
-          bind=NONE,XF86MonBrightnessUp,spawn,swayosd-client --brightness raise
-          bind=NONE,XF86MonBrightnessDown,spawn,swayosd-client --brightness lower
+          bind=NONE,XF86MonBrightnessUp,spawn,rice-style action brightness-up
+          bind=NONE,XF86MonBrightnessDown,spawn,rice-style action brightness-down
 
           # Other Keys
-          bind=NONE,Caps_Lock,spawn,sleep 0.1 && swayosd-client --caps-lock
 
           # Workspace/Tag Binds (1-9)
           bind=SUPER,1,comboview,1
@@ -490,13 +489,11 @@
         ".config/mango/autostart.sh".source = pkgs.writers.writeBash "autostart.sh" ''
           stash watch &
           xwayland-satellite &
-          awww-daemon &
           battery-monitor &
           emacs --daemon &
           rice-style apply &
           nm-applet &
           kanshi &
-          swayosd-server &
           sunsetr &
           gomuks-web &
         '';

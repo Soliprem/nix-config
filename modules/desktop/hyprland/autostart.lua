@@ -2,18 +2,14 @@ local H = require("helpers")
 hl.on("hyprland.start", function()
   hl.exec_cmd(
     "systemctl --user import-environment WAYLAND_DISPLAY DISPLAY HYPRLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP XDG_SESSION_TYPE && " ..
-      "systemctl --user start nixos-fake-graphical-session.target"
+      "systemctl --user start nixos-fake-graphical-session.target && rice-style apply"
   )
   for _, cmd in ipairs({
     "iio-hyprland",
     "beer --server",
-    "hypridle",
     "battery-monitor",
     "emacs --daemon",
-    "swayosd-server",
-    "awww-daemon",
     "nm-applet",
-    "rice-style apply",
     "bitwarden",
     "protonvpn-app",
     "kanshi",

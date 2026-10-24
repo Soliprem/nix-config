@@ -50,7 +50,6 @@
         decompressFonts = true;
       };
       packages = with pkgs; [
-        inputs.self.packages.${system}.cyberarch-fonts
         # defaults worth keeping
         dejavu_fonts
         freefont_ttf

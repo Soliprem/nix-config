@@ -1,0 +1,56 @@
+# GUI changes in ~/.local/state/noctalia/settings.toml override this base.
+[bar.default]
+reserve_space = false
+smart_auto_hide = true
+
+[lockscreen_widgets]
+widget_order = ["lockscreen-login-box@eDP-1"]
+
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+box_height = 196.0
+box_width = 810.0
+cx = 960.0
+cy = 1018.0
+output = "eDP-1"
+placement_height = 1200.0
+placement_width = 1920.0
+rotation = 0.0
+type = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+background_color = "surface_variant"
+background_opacity = 0.88
+background_radius = 12.0
+center_password_text = false
+input_opacity = 1.0
+input_radius = 6.0
+layout = "regular"
+show_caps_lock = true
+show_keyboard_layout = true
+show_login_button = true
+show_media = true
+show_password_reveal = true
+show_session_buttons = true
+show_unlock_hint = true
+show_weather = true
+
+[plugins]
+enabled = [
+    "frai3mega/battery-graph",
+    "noctalia/bitwarden",
+    "avivbintangaringga/nix-monitor",
+    "knyrps/nix-search",
+    "riversyx/noctaproton-vpn",
+]
+
+[theme]
+source = "wallpaper"
+
+[wallpaper.default]
+path = "/home/soliprem/Pictures/Wallpapers/gruvbox/waterfall2.jpg"
+
+[wallpaper.last]
+path = "/home/soliprem/Pictures/Wallpapers/gruvbox/waterfall2.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "/home/soliprem/Pictures/Wallpapers/gruvbox/waterfall2.jpg"

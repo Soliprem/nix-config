@@ -78,13 +78,11 @@
 
           spawn-at-startup "stash" "watch" "--persist"
           spawn-at-startup "xwayland-satellite"
-          spawn-at-startup "awww-daemon"
           spawn-at-startup "battery-monitor"
           spawn-at-startup "rice-style" "apply"
           spawn-at-startup "nm-applet"
           spawn-at-startup "kanshi"
           spawn-at-startup "protonvpn-app"
-          spawn-at-startup "swayosd-server"
           spawn-at-startup "sunsetr"
 
           prefer-no-csd
@@ -164,8 +162,8 @@
               Mod+Shift+B { spawn "overskride"; }
               Mod+D { spawn "fuzzel"; }
               Mod+Shift+D { spawn "fuzzel-run"; }
-              Super+Alt+L allow-when-locked=true { spawn "swaylock"; }
-              Super+X { spawn "material-shell" "ipc" "call" "sidebar" "toggle"; }
+              Super+Alt+L allow-when-locked=true { spawn "rice-lock"; }
+              Super+X { spawn "rice-style" "action" "panel"; }
               Super+V {spawn "clipmenu"; }
               Mod+T     { spawn "notify-time"; }
               Mod+Control+W     { spawn ${spawnArgs (terminalCommand ++ ["wiki-tui"])}; }
@@ -179,13 +177,12 @@
               Mod+Shift+Alt+Period { spawn "fuzzel-emoji"; }
               Mod+Shift+Semicolon { spawn "dm-expand"; }
 
-              XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
-              XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
-              XF86AudioMute        allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
-              XF86AudioMicMute     allow-when-locked=true { spawn "swayosd-client" "--input-volume" "mute-toggle"; }
-              XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
-              XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
-              Caps_Lock { spawn "sleep" "0.1" "&&" "swayosd-client" "--caps-lock"; }
+              XF86AudioRaiseVolume allow-when-locked=true { spawn "rice-style" "action" "volume-up"; }
+              XF86AudioLowerVolume allow-when-locked=true { spawn "rice-style" "action" "volume-down"; }
+              XF86AudioMute        allow-when-locked=true { spawn "rice-style" "action" "volume-mute"; }
+              XF86AudioMicMute     allow-when-locked=true { spawn "rice-style" "action" "mic-mute"; }
+              XF86MonBrightnessUp allow-when-locked=true { spawn "rice-style" "action" "brightness-up"; }
+              XF86MonBrightnessDown allow-when-locked=true { spawn "rice-style" "action" "brightness-down"; }
 
               XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
               XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }

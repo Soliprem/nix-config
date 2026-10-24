@@ -21,14 +21,12 @@ while true; do
       if [ "$capacity" -le 15 ] && [ "$capacity" -gt 5 ]; then
         if [ "$capacity" -eq 15 ] || [ "$last_notified_level" -gt 15 ]; then
           notify-battery
-          swayosd-client --custom-text="Battery low ($capacity)" --custom-icon=battery
         fi
 
       # 5% - Critical
       elif [ "$capacity" -le 5 ] && [ "$capacity" -gt 2 ]; then
         if [ "$capacity" -eq 5 ] || [ "$last_notified_level" -gt 5 ]; then
           notify-send -u critical "Battery Critical" "Level is at ${capacity}%. Connect charger!"
-          swayosd-client --custom-text="Battery Critical ($capacity)" --custom-icon=battery
         fi
 
       # 2% - Sleep

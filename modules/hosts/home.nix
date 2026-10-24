@@ -19,6 +19,7 @@
       (
         {pkgs, ...}: {
           networking.hostName = "nixos-home";
+          networking.interfaces.enp113s0.wakeOnLan.enable = true;
 
           boot.kernelPackages = pkgs.linuxPackages_latest;
 
