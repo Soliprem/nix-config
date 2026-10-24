@@ -1,1 +1,1 @@
-swayosd-client --custom-message=" - $(date +"%T - %d, %B %4Y") - " --custom-icon=clock
+notify-send "Time" "$(date +"%T - %d, %B %Y")"

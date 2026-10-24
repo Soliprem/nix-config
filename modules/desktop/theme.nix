@@ -29,7 +29,6 @@
       pkgs,
       ...
     }: let
-      cyberarchShell = inputs.self.packages.${system}.cyberarch-shell;
       materialSettings = pkgs.writeText "gtk-material.ini" ''
         [Settings]
         gtk-cursor-theme-name=Bibata-Modern-Ice
@@ -37,15 +36,6 @@
         gtk-font-name=${fontProfiles.ui} 12
         gtk-icon-theme-name=breeze-dark
         gtk-theme-name=adw-gtk3
-      '';
-      cyberpunkSettings = pkgs.writeText "gtk-cyberpunk.ini" ''
-        [Settings]
-        gtk-cursor-theme-name=CyberArch-cursors
-        gtk-cursor-theme-size=48
-        gtk-font-name=${fontProfiles.ui} 12
-        gtk-icon-theme-name=CyberArch
-        gtk-theme-name=adw-gtk3
-        gtk-application-prefer-dark-theme=1
       '';
       materialCss = pkgs.writeText "gtk-material.css" "";
       qtFont = family: size: "\"${family},${toString size},-1,5,400,0,0,0,0,0,0,0,0,0,0,1\"";
@@ -71,14 +61,6 @@
         ".config/gtk-4.0/rice.css".source = materialCss;
         ".config/nixrice/themes/material/gtk-settings.ini".source = materialSettings;
         ".config/nixrice/themes/material/gtk.css".source = materialCss;
-        ".config/nixrice/themes/cyberpunk/gtk-settings.ini".source = cyberpunkSettings;
-        ".config/nixrice/themes/cyberpunk/gtk.css".source = "${cyberarchShell}/share/assets/gtk/gtk.css";
-        ".config/nixrice/themes/cyberpunk/kvantum.kvconfig".text = ''
-          [General]
-          theme=NixRiceCyberArch
-        '';
-        ".config/Kvantum/NixRiceCyberArch/NixRiceCyberArch.kvconfig".source = "${cyberarchShell}/share/Kvantum/Daemon/Daemon.kvconfig";
-        ".config/Kvantum/NixRiceCyberArch/NixRiceCyberArch.svg".source = "${cyberarchShell}/share/Kvantum/Daemon/Daemon.svg";
         ".config/qt5ct/qt5ct.conf".text = ''
           [Appearance]
           color_scheme_path=~/.config/qt5ct/colors/matugen.conf

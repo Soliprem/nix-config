@@ -5,8 +5,6 @@
       hyprshot
       hyprshutdown
       iio-hyprland
-      hyprlock
-      hypridle
     ];
     hjem.users.soliprem = {
       fontProfiles,

@@ -8,6 +8,9 @@
     terminals
     theme
     desktop-shell
+    material-shell
+    cyberpunk-shell
+    noctalia-shell
     hyprland
     niri
     mango

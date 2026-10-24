@@ -6,37 +6,8 @@
     system,
     ...
   }: let
-    cyberarchShell = inputs.self.packages.${system}.cyberarch-shell;
     gsettingsSchemaPath = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}";
     scripts = [
-      (pkgs.writeShellApplication {
-        name = "cyberarch-ctl";
-        runtimeInputs = [pkgs.socat];
-        text = builtins.readFile ../../scripts/cyberarch-ctl.sh;
-      })
-      (pkgs.writeShellApplication {
-        name = "rice-lock";
-        runtimeInputs = [cyberarchShell pkgs.hyprlock pkgs.procps pkgs.swaylock-effects];
-        text = builtins.readFile ../../scripts/rice-lock.sh;
-      })
-      (pkgs.writeShellApplication {
-        name = "rice-style";
-        runtimeInputs = [
-          cyberarchShell
-          inputs.material-shell.packages.${system}.default
-          pkgs.awww
-          pkgs.coreutils
-          pkgs.glib
-          pkgs.gsettings-desktop-schemas
-          pkgs.hyprland
-          pkgs.systemd
-        ];
-        runtimeEnv = {
-          CYBERARCH_WALLPAPER = "${cyberarchShell}/share/assets/img/lucy_wallpaper.png";
-          NIXRICE_GSETTINGS_SCHEMA_PATH = gsettingsSchemaPath;
-        };
-        text = builtins.readFile ../../scripts/rice-style.sh;
-      })
       (pkgs.writeShellApplication {
         name = "toggle-polarity";
         runtimeInputs = with pkgs; [
@@ -53,7 +24,6 @@
         name = "battery-monitor";
         runtimeInputs = with pkgs; [
           libnotify
-          swayosd
           findutils
           systemd
           gnugrep
@@ -69,7 +39,6 @@
           "${lib.makeBinPath [
             pkgs.libnotify
             pkgs.nushell
-            pkgs.swayosd
           ]}"
         ];
       } (builtins.readFile ../../scripts/notify-battery.nu))
@@ -155,6 +124,7 @@
       })
       (pkgs.writeShellApplication {
         name = "notify-time";
+        runtimeInputs = with pkgs; [coreutils libnotify];
         text = builtins.readFile ../../scripts/notify-time.sh;
       })
       (pkgs.writeShellApplication {
@@ -223,7 +193,6 @@
       logind.settings.Login.HandlePowerKey = "ignore";
       pulseaudio.enable = false;
       udev.packages = with pkgs; [
-        swayosd
         via
         vial
         qmk-udev-rules
@@ -239,8 +208,6 @@
     environment.systemPackages =
       scripts
       ++ (with pkgs; [
-        inputs.self.packages.${system}.cyberarch-shell
-        inputs.material-shell.packages.${system}.default
         inputs.thumbpick.packages.${system}.default
         stash-clipboard
         brightnessctl
@@ -250,10 +217,6 @@
         kanshi
         kdePackages.polkit-kde-agent-1
         satty
-        swaylock-effects
-        quickshell
-        swayosd
-        awww
         tofi
         tray-tui
         wayneko
@@ -274,7 +237,6 @@
       pam.services = {
         soliprem.enableGnomeKeyring = true;
         sddm.enableGnomeKeyring = true;
-        "cyberarch-lock" = {};
       };
       pki.certificateFiles = [../../assets/almawifi.cer];
       polkit = {
@@ -283,19 +245,6 @@
       };
     };
     systemd = {
-      services.swayosd-libinput-backend = {
-        description = "SwayOSD LibInput backend for listening to certain keys like CapsLock, ScrollLock, VolumeUp, etc.";
-        documentation = ["https://github.com/ErikReider/SwayOSD"];
-        wantedBy = ["graphical.target"];
-        partOf = ["graphical.target"];
-        after = ["graphical.target"];
-        serviceConfig = {
-          Type = "dbus";
-          BusName = "org.erikreider.swayosd";
-          ExecStart = "${pkgs.swayosd}/bin/swayosd-libinput-backend";
-          Restart = "on-failure";
-        };
-      };
       user.services = {
         polkit-kde-authentication-agent-1 = {
           description = "polkit-kde-authentication-agent-1";
@@ -308,16 +257,6 @@
             Restart = "on-failure";
             RestartSec = 1;
             TimeoutStopSec = 10;
-          };
-        };
-        rice-shell = {
-          description = "Selected desktop shell profile";
-          partOf = ["graphical-session.target"];
-          after = ["graphical-session-pre.target"];
-          serviceConfig = {
-            ExecStart = "/run/current-system/sw/bin/rice-style run";
-            Restart = "on-failure";
-            RestartSec = 1;
           };
         };
       };
@@ -903,13 +842,5 @@
         '';
       };
     };
-  };
-  perSystem = {
-    pkgs,
-    system,
-    ...
-  }: {
-    packages.cyberarch-shell = pkgs.callPackage ../../packages/cyberarch-shell.nix {src = inputs.cyberarch;};
-    packages.cyberarch-fonts = inputs.self.packages.${system}.cyberarch-shell;
   };
 }
