@@ -182,7 +182,8 @@
 
           # Common mode - bindings available in all modes
           key_mode = common
-          bind=SUPER+CTRL,R,reload_config
+          bind=SUPER+CTRL,R,spawn,rice-style toggle
+          bind=SUPER+CTRL+SHIFT,R,reload_config
           bind=SUPER+CTRL,t,spawn,${terminalCommand} tray-tui
           bind=SUPER+CTRL,w,spawn,${terminalCommand} wiki-tui
           bind=SUPER,g,toggleoverview
@@ -196,12 +197,13 @@
           bind=SUPER,i,minimized
           bind=SUPER+SHIFT,i,restore_minimized
           bind=ALT,Tab,focuslast
+          bind=SUPER,Tab,focuslast
 
           # Terminal, Launcher, Browser
           bind=SUPER,Return,spawn,${terminal}
           bind=SUPER+SHIFT,Return,spawn,emacsclient -c
           bind=SUPER,w,spawn,zen-beta
-          bind=SUPER,d,spawn,fuzzel
+          bind=SUPER,d,spawn,rice-style action launcher
           bind=SUPER+SHIFT,d,spawn,fuzzel-run
 
           # Window Management
@@ -225,9 +227,9 @@
           bind=SUPER,x,spawn,rice-style action panel
           bind=SUPER,E,spawn,nautilus --new-window
           bind=SUPER,t,spawn,notify-time
-          bindc=SUPER+SHIFT,v,spawn,notify-volume
+          bind=SUPER+SHIFT,v,toggle_named_scratchpad,^(proton[.]vpn[.]app[.]gtk|protonvpn-app)$,none,protonvpn-app
           bind=SUPER,b,spawn,notify-battery
-          bind=NONE,Print,spawn,grimblast copy area
+          bind=NONE,Print,spawn,rice-style action screenshot-region
           bind=SUPER+SHIFT+ALT,period,spawn,fuzzel-emoji
           bind=SUPER,n,spawn,dm-notes
           bind=SUPER+SHIFT,n,spawn,${terminalCommand} notes
@@ -239,16 +241,24 @@
           bind=SUPER+ALT,n,spawn,dm-sunsetr
           bind=SUPER,F1,spawn,gamemode
 
+          bind=SUPER+CTRL+ALT,v,spawn,rice-style action audio
+          bind=SUPER+CTRL+ALT,n,spawn,rice-style action network
+          bind=SUPER+CTRL+ALT,b,spawn,rice-style action bluetooth
+          bind=SUPER+CTRL+ALT,p,spawn,rice-style action power
+          bind=SUPER+CTRL+ALT,c,spawn,rice-style action system
+          bind=SUPER+CTRL+ALT,m,spawn,rice-style action notifications
+          bind=SUPER+CTRL+ALT,o,spawn,rice-style action media
+
           bind=SUPER,f,togglemaximizescreen
           bind=SUPER+SHIFT,f,togglefullscreen
           bind=SUPER+ALT,f,togglefakefullscreen
           bind=SUPER+ALT,l,spawn,rice-lock
 
           # Screenshots
-          bind=SUPER,P,spawn,grimpick
-          bind=SUPER+SHIFT,S,spawn,grimpick region
-          bind=SUPER+SHIFT,P,spawn,grimblast save output
-          bind=SUPER+ALT,P,spawn,grimblast save active
+          bind=SUPER,P,spawn,rice-style action screenshot
+          bind=SUPER+SHIFT,S,spawn,rice-style action screenshot-region
+          bind=SUPER+SHIFT,P,spawn,rice-style action screenshot-screen
+          bind=SUPER+ALT,P,spawn,rice-style action screenshot-window
 
           # Media Keys (Volume)
           bind=NONE,XF86AudioRaiseVolume,spawn,rice-style action volume-up
@@ -257,7 +267,7 @@
 
           # Media Keys (Mic)
           bind=NONE,XF86AudioMicMute,spawn,rice-style action mic-mute
-          bindc=SUPER+SHIFT,M,spawn,rice-style action volume-mute
+          bind=SUPER+SHIFT,M,spawn,rice-style action volume-mute
 
           # Media Keys (Playback)
           bind=NONE,XF86AudioMedia,spawn,playerctl play-pause
@@ -304,8 +314,6 @@
           # bindc runs every command sharing the shortcut.
           bindc=SUPER+SHIFT,T,setlayout,tile
           bindc=SUPER+SHIFT,T,setkeymode,default
-          bindc=SUPER+SHIFT,M,setlayout,monocle
-          bindc=SUPER+SHIFT,M,setkeymode,monocle
           bindc=SUPER+SHIFT,G,setlayout,grid
           bindc=SUPER+SHIFT,G,setkeymode,grid
           bindc=SUPER+SHIFT,X,setlayout,scroller
@@ -316,8 +324,8 @@
           bindc=SUPER+SHIFT,C,setkeymode,center_tile
           bindc=SUPER+SHIFT,R,setlayout,right_tile
           bindc=SUPER+SHIFT,R,setkeymode,right_tile
-          bindc=SUPER+SHIFT,V,setlayout,vertical_tile
-          bindc=SUPER+SHIFT,V,setkeymode,vertical_tile
+          bindc=SUPER+CTRL+SHIFT,V,setlayout,vertical_tile
+          bindc=SUPER+CTRL+SHIFT,V,setkeymode,vertical_tile
           bindc=SUPER+CTRL,G,setlayout,vertical_grid
           bindc=SUPER+CTRL,G,setkeymode,vertical_grid
           bindc=SUPER+CTRL,X,setlayout,vertical_scroller

@@ -3,6 +3,9 @@
 reserve_space = false
 smart_auto_hide = true
 
+[hooks]
+wallpaper_changed = 'nixrice "$NOCTALIA_WALLPAPER_PATH"'
+
 [lockscreen_widgets]
 widget_order = ["lockscreen-login-box@eDP-1"]
 

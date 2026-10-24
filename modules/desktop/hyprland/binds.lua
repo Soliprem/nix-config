@@ -7,16 +7,9 @@ local browser = H.browser
 local exec = hl.dsp.exec_cmd
 local cyberpunk = H.cyberpunk
 
-local shell_action = function(action, fallback)
-  if cyberpunk then
-    return type(action) == "string" and exec('cyberarch-ctl "' .. action .. '"') or action
-  end
-  return fallback
-end
-
 local common_keybinds = {
   XF86PowerOff = { action = exec("wlogout"), },
-  Print = { action = exec("grimblast copy area"), },
+  Print = { action = exec("rice-style action screenshot-region"), },
   XF86AudioMicMute = { action = exec("rice-style action mic-mute"), opts = { locked = true }, },
   XF86AudioMute = { action = exec("rice-style action volume-mute"), opts = { locked = true }, },
   XF86AudioPlay = { action = exec("playerctl play-pause"), opts = { locked = true }, },
@@ -40,15 +33,15 @@ local common_keybinds = {
   SUPER = {
     SHIFT = {
       Q = { action = exec("hyprctl kill"), },
-      P = { action = shell_action("modal pwr", exec("hyprshot -m output -m active -c -r - | satty -f -")), },
-      S = { action = shell_action("region-shot", exec("hyprshot -m region -r - | wl-copy")), },
-      v = { action = shell_action("modal vol", hl.dsp.workspace.toggle_special("protonvpn")), },
-      n = { action = shell_action("modal wifi", exec(terminalCommand .. " notes")), },
-      b = { action = shell_action("modal bt", exec("overskride")), },
+      P = { action = exec("rice-style action screenshot-screen"), },
+      S = { action = exec("rice-style action screenshot-region"), },
+      v = { action = hl.dsp.workspace.toggle_special("protonvpn"), },
+      n = { action = exec(terminalCommand .. " notes"), },
+      b = { action = exec("overskride"), },
       d = { action = exec("fuzzel-run"), },
       semicolon = { action = exec("dm-expand"), },
-      m = { action = shell_action("notif-hud", exec("rice-style action volume-mute")), opts = { locked = true }, },
-      E = { action = shell_action("notif-hud", hl.dsp.exit()), },
+      m = { action = exec("rice-style action volume-mute"), opts = { locked = true }, },
+      E = { action = hl.dsp.exit(), },
       Comma = { action = hl.dsp.window.move({ monitor = "-1" }), },
       Return = { action = exec("emacsclient -c"), },
       Period = { action = hl.dsp.window.move({ monitor = "+1" }), },
@@ -56,7 +49,7 @@ local common_keybinds = {
       f = { action = hl.dsp.window.fullscreen({ mode = "fullscreen" }), },
       ALT = {
         Period = { action = exec("fuzzel-emoji"), },
-      n = { action = exec(terminalCommand .. " notes"), },
+        n = { action = exec(terminalCommand .. " notes"), },
       },
     },
     CTRL = {
@@ -66,6 +59,15 @@ local common_keybinds = {
       w = { action = exec(terminalCommand .. " wiki-tui"), },
       v = { action = exec("pwvucontrol"), },
       r = { action = exec("rice-style toggle"), },
+      ALT = {
+        v = { action = exec("rice-style action audio"), },
+        n = { action = exec("rice-style action network"), },
+        b = { action = exec("rice-style action bluetooth"), },
+        p = { action = exec("rice-style action power"), },
+        c = { action = exec("rice-style action system"), },
+        m = { action = exec("rice-style action notifications"), },
+        o = { action = exec("rice-style action media"), },
+      },
     },
     ALT = {
       T = { action = function() H.set_layout("master") end },
@@ -77,25 +79,25 @@ local common_keybinds = {
       -- p = { action = hl.dsp.window.pin(), },
       F = { action = hl.dsp.window.fullscreen_state({ internal = -1, client = 2 }), },
       l = { action = exec("rice-lock"), },
-      P = { action = exec("hyprshot -m window -r - | satty -f -"), },
+      P = { action = exec("rice-style action screenshot-window"), },
       N = { action = exec("dm-sunsetr"), },
     },
     Q = { action = hl.dsp.window.close(), },
     ["mouse:272"] = { action = hl.dsp.window.drag(), opts = { mouse = true }, },
     z = { action = hl.dsp.window.drag(), opts = { mouse = true }, },
     ["mouse:273"] = { action = hl.dsp.window.resize(), opts = { mouse = true }, },
-    Tab = { action = shell_action("apps-menu", hl.dsp.focus({ last = true })), },
+    Tab = { action = hl.dsp.focus({ last = true }), },
     Comma = { action = hl.dsp.focus({ monitor = "-1" }), },
     Period = { action = hl.dsp.focus({ monitor = "+1" }), },
     s = { action = hl.dsp.workspace.toggle_special(""), },
     f = { action = hl.dsp.window.fullscreen({ mode = "maximized" }), },
-    P = { action = exec("hyprshot -m output -c -r - | satty -f -"), },
+    P = { action = exec("rice-style action screenshot"), },
     F1 = { action = exec("gamemode"), },
     Return = { action = exec(terminal), },
     w = { action = exec(browser), },
     E = { action = exec("nautilus --new-window"), },
     n = { action = exec("dm-notes"), },
-    d = { action = shell_action("apps-menu", exec("fuzzel")), },
+    d = { action = exec("rice-style action launcher"), },
     V = { action = exec("clipmenu"), },
     o = { action = exec("dm-hub"), },
     minus = { action = exec("wtype -k emdash"), },
