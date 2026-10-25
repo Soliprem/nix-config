@@ -6,6 +6,7 @@
   }: let
     noctalia = "${config.programs.noctalia.package}/bin/noctalia";
   in {
+    systemd.user.services.noctalia.environment.HTTPS_PROXY = "http://127.0.0.1:1055";
     programs.noctalia = {
       enable = true;
       systemd = {

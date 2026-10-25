@@ -3,8 +3,21 @@
 reserve_space = false
 smart_auto_hide = true
 
+[calendar]
+enabled = true
+
+[calendar.account.soliprem_dav]
+name = "SoliDav"
+provider = "custom"
+server_url = "https://dav.soliprem.eu/caldav"
+type = "caldav"
+username = "Soliprem"
+
 [hooks]
 wallpaper_changed = 'nixrice "$NOCTALIA_WALLPAPER_PATH"'
+
+[location]
+address = "Bologna, Italy"
 
 [lockscreen_widgets]
 widget_order = ["lockscreen-login-box@eDP-1"]
@@ -46,8 +59,14 @@ enabled = [
     "riversyx/noctaproton-vpn",
 ]
 
+[shell.greeter_sync]
+auto_sync = true
+
 [theme]
 source = "wallpaper"
+
+[wallpaper]
+directory = "/home/soliprem/Pictures/wallpapers/"
 
 [wallpaper.default]
 path = "/home/soliprem/Pictures/Wallpapers/gruvbox/waterfall2.jpg"
