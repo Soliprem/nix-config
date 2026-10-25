@@ -15,6 +15,30 @@
         enable = true;
         settings.db.name = "/var/lib/wakapi/wakapi.db";
       };
+
+      iocaine = {
+        enable = true;
+        settings = {};
+        extraSettingsPaths = ["/etc/iocaine/config.kdl"];
+      };
+
+      caddy.virtualHosts = {
+        "foundry.soliprem.eu" = {
+          logFormat = null;
+          extraConfig = ''
+            import iocaine
+            reverse_proxy localhost:30000
+          '';
+        };
+
+        "waka.soliprem.eu" = {
+          logFormat = null;
+          extraConfig = ''
+            import iocaine
+            reverse_proxy localhost:3000
+          '';
+        };
+      };
     };
     users.groups.foundry = {};
     users.users.foundry = {
@@ -48,12 +72,6 @@
         ];
         LockPersonality = true;
       };
-    };
-
-    services.iocaine = {
-      enable = true;
-      settings = {};
-      extraSettingsPaths = ["/etc/iocaine/config.kdl"];
     };
 
     # The module cannot infer the IPv4 listeners in the external KDL config.

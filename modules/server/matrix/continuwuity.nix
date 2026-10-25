@@ -9,21 +9,32 @@
         file = ../../../secrets/server_continuwuity_registration_token.age;
       };
     };
-    services.matrix-continuwuity = {
-      enable = true;
-      settings.global = {
-        server_name = "soliprem.eu";
-        # The retained Docker bridges reach the host through host-gateway.
-        address = ["0.0.0.0"];
-        max_request_size = 2147483647;
-        allow_registration = true;
-        registration_token_file = "/run/credentials/continuwuity.service/registration_token";
-        matrix_rtc.foci = [
-          {
-            type = "livekit";
-            livekit_service_url = "https://livekit.soliprem.eu";
-          }
-        ];
+    services = {
+      matrix-continuwuity = {
+        enable = true;
+        settings.global = {
+          server_name = "soliprem.eu";
+          # The retained Docker bridges reach the host through host-gateway.
+          address = ["0.0.0.0"];
+          max_request_size = 2147483647;
+          allow_registration = true;
+          registration_token_file = "/run/credentials/continuwuity.service/registration_token";
+          matrix_rtc.foci = [
+            {
+              type = "livekit";
+              livekit_service_url = "https://livekit.soliprem.eu";
+            }
+          ];
+        };
+      };
+
+      caddy.virtualHosts."matrix.soliprem.eu" = {
+        logFormat = null;
+        serverAliases = ["matrix.soliprem.eu:8448"];
+        extraConfig = ''
+          import iocaine
+          reverse_proxy 127.0.0.1:6167
+        '';
       };
     };
 

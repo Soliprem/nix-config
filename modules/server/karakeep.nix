@@ -8,19 +8,37 @@
         file = ../../secrets/server_meilisearch_master_key.age;
       };
     };
-    services.karakeep = {
-      enable = true;
-      environmentFile = config.age.secrets.karakeep_env.path;
-      extraEnvironment = {
-        PORT = "60221";
-        HOSTNAME = "127.0.0.1";
-        DISABLE_SIGNUPS = "true";
-        NEXTAUTH_URL = "http://localhost:60221";
-        NEXTAUTH_URL_INTERNAL = "http://127.0.0.1:60221";
+    services = {
+      karakeep = {
+        enable = true;
+        environmentFile = config.age.secrets.karakeep_env.path;
+        extraEnvironment = {
+          PORT = "60221";
+          HOSTNAME = "127.0.0.1";
+          DISABLE_SIGNUPS = "true";
+          NEXTAUTH_URL = "http://localhost:60221";
+          NEXTAUTH_URL_INTERNAL = "http://127.0.0.1:60221";
+        };
+      };
+
+      meilisearch.masterKeyFile = config.age.secrets.meilisearch_master_key.path;
+
+      caddy.virtualHosts = {
+        "hr.soliprem.eu" = {
+          logFormat = null;
+          extraConfig = ''
+            redir https://hoarder.soliprem.eu{uri} permanent
+          '';
+        };
+
+        "hoarder.soliprem.eu" = {
+          logFormat = null;
+          extraConfig = ''
+            reverse_proxy localhost:60221
+          '';
+        };
       };
     };
-
-    services.meilisearch.masterKeyFile = config.age.secrets.meilisearch_master_key.path;
 
     systemd.services = {
       karakeep-init = {

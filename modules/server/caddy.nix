@@ -53,62 +53,6 @@
           }
         '';
 
-        "silksong-journal.soliprem.eu".extraConfig = ''
-          import iocaine
-          encode zstd gzip
-          handle /api/* {
-            reverse_proxy 127.0.0.1:3100
-          }
-
-          handle {
-            root * ${config.services.silksong-aa.siteRoot}
-            file_server
-          }
-        '';
-
-        "matrix.soliprem.eu" = {
-          serverAliases = ["matrix.soliprem.eu:8448"];
-          extraConfig = ''
-            import iocaine
-            reverse_proxy 127.0.0.1:6167
-          '';
-        };
-
-        "livekit.soliprem.eu".extraConfig = ''
-          import iocaine
-
-          @lk-jwt-service path /sfu/get* /healthz* /get_token* /sfu_webhook*
-          route @lk-jwt-service {
-            reverse_proxy 127.0.0.1:8081
-          }
-
-          reverse_proxy 127.0.0.1:7880
-        '';
-
-        "immich.soliprem.eu".extraConfig = ''
-          import iocaine
-          reverse_proxy 127.0.0.1:2283
-        '';
-
-        "files.soliprem.eu".extraConfig = ''
-          import iocaine
-          reverse_proxy localhost:8182
-        '';
-
-        "send.soliprem.eu".extraConfig = ''
-          redir https://microbin.soliprem.eu permanent
-        '';
-
-        "microbin.soliprem.eu".extraConfig = ''
-          import iocaine
-          # MicroBin merges and trims slashes before routing.
-          @protected path_regexp protected ^/+(upload/*|list/*|admin.*|auth_admin.*|edit/+.*|edit_private/+.*|submit_edit_private/+.*|remove/+.*)?$
-          basic_auth @protected {
-            admin {$SEND_BASIC_AUTH_HASH}
-          }
-          reverse_proxy localhost:1234
-        '';
-
         "al.soliprem.eu".extraConfig = ''
           route {
             import tailscale_only
@@ -125,69 +69,6 @@
         "adventurelog.soliprem.eu".extraConfig = ''
           redir https://al.soliprem.eu{uri} permanent
         '';
-
-        "vw.soliprem.eu".extraConfig = ''
-          import iocaine
-          reverse_proxy localhost:11001
-        '';
-
-        "nv.soliprem.eu".extraConfig = ''
-          route {
-            import tailscale_only
-            import iocaine
-            reverse_proxy localhost:4747
-          }
-        '';
-
-        "gonic.soliprem.eu".extraConfig = ''
-          redir https://nv.soliprem.eu{uri} permanent
-        '';
-
-        "memos.soliprem.eu".extraConfig = ''
-          import iocaine
-          reverse_proxy localhost:5230
-        '';
-
-        "foundry.soliprem.eu".extraConfig = ''
-          import iocaine
-          reverse_proxy localhost:30000
-        '';
-
-        "picsur.soliprem.eu".extraConfig = ''
-          redir https://microbin.soliprem.eu permanent
-        '';
-
-        "waka.soliprem.eu".extraConfig = ''
-          import iocaine
-          reverse_proxy localhost:3000
-        '';
-
-        "hr.soliprem.eu".extraConfig = ''
-          redir https://hoarder.soliprem.eu{uri} permanent
-        '';
-
-        "hoarder.soliprem.eu".extraConfig = ''
-          reverse_proxy localhost:60221
-        '';
-
-        "mail.soliprem.eu" = {
-          serverAliases = [
-            "autodiscover.soliprem.eu"
-            "autoconfig.soliprem.eu"
-          ];
-          logFormat = ''
-            output file /var/log/caddy/mail.soliprem.eu.log {
-              roll_disabled
-            }
-          '';
-          extraConfig = ''
-            route {
-              import tailscale_only
-              import iocaine
-              reverse_proxy 127.0.0.1:18081
-            }
-          '';
-        };
       };
     };
 

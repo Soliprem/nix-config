@@ -68,5 +68,13 @@
         MemoryDenyWriteExecute = true;
       };
     };
+
+    services.caddy.virtualHosts."files.soliprem.eu" = {
+      logFormat = null;
+      extraConfig = ''
+        import iocaine
+        reverse_proxy localhost:8182
+      '';
+    };
   };
 }
