@@ -31,4 +31,5 @@ in {
   "server_stalwart_dkim_private_key.age".publicKeys = users ++ [server];
   "server_calendar_credentials.age".publicKeys = users ++ [server];
   "server_filebrowser_env.age".publicKeys = users ++ [server];
+  "server_brewery_session_key.age".publicKeys = users ++ [server];
 }

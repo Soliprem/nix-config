@@ -61,6 +61,10 @@
       url = "git+https://git.notashelf.dev/notashelf/beer.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    brewery = {
+      url = "git+https://git.notashelf.dev/notashelf/brewery.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     cade = {
       url = "github:manic-systems/cade";
       inputs.nixpkgs.follows = "nixpkgs";

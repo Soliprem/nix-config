@@ -63,6 +63,26 @@
         "url": "https://git.notashelf.dev/notashelf/beer.git"
       }
     },
+    "brewery": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792824196,
+        "narHash": "sha256-L+4IGepOrWm+lI42fQbq3vZlBtxjWgQwWUnvfMDzRAM=",
+        "ref": "refs/heads/main",
+        "rev": "31757d204f55572cb1c13ec44f72a23f290ccde7",
+        "revCount": 373,
+        "type": "git",
+        "url": "https://git.notashelf.dev/notashelf/brewery.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.notashelf.dev/notashelf/brewery.git"
+      }
+    },
     "cade": {
       "inputs": {
         "fenix": "fenix",
@@ -749,6 +769,7 @@
         "agenix": "agenix",
         "amethyst-mod-manager": "amethyst-mod-manager",
         "beer": "beer",
+        "brewery": "brewery",
         "cade": "cade",
         "cyberarch": "cyberarch",
         "deploy-rs": "deploy-rs",
