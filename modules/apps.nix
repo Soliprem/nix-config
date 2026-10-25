@@ -14,7 +14,6 @@
       zoom-us
       openai-whisper
       cinny-desktop
-      sable
       beeper
       gomuks-web
       bitwarden-desktop

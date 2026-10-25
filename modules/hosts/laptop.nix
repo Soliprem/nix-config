@@ -18,6 +18,7 @@
 
           services = {
             watt.enable = true;
+            upower.enable = true;
             pipewire = {
               wireplumber = {
                 extraConfig = {
