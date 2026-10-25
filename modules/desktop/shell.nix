@@ -181,7 +181,8 @@
       };
     };
     services = {
-      displayManager.ly.enable = true;
+      # displayManager.ly.enable = true;
+      displayManager.noctalia-greeter.enable = true;
       earlyoom = {
         enable = true;
         enableNotifications = true;
