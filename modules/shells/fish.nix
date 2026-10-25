@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.shells = {
+  flake.modules.nixos.fishModule = {
     programs.fish = {
       enable = true;
       useBabelfish = true;

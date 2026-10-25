@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.shells = {pkgs, ...}: {
+  flake.modules.nixos.fastfetchModule = {pkgs, ...}: {
     environment.systemPackages = [pkgs.fastfetch];
     hjem.users.soliprem.files = {
       ".config/fastfetch/config.jsonc".text = ''

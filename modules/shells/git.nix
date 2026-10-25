@@ -1,5 +1,8 @@
-{
-  flake.modules.nixos.shells = {pkgs, ...}: {
+{inputs, ...}: {
+  flake.modules.nixos.gitModule = {pkgs, ...}: {
+    imports = [
+      inputs.agenix.nixosModules.default
+    ];
     age.secrets = {
       github_authinfo = {
         file = ../../secrets/github_authinfo.age;

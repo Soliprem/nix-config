@@ -27,10 +27,8 @@
     environment = {
       systemPackages = [inputs.agenix.packages.${system}.default];
       shells = with pkgs; [
-        nushell
         busybox
         "${busybox}/bin/ash"
-        fish
       ];
     };
     users.users.root.openssh.authorizedKeys.keys = import ../secrets/user-keys.nix;

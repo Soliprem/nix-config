@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.shells = {
+  flake.modules.nixos.zshModule = {
     programs.zsh.enable = true;
   };
 }

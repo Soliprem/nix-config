@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.shells = {pkgs, ...}: {
+  flake.modules.nixos.starshipModule = {pkgs, ...}: {
     environment.systemPackages = [pkgs.starship];
     hjem.users.soliprem.files = {
       ".config/starship.toml".text = ''

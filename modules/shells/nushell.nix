@@ -1,6 +1,7 @@
 {
-  flake.modules.nixos.shells = {
+  flake.modules.nixos.nushellModule = {pkgs, ...}: {
     programs.nushell.enable = true;
+    environment.shells = [pkgs.nushell];
     hjem.users.soliprem.files = {
       ".config/nushell/config.nu".text =
         /*

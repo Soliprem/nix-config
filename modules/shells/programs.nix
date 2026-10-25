@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.modules.nixos.shells = {
+  flake.modules.nixos.shellTools = {
     lib,
     pkgs,
     system,
@@ -19,23 +19,8 @@
         pinentryPackage = lib.mkDefault pkgs.pinentry-curses;
       };
     };
-    age.secrets = {
-      bitwarden_clientid = {
-        file = ../../secrets/bitwarden_clientid.age;
-        owner = "soliprem";
-      };
-      bitwarden_clientsecret = {
-        file = ../../secrets/bitwarden_clientsecret.age;
-        owner = "soliprem";
-      };
-      bitwarden_password = {
-        file = ../../secrets/bitwarden_password.age;
-        owner = "soliprem";
-      };
-    };
     imports = [
       inputs.eh.nixosModules.default
-
       inputs.cade.nixosModules.default
     ];
     environment.systemPackages = with pkgs; [
