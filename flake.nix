@@ -62,7 +62,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     brewery = {
-      url = "git+https://git.notashelf.dev/notashelf/brewery.git";
+      url = "git+ssh://git@git.notashelf.dev:33/notashelf/brewery.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     cade = {

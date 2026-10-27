@@ -76,11 +76,11 @@
         "rev": "31757d204f55572cb1c13ec44f72a23f290ccde7",
         "revCount": 373,
         "type": "git",
-        "url": "https://git.notashelf.dev/notashelf/brewery.git"
+        "url": "ssh://git@git.notashelf.dev:33/notashelf/brewery.git"
       },
       "original": {
         "type": "git",
-        "url": "https://git.notashelf.dev/notashelf/brewery.git"
+        "url": "ssh://git@git.notashelf.dev:33/notashelf/brewery.git"
       }
     },
     "cade": {
