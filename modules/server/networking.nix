@@ -63,6 +63,21 @@
       openFirewall = true;
     };
 
+    # Larger tailnet HTTPS segments stall through the client's nested VPN.
+    # MSS 1160 reduced a full DAV fetch from 24 seconds to 4 seconds.
+    networking.nftables = {
+      enable = true;
+      tables.tailscale-mss = {
+        family = "inet";
+        content = ''
+          chain output {
+            type route hook output priority mangle; policy accept;
+            oifname "tailscale0" tcp sport 443 tcp flags & syn == syn tcp option maxseg size > 1160 tcp option maxseg size set 1160
+          }
+        '';
+      };
+    };
+
     services.dnsmasq = {
       enable = true;
       resolveLocalQueries = false;
