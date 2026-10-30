@@ -22,7 +22,7 @@
   :pin "baa97a92781d0e9882b4e72c327233c283350146")
 (package! gomuks
   :recipe (:host github :repo "soliprem/gomuks.el")
-  :pin "4ecdbf8845b7436c3383fb8e55ea701cff1b52cc")
+  :pin "fc1197d95c343eec280dc8df842eb5e2395f579d")
 (package! sub-buffer
   :recipe (:host github :repo "soliprem/sub-buffer.el")
   :pin "9b4070b5467de1ebec58bbcd252c792a089e0d58")
