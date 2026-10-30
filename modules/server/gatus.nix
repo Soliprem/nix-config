@@ -34,6 +34,7 @@
             "Memos" = "http://127.0.0.1:5230/";
             "MicroBin" = "http://127.0.0.1:1234/";
             "Pager" = "http://127.0.0.1:18080/health";
+            "SearXNG" = "http://127.0.0.1:8888/healthz";
             "Signal bridge" = "http://127.0.0.1:29328/_matrix/mau/ready";
             "Silksong" = "http://127.0.0.1:3100/api/health";
             "Telegram bridge" = "http://127.0.0.1:29317/_matrix/mau/ready";

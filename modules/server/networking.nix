@@ -95,6 +95,7 @@
           "nv"
           "gonic"
           "gatus"
+          "search"
           "mail"
           "autodiscover"
           "autoconfig"

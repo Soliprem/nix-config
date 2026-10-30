@@ -15,6 +15,7 @@
         "al.soliprem.eu"
         "nv.soliprem.eu"
         "gatus.soliprem.eu"
+        "search.soliprem.eu"
         "autodiscover.soliprem.eu"
         "autoconfig.soliprem.eu"
         "stalwart.soliprem.eu"

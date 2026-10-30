@@ -32,4 +32,5 @@ in {
   "server_calendar_credentials.age".publicKeys = users ++ [server];
   "server_filebrowser_env.age".publicKeys = users ++ [server];
   "server_brewery_session_key.age".publicKeys = users ++ [server];
+  "server_searx_env.age".publicKeys = users ++ [server];
 }
