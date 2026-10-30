@@ -35,6 +35,7 @@
       meow
       nautilus
       obsidian
+      zotero
       papers
       losange
       zathura
@@ -84,7 +85,6 @@
           # Additional libraries that might be needed
           libxkbcommon
           wayland
-          zotero
         ];
       };
       kdeconnect.enable = true;
