@@ -12,7 +12,6 @@
       typst
       tinymist
       (texliveSmall.withPackages (ps: [ps.dvipng]))
-      zed-editor
     ];
   };
 }
