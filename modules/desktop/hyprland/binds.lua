@@ -5,7 +5,6 @@ local terminal = H.terminal
 local terminalCommand = H.terminalCommand
 local browser = H.browser
 local exec = hl.dsp.exec_cmd
-local cyberpunk = H.cyberpunk
 
 local common_keybinds = {
   XF86PowerOff = { action = exec("wlogout"), },
@@ -107,24 +106,6 @@ local common_keybinds = {
   },
 }
 
-local cyberpunk_keybinds = {
-  SUPER = {
-    SHIFT = {
-      z = { action = exec('cyberarch-ctl "toggle-hud"'), },
-      i = { action = exec('cyberarch-ctl "modal brt"'), },
-      u = { action = exec(terminalCommand .. " cyberarch-rebuild --update"), },
-      o = { action = exec('cyberarch-ctl "player"'), },
-      w = { action = exec('cyberarch-ctl "forecast"'), },
-      minus = { action = exec('cyberarch-ctl "clock"'), },
-      g = { action = exec('cyberarch-ctl "markets"'), },
-      y = { action = exec('cyberarch-ctl "modal bat"'), },
-      c = { action = exec('cyberarch-ctl "modal sys"'), },
-      x = { action = exec('cyberarch-ctl "notif-dismiss"'), },
-      slash = { action = exec('cyberarch-ctl "modal keys"'), },
-    },
-  },
-}
-
 local layout_binds = {
   scrolling = {
     SUPER = {
@@ -185,9 +166,6 @@ local layout_binds = {
 }
 
 H.key_table_parser(common_keybinds, {}, { submap_universal = true })
-if cyberpunk then
-  H.key_table_parser(cyberpunk_keybinds, {}, { submap_universal = true })
-end
 H.layout_table_submapper(layout_binds, "master")
 H.layout_table_submapper(layout_binds, "monocle")
 H.layout_table_submapper(layout_binds, "scrolling")

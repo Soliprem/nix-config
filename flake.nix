@@ -15,15 +15,9 @@
     };
     import-tree.url = "github:denful/import-tree";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # Temporary until the Audacity/MuseScore Qt fixes reach nixos-unstable and its cache.
-    nixpkgs-audio.url = "github:nixos/nixpkgs/c59305bab2065cfecc4944690d9eedbb56f3a9fa";
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    cyberarch = {
-      url = "github:ARCANGEL0/cyberarch-dotfiles/";
-      flake = false;
     };
     material-shell = {
       url = "github:Soliprem/material-shell";

@@ -11,11 +11,6 @@ M.default_layout = "master"
 
 M.workspaces_per_monitor = 10
 
-local state_home = os.getenv("XDG_STATE_HOME") or (os.getenv("HOME") .. "/.local/state")
-local style_file = io.open(state_home .. "/nixrice/shell", "r")
-M.cyberpunk = style_file and style_file:read("*l") == "cyberpunk" or false
-if style_file then style_file:close() end
-
 function M.merge_orphaned_windows()
   local clients = hl.get_windows and hl.get_windows() or {}
 

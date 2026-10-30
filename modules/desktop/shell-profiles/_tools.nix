@@ -1,14 +1,5 @@
 {pkgs, ...}: {
-  environment.systemPackages =
-    (with pkgs; [awww swayosd])
-    ++ [
-      (pkgs.writeShellApplication {
-        name = "rice-theme";
-        runtimeInputs = with pkgs; [coreutils glib gsettings-desktop-schemas hyprland systemd];
-        runtimeEnv.NIXRICE_GSETTINGS_SCHEMA_PATH = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}";
-        text = builtins.readFile ../../../scripts/rice-theme.sh;
-      })
-    ];
+  environment.systemPackages = with pkgs; [awww swayosd];
   services.udev.packages = [pkgs.swayosd];
   systemd.packages = [pkgs.swayosd];
   systemd.services.swayosd-libinput-backend.wantedBy = ["graphical.target"];

@@ -6,7 +6,11 @@
   }: let
     material = inputs.material-shell.packages.${system}.default;
     panel = "${material}/bin/material-shell ipc call sidebar toggle";
-    screenshot = {hyprland, niri, mango}: ''
+    screenshot = {
+      hyprland,
+      niri,
+      mango,
+    }: ''
       if [ -n "''${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
         ${hyprland}
       elif [ -n "''${NIRI_SOCKET:-}" ]; then
@@ -31,7 +35,6 @@
     environment.systemPackages = [material pkgs.hyprlock pkgs.swaylock-effects];
     desktopShell.profiles.material = {
       on = ''
-        rice-theme material
         systemctl --user start material-shell.target
         ${wallpaper}
       '';

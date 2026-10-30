@@ -29,7 +29,7 @@
       pkgs,
       ...
     }: let
-      materialSettings = pkgs.writeText "gtk-material.ini" ''
+      gtkSettings = pkgs.writeText "gtk-settings.ini" ''
         [Settings]
         gtk-cursor-theme-name=Bibata-Modern-Ice
         gtk-cursor-theme-size=24
@@ -37,7 +37,6 @@
         gtk-icon-theme-name=breeze-dark
         gtk-theme-name=adw-gtk3
       '';
-      materialCss = pkgs.writeText "gtk-material.css" "";
       qtFont = family: size: "\"${family},${toString size},-1,5,400,0,0,0,0,0,0,0,0,0,0,1\"";
       midnightDiscordTemplate =
         pkgs.writeText "midnight-discord.css"
@@ -47,20 +46,14 @@
           (builtins.readFile ./templates/midnight-discord.css));
     in {
       files = {
-        ".config/gtk-3.0/settings.ini".source = materialSettings;
+        ".config/gtk-3.0/settings.ini".source = gtkSettings;
         ".config/gtk-3.0/gtk.css".text = ''
           @import 'colors.css';
-          @import 'rice.css';
         '';
-        ".config/gtk-3.0/rice.css".source = materialCss;
-        ".config/gtk-4.0/settings.ini".source = materialSettings;
+        ".config/gtk-4.0/settings.ini".source = gtkSettings;
         ".config/gtk-4.0/gtk.css".text = ''
           @import 'colors.css';
-          @import 'rice.css';
         '';
-        ".config/gtk-4.0/rice.css".source = materialCss;
-        ".config/nixrice/themes/material/gtk-settings.ini".source = materialSettings;
-        ".config/nixrice/themes/material/gtk.css".source = materialCss;
         ".config/qt5ct/qt5ct.conf".text = ''
           [Appearance]
           color_scheme_path=~/.config/qt5ct/colors/matugen.conf
