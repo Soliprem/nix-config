@@ -15,6 +15,7 @@ hl.on("hyprland.start", function()
     "kanshi",
     "stash watch",
     "sunsetr",
+    "hex start",
     "gomuks-web",
   }) do
     hl.exec_cmd(cmd)

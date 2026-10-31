@@ -7,6 +7,10 @@ local browser = H.browser
 local exec = hl.dsp.exec_cmd
 
 local common_keybinds = {
+  -- Hex's shortcuts and recording behavior are controlled here through its CLI.
+  F7 = { action = exec("hex dictation start"), },
+  F8 = { action = exec("hex dictation toggle"), },
+  F9 = { action = exec("hex annotate start"), },
   XF86PowerOff = { action = exec("wlogout"), },
   Print = { action = exec("rice-style action screenshot-region"), },
   XF86AudioMicMute = { action = exec("rice-style action mic-mute"), opts = { locked = true }, },
@@ -19,9 +23,17 @@ local common_keybinds = {
   XF86MonBrightnessUp = { action = exec("rice-style action brightness-up"), opts = { locked = true, repeating = true }, },
   XF86MonBrightnessDown = { action = exec("rice-style action brightness-down"), opts = { locked = true, repeating = true }, },
 
+  SHIFT = {
+    F8 = { action = exec("hex dictation cancel"), },
+    F9 = { action = exec("hex annotate stop"), },
+  },
+
   CTRL = {
+    F8 = { action = exec("hex dictation toggle --raw"), },
+    F9 = { action = exec("hex annotate draw"), },
     ALT = {
       Delete = { action = hl.dsp.exit(), },
+      v = { action = exec("hex paste-last"), },
     },
   },
 
@@ -166,6 +178,7 @@ local layout_binds = {
 }
 
 H.key_table_parser(common_keybinds, {}, { submap_universal = true })
+hl.bind("F7", exec("hex dictation stop"), { release = true, submap_universal = true })
 H.layout_table_submapper(layout_binds, "master")
 H.layout_table_submapper(layout_binds, "monocle")
 H.layout_table_submapper(layout_binds, "scrolling")

@@ -43,6 +43,10 @@
       url = "github:echaya/neowiki.nvim";
       flake = false;
     };
+    hex = {
+      url = "github:anomalyco/hex";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sysboard = {
       url = "github:system64fumo/sysboard";
       flake = false;

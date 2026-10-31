@@ -222,6 +222,16 @@
           bind=SUPER+CTRL,period,tagmon,right,1
 
           # Application/Script Binds
+          # Hex's shortcuts and recording behavior are controlled here through its CLI.
+          bind=NONE,F7,spawn,hex dictation start
+          bindr=NONE,F7,spawn,hex dictation stop
+          bind=NONE,F8,spawn,hex dictation toggle
+          bind=CTRL,F8,spawn,hex dictation toggle --raw
+          bind=SHIFT,F8,spawn,hex dictation cancel
+          bind=CTRL+ALT,v,spawn,hex paste-last
+          bind=NONE,F9,spawn,hex annotate start
+          bind=SHIFT,F9,spawn,hex annotate stop
+          bind=CTRL,F9,spawn,hex annotate draw
           bind=NONE,XF86PowerOff,spawn,wlogout
           bind=SUPER,V,spawn, clipmenu
           bind=SUPER,x,spawn,rice-style action panel
@@ -503,6 +513,7 @@
           nm-applet &
           kanshi &
           sunsetr &
+          hex start &
           gomuks-web &
         '';
       };

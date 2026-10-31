@@ -84,6 +84,7 @@
           spawn-at-startup "kanshi"
           spawn-at-startup "protonvpn-app"
           spawn-at-startup "sunsetr"
+          spawn-at-startup "hex" "start"
 
           prefer-no-csd
 
@@ -153,6 +154,14 @@
               // NOTE: using keynames as found in wev
 
               Mod+Shift+Slash { show-hotkey-overlay; }
+              // Hex's shortcuts and recording behavior are controlled here through its CLI.
+              F8 repeat=false hotkey-overlay-title="Toggle Hex dictation" { spawn "hex" "dictation" "toggle"; }
+              Control+F8 repeat=false hotkey-overlay-title="Toggle raw Hex dictation" { spawn "hex" "dictation" "toggle" "--raw"; }
+              Shift+F8 repeat=false hotkey-overlay-title="Cancel Hex dictation" { spawn "hex" "dictation" "cancel"; }
+              Control+Alt+V repeat=false hotkey-overlay-title="Paste last Hex dictation" { spawn "hex" "paste-last"; }
+              F9 repeat=false hotkey-overlay-title="Start Hex annotation" { spawn "hex" "annotate" "start"; }
+              Shift+F9 repeat=false hotkey-overlay-title="Stop Hex annotation" { spawn "hex" "annotate" "stop"; }
+              Control+F9 repeat=false hotkey-overlay-title="Toggle Hex annotation pen" { spawn "hex" "annotate" "draw"; }
 
               Mod+Control+T { spawn ${spawnArgs (terminalCommand ++ ["tray-tui"])}; }
               Mod+Return { spawn ${spawnArgs terminal}; }
