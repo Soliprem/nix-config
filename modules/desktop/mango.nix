@@ -223,8 +223,8 @@
 
           # Application/Script Binds
           # Hex's shortcuts and recording behavior are controlled here through its CLI.
-          bind=NONE,F7,spawn,hex dictation start
-          bindr=NONE,F7,spawn,hex dictation stop
+          bindc=NONE,F7,spawn,hex dictation start
+          bindrc=NONE,F7,spawn,hex dictation stop
           bind=NONE,F8,spawn,hex dictation toggle
           bind=CTRL,F8,spawn,hex dictation toggle --raw
           bind=SHIFT,F8,spawn,hex dictation cancel
