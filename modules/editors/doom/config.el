@@ -11,6 +11,10 @@
 
 (setq auth-sources '("/run/agenix/gonic_authinfo" "~/.authinfo" "/run/agenix/gomuks_authinfo"))
 
+;;; Clipboard
+
+(map! "C-S-v" #'clipboard-yank)
+
 ;;; Development
 
 (after! envrc

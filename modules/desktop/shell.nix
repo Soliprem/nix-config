@@ -151,6 +151,7 @@
       scripts = [
         "dm-kill"
         "dm-hub"
+        "dm-hex-language"
         "dm-confedit"
         "dm-wifi"
         "dm-websearch"
