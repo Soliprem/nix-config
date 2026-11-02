@@ -7,6 +7,8 @@
     environment.systemPackages = with pkgs; [
       inputs.zen-browser.packages.${system}.default
       inputs.hex.packages.${system}.default
+      opencode
+      opencode-desktop
       noctalia-greeter
       qbittorrent
       xleak
