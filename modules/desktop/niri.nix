@@ -158,6 +158,7 @@
               F8 repeat=false hotkey-overlay-title="Toggle Hex dictation" { spawn "hex" "dictation" "toggle"; }
               Control+F8 repeat=false hotkey-overlay-title="Toggle raw Hex dictation" { spawn "hex" "dictation" "toggle" "--raw"; }
               Shift+F8 repeat=false hotkey-overlay-title="Cancel Hex dictation" { spawn "hex" "dictation" "cancel"; }
+              Alt+F8 repeat=false hotkey-overlay-title="Select Hex language" { spawn "dm-hex-language"; }
               Control+Alt+V repeat=false hotkey-overlay-title="Paste last Hex dictation" { spawn "hex" "paste-last"; }
               F9 repeat=false hotkey-overlay-title="Start Hex annotation" { spawn "hex" "annotate" "start"; }
               Shift+F9 repeat=false hotkey-overlay-title="Stop Hex annotation" { spawn "hex" "annotate" "stop"; }

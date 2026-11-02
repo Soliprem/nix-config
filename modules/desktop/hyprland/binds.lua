@@ -38,6 +38,7 @@ local common_keybinds = {
   },
 
   ALT = {
+    F8 = { action = exec("dm-hex-language"), },
     Tab = { action = hl.dsp.focus({ urgent_or_last = true }), },
   },
 

@@ -228,6 +228,7 @@
           bind=NONE,F8,spawn,hex dictation toggle
           bind=CTRL,F8,spawn,hex dictation toggle --raw
           bind=SHIFT,F8,spawn,hex dictation cancel
+          bind=ALT,F8,spawn,dm-hex-language
           bind=CTRL+ALT,v,spawn,hex paste-last
           bind=NONE,F9,spawn,hex annotate start
           bind=SHIFT,F9,spawn,hex annotate stop
