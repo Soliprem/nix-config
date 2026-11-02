@@ -67,6 +67,10 @@
       url = "github:manic-systems/cade";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    kwm = {
+      url = "github:rowsred/river_kwm_modules_nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     eh = {
       url = "github:notashelf/eh/notashelf/push-sqworykzvvsw";
       inputs.nixpkgs.follows = "nixpkgs";

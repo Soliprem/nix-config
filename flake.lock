@@ -493,6 +493,26 @@
         "type": "github"
       }
     },
+    "kwm": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780656974,
+        "narHash": "sha256-WANGYhoD/0ckxyxwRw3qQ3/laNP5PsdY33a5wk1fpV0=",
+        "owner": "rowsred",
+        "repo": "river_kwm_modules_nixos",
+        "rev": "dc0bf4a9c031a7226f5dbdcae45477415d80bf97",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rowsred",
+        "repo": "river_kwm_modules_nixos",
+        "type": "github"
+      }
+    },
     "material-shell": {
       "inputs": {
         "nixpkgs": [
@@ -740,6 +760,7 @@
         "hex": "hex",
         "hjem": "hjem",
         "import-tree": "import-tree",
+        "kwm": "kwm",
         "material-shell": "material-shell",
         "neowiki-nvim": "neowiki-nvim",
         "nix-doom-emacs-unstraightened": "nix-doom-emacs-unstraightened",

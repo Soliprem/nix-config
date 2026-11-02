@@ -12,6 +12,7 @@
     noctalia-shell
     hyprland
     niri
+    river
     mango
     mail
     doom
@@ -27,5 +28,6 @@
     printing
     flatpak
     remarkable
+    searx
   ];
 }
