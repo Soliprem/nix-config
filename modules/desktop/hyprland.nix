@@ -1,6 +1,9 @@
 {
   flake.modules.nixos.hyprland = {pkgs, ...}: {
-    programs.hyprland.enable = true;
+    programs.hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
     environment.systemPackages = with pkgs; [
       hyprshot
       hyprshutdown
