@@ -15,7 +15,6 @@
       networking
       neovim
       media-library
-      proton-vpn
       (
         {pkgs, ...}: {
           networking.hostName = "nixos-home";

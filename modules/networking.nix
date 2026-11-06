@@ -1,12 +1,4 @@
-{inputs, ...}: {
-  flake.modules.nixos.proton-vpn = {
-    imports = [inputs.nur.repos.claymorwan.nixosModules.pvpn];
-    programs.pvpn = {
-      enable = true;
-      users = ["soliprem"];
-    };
-    systemd.services.pvpnd.serviceConfig.ConfigurationDirectory = "pvpn";
-  };
+_: {
   flake.modules.nixos.networking = {
     networking = {
       # These HTTPS sites reach Caddy over Tailscale, including via SOCKS5.

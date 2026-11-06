@@ -15,10 +15,6 @@
     };
     import-tree.url = "github:denful/import-tree";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     material-shell = {
       url = "github:Soliprem/material-shell";
       inputs.nixpkgs.follows = "nixpkgs";

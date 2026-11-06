@@ -11,7 +11,6 @@
       config.flake.modules.nixos.vane
       config.flake.modules.nixos.openrgb
       config.flake.modules.nixos.media-library
-      config.flake.modules.nixos.proton-vpn
       (
         {pkgs, ...}: {
           networking.hostName = "nixos-pc";
