@@ -68,7 +68,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     eh = {
-      url = "github:notashelf/eh/notashelf/push-sqworykzvvsw";
+      url = "github:notashelf/eh/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     thumbpick = {

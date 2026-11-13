@@ -8,6 +8,10 @@
     programs = {
       eh = {
         enable = true;
+        package = inputs.eh.packages.${system}.default.overrideAttrs (old: {
+          nativeBuildInputs = (old.nativeBuildInputs or []) ++ [pkgs.pkg-config];
+          buildInputs = (old.buildInputs or []) ++ [pkgs.zstd];
+        });
         comma.enable = true;
       };
       cade = {
