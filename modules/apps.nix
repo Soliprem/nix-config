@@ -22,7 +22,8 @@
       rnote
       chromium
       legcord
-      qutebrowser
+      # qutebrowser
+      # ladybird
       telegram-desktop
       super-productivity
       anki-bin
