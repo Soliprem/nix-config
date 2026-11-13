@@ -82,6 +82,7 @@
           RemainAfterExit = true;
           Restart = "on-failure";
           RestartSec = 10;
+          ExecStartPre = "${pkgs.tailscale}/bin/tailscale wait --timeout=2m";
           ExecStart = "${pkgs.tailscale}/bin/tailscale serve --bg --https=443 http://127.0.0.1:5030";
           ExecStop = "${pkgs.tailscale}/bin/tailscale serve --https=443 off";
         };
