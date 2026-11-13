@@ -53,6 +53,12 @@
           }
         '';
 
+        "citybuilder.soliprem.eu".extraConfig = ''
+          root * /var/www/city-generator
+          encode zstd gzip
+          file_server
+        '';
+
         "al.soliprem.eu".extraConfig = ''
           route {
             import tailscale_only
