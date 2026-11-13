@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.server = {config, ...}: {
+  flake.modules.nixos.server = {config, pkgs, ...}: {
     age.secrets = {
       bookorbit_env = {
         file = ../../secrets/server_bookorbit_env.age;
@@ -20,5 +20,7 @@
         reverse_proxy 127.0.0.1:25132
       '';
     };
+
+    systemd.services.bookorbit.path = [pkgs.ffmpeg];
   };
 }
