@@ -56,7 +56,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     brewery = {
-      url = "git+ssh://git@git.notashelf.dev:33/notashelf/brewery.git";
+      url = "git+ssh://git@git.soliprem.eu:33/soliprem/brewery.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     cade = {
@@ -64,7 +64,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     kwm = {
-      url = "github:rowsred/river_kwm_modules_nixos";
+      url = "github:bbenne10/river_kwm_modules_nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     eh = {
