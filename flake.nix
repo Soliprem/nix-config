@@ -19,6 +19,10 @@
       url = "github:Soliprem/material-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    bootvine = {
+      url = "git+https://codeberg.org/wvhulle/bootvine";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     amethyst-mod-manager = {
       url = "github:ChrisDKN/Amethyst-Mod-Manager/";
       inputs.nixpkgs.follows = "nixpkgs";

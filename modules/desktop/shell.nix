@@ -143,6 +143,7 @@
   in {
     imports = [
       inputs.dm-scripts.nixosModules.default
+      inputs.bootvine.nixosModules.default
     ];
     programs.dmscripts = {
       enable = true;
@@ -166,20 +167,23 @@
       ];
     };
     programs.gnupg.agent.pinentryPackage = pkgs.pinentry-all;
-    services.keyd = {
-      enable = true;
-      keyboards.default = {
-        ids = ["*"];
-        settings = {
-          global.overload_tap_timeout = 200;
-          main = {
-            altgr = "overload(altgr, capslock)";
-            capslock = "overload(control,esc)";
-            leftshift = "overload(shift, S-9)";
-            rightshift = "overload(shift, S-0)";
+    services = {
+      keyd = {
+        enable = true;
+        keyboards.default = {
+          ids = ["*"];
+          settings = {
+            global.overload_tap_timeout = 200;
+            main = {
+              altgr = "overload(altgr, capslock)";
+              capslock = "overload(control,esc)";
+              leftshift = "overload(shift, S-9)";
+              rightshift = "overload(shift, S-0)";
+            };
           };
         };
       };
+      bootvine.enable = true;
     };
     services = {
       # displayManager.ly.enable = true;
