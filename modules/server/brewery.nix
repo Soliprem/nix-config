@@ -1,5 +1,9 @@
 {inputs, ...}: {
-  flake.modules.nixos.server = {config, lib, ...}: let
+  flake.modules.nixos.server = {
+    config,
+    lib,
+    ...
+  }: let
     storageDir = "/mnt/storage-box/brewery";
     bulkDirs = map (name: "${config.services.brewery.dataDir}/${name}") [
       "repositories"
@@ -30,27 +34,30 @@
     };
 
     # Git needs consistent ownership and private repository files.
-    fileSystems = {
-      "${storageDir}" = {
-        device = "${config.fileSystems."/mnt/storage-box".device}/brewery";
-        fsType = "cifs";
-        depends = ["/mnt/storage-box"];
-        options =
-          lib.filter (option: option != "noperm") config.fileSystems."/mnt/storage-box".options
-          ++ ["uid=git" "gid=git" "forceuid" "forcegid" "file_mode=0600" "dir_mode=0700"];
-      };
-    } // lib.genAttrs bulkDirs (path: {
-      device = "${storageDir}/${baseNameOf path}";
-      fsType = "none";
-      options = ["bind" "_netdev"];
-      depends = [storageDir];
-    });
+    fileSystems =
+      {
+        "${storageDir}" = {
+          device = "${config.fileSystems."/mnt/storage-box".device}/brewery";
+          fsType = "cifs";
+          depends = ["/mnt/storage-box"];
+          options =
+            lib.filter (option: option != "noperm") config.fileSystems."/mnt/storage-box".options
+            ++ ["uid=git" "gid=git" "forceuid" "forcegid" "file_mode=0600" "dir_mode=0700"];
+        };
+      }
+      // lib.genAttrs bulkDirs (path: {
+        device = "${storageDir}/${baseNameOf path}";
+        fsType = "none";
+        options = ["bind" "_netdev"];
+        depends = [storageDir];
+      });
 
-    systemd.services = lib.genAttrs ["brewery" "brewery-sshd"] (name: {
-      unitConfig.RequiresMountsFor = bulkDirs;
-    } // lib.optionalAttrs (name == "brewery") {
-      environment.BREWERY_PUBLIC_URL = "https://git.soliprem.eu";
-    });
+    systemd.services = lib.genAttrs ["brewery" "brewery-sshd"] (name:
+      {
+        unitConfig.RequiresMountsFor = bulkDirs;
+      }
+      // lib.optionalAttrs (name == "brewery") {
+        environment.BREWERY_PUBLIC_URL = "https://git.soliprem.eu";
+      });
   };
 }
-

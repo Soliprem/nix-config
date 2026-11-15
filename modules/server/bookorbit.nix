@@ -1,5 +1,9 @@
 {
-  flake.modules.nixos.server = {config, pkgs, ...}: {
+  flake.modules.nixos.server = {
+    config,
+    pkgs,
+    ...
+  }: {
     age.secrets = {
       bookorbit_env = {
         file = ../../secrets/server_bookorbit_env.age;
