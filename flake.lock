@@ -89,17 +89,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1794508904,
-        "narHash": "sha256-mtRsYRb3OVsulUSIMZ9B3jEU2lX3Kb5XqQultJ0cG7M=",
+        "lastModified": 1794916357,
+        "narHash": "sha256-92uEMYAPEQGICEfUpYGqWhVJHSW0AcTeN8+MU4IEvZ8=",
         "ref": "refs/heads/main",
-        "rev": "3547bfecfae70b47632f06bdc9eb89b7afc06cb0",
-        "revCount": 548,
+        "rev": "84e3eebd540b8e8e2e99e59047f59fabcdceb1e3",
+        "revCount": 583,
         "type": "git",
-        "url": "ssh://git@git.soliprem.eu:33/soliprem/brewery.git"
+        "url": "ssh://git@git.notashelf.dev:33/notashelf/brewery.git"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@git.soliprem.eu:33/soliprem/brewery.git"
+        "url": "ssh://git@git.notashelf.dev:33/notashelf/brewery.git"
       }
     },
     "cade": {
