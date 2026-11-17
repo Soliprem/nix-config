@@ -256,15 +256,15 @@
         sub-buffer-use-org t)
   (map! :leader
         :desc "sub-buffer"
-        "o s" #'sub-buffer)
-  :config
-  ;; Tailscale userspace networking needs a proxy for API calls and mpv.
-  (defadvice! +sub-buffer-tailscale-proxy-a (fn &rest args)
-    :around '(sub-buffer--request sub-buffer-play)
-    (let ((url-proxy-services '(("https" . "127.0.0.1:1055")))
-          (process-environment (cons "http_proxy=http://127.0.0.1:1055"
-                                     process-environment)))
-      (apply fn args))))
+        "o s" #'sub-buffer))
+  ;; :config
+  ;; ;; Tailscale userspace networking needs a proxy for API calls and mpv.
+  ;; (defadvice! +sub-buffer-tailscale-proxy-a (fn &rest args)
+  ;;   :around '(sub-buffer--request sub-buffer-play)
+  ;;   (let ((url-proxy-services '(("https" . "127.0.0.1:1055")))
+  ;;         (process-environment (cons "http_proxy=http://127.0.0.1:1055"
+  ;;                                    process-environment)))
+  ;;     (apply fn args))))
 
 (use-package! supersonic
   :bind ("C-c s" . supersonic)

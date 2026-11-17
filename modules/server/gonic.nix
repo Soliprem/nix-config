@@ -15,9 +15,9 @@
       caddy.virtualHosts = {
         "nv.soliprem.eu" = {
           logFormat = null;
+          # import tailscale_only (not sure but for now I'm adding this here in case I want it back later)
           extraConfig = ''
             route {
-              import tailscale_only
               import iocaine
               reverse_proxy localhost:4747
             }
