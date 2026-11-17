@@ -1,8 +1,23 @@
-{inputs, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: {
   flake.modules.nixos.platform = {pkgs, ...}: {
     _module.args.system = pkgs.stdenv.hostPlatform.system;
   };
+  flake.modules.nixos.nh = {
+    programs.nh = {
+      enable = true;
+      clean = {
+        enable = true;
+        extraArgs = "--keep-since 4d --keep 3";
+      };
+      flake = "/home/soliprem/.local/src/nix-config";
+    };
+  };
   flake.modules.nixos.nix = {pkgs, ...}: {
+    imports = [config.flake.modules.nixos.nh];
     nix = {
       package = pkgs.lixPackageSets.stable.lix;
       settings = {
@@ -50,14 +65,6 @@
       enable = true;
       nixos.enable = false;
       man.cache.enable = false;
-    };
-    programs.nh = {
-      enable = true;
-      clean = {
-        enable = true;
-        extraArgs = "--keep-since 4d --keep 3";
-      };
-      flake = "/home/soliprem/.local/src/nix-config";
     };
   };
   systems = ["x86_64-linux"];

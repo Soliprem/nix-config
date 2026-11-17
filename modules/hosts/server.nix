@@ -7,6 +7,7 @@
     system = "x86_64-linux";
     modules = [
       config.flake.modules.nixos.platform
+      config.flake.modules.nixos.nh
       config.flake.modules.nixos.hjem
       config.flake.modules.nixos.envModule
       config.flake.modules.nixos.shellTools
