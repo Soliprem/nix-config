@@ -23,6 +23,10 @@
       url = "git+https://codeberg.org/wvhulle/bootvine";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sable = {
+      url = "git+https://git.sable.moe/SableClient/sable-next";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     amethyst-mod-manager = {
       url = "github:ChrisDKN/Amethyst-Mod-Manager/";
       inputs.nixpkgs.follows = "nixpkgs";

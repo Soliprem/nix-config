@@ -765,6 +765,7 @@
         "pager": "pager",
         "r-nvim": "r-nvim",
         "remarkable-bridge": "remarkable-bridge",
+        "sable": "sable",
         "silksong-aa": "silksong-aa",
         "spicetify-nix": "spicetify-nix",
         "sysboard": "sysboard",
@@ -842,6 +843,26 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "type": "github"
+      }
+    },
+    "sable": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794824423,
+        "narHash": "sha256-mJyTQC6NkFbISjwJhzdwNNWKzNWf2yGyvPUTW0ZFBlE=",
+        "ref": "refs/heads/main",
+        "rev": "9590f6ad18ceab863e79f45d1011fe9bba58885d",
+        "revCount": 8276,
+        "type": "git",
+        "url": "https://git.sable.moe/SableClient/sable-next"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.sable.moe/SableClient/sable-next"
       }
     },
     "silksong-aa": {

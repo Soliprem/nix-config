@@ -7,6 +7,7 @@
     environment.systemPackages = with pkgs; [
       inputs.zen-browser.packages.${system}.default
       inputs.hex.packages.${system}.default
+      inputs.sable.packages.${system}.sable-desktop
       inputs.pager.packages.${system}.pager-cli
       noctalia-greeter
       qbittorrent
