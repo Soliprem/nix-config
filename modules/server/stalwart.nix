@@ -83,7 +83,7 @@
             private-key = "%{file:/run/credentials/stalwart.service/tls-key}%";
             default = true;
           };
-          signature.mailcow = {
+          signature.rsa = {
             algorithm = "rsa-sha256";
             domain = "soliprem.eu";
             selector = "dkim";
@@ -92,21 +92,11 @@
           auth.dkim.sign = [
             {
               "if" = "sender_domain == 'soliprem.eu'";
-              "then" = "['mailcow']";
+              "then" = "['rsa']";
             }
             {"else" = "false";}
           ];
-          auth.arc.seal = "'mailcow'";
-          # Mailcow contains a 349 MB draft; preserve it and old Junk/Trash mail.
-          imap.request.max-size = 536870912;
-          jmap.email.max-size = 536870912;
-          jmap.protocol.upload.max-size = 536870912;
-          email.auto-expunge = false;
-          # The bundled source build currently fails in trunk with GCC 16.
-          webadmin.resource = "file://${pkgs.fetchurl {
-            url = "https://github.com/stalwartlabs/webadmin/releases/download/v0.1.37/webadmin.zip";
-            hash = "sha256-nIJFxOFHoIBt1/lH97tfOHYay6o3Gwtb3Ap5A2s7WQk=";
-          }}";
+          auth.arc.seal = "'rsa'";
         };
       };
 
