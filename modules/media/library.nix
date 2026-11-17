@@ -14,19 +14,14 @@
     '';
   in {
     age.secrets = {
-      storage_box_webdav = {
-        file = ../../secrets/pc_storage_box_webdav.age;
-        path = "/etc/davfs2/secrets";
-        mode = "0600";
-        symlink = false;
-      };
+      storage_box_rclone.file = ../../secrets/pc_storage_box_rclone.age;
       slskd_env = {
         file = ../../secrets/pc_slskd_env.age;
         mode = "0400";
       };
     };
+    system.fsPackages = [pkgs.rclone];
     services = {
-      davfs2.enable = true;
       slskd = {
         enable = true;
         environmentFile = config.age.secrets.slskd_env.path;
@@ -36,19 +31,23 @@
             incomplete = "/var/lib/slskd/incomplete";
             downloads = "/mnt/storage-box/files/subsonic/music";
           };
+          shares.directories = [config.services.slskd.settings.directories.downloads];
         };
       };
     };
+    # rclone reads by HTTP range, so share scans read tags instead of whole
+    # files as davfs2 did.
     fileSystems."/mnt/storage-box" = {
-      device = "https://u480084.your-storagebox.de";
-      fsType = "davfs";
+      device = "storagebox:";
+      fsType = "rclone";
       noCheck = true;
       options = [
-        "uid=soliprem"
-        "gid=music"
-        "grpid"
-        "file_mode=0660"
-        "dir_mode=0770"
+        "config=${config.age.secrets.storage_box_rclone.path}"
+        "vfs_cache_mode=writes"
+        "cache_dir=/var/cache/rclone"
+        "allow_other"
+        "gid=${toString config.users.groups.music.gid}"
+        "umask=007"
 
         "_netdev"
         "nofail"
@@ -58,7 +57,7 @@
       ];
     };
     users = {
-      groups.music = {};
+      groups.music.gid = 975;
       users = {
         soliprem.extraGroups = ["music" "slskd"];
         slskd.extraGroups = ["music"];
@@ -69,6 +68,8 @@
         wantedBy = lib.mkForce [];
         serviceConfig = {
           ExecCondition = requireProton;
+          # The shared directory is also the writable download destination.
+          ReadOnlyPaths = lib.mkForce [];
           UMask = "0007";
         };
       };

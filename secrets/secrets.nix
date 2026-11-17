@@ -18,7 +18,7 @@ in {
   "server_caddy_env.age".publicKeys = users ++ [server];
   "server_storage_box_credentials.age".publicKeys = users ++ [server];
   "pc_slskd_env.age".publicKeys = users ++ [pc home];
-  "pc_storage_box_webdav.age".publicKeys = users ++ [pc home];
+  "pc_storage_box_rclone.age".publicKeys = users ++ [pc home];
   "server_livekit_keys.age".publicKeys = users ++ [server];
   "server_continuwuity_registration_token.age".publicKeys = users ++ [server];
   "server_karakeep_env.age".publicKeys = users ++ [server];
