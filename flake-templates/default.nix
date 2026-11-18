@@ -22,6 +22,21 @@
       - Run `cargo init` to initialise your project
     '';
   };
+  ocaml = {
+    path = ./ocaml;
+    description = "OCaml flake with dune";
+    welcomeText = ''
+      # OCaml Flake template
+      ## Features
+      - dune build, ocaml-lsp, ocamlformat and utop in the devshell
+      - the same library list for the package and the devshell
+
+      ## TO-DO
+      - Run `dune init project <name> .` to initialise your project
+      - Set `pname` in flake.nix to `<name>`
+      - Add libraries to `buildInputs`
+    '';
+  };
   julia = {
     path = ./julia;
     description = "Simple Julia Flake";
