@@ -130,11 +130,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795110027,
-        "narHash": "sha256-U+ECu8IzcO/Go2qWKv33ExzOsJe7N8mi+mP54cvSuII=",
+        "lastModified": 1795167518,
+        "narHash": "sha256-tQ2xcFLWOszCoj8Nm6TSepm1ae0n1PPLC2WRYd/e2u0=",
         "ref": "refs/heads/main",
-        "rev": "9b825134a9209938728c8c420050067a1a222888",
-        "revCount": 14,
+        "rev": "d0ee3a97fd366036f6217626744eb587253eabfd",
+        "revCount": 21,
         "type": "git",
         "url": "ssh://git@git.soliprem.eu:33/soliprem/collegio-di-sangue.git"
       },
