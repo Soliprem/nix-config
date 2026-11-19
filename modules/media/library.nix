@@ -63,6 +63,28 @@
         slskd.extraGroups = ["music"];
       };
     };
+    # slskd may only send via loopback or the Proton tunnel. Checked per
+    # packet by interface name, so a dropped or reconnected tunnel, or any
+    # routing change, can never put Soulseek traffic on the bare uplink.
+    networking.firewall = {
+      extraCommands = ''
+        for ipt in iptables ip6tables; do
+          $ipt -w -N slskd-egress 2>/dev/null || $ipt -w -F slskd-egress
+          $ipt -w -A slskd-egress -o lo -j RETURN
+          $ipt -w -A slskd-egress -o proton0 -j RETURN
+          $ipt -w -A slskd-egress -j REJECT
+          $ipt -w -D OUTPUT -m owner --uid-owner slskd -j slskd-egress 2>/dev/null || true
+          $ipt -w -I OUTPUT -m owner --uid-owner slskd -j slskd-egress
+        done
+      '';
+      extraStopCommands = ''
+        for ipt in iptables ip6tables; do
+          $ipt -w -D OUTPUT -m owner --uid-owner slskd -j slskd-egress 2>/dev/null || true
+          $ipt -w -F slskd-egress 2>/dev/null || true
+          $ipt -w -X slskd-egress 2>/dev/null || true
+        done
+      '';
+    };
     systemd.services = {
       slskd = {
         wantedBy = lib.mkForce [];

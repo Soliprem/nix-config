@@ -11,6 +11,7 @@
           then "49.12.104.79"
           else machine.config.networking.hostName;
         sshUser = "root";
+        sshOpts = ["-C"];
         activationTimeout = 600;
         confirmTimeout = 60;
         profiles.system = {
