@@ -100,7 +100,8 @@
         };
         go.enable = false;
         zig.enable = false;
-        ocaml.enable = false;
+        ocaml.enable = true;
+        gleam.enable = true;
         nu.enable = false;
         python = {
           enable = true;
