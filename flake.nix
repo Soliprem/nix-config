@@ -67,6 +67,10 @@
       url = "git+ssh://git@git.notashelf.dev:33/notashelf/brewery.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    collegio-di-sangue = {
+      url = "git+ssh://git@git.soliprem.eu:33/soliprem/collegio-di-sangue.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     cade = {
       url = "github:manic-systems/cade";
       inputs.nixpkgs.follows = "nixpkgs";
