@@ -166,7 +166,19 @@
         "dm-notes"
       ];
     };
-    programs.gnupg.agent.pinentryPackage = pkgs.pinentry-all;
+    # The agent inherits the graphical session's display, so pinentry-qt alone
+    # would always open a window. gpg forwards PINENTRY_USER_DATA from the
+    # calling shell on every request: interactive fish sets it to "curses"
+    # (terminals and SSH); callers without a terminal fall through to Qt.
+    programs.gnupg.agent.pinentryPackage = pkgs.writeShellApplication {
+      name = "pinentry-auto";
+      text = ''
+        if [ "''${PINENTRY_USER_DATA:-}" = curses ]; then
+          exec ${pkgs.pinentry-all}/bin/pinentry-curses "$@"
+        fi
+        exec ${pkgs.pinentry-all}/bin/pinentry-qt "$@"
+      '';
+    };
     services = {
       keyd = {
         enable = true;
