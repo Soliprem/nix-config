@@ -70,6 +70,7 @@
        :lang
        emacs-lisp
        (julia +lsp +tree-sitter +snail)
+       (ocaml +lsp)
        markdown
        nix
        (org +pretty +roam +dragndrop +brain +noter)
