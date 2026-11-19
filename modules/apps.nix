@@ -14,10 +14,8 @@
       xleak
       drawy
       impression
-      zoom-us
       openai-whisper
       cinny-desktop
-      beeper
       gomuks-web
       bitwarden-desktop
       rnote
