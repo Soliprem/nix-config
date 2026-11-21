@@ -61,6 +61,8 @@ _: {
       script = ''
         ${ip} -4 rule del pref 5200 2>/dev/null || true
         ${ip} -4 rule add pref 5200 fwmark 0x80000/0xff0000 lookup 41641
+        ${ip} -4 rule del pref 5201 2>/dev/null || true
+        ${ip} -4 rule add pref 5201 to 49.12.104.79/32 ipproto tcp dport 22 lookup 41641
         ${syncUplink}
       '';
       postStop = "${ip} -4 rule del pref 5200 2>/dev/null || true";
