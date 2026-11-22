@@ -1,16 +1,6 @@
 {
   flake.modules.nixos.server = {pkgs, ...}: {
     services = {
-      redis.servers."" = {
-        enable = true;
-        bind = "127.0.0.1 -::1";
-        save = [
-          [3600 1]
-          [300 100]
-          [60 10000]
-        ];
-      };
-
       wakapi = {
         enable = true;
         settings.db.name = "/var/lib/wakapi/wakapi.db";

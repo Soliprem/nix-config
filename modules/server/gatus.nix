@@ -56,7 +56,6 @@
             conditions = ["[CONNECTED] == true"];
           }) {
             "PostgreSQL" = "tcp://127.0.0.1:5432";
-            "Redis" = "tcp://127.0.0.1:6379";
             "SMTP" = "tcp://127.0.0.1:587";
             "IMAP" = "tcp://127.0.0.1:993";
           };
