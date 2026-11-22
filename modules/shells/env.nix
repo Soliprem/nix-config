@@ -114,7 +114,7 @@
         vim = "nvim";
         vimdiff = "nvim -d";
         nos = "nh os switch";
-        snos = "deploy $HOME/.local/src/nix-config#nixos-server";
+        snos = "deploy --no-progress --no-demarcate-output $HOME/.local/src/nix-config#nixos-server -- --log-format internal-json 2>&1 | rom";
         lg = "lazygit";
         n = "cd ~/.local/src/nix-config && ls";
       };

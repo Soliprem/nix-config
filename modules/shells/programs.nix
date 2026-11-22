@@ -58,6 +58,7 @@
       lazygit
       nix-your-shell
       ripgrep
+      rom
       scarab
       tealdeer
       termdown
