@@ -40,14 +40,17 @@
       caddy.virtualHosts."livekit.soliprem.eu" = {
         logFormat = null;
         extraConfig = ''
-          import iocaine
-
+          @rtc path /rtc /rtc/*
           @lk-jwt-service path /sfu/get* /healthz* /get_token* /sfu_webhook*
-          route @lk-jwt-service {
-            reverse_proxy 127.0.0.1:8081
-          }
 
-          reverse_proxy 127.0.0.1:7880
+          route {
+            reverse_proxy @rtc 127.0.0.1:7880
+
+            import iocaine
+
+            reverse_proxy @lk-jwt-service 127.0.0.1:8081
+            reverse_proxy 127.0.0.1:7880
+          }
         '';
       };
     };
