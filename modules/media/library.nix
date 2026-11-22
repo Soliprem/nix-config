@@ -100,14 +100,16 @@
         wantedBy = ["multi-user.target"];
         wants = ["tailscaled.service"];
         after = ["tailscaled.service"];
+        script = ''
+          if ${pkgs.tailscale}/bin/tailscale wait --timeout=2m; then
+            ${pkgs.tailscale}/bin/tailscale serve --https=443 http://127.0.0.1:5030 || true
+          fi
+        '';
         serviceConfig = {
-          Type = "oneshot";
-          RemainAfterExit = true;
-          Restart = "on-failure";
+          # Activation waits for the script to launch. systemd retries when it exits.
+          Type = "exec";
+          Restart = "always";
           RestartSec = 10;
-          ExecStartPre = "${pkgs.tailscale}/bin/tailscale wait --timeout=2m";
-          ExecStart = "${pkgs.tailscale}/bin/tailscale serve --bg --https=443 http://127.0.0.1:5030";
-          ExecStop = "${pkgs.tailscale}/bin/tailscale serve --https=443 off";
         };
       };
     };
