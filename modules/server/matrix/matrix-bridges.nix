@@ -10,11 +10,8 @@
         address = "http://127.0.0.1:6167";
         domain = "soliprem.eu";
       };
-      appservice = {
-        hostname = "127.0.0.1";
-        as_token = "$AS_TOKEN";
-        hs_token = "$HS_TOKEN";
-      };
+      # as_token and hs_token are copied in from the registration files.
+      appservice.hostname = "127.0.0.1";
       bridge = {
         relay.enabled = false;
         permissions = {
@@ -47,6 +44,26 @@
       };
       mautrix_telegram_env = {
         file = ../../../secrets/server_mautrix_telegram_env.age;
+      };
+      # Decrypted in place rather than symlinked: the modules chmod these
+      # registrations, and /run/agenix is read-only under ProtectSystem=strict.
+      mautrix_signal_registration = {
+        file = ../../../secrets/server_mautrix_signal_registration.age;
+        path = "/var/lib/mautrix-signal/signal-registration.yaml";
+        owner = "mautrix-signal";
+        symlink = false;
+      };
+      mautrix_whatsapp_registration = {
+        file = ../../../secrets/server_mautrix_whatsapp_registration.age;
+        path = "/var/lib/mautrix-whatsapp/whatsapp-registration.yaml";
+        owner = "mautrix-whatsapp";
+        symlink = false;
+      };
+      mautrix_telegram_registration = {
+        file = ../../../secrets/server_mautrix_telegram_registration.age;
+        path = "/var/lib/mautrix-telegram/telegram-registration.yaml";
+        owner = "mautrix-telegram";
+        symlink = false;
       };
     };
     # retain upstream Docker's libolm and existing encryption state;
