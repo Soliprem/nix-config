@@ -59,6 +59,11 @@
       url = "github:blwtxc/remarkable-bridge";
       flake = false;
     };
+    # bridgev2 module from NickCao's unmerged nixpkgs branch
+    mautrix-telegram-module = {
+      url = "file+https://raw.githubusercontent.com/NickCao/nixpkgs/50c68a69fd579c02983e642044023bb2226dc6fd/nixos/modules/services/matrix/mautrix-telegram.nix";
+      flake = false;
+    };
     beer = {
       url = "git+https://git.notashelf.dev/notashelf/beer.git";
       inputs.nixpkgs.follows = "nixpkgs";

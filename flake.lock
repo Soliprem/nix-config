@@ -568,6 +568,18 @@
         "type": "github"
       }
     },
+    "mautrix-telegram-module": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-UXh/IB7/czLWqbnyJX6VN4DJxOwhOnDy2NtHiXq6DgE=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/NickCao/nixpkgs/50c68a69fd579c02983e642044023bb2226dc6fd/nixos/modules/services/matrix/mautrix-telegram.nix"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/NickCao/nixpkgs/50c68a69fd579c02983e642044023bb2226dc6fd/nixos/modules/services/matrix/mautrix-telegram.nix"
+      }
+    },
     "mnw": {
       "locked": {
         "lastModified": 1784154424,
@@ -778,6 +790,7 @@
         "import-tree": "import-tree",
         "kwm": "kwm",
         "material-shell": "material-shell",
+        "mautrix-telegram-module": "mautrix-telegram-module",
         "neowiki-nvim": "neowiki-nvim",
         "nix-doom-emacs-unstraightened": "nix-doom-emacs-unstraightened",
         "nix-flatpak": "nix-flatpak",

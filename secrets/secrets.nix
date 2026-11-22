@@ -26,6 +26,7 @@ in {
   "server_meilisearch_master_key.age".publicKeys = users ++ [server];
   "server_mautrix_signal_env.age".publicKeys = users ++ [server];
   "server_mautrix_whatsapp_env.age".publicKeys = users ++ [server];
+  "server_mautrix_telegram_env.age".publicKeys = users ++ [server];
   "server_microbin_env.age".publicKeys = users ++ [server];
   "server_stalwart_admin_password.age".publicKeys = users ++ [server];
   "server_stalwart_dkim_private_key.age".publicKeys = users ++ [server];

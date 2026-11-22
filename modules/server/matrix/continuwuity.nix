@@ -14,8 +14,6 @@
         enable = true;
         settings.global = {
           server_name = "soliprem.eu";
-          # The retained Docker bridges reach the host through host-gateway.
-          address = ["0.0.0.0"];
           max_request_size = 2147483647;
           allow_registration = true;
           registration_token_file = "/run/credentials/continuwuity.service/registration_token";
@@ -37,13 +35,6 @@
         '';
       };
     };
-
-    # Preserve the stored appservice URLs for both native and Docker bridges.
-    networking.hosts."127.0.0.1" = [
-      "mautrix-telegram"
-      "mautrix-signal"
-      "whatsapp-bridge"
-    ];
 
     users.users.continuwuity.uid = 33;
     users.groups.continuwuity.gid = 33;

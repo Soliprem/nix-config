@@ -1,7 +1,8 @@
-{
+{inputs, ...}: {
   flake.modules.nixos.server = {
     config,
     lib,
+    pkgs,
     ...
   }: let
     sharedSettings = {
@@ -33,12 +34,19 @@
       direct_media.server_key = "$DIRECT_MEDIA_SERVER_KEY";
     };
   in {
+    # Drop with the input once nixpkgs ships the bridgev2 module.
+    disabledModules = ["services/matrix/mautrix-telegram.nix"];
+    imports = [inputs.mautrix-telegram-module.outPath];
+
     age.secrets = {
       mautrix_signal_env = {
         file = ../../../secrets/server_mautrix_signal_env.age;
       };
       mautrix_whatsapp_env = {
         file = ../../../secrets/server_mautrix_whatsapp_env.age;
+      };
+      mautrix_telegram_env = {
+        file = ../../../secrets/server_mautrix_telegram_env.age;
       };
     };
     # retain upstream Docker's libolm and existing encryption state;
@@ -55,7 +63,7 @@
           uri = "postgresql:///mautrix-signal?host=/run/postgresql";
         };
         appservice = {
-          address = "http://mautrix-signal:29328";
+          address = "http://127.0.0.1:29328";
           bot = {
             displayname = "Signal bridge bot";
             avatar = "mxc://maunium.net/wPJgTQbZOtpBFmDNkiNEMDUp";
@@ -74,7 +82,7 @@
           uri = "postgresql:///mautrix-whatsapp?host=/run/postgresql";
         };
         appservice = {
-          address = "http://whatsapp-bridge:29318";
+          address = "http://127.0.0.1:29318";
           bot = {
             displayname = "WhatsApp bridge bot";
             avatar = "mxc://maunium.net/NeXNQarUbrlYBiPCpprYsRqr";
@@ -88,8 +96,37 @@
       };
     };
 
+    services.mautrix-telegram = {
+      enable = true;
+      package = pkgs.callPackage ../../../packages/mautrix-telegram.nix {};
+      serviceDependencies = ["continuwuity.service" "postgresql.service"];
+      environmentFile = config.age.secrets.mautrix_telegram_env.path;
+      settings = lib.recursiveUpdate sharedSettings {
+        database = {
+          type = "postgres";
+          uri = "postgresql:///mautrix-telegram?host=/run/postgresql";
+        };
+        appservice = {
+          address = "http://127.0.0.1:29317";
+          port = 29317;
+        };
+        # The upstream default also logs to ./logs, which is read-only here.
+        logging = {
+          min_level = "info";
+          writers = [
+            {
+              type = "stdout";
+              format = "pretty";
+            }
+          ];
+        };
+      };
+    };
+    # NickCao's module leaves the --config quote unterminated.
+    systemd.services.mautrix-telegram.serviceConfig.ExecStart = lib.mkForce "${lib.getExe config.services.mautrix-telegram.package} --config=/var/lib/mautrix-telegram/config.json";
+
     services.postgresql = {
-      ensureDatabases = ["mautrix-signal" "mautrix-whatsapp"];
+      ensureDatabases = ["mautrix-signal" "mautrix-whatsapp" "mautrix-telegram"];
       ensureUsers = [
         {
           name = "mautrix-signal";
@@ -97,6 +134,10 @@
         }
         {
           name = "mautrix-whatsapp";
+          ensureDBOwnership = true;
+        }
+        {
+          name = "mautrix-telegram";
           ensureDBOwnership = true;
         }
       ];
