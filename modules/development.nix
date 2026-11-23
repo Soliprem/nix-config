@@ -4,6 +4,8 @@
       codex
       claude-code
       t3code
+      antigravity-cli
+      antigravity-acp
       zk
       graphviz
       pijul
