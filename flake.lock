@@ -764,11 +764,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793672952,
-        "narHash": "sha256-rXmfL/TYHvo6a3dILkIHiUFOJ9ktNEuCpp3l3YcJ7kY=",
+        "lastModified": 1795531001,
+        "narHash": "sha256-BwqgBHB5ljbnYoUPveuupWGcD4BQf/Nqa3KG3tnP7Ek=",
         "ref": "main",
-        "rev": "65234a73f2a6a8a4d225e88a789843cd8ca4c74b",
-        "revCount": 3,
+        "rev": "66f4498b88b35391ec88241bf430ce4845e6d636",
+        "revCount": 4,
         "type": "git",
         "url": "ssh://git@github.com/soliprem/pager.git"
       },
