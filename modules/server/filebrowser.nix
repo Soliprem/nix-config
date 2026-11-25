@@ -1,33 +1,23 @@
 {
   flake.modules.nixos.server = {
-    config,
     lib,
     pkgs,
     ...
   }: let
     configFile = (pkgs.formats.yaml {}).generate "filebrowser.yaml" {
-      server = {
+      http = {
         listen = "127.0.0.1";
         port = 8182;
-        database = "/var/lib/filebrowser/database.db";
+        trustProxyHeaders = true;
+      };
+      server = {
         cacheDir = "/var/cache/filebrowser";
         cacheDirCleanup = true;
-        sources = [
-          {
-            path = "/folder";
-            config.defaultEnabled = true;
-          }
-        ];
+        sources = [{path = "/folder";}];
       };
       auth.adminUsername = "Soliprem";
-      integrations.media.ffmpegPath = "${pkgs.ffmpeg-headless}/bin";
     };
   in {
-    age.secrets = {
-      filebrowser_env = {
-        file = ../../secrets/server_filebrowser_env.age;
-      };
-    };
     users.groups.filebrowser = {};
     users.users.filebrowser = {
       isSystemUser = true;
@@ -39,13 +29,13 @@
       wantedBy = ["multi-user.target"];
       unitConfig.RequiresMountsFor = "/mnt/storage-box/files";
       environment.FILEBROWSER_CONFIG = configFile;
+      path = [pkgs.ffmpeg-headless];
       serviceConfig = {
         User = "filebrowser";
         StateDirectory = "filebrowser";
         StateDirectoryMode = "0700";
         CacheDirectory = "filebrowser";
         WorkingDirectory = "/var/lib/filebrowser";
-        EnvironmentFile = config.age.secrets.filebrowser_env.path;
         # Keep the source identifier used by existing users, permissions and shares.
         BindPaths = ["/mnt/storage-box/files:/folder"];
         ExecStart = lib.getExe pkgs.filebrowser-quantum;
